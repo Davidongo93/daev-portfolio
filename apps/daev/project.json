@@ -1,0 +1,9 @@
+{
+  "name": "daev",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/daev",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project daev --web",
+  "targets": {}
+}

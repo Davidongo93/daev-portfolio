@@ -70,5 +70,16 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+    "tasksRunnerOptions": {
+      "default": {
+        "runner": "@vercel/remote-nx",
+        "options": {
+            "cacheDirectory": "/tmp/nx-cache",
+          "cacheableOperations": ["build", "test", "lint", "e2e"],
+          "token": "<token>",
+          "teamId": "<teamId>"
+        }
+      }
+    }
 }

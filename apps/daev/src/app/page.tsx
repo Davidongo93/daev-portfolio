@@ -1,19 +1,20 @@
 'use client'
+import { useState, useEffect } from 'react';
+import ConsoleCLI from "./views/console/ConsoleCLI";
+import GUI from './views/friendlyEnvironment/FriendlyEnvironment';
 
-import ConsoleCLI from "./components/console/ConsoleCLI";
-import CardGrid from "./components/ProjectsGrid/ProjectsGrid";
 
 export default function Index() {
+  const [cli, setCli] = useState(true);
+  const handleUiChange = (newValue: boolean) => {
+    setCli(newValue);
+  };
 
   return (
-      <ConsoleCLI/>
-    // <div>
-    //   <div className="wrapper">
-    //     <div className="container">
-    //       <div ></div>
-    //     </div>
-    //   <CardGrid/>   
-    //   </div>
-    // </div>
+    <>
+      {cli? 
+         <ConsoleCLI onStateChange={handleUiChange} />:
+         <GUI onStateChange={handleUiChange} />}
+    </>
   );
 }

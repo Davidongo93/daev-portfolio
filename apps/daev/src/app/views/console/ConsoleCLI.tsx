@@ -35,8 +35,10 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       `[${getTimestamp()}] Connection established with satellite OMEGA-7 [192.168.12.48]...`,
       `[${getTimestamp()}] Loading cryptographic modules...`,
       `[${getTimestamp()}] ********** ULTRA-SECURE DATA LINK ONLINE **********`,
-      `[${getTimestamp()}] SSH connection established successfully.\n`,
-      `[${getTimestamp()}] Welcome to the system. To get help, prompt: help or -h.`,
+      `[${getTimestamp()}] SSH connection established successfully.\n\n`,
+      `[Welcome]  To get help, prompt: help or -h.\n\n`,
+      `[Hint]  if your prompt doesnt show characters please click on screen\n\n`,
+      `[Hint]  To load graphic user interface prompt: gui\n\n`,
     ];
 
     const timeoutIds: NodeJS.Timeout[] = [];
@@ -47,7 +49,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
         if (index === loadMessages.length - 1) {
           setLoading(false); // Loading complete
         }
-      }, (index + 1) * 500);
+      }, (index + 1) * 150);
       timeoutIds.push(timeoutId);
     });
 
@@ -63,8 +65,9 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       case '-h':
         setHistory((prevHistory) => [
           ...prevHistory,
-          'Available commands:',
+          'Available commands:\n\n',
           'clear - Clear the console',
+          'gui  - Load GUI environment',
           'help, -h - Display help message',
         ]);
         break;
@@ -73,7 +76,11 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
         setHelper([]);
         break;
       case 'gui':
-      onStateChange(false);
+        setHistory((prevHistory) => [
+          ...prevHistory,
+          'Loading graphic user interface....',
+        ]);
+        setTimeout( ()=> onStateChange(false),4000)
       break;
 
       default:

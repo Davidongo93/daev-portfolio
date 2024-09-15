@@ -65,7 +65,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       case '-h':
         setHistory((prevHistory) => [
           ...prevHistory,
-          'Available commands:\n\n',
+          'Available commands: \n\n',
           'clear - Clear the console',
           'gui  - Load GUI environment',
           'help, -h - Display help message',

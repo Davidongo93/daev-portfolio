@@ -1,4 +1,5 @@
 import './global.css';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata = {
   title: 'Welcome to daev',
@@ -12,6 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+       <GoogleTagManager gtmId="GTM-XYZ" />
       <body>{children}</body>
     </html>
   );

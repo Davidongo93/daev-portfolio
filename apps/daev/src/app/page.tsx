@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import ConsoleCLI from "./views/console/ConsoleCLI";
-import GUI from './views/friendlyEnvironment/FriendlyEnvironment';
+import Home from './views/friendlyEnvironment/FriendlyEnvironment';
 
 
 export default function Index() {
@@ -14,7 +14,7 @@ export default function Index() {
     <>
       {cli? 
          <ConsoleCLI onStateChange={handleUiChange} />:
-         <GUI onStateChange={handleUiChange} />}
+         <Home onStateChange={handleUiChange} />}
     </>
   );
 }

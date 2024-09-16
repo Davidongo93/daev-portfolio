@@ -1,5 +1,5 @@
 /* Console.css */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* A pixelated retro font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .console {
   background-color: black;
@@ -40,7 +40,6 @@
 .console-output {
     display: flex;
   }
-  
 
 .prompt {
     display: block;

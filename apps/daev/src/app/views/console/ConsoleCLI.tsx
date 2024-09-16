@@ -131,7 +131,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
     }
   };
 
-  // Blinking cursor effect
+  // Blinking cursor effect and focus 
   useEffect(() => {
     const blinkInterval = setInterval(() => {
       setBlinking((prev) => !prev);
@@ -139,16 +139,24 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
     return () => clearInterval(blinkInterval);
   }, []);
 
+  useEffect(() => {
+    const consoleElement = document.querySelector('.console') as HTMLDivElement;
+  
+    if (consoleElement) {
+      consoleElement.focus(); // Auto-focus on mount
+    }
+  }, []);
+
   return (
     <div className="console" onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="console-output flex-col">
         {helper.map((line, index) => (
-          <div key={index} className="console-line">
+          <div key={index} className="console-output">
             {line}
           </div>
         ))}
         {history.map((line, index) => (
-          <div key={index} className="console-line">
+          <div key={index} className="console-output">
             {line}
           </div>
         ))}

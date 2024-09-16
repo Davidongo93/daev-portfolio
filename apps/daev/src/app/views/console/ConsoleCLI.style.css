@@ -42,6 +42,7 @@
   }
 
 .prompt {
+  font-size: 1rem;
     display: block;
   margin-right: 5px;
 }
@@ -60,5 +61,24 @@
 @keyframes blink {
     50% {
       opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .console {
+      font-size: 0.5rem; /* Ajusta el tamaño del texto */
+      padding: 0.5rem; /* Ajusta el padding */
+    }
+  
+    .console-output {
+      line-height: 1.1; /* Ajusta el interlineado */
+    }
+  
+    .prompt {
+      font-size: 0.5rem; /* Ajusta el tamaño del texto del prompt */
+    }
+  
+    .cursor {
+      font-size: 0.5rem; /* Ajusta el tamaño del cursor */
     }
   }

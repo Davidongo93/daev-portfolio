@@ -80,7 +80,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
           ...prevHistory,
           'Loading graphic user interface....',
         ]);
-        setTimeout( ()=> onStateChange(false),4000)
+        setTimeout( ()=> onStateChange(false),2500)
       break;
 
       default:

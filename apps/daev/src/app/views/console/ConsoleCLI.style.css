@@ -1,5 +1,5 @@
 /* Console.css */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* A pixelated retro font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .console {
   background-color: black;
@@ -40,9 +40,9 @@
 .console-output {
     display: flex;
   }
-  
 
 .prompt {
+  font-size: 1rem;
     display: block;
   margin-right: 5px;
 }
@@ -61,5 +61,24 @@
 @keyframes blink {
     50% {
       opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .console {
+      font-size: 0.5rem; /* Ajusta el tamaño del texto */
+      padding: 0.5rem; /* Ajusta el padding */
+    }
+  
+    .console-output {
+      line-height: 1.1; /* Ajusta el interlineado */
+    }
+  
+    .prompt {
+      font-size: 0.5rem; /* Ajusta el tamaño del texto del prompt */
+    }
+  
+    .cursor {
+      font-size: 0.5rem; /* Ajusta el tamaño del cursor */
     }
   }

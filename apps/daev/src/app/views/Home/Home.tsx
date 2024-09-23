@@ -10,7 +10,7 @@ interface ChildComponentProps {
   onStateChange: (newValue: boolean) => void;
 }
 
-const GUI: React.FC<ChildComponentProps> = ({ onStateChange }) => {
+const Home: React.FC<ChildComponentProps> = ({ onStateChange }) => {
   return (
     <div>
       <Header onStateChange={onStateChange} />
@@ -24,4 +24,4 @@ const GUI: React.FC<ChildComponentProps> = ({ onStateChange }) => {
   );
 };
 
-export default GUI;
+export default Home;

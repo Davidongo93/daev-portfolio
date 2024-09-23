@@ -1,11 +1,11 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ConsoleCLI from "./views/console/ConsoleCLI";
-import Home from './views/friendlyEnvironment/FriendlyEnvironment';
+import Home from './views/FriendlyEnvironment/FriendlyEnvironment';
 
 
 export default function Index() {
-  const [cli, setCli] = useState(true);
+  const [cli, setCli] = useState(false);
   const handleUiChange = (newValue: boolean) => {
     setCli(newValue);
   };

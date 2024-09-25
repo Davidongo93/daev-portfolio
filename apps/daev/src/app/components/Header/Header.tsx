@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
     >
       <div className="container mx-auto flex justify-between items-center mt-5">
         {/* Nombre centrado en pantallas grandes */}
-        <h1 className="text-xl md:text-3xl font-bold text-white text-left md:text-center flex-1">
+        <h1 className="text-xl md:text-3xl font-bold text-white text-left md:text-left flex-1">
           David Orlando Miranda
         </h1>
 
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         </div>
 
         {/* Navegación principal para pantallas grandes */}
-        <div className={`hidden md:flex space-x-6 items-center flex-1 justify-center`}>
+        <div className={`hidden md:flex space-x-6 items-end flex-1 justify-end`}>
           <IconButton href="#about" icon={<FaUser />} label="About" />
           <IconButton href="#skills" icon={<FaTools />} label="Skills" />
           <IconButton href="#projects" icon={<FaProjectDiagram />} label="Projects" />
@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             icon={<FaLinkedin />}
             label="LinkedIn"
           />
-          <TerminalButton onStateChange={onStateChange} />
+ <IconButton href="" icon={<TerminalButton onStateChange={onStateChange} />} label="Term" />
         </div>
       </div>
 

@@ -12,7 +12,7 @@ interface ChildComponentProps {
 
 const Home: React.FC<ChildComponentProps> = ({ onStateChange }) => {
   return (
-    <div>
+    <div className='wrapper'>
       <Header onStateChange={onStateChange} />
       <HeroSection />
       <AboutSection />

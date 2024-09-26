@@ -5,8 +5,8 @@ interface IconButtonProps {
   href: string;
   icon: ReactNode; // Icono que será pasado como prop
   label: string; // Texto del botón
-  rel: string;
-  target: string;
+  rel?: string;
+  target?: string;
 }
 interface ChildComponentProps {
     onStateChange: (newValue: boolean) => void;

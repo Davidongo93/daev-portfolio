@@ -34,16 +34,11 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
   return (
     <nav
       style={{ zIndex: 1 }}
-      className={`flex justify-center align-center  h-1/6 w-full fixed ${
+      className={`flex justify-center align-center h-1/6 w-full fixed top-0 ${
         scrolling ? 'bg-gray-900 shadow-lg' : 'bg-gray-900 opacity-80'
-      } transition-all duration-1000 backdrop-blur-md`}
+      } transition-all duration-2000 backdrop-blur-md`}
     >
-      <div className="flex items-center gap 4">
-        {/* Nombre centrado en pantallas grandes */}
-        <h1 className="text-xl md:text-3xl font-bold text-white text-left md:text-left flex mr-10 justify-start">
-          David Orlando Miranda
-        </h1>
-
+      <div className="flex items-center">
         {/* Menú Hamburguesa */}
         <div className="md:hidden flex items-center">
           <button
@@ -55,26 +50,24 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         </div>
 
         {/* Navegación principal para pantallas grandes */}
-        <div
-          className={`hidden md:flex space-x-6 items-center flex-1 justify-center`}
-        >
+        <div className={`hidden md:flex space-x-6 items-center flex-1 justify-center`}>
           <IconButton href="#about" icon={<FaUser />} label="About" />
           <IconButton href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton
-            href="#projects"
-            icon={<FaProjectDiagram />}
-            label="Projects"
-          />
+          <IconButton href="#projects" icon={<FaProjectDiagram />} label="Projects" />
           <IconButton href="#contact" icon={<FaEnvelope />} label="Contact" />
           <IconButton
             href="https://github.com/Davidongo93"
             icon={<FaGithub />}
             label="GitHub"
+            target="_blank" // Abre en nueva pestaña
+            rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
             href="https://www.linkedin.com/in/domirandar/"
             icon={<FaLinkedin />}
             label="LinkedIn"
+            target="_blank" // Abre en nueva pestaña
+            rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
             href=""
@@ -89,21 +82,21 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
           <IconButton href="#about" icon={<FaUser />} label="About" />
           <IconButton href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton
-            href="#projects"
-            icon={<FaProjectDiagram />}
-            label="Projects"
-          />
+          <IconButton href="#projects" icon={<FaProjectDiagram />} label="Projects" />
           <IconButton href="#contact" icon={<FaEnvelope />} label="Contact" />
           <IconButton
             href="https://github.com/Davidongo93"
             icon={<FaGithub />}
             label="GitHub"
+            target="_blank" // Abre en nueva pestaña
+            rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
             href="https://www.linkedin.com/in/domirandar/"
             icon={<FaLinkedin />}
             label="LinkedIn"
+            target="_blank" // Abre en nueva pestaña
+            rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
             href=""

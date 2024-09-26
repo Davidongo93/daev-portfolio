@@ -2,6 +2,7 @@
 import Header from '../../components/Header/Header';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import AboutSection from '../../components/AboutSection/AboutSection';
+import StatsSection from '../../components/StatsSection/StatsSection';
 import SkillsSection from '../../components/SkillsSection/SkillsSection';
 import ProjectsSection from '../../components/ProjectsSection/ProjectsSection';
 import ContactSection from '../../components/ContactSection/ContactSection';
@@ -16,9 +17,10 @@ const Home: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       <Header onStateChange={onStateChange} />
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
+      <StatsSection />
+      {/* <SkillsSection />
       <ProjectsSection />
-      <ContactSection />
+      <ContactSection /> */}
       <Footer />
     </div>
   );

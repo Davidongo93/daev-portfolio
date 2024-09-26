@@ -1,16 +1,20 @@
-// components/HeroSection/HeroSection.tsx
+import React from 'react';
+import Image from 'next/image';
+
 const HeroSection: React.FC = () => {
-    return (
-      <section id="hero" className="text-center">
-        <div className="container mx-auto mt-20">
-          <h2 className="text-4xl font-bold mb-4">Welcome to My Digital Command Center</h2>
-          <p className="text-lg mb-8">
-            I'm a Full Stack Developer with a passion for creating innovative and dynamic web applications. Explore my work and learn more about my skills.
-          </p>
-        </div>
-      </section>
-    );
-  };
-  
-  export default HeroSection;
-  
+  return (
+    <section >
+            <div id="hero" className= ' h-1/6 absolute inset-0'>
+            <Image
+  src="/bwCity.jpg"
+  fill={true}
+  style={{ objectFit: 'cover' }}
+  alt="City"
+  className='animated-background'
+/>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

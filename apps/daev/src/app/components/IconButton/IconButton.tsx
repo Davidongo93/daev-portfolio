@@ -1,25 +1,26 @@
-// components/IconButton/IconButton.tsx
 import { ReactNode } from 'react';
 
 interface IconButtonProps {
   href: string;
-  icon: ReactNode; // Icono que será pasado como prop
-  label: string; // Texto del botón
+  icon: ReactNode;
+  label: string;
   rel?: string;
   target?: string;
 }
-interface ChildComponentProps {
-    onStateChange: (newValue: boolean) => void;
-  }
 
-const IconButton: React.FC<IconButtonProps> = ({ href, icon, label }) => {
+const IconButton: React.FC<IconButtonProps> = ({ href, icon, label, rel, target }) => {
   return (
     <a
       href={href}
-      className="flex flex-col items-center text-white hover:text-green-300 transition text-center"
+      className="flex flex-col items-center text-white transition transform hover:scale-110 hover:text-green-300"
+      rel={rel}
+      target={target}
     >
-      <div className="text-2xl">{icon}</div>
-      <span className="text-sm md:text-base">{label}</span>
+      <div className="text-3xl">{icon}</div>
+      <span className="text-sm md:text-base mt-1 relative">
+        {label}
+        <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-green-300 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">hello</span>
+      </span>
     </a>
   );
 };

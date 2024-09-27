@@ -1,40 +1,33 @@
 import { Link } from 'react-scroll';
 import Image from 'next/image';
+import CodeExample from '../CodeExample/CodeExample';
+import IconBar from '../IconBar/IconBar';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className=" bg-gray-900 text-white">
-      <div className="h-svh w-auto  p-2 m-2 flex flex-col-reverse justify-center md:flex-row-reverse md:mt-12 items-center bg-black">
+    <section id="about" className="text-white  relative h-full w-full">
+      <div className="h-full w-auto flex flex-col-reverse justify-center md:flex-row-reverse items-center bg-black opacity-90">
         {/* Fotografía sin fondo */}
         <div
-          className= 'relative w-full md:w-1/2 flex justify-center md:justify-center my-8 sm:my-10'
+          className= 'h-full w-full md:w-1/2 flex justify-center md:justify-center my-8 sm:my-10 p-4'
         >
-          <div className="shadow rounded-sm brightness-110 contrast-150 saturate-0 hover:saturate-150 mr-5 relative w-40 h-40 md:w-64 md:h-64 lg:w-80 lg:h-80">
+          <div className="shadow rounded-sm brightness-110 contrast-150 saturate-0 hover:saturate-100 mr-5 relative w-1/3">
             <Image
-              src={'/profileDave.png'}
+              src={'/DaveDad.png'}
               layout="responsive"
               width={100}
               height={100}
               className="object-cover"
               alt="Dave"
             />
+            <IconBar/>
           </div>
         </div>
 
         {/* Descripción */}
-        <div className="ml-5 pt-4 w-full md:w-1/2 text-center md:text-left">
-          <code className="text-3xl font-bold mb-4">David Orlando Miranda () ={'>'} {'{Full Stack developer}'}</code>
-          <p className="text-lg leading-relaxed mb-8">
-            I'm a Full Stack Developer with extensive experience in modern web technologies. I enjoy building dynamic and responsive applications that deliver an excellent user experience.
-          </p>
-          <Link
-            to="stats"
-            smooth={true}
-            duration={500}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
-          >
-            View My Stats
-          </Link>
+        <div className="ml-5 w-1/3">
+         <CodeExample/>
+
         </div>
       </div>
     </section>

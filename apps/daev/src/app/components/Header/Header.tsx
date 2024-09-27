@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa';
 import IconButton from '../IconButton/IconButton';
 import TerminalButton from '../TerminalButton/TerminalButton';
+import SearchBar from '../SearchBar/SearchBar';
 
 interface HeaderProps {
   onStateChange: (newValue: boolean) => void;
@@ -34,13 +35,13 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
   return (
     <nav
       style={{ zIndex: 1 }}
-      className={`flex justify-center align-center h-1/6 w-full fixed top-0 ${
+      className={`flex  align-center h-32 w-full sticky top-0 ${
         scrolling ? 'bg-gray-900 shadow-lg' : 'bg-gray-900 opacity-80'
-      } transition-all duration-2000 backdrop-blur-md`}
+      } transition-all duration-1000 backdrop-blur-md`}
     >
-      <div className="flex items-center">
+      <div className="flex items-center justify-end align-center p-4">
         {/* Menú Hamburguesa */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center mb-6">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white focus:outline-none"
@@ -75,8 +76,9 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             label="Term"
           />
         </div>
+        <div className='w-80 ml-8 flex justify-end'><SearchBar/></div>
+          
       </div>
-
       {/* Menú desplegable para pantallas pequeñas */}
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">

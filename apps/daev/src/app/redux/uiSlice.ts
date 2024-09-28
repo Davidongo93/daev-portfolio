@@ -5,7 +5,7 @@ interface UiState {
 }
 
 const initialState: UiState = {
-  cliMode: false, // Por defecto, iniciamos en `cli`
+  cliMode: true, // Por defecto, iniciamos en `cli`
 };
 
 const uiSlice = createSlice({

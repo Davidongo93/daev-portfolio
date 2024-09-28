@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
 
   return (
     <nav
-      className={`z-10 flex justify-end align-center h-20  w-full sticky top-0 ${
+      className={`z-20 flex justify-end align-center h-16  w-screen fixed ${
         scrolling ? 'bg-gray-900 shadow-lg' : 'bg-gray-900 opacity-80'
       } transition-all duration-1000 backdrop-blur-md`}
     >

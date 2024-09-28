@@ -13,7 +13,6 @@ const TerminalButton: React.FC<ChildComponentProps> = ({ onStateChange }) => {
 
       <FaTerminal 
       className="flex flex-col items-center text-white hover:text-green-300 transition text-center"
-        size={32} 
         onClick={()=>onStateChange(true)}
       />
   );

@@ -8,35 +8,60 @@ import ExperienceSection from '../ExperienceSection/ExperienceSection';
 import StatsSection from '../StatsSection/StatsSection';
 import FeaturedProjects from '../FeaturedProjects.tsx/FeaturedProjects';
 
+function SampleNextArrow(props: { className?: any; style?: any; onClick?: any; }) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, paddingRight:80, zIndex:2 }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props: { className?: any; style?: any; onClick?: any; }) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, paddingLeft:60, zIndex:2 }}
+      onClick={onClick}
+    />
+  );
+}
+
 const Carousel: React.FC = () => {
   const settings = {
-    dots: true,
+    dots:false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 10000,
-    arrows: false, // Opción para desactivar flechas
-    pauseOnHover: false,
-    fade: true, // Activar el efecto fade
+    arrows: true, 
+    pauseOnHover:true,
+    fade: true,
     cssEase: 'linear',
-    adaptiveHeight:true 
-    };
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    
+
+  };
 
   return (
-    <section id="carousel" className="top-32">
+    <section id="carousel" className="pt-16 z-0 w-screen">
       <Slider {...settings} className="">
         <div>
           <AboutSection />
         </div>
-        {/* <div>
+         {/* <div>
           <ExperienceSection />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <StatsSection />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <FeaturedProjects />
         </div> */}
       </Slider>

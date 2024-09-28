@@ -1,17 +1,15 @@
-import { Link } from 'react-scroll';
 import Image from 'next/image';
 import CodeExample from '../CodeExample/CodeExample';
 import IconBar from '../IconBar/IconBar';
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="text-white  relative h-full w-full">
-      <div className="h-full w-auto flex flex-col-reverse justify-center md:flex-row-reverse items-center bg-black opacity-90">
+    <section id="about" className="text-white bg-black opacity-95">
+      <div className="min-h-screen flex flex-col-reverse md:flex-row-reverse items-center justify-between p-4 md:p-8">
+        
         {/* Fotografía sin fondo */}
-        <div
-          className= 'h-full w-full md:w-1/2 flex justify-center md:justify-center my-8 sm:my-10 p-4'
-        >
-          <div className="shadow rounded-sm brightness-110 contrast-150 saturate-0 hover:saturate-100 mr-5 relative w-1/3">
+        <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
+          <div className="relative w-2/3 sm:w-1/2 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow rounded-sm brightness-110 contrast-150 saturate-0 hover:saturate-100">
             <Image
               src={'/DaveDad.png'}
               layout="responsive"
@@ -20,15 +18,17 @@ const AboutSection: React.FC = () => {
               className="object-cover"
               alt="Dave"
             />
-            <IconBar/>
+            <IconBar />
           </div>
         </div>
 
         {/* Descripción */}
-        <div className="ml-5 w-1/2 ">
-         <CodeExample/>
-
+        <div className="w-full md:w-1/2 flex justify-center md:justify-start">
+          <div className="w-5/6 sm:w-4/5 md:w-full lg:w-4/5 xl:w-3/4">
+            <CodeExample />
+          </div>
         </div>
+
       </div>
     </section>
   );

@@ -22,6 +22,8 @@
      font-family: inherit;
      line-height: inherit;
      margin: 0;
+     overflow:auto;
+     overflow-x: hidden;
    }
    
    h1, h2, p, pre {
@@ -102,7 +104,6 @@
    #hero {
      display: grid;
      grid-template-columns: 1fr;
-     overflow: hidden;
    }
    
    @media screen and (min-width: 768px) {

@@ -2,8 +2,7 @@
 import './global.css';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './redux/store';
+import { store} from './redux/store';
 import Head from 'next/head';
 
 // export const metadata = {
@@ -18,7 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
     <html lang="en">
     <Head>
         <title>'Welcome to daev'</title>
@@ -27,7 +25,6 @@ export default function RootLayout({
        <GoogleAnalytics gaId="G-7LTKWZT49T" />
       <body>{children}</body>
     </html>
-    </PersistGate>
     </Provider>
   );
 }

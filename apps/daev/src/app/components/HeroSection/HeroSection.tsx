@@ -4,7 +4,7 @@ import Image from 'next/image';
 const HeroSection: React.FC = () => {
   return (
     <section >
-            <div id="hero" className= 'w-full h-20 absolute inset-0'>
+            <div className= 'fixed w-full -z-10 inset-0'>
             <Image
   src="/bwCity.jpg"
   fill={true}

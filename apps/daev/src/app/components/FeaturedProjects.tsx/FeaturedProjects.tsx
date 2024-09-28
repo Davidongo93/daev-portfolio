@@ -1,9 +1,12 @@
 const FeaturedProjects: React.FC = () => {
     return (
-      <section className="bg-gray-900 text-white flex flex-col justify-center items-center">
-        <div className="h-svh w-full p-5">
+      <section className="text-white">
+        <div className=" h-screen flex justify-center md:flex-row-reverse items-center bg-black opacity-95">
           <h2 className="text-3xl font-bold mb-4 text-center">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-gray-800 p-4 rounded-lg">Project A</div>
+            <div className="bg-gray-800 p-4 rounded-lg">Project B</div>
+            <div className="bg-gray-800 p-4 rounded-lg">Project C</div>
             <div className="bg-gray-800 p-4 rounded-lg">Project A</div>
             <div className="bg-gray-800 p-4 rounded-lg">Project B</div>
             <div className="bg-gray-800 p-4 rounded-lg">Project C</div>

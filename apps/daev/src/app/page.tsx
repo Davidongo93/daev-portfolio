@@ -1,4 +1,3 @@
-// src/Index.tsx
 'use client';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from './redux/store';
@@ -11,7 +10,7 @@ export default function Index() {
   const cliMode = useSelector((state: RootState) => state.ui.cliMode);
 
   const handleUiChange = (newValue: boolean) => {
-    dispatch(setCliMode(newValue)); // Cambiamos el estado de Redux
+    dispatch(setCliMode(newValue));
   };
 
   return (

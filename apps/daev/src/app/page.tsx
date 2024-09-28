@@ -10,7 +10,7 @@ export default function Index() {
   const cliMode = useSelector((state: RootState) => state.ui.cliMode);
 
   const handleUiChange = (newValue: boolean) => {
-    dispatch(setCliMode(newValue));
+    dispatch(setCliMode(!cliMode));
   };
 
   return (

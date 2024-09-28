@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Descripción */}
-        <div className="ml-5 w-1/3">
+        <div className="ml-5 w-1/2 ">
          <CodeExample/>
 
         </div>

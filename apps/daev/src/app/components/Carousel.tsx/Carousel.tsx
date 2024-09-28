@@ -25,7 +25,7 @@ const Carousel: React.FC = () => {
     };
 
   return (
-    <section id="carousel" className=" top-32">
+    <section id="carousel" className="top-32">
       <Slider {...settings} className="">
         <div>
           <AboutSection />

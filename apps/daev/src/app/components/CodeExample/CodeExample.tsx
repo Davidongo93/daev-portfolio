@@ -7,8 +7,8 @@ import { codeSnippet } from './descriptionEmployee';
 const CodeExample: React.FC = () => {
 
   return (
-    <section className="p-1 bg-gray-900 text-white text-sm min-h- items-center">
-      <div className="bg-gray-900 rounded-lg shadow-lg p-1 w-full max-w-4xl max-h-96 overflow-scroll">
+    <section className="p-1 bg-gray-900 text-white w-full items-center">
+      <div className="bg-gray-900 rounded-lg shadow-lg p-1">
         <Highlight theme={themes.dracula} code={codeSnippet.trim()} language="javascript">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${className} p-2 rounded-lg`} style={style}>

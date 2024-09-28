@@ -20,7 +20,7 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className="relative mb-6 mx-1">
+    <div className="relative  mx-1">
       <div
         className={`flex items-center px-1 py-2 rounded-full transition-all duration-300 ${isExpanded ? 'w-72' : 'w-min'} h-10 bg-white-01 backdrop-blur-lg`}
       >

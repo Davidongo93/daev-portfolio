@@ -34,14 +34,13 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
 
   return (
     <nav
-      style={{ zIndex: 1 }}
-      className={`flex  align-center h-32 w-full sticky top-0 ${
+      className={`z-10 flex justify-end align-center h-20  w-full sticky top-0 ${
         scrolling ? 'bg-gray-900 shadow-lg' : 'bg-gray-900 opacity-80'
       } transition-all duration-1000 backdrop-blur-md`}
     >
-      <div className="flex items-center justify-end align-center p-4">
+      <div className="flex-grow flex items-center justify-start flex-1 p-4 ml-4 ">
         {/* Menú Hamburguesa */}
-        <div className="md:hidden flex items-center mb-6">
+        <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white focus:outline-none"
@@ -51,12 +50,13 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         </div>
 
         {/* Navegación principal para pantallas grandes */}
-        <div className={`hidden md:flex space-x-6 items-center flex-1 justify-center`}>
-          <IconButton href="#about" icon={<FaUser />} label="About" />
-          <IconButton href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton href="#projects" icon={<FaProjectDiagram />} label="Projects" />
-          <IconButton href="#contact" icon={<FaEnvelope />} label="Contact" />
+        <div className={`hidden md:flex space-x-6 items-center ml-8`}>
+          <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
+          <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
+          <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
+          <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />
           <IconButton
+           size='small' 
             href="https://github.com/Davidongo93"
             icon={<FaGithub />}
             label="GitHub"
@@ -64,6 +64,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
+           size='small' 
             href="https://www.linkedin.com/in/domirandar/"
             icon={<FaLinkedin />}
             label="LinkedIn"
@@ -71,22 +72,24 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
+           size='small' 
             href=""
             icon={<TerminalButton onStateChange={onStateChange} />}
             label="Term"
           />
-        </div>
-        <div className='w-80 ml-8 flex justify-end'><SearchBar/></div>
+         </div>
           
-      </div>
+          </div>
+        <div className='w-80 mx-8 flex items-center justify-end'><SearchBar/></div>
       {/* Menú desplegable para pantallas pequeñas */}
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
-          <IconButton href="#about" icon={<FaUser />} label="About" />
-          <IconButton href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton href="#projects" icon={<FaProjectDiagram />} label="Projects" />
-          <IconButton href="#contact" icon={<FaEnvelope />} label="Contact" />
+          <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
+          <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
+          <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
+          <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />
           <IconButton
+           size='small' 
             href="https://github.com/Davidongo93"
             icon={<FaGithub />}
             label="GitHub"
@@ -94,6 +97,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
+           size='small' 
             href="https://www.linkedin.com/in/domirandar/"
             icon={<FaLinkedin />}
             label="LinkedIn"
@@ -101,6 +105,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             rel="noopener noreferrer" // Mejora la seguridad
           />
           <IconButton
+           size='small' 
             href=""
             icon={<TerminalButton onStateChange={onStateChange} />}
             label="CLI version"

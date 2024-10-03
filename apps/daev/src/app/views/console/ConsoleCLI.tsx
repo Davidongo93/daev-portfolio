@@ -146,6 +146,12 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       consoleElement.focus(); // Auto-focus on mount
     }
   }, []);
+  useEffect(() => {
+    const consoleElement = document.querySelector('.console-output') as HTMLDivElement;
+    if (consoleElement) {
+      consoleElement.scrollTop = consoleElement.scrollHeight;
+    }
+  }, []);
 
   return (
     <div className="console" onKeyDown={handleKeyDown} tabIndex={0}>

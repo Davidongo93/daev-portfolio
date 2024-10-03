@@ -32,17 +32,18 @@ function SamplePrevArrow(props: { className?: any; style?: any; onClick?: any; }
 
 const Carousel: React.FC = () => {
   const settings = {
-    dots:false,
+    dots: false,
+    dotsClass: "slick-dots slick-thumb",
     infinite: true,
-    speed: 500,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false, 
+    autoplaySpeed: 8000,
+    arrows: true, 
     pauseOnHover:true,
     fade: true,
-    cssEase: 'linear',
+    cssEase: '',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     
@@ -55,15 +56,15 @@ const Carousel: React.FC = () => {
         <div>
           <AboutSection />
         </div>
-         {/* <div>
+         <div>
           <ExperienceSection />
-        </div> */}
+        </div>
         <div>
           <StatsSection />
         </div>
-        {/* <div>
+        <div>
           <FeaturedProjects />
-        </div> */}
+        </div>
       </Slider>
     </section>
   );

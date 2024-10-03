@@ -16,8 +16,8 @@ const Home: React.FC<ChildComponentProps> = ({ onStateChange }) => {
       <Header onStateChange={onStateChange} />
       <HeroSection />
       <Carousel/>
-      {/* <SkillsSection /> 
-      <ProjectsSection /> */}
+      <SkillsSection /> 
+      <ProjectsSection />
       <ContactSection />
       <Footer />
     </div>

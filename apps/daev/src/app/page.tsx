@@ -5,7 +5,8 @@ import Home from './views/Home/Home';
 
 export default function Index() {
 
-  const [cliMode, setCliMode] = useState(null);
+  const [cliMode, setCliMode] = useState<boolean | null>(null);
+
 
   const handleUiChange = (newValue: boolean) => {
     setCliMode(!cliMode);

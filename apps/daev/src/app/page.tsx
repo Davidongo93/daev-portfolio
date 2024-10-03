@@ -1,16 +1,14 @@
 'use client';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from './redux/store';
-import { setCliMode } from './redux/uiSlice';
+import { useState } from 'react';
 import ConsoleCLI from './views/console/ConsoleCLI';
 import Home from './views/Home/Home';
 
 export default function Index() {
-  const dispatch: AppDispatch = useDispatch();
-  const cliMode = useSelector((state: RootState) => state.ui.cliMode);
+
+  const [cliMode, setCliMode] = useState(null);
 
   const handleUiChange = (newValue: boolean) => {
-    dispatch(setCliMode(!cliMode));
+    setCliMode(!cliMode);
   };
 
   return (

@@ -38,7 +38,7 @@ const Carousel: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 5000,
     arrows: false, 
     pauseOnHover:true,
     fade: true,
@@ -50,17 +50,17 @@ const Carousel: React.FC = () => {
   };
 
   return (
-    <section id="carousel" className="pt-16 z-0 w-screen">
-      <Slider {...settings} className="">
+    <section id="carousel" className="pt-16 z-0">
+      <Slider {...settings} className="w-full h-full">
         <div>
           <AboutSection />
         </div>
          {/* <div>
           <ExperienceSection />
         </div> */}
-        {/* <div>
+        <div>
           <StatsSection />
-        </div> */}
+        </div>
         {/* <div>
           <FeaturedProjects />
         </div> */}

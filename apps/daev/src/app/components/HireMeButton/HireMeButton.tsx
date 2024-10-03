@@ -1,24 +1,27 @@
 'use client';
 
 import React from 'react';
-import {Highlight} from 'prism-react-renderer';
-import {themes} from 'prism-react-renderer'; // Puedes cambiar el tema
+import { Highlight } from 'prism-react-renderer';
+import { themes } from 'prism-react-renderer'; // Puedes cambiar el tema
 const hireMe = `hireMe();`
+
 const HireMeButton: React.FC = () => {
-    const handleClick = () => {
-        const contactSection = document.querySelector('#contact');
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: 'smooth' }); // Scroll suave a la sección
-        }
-      };
+  const handleClick = () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' }); // Scroll suave a la sección
+    }
+  };
 
   return (
-    <button onClick={handleClick}
-     className="p-1 rounded-lg bg-gray-900 text-white text-sm w-fit items-center">
-      <div className="bg-gray-900 rounded-lg shadow-lg p-1">
+    <button
+      onClick={handleClick}
+      className="p-1 rounded-lg bg-gray-900 text-white text-sm w-fit items-center transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-gray-800 cursor-pointer duration-500 ease-in-out"
+    >
+      <div className="bg-gray-900 rounded-lg shadow-lg p-1 overflow-hidden transition-all duration-500 ease-in-out">
         <Highlight theme={themes.dracula} code={hireMe.trim()} language="javascript">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={`${className} p-1 rounded-sm  hover:scale-110 opacity-70 cursor-pointer`} style={style}>
+            <pre className={`${className} p-1 rounded-sm transition-transform transform hover:scale-105 opacity-80 cursor-pointer overflow-hidden`} style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (

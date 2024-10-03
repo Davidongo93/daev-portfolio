@@ -2,15 +2,16 @@ import React from 'react';
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="bg-gray-700 text-white flex flex-col justify-center items-center">
-            <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">My Stats</h2>
+    <section className="text-white bg-black opacity-90 flex flex-col items-center justify-center pt-4 h-full">
+      <h2 className="text-3xl font-bold mb-4 text-center">My Stats</h2>
 
+      <div className="flex flex-col md:flex-row items-center justify-between p-4 md:p-8 w-full">
+        
         {/* Grid responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  w-full gap-4">
 
           {/* Wakatime Stats */}
-          {/* <div className="flex justify-center">
+          <div className="flex justify-center">
             <picture>
               <source
                 srcSet="https://github-readme-stats.vercel.app/api/wakatime?username=davidongo93&show_icons=true&theme=algolia&bg_color=00000000"
@@ -22,7 +23,7 @@ const StatsSection: React.FC = () => {
                 className="w-full max-w-md"
               />
             </picture>
-          </div> */}
+          </div>
 
           {/* Top Languages */}
           <div className="flex justify-center">
@@ -38,8 +39,9 @@ const StatsSection: React.FC = () => {
               />
             </picture>
           </div>
+
           {/* GitHub Stats */}
-          <div className="flex justify-center place-items-center">
+          <div className="flex justify-center">
             <picture>
               <source
                 srcSet="https://github-readme-stats.vercel.app/api?username=Davidongo93&show_icons=true&theme=shadow_blue&locale=es&include_all_commits=true"
@@ -54,19 +56,20 @@ const StatsSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="h-svh w-full p-5 text-center">
-        <h2 className="text-3xl font-bold mb-4">My Stats</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <p className="text-2xl">5+ Years</p>
+
+      {/* Estadísticas Adicionales */}
+      <div className="flex flex-col items-center text-center w-full p-5">
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-4 w-full">
+          <div className="bg-gray-600 p-4 rounded-lg shadow-lg">
+            <p className="text-2xl">15+ Years</p>
             <p>Industry Experience</p>
           </div>
-          <div>
-            <p className="text-2xl">20+ Projects</p>
+          <div className="bg-gray-600 p-4 rounded-lg shadow-lg">
+            <p className="text-2xl">6+ Projects</p>
             <p>Completed</p>
           </div>
-          <div>
-            <p className="text-2xl">15+ Clients</p>
+          <div className="bg-gray-600 p-4 rounded-lg shadow-lg">
+            <p className="text-2xl">5+ Clients</p>
             <p>Worldwide</p>
           </div>
         </div>

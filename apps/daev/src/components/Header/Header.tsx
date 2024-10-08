@@ -12,6 +12,7 @@ import {
 import IconButton from '../IconButton/IconButton';
 import TerminalButton from '../TerminalButton/TerminalButton';
 import SearchBar from '../SearchBar/SearchBar';
+import { Fa0 } from 'react-icons/fa6';
 
 interface HeaderProps {
   onStateChange: (newValue: boolean) => void;
@@ -52,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         {/* Navegación principal para pantallas grandes */}
         <div className={`hidden md:flex space-x-6 items-center ml-8`}>
           <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
+          <IconButton size='small' href="/blog" icon={<Fa0 />} label="Blog" />
           <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
           <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
           <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />

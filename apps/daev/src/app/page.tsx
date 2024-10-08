@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import ConsoleCLI from './views/console/ConsoleCLI';
-import Home from './views/Home/Home';
+import ConsoleCLI from '../views/console/ConsoleCLI';
+import Home from '../views/Home/Home';
 
 export default function Index() {
 

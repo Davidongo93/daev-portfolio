@@ -30,7 +30,7 @@
     "../../dist/apps/daev/.next/types/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts"
-, "src/app/components/FeaturedProjects.tsx"  ],
+, "src/components/FeaturedProjects.tsx"  ],
   "exclude": [
     "node_modules",
     "jest.config.ts",

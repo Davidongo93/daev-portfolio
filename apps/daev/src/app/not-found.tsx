@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Link from 'next/link';
-import HeroSection from './components/HeroSection/HeroSection';
+import HeroSection from '../components/HeroSection/HeroSection';
 import { Highlight } from 'prism-react-renderer';
 import { themes } from 'prism-react-renderer';
 

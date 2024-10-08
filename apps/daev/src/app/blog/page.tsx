@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 
 // Función para obtener todos los posts
-export async function getPosts() {
+async function getPosts() {
   const files = fs.readdirSync(path.join('posts'));
 
   const posts = files.map((filename) => {
@@ -22,6 +22,7 @@ export async function getPosts() {
   return posts;
 }
 
+// Esta es la página principal del blog
 const BlogPage = async () => {
   const posts = await getPosts();
 
@@ -34,8 +35,8 @@ const BlogPage = async () => {
         <ul className="space-y-4">
           {posts.map((post) => (
             <li key={post.slug} className="bg-blue-900 p-4 rounded shadow">
-              <Link  className="text-2xl text-blue-300 hover:underline"href={`/blog/${post.slug}`}>
-              {post.frontmatter.title}
+              <Link href={`/blog/${post.slug}`} className="text-2xl text-blue-300 hover:underline">
+                {post.frontmatter.title}
               </Link>
               <p className="text-sm text-gray-400 mt-2">
                 {post.frontmatter.date}

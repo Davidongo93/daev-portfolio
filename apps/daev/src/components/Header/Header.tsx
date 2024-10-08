@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaBars,
   FaTimes,
+  FaBlogger,
 } from 'react-icons/fa';
 import IconButton from '../IconButton/IconButton';
 import TerminalButton from '../TerminalButton/TerminalButton';
@@ -53,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         {/* Navegación principal para pantallas grandes */}
         <div className={`hidden md:flex space-x-6 items-center ml-8`}>
           <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
-          <IconButton size='small' href="/blog" icon={<Fa0 />} label="Blog" />
+          <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
           <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
           <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
           <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />
@@ -87,6 +88,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
           <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
+          <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
           <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
           <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
           <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />

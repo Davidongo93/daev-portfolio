@@ -2,6 +2,13 @@
 title: "para que le eche cabeza un rato y luego me cuente"
 date: "2024-10-07"
 description: "no se, digamelo usted..."
+image: "/cityDraw.png"
+keywords: ["energía vital", "buenos hábitos", "rutinas productivas", "salud mental"]  # Palabras clave
+related_posts: [
+#   { title: "5 Hábitos para Mejorar Tu Energía Diaria", slug: "/blog/habitos-energia-diaria" },
+#   { title: "La Importancia de la Meditación", slug: "/blog/importancia-meditacion" },
+#   { title: "Alimentación Saludable para un Estilo de Vida Energético", slug: "/blog/alimentacion-saludable" }
+]  # Posts relacionados
 ---
 
 Existen varios ejemplos históricos, mitológicos y culturales en los que involucrarse en algo ha traído una cadena de "mala suerte" o desgracias. A veces, estas situaciones se ven como maldiciones que parecen afectar a todas las personas asociadas. Aquí te doy algunos ejemplos, y luego te comparto mi opinión sincera:

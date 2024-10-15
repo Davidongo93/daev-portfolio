@@ -13,8 +13,16 @@ function SampleNextArrow(props: { className?: any; style?: any; onClick?: any; }
   return (
     <div
       className={className}
-      style={{ ...style, paddingRight:80, zIndex:2 }}
+      style={{ 
+        ...style, 
+        paddingRight: 80, 
+        zIndex: 2,
+        opacity: 0.5, // Aumentar transparencia
+        transition: 'opacity 0.3s ease', // Suave transición en hover
+      }}
       onClick={onClick}
+      onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+      onMouseLeave={(e) => e.currentTarget.style.opacity = '0.5'}
     />
   );
 }
@@ -24,8 +32,16 @@ function SamplePrevArrow(props: { className?: any; style?: any; onClick?: any; }
   return (
     <div
       className={className}
-      style={{ ...style, paddingLeft:60, zIndex:2 }}
+      style={{ 
+        ...style, 
+        paddingLeft: 60, 
+        zIndex: 2,
+        opacity: 0.5, // Aumentar transparencia
+        transition: 'opacity 0.3s ease', // Suave transición en hover
+      }}
       onClick={onClick}
+      onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+      onMouseLeave={(e) => e.currentTarget.style.opacity = '0.5'}
     />
   );
 }
@@ -40,14 +56,21 @@ const Carousel: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 8000,
-    arrows: true, 
-    pauseOnHover:true,
+    arrows: true,
+    pauseOnHover: true,
     fade: true,
     cssEase: '',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    
-
+    responsive: [
+      {
+        breakpoint: 768, // Para pantallas móviles
+        settings: {
+          arrows: false, // Ocultar flechas en pantallas móviles
+          dots: true,  // Mostrar puntos de navegación en lugar de flechas
+        }
+      }
+    ]
   };
 
   return (
@@ -56,7 +79,7 @@ const Carousel: React.FC = () => {
         <div>
           <AboutSection />
         </div>
-         <div>
+        <div>
           <ExperienceSection />
         </div>
         <div>

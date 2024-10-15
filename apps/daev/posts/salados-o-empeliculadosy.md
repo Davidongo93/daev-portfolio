@@ -2,6 +2,7 @@
 title: "para que le eche cabeza un rato y luego me cuente"
 date: "2024-10-07"
 description: "no se, digamelo usted..."
+exerpt: 'amazing activities'
 image: "/cityDraw.png"
 keywords: ["energía vital", "buenos hábitos", "rutinas productivas", "salud mental"]  # Palabras clave
 related_posts: [

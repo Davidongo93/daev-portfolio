@@ -14,7 +14,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ sortOption, onSortChange })
     <select 
       value={sortOption} 
       onChange={(e) => onSortChange(e.target.value as 'title' | 'date')}
-      className="ml-4 p-2 border border-gray-300 rounded-md bg-white-01 backdrop-blur-lg text-white"
+      className="ml-4 p-2 rounded-full bg-white-01 backdrop-blur-lg"
     >
       <option value="title">Ordenar por Título</option>
       <option value="date">Ordenar por Fecha</option>

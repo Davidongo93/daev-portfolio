@@ -3,6 +3,7 @@ import { useState } from 'react';
 import PostCard from '../PostCard/PostCard';
 import SearchBar from '../SearchBar/SearchBar';
 import SortDropdown from '../SortDropDown/SortDropDown';
+import Footer from '../Footer/Footer';
 
 interface RelatedPost {
   title: string;
@@ -25,7 +26,6 @@ interface PostGridProps {
   posts: Post[];
 }
 
-// Componente que renderiza los posts en un grid
 const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
   const [sortOption, setSortOption] = useState<'title' | 'date'>('title');
@@ -33,7 +33,7 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   // Función para manejar la búsqueda
   const handleSearch = (searchTerm: string) => {
     if (searchTerm === '') {
-      setFilteredPosts(posts); // Si no hay búsqueda, mostrar todos los posts
+      setFilteredPosts(posts);
     } else {
       const filtered = posts.filter(post =>
         post.frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -60,16 +60,28 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   };
 
   return (
-    <div className=" w-screen mx-auto px-4">
-      <div className="flex justify-start items-center mb-4">
-        <SearchBar onSearch={handleSearch} />
-        <SortDropdown sortOption={sortOption} onSortChange={handleSortChange} /> {/* Añadir el dropdown de ordenamiento */}
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+    <div className="">
+        <h1 className="text-right text-4xl text-blue-500 font-bold backdrop-blur-lg rounded-sm shadow p-2">
+          /blog
+        </h1>
+      <nav className="flex flex-col items-center mb-8 gap-2">
+      <div className="flex items-center justify-start space-x-4 mt-4 w-auto">
+          <SearchBar onSearch={handleSearch} />
+          </div>
+        <div className="flex items-center justify-center space-x-4 mt-4 w-auto">
+          <SortDropdown sortOption={sortOption} onSortChange={handleSortChange} />
+          <a href="/" className="px-4 bg-white-01 backdrop-blur-lg rounded shadow p-2">
+            🏠
+          </a>
+        </div>
+      </nav>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 m-8">
         {filteredPosts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import TechPill from '../TechPill/TechPill'; // Componente para las tecnologías (creado en el paso 3)
+import Image from 'next/image'; // Importamos el componente Image de Next.js
+import TechPill from '../TechPill/TechPill';
 
 interface Project {
   name: string;
@@ -9,36 +10,60 @@ interface Project {
   date: string;
   type: string;
   collaboration: string | null;
+  thumbnail: string; // Nueva propiedad para el snapshot
 }
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-      <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-      <p className="text-sm text-gray-400 mb-4">{project.date}</p>
-
-      <div className="mb-4">
-        <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-          View Repo
-        </a>
-        <span className="mx-2">|</span>
-        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-          Live Demo
-        </a>
+    <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+      {/* Imagen de Snapshot */}
+      <div className="relative w-full h-48">
+        <Image
+          src={`/thumbnails${project.thumbnail}`}
+          alt={`${project.name} thumbnail`}
+          layout="fill" // Utilizamos fill para asegurarnos de que la imagen ocupe todo el contenedor
+          objectFit="cover" // Para que la imagen se ajuste sin deformarse
+          className="opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100"
+        />
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.technologies.map((tech, index) => (
-          <TechPill key={index} tech={tech} />
-        ))}
-      </div>
+      {/* Detalles del proyecto */}
+      <div className="p-4">
+        <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+        <p className="text-sm text-gray-400 mb-4">{project.date}</p>
 
-      {project.collaboration && (
-        <div className="flex items-center mt-4">
-          <img src={`/icons/${project.collaboration}.png`} alt={project.collaboration} className="w-8 h-8 mr-2" />
-          <span className="text-gray-300">Collaboration with {project.collaboration}</span>
+        {/* Enlaces */}
+        <div className="mb-4">
+          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+            View Repo
+          </a>
+          <span className="mx-2">|</span>
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+            Live Demo
+          </a>
         </div>
-      )}
+
+        {/* Tecnologías */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.map((tech, index) => (
+            <TechPill key={index} tech={tech} />
+          ))}
+        </div>
+
+        {/* Colaboración */}
+        {project.collaboration && (
+          <div className="flex items-center mt-4">
+            <Image
+              src={`/icons/${project.collaboration}.png`}
+              alt={project.collaboration}
+              width={32}
+              height={32}
+              className="mr-2"
+            />
+            <span className="text-gray-300">Collaboration with {project.collaboration}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

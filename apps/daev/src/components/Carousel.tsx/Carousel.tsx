@@ -75,7 +75,7 @@ const Carousel: React.FC = () => {
 
   return (
     <section id="carousel" className="pt-16 z-0">
-      <Slider {...settings} className="w-full h-full">
+      <Slider {...settings} className="w-screen h-screen">
         <div>
           <AboutSection />
         </div>

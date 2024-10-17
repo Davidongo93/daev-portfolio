@@ -18,18 +18,18 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
       {/* Imagen de Snapshot */}
       <div className="relative w-full h-48">
-        <Image
-          src={`/thumbnails${project.thumbnail}`}
-          alt={`${project.name} thumbnail`}
-          layout="fill" // Utilizamos fill para asegurarnos de que la imagen ocupe todo el contenedor
-          objectFit="cover" // Para que la imagen se ajuste sin deformarse
-          className="opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100"
-        />
-      </div>
+  <Image
+    src={`/thumbnails${project.thumbnail}`}
+    alt={`${project.name} thumbnail`}
+    fill // Se usa fill para hacer que la imagen ocupe todo el contenedor
+    className="object-cover opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100" // CSS `object-cover` se usa en la clase
+  />
+</div>
+
 
       {/* Detalles del proyecto */}
       <div className="p-4">
-        <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+        <h3 className="text-l font-semibold mb-2">{project.name}</h3>
         <p className="text-sm text-gray-400 mb-4">{project.date}</p>
 
         {/* Enlaces */}

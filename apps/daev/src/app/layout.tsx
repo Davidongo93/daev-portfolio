@@ -1,5 +1,7 @@
 import './global.css';
-import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { AppProvider } from '../context/AppContext';
+
 export const metadata = {
   title: 'Dave Miranda',
   description: 'Full Stack Developer',
@@ -12,9 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-       <GoogleTagManager gtmId="GTM-K5PFW7FW" />
-       <GoogleAnalytics gaId="G-7LTKWZT49T" />
-      <body>{children}</body>
+      <GoogleTagManager gtmId="GTM-K5PFW7FW" />
+      <GoogleAnalytics gaId="G-7LTKWZT49T" />
+      <body>
+        <AppProvider>{children}</AppProvider>
+      </body>
     </html>
   );
 }

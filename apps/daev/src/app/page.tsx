@@ -1,23 +1,28 @@
 'use client';
-import { useState } from 'react';
+import { useAppContext } from '../context/AppContext';
 import ConsoleCLI from '../views/console/ConsoleCLI';
 import Home from '../views/Home/Home';
+import { useEffect, useState } from 'react';
 
 export default function Index() {
+  const { cliMode, toggleCliMode } = useAppContext();
+  const [isClient, setIsClient] = useState(false);
 
-  const [cliMode, setCliMode] = useState<boolean | null>(null);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
-
-  const handleUiChange = (newValue: boolean) => {
-    setCliMode(!cliMode);
-  };
+  if (!isClient) {
+    // Renderizar un estado neutral durante SSR
+    return <div className="loading-placeholder" />;
+  }
 
   return (
     <>
       {cliMode ? (
-        <ConsoleCLI onStateChange={handleUiChange} />
+        <ConsoleCLI onStateChange={toggleCliMode} />
       ) : (
-        <Home onStateChange={handleUiChange} />
+        <Home onStateChange={toggleCliMode} />
       )}
     </>
   );

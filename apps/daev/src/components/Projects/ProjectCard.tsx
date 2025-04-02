@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "next/legacy/image"; // Importamos el componente Image de Next.js
+import Image from 'next/legacy/image'; // Importamos el componente Image de Next.js
 import TechPill from '../TechPill/TechPill';
 
 interface Project {
@@ -18,14 +18,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     <div className="relative bg-gray-900 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
       {/* Imagen de Snapshot */}
       <div className="relative w-full h-48">
-  <Image
-    src={`/thumbnails${project.thumbnail}`}
-    alt={`${project.name} thumbnail`}
-    fill // Se usa fill para hacer que la imagen ocupe todo el contenedor
-    className="object-cover opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100" // CSS `object-cover` se usa en la clase
-  />
-</div>
-
+        <Image
+          src={`/thumbnails${project.thumbnail}`}
+          alt={`${project.name} thumbnail`}
+          layout="fill" // Se usa fill para hacer que la imagen ocupe todo el contenedor
+          className="object-cover opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100" // CSS `object-cover` se usa en la clase
+        />
+      </div>
 
       {/* Detalles del proyecto */}
       <div className="p-4">
@@ -34,11 +33,21 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
         {/* Enlaces */}
         <div className="mb-4">
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+          <a
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+          >
             View Repo
           </a>
           <span className="mx-2">|</span>
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+          >
             Live Demo
           </a>
         </div>
@@ -60,7 +69,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               height={32}
               className="mr-2"
             />
-            <span className="text-gray-300">Collaboration with {project.collaboration}</span>
+            <span className="text-gray-300">
+              Collaboration with {project.collaboration}
+            </span>
           </div>
         )}
       </div>

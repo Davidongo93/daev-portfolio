@@ -1,5 +1,4 @@
-
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import IconBar from '../IconBar/IconBar';
 import CodeButton from '../CodeButton/CodeButton';
 const code = `(() => "fullStackDeveloper")();`;
@@ -22,6 +21,8 @@ const AboutSection: React.FC = () => {
               height={100}
               className="object-cover"
               alt="Dave"
+              priority={true}
+              quality={40}
             />
           </div>
 
@@ -32,7 +33,12 @@ const AboutSection: React.FC = () => {
 
         {/* hire me */}
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
-          <h4 className="text-2xl text-center mb-4">David Orlando Miranda <code><strong>{code}</strong></code></h4>
+          <h4 className="text-2xl text-center mb-4">
+            David Orlando Miranda{' '}
+            <code>
+              <strong>{code}</strong>
+            </code>
+          </h4>
           <CodeButton textButton="Hire Me!" />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'; // Importamos el componente Image de Next.js
+import Image from "next/legacy/image"; // Importamos el componente Image de Next.js
 import TechPill from '../TechPill/TechPill';
 
 interface Project {

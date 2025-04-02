@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import IconBar from '../IconBar/IconBar';
 import CodeButton from '../CodeButton/CodeButton';
 const code = `(() => "fullStackDeveloper")();`;

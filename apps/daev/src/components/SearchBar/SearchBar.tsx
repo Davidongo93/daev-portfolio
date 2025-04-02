@@ -86,6 +86,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
         <input
           type="text"
+          id="search"
+          autoComplete="off"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search..."

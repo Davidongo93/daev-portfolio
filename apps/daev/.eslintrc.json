@@ -1,31 +1,103 @@
 {
+  "root": true,
   "extends": [
     "plugin:@nx/react-typescript",
-    "next",
     "next/core-web-vitals",
-    "../../.eslintrc.json"
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked"
   ],
-  "ignorePatterns": ["!**/*", ".next/**/*"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json", "./apps/daev/tsconfig.json"],
+    "tsconfigRootDir": "./"
+  },
+  "ignorePatterns": [
+    "!**/*",
+    ".next/**/*",
+    "**/*.js",
+    "**/*.jsx",
+    "node_modules",
+    "dist",
+    "jest/*.ts"
+  ],
+  "rules": {
+    // Reglas base
+    "curly": "error",
+    "eqeqeq": ["error", "always"],
+
+    // Reglas de TypeScript
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-unused-expressions": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/no-base-to-string": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/prefer-readonly": "error",
+    "react/jsx-no-leaked-render": ["error", { "validStrategies": ["ternary"] }],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unsafe-argument": "error",
+    "@typescript-eslint/no-unsafe-assignment": "error",
+    "@typescript-eslint/no-unsafe-call": "error",
+    "@typescript-eslint/no-unsafe-member-access": "error",
+    "@typescript-eslint/no-unsafe-return": "error",
+    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+
+    // Reglas de React/Next.js
+    "@next/next/no-html-link-for-pages": ["error", "apps/daev/pages"],
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never" }
+    ],
+
+    // Reglas de calidad de código
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-constant-condition": "error",
+    "no-empty": "error",
+    "no-implicit-coercion": "error",
+    "no-param-reassign": "error"
+  },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "apps/daev/pages"]
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/no-non-null-assertion": "error"
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.js", "*.jsx"],
-      "rules": {}
-    },
-    {
-      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
-      "env": {
-        "jest": true
+      "files": [
+        "**/*.spec.ts",
+        "**/*.spec.tsx",
+        "**/*.test.ts",
+        "**/*.test.tsx"
+      ],
+      "extends": ["plugin:jest/recommended"],
+      "rules": {
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-explicit-any": "off"
       }
     }
-  ]
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }

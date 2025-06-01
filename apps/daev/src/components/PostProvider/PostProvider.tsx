@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface RelatedPost {
   title: string;

@@ -60,8 +60,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         </div>
 
         {/* Colaboración */}
-        {project.collaboration && (
-          <div className="flex items-center mt-4">
+        {project.collaboration ? <div className="flex items-center mt-4">
             <Image
               src={`/icons/${project.collaboration}.png`}
               alt={project.collaboration}
@@ -72,8 +71,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
             <span className="text-gray-300">
               Collaboration with {project.collaboration}
             </span>
-          </div>
-        )}
+          </div> : null}
       </div>
     </div>
   );

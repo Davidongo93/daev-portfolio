@@ -8,13 +8,13 @@ const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 // Definir el cache en memoria
 let cachedRepos: any = null; // Donde se almacenan los repositorios
 let cacheTimestamp = 0; // Momento en que se cachearon los datos
-const CACHE_DURATION = 24 *  60 * 60 * 1000; // Duración del cache (un dia)
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // Duración del cache (un dia)
 
 export async function GET(request: Request) {
   const now = Date.now();
 
   // Verificar si los datos están en cache y si son válidos
-  if (cachedRepos && (now - cacheTimestamp) < CACHE_DURATION) {
+  if (cachedRepos && now - cacheTimestamp < CACHE_DURATION) {
     // Devolver los datos cacheados si el cache aún es válido
     return NextResponse.json(cachedRepos);
   }
@@ -32,7 +32,7 @@ export async function GET(request: Request) {
     if (!response.ok) {
       return NextResponse.json(
         { message: 'Error fetching repositories' },
-        { status: response.status }
+        { status: response.status },
       );
     }
 
@@ -47,7 +47,7 @@ export async function GET(request: Request) {
   } catch (error) {
     return NextResponse.json(
       { message: 'Error fetching GitHub repositories', error },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

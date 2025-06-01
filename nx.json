@@ -42,7 +42,14 @@
     { "plugin": "@nx/jest/plugin", "options": { "targetName": "test" } }
   ],
   "targetDefaults": { "e2e-ci--**/*": { "dependsOn": ["^build"] } },
+  "lint": {
+    "inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.prettierrc.json"],
+    "cache": true
+  },
   "generators": {
     "@nx/next": { "application": { "style": "tailwind", "linter": "eslint" } }
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
   }
 }

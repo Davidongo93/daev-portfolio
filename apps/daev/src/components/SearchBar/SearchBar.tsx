@@ -97,8 +97,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
       </div>
 
-      {showSuggestions && (
-        <ul className="absolute mt-2 bg-white rounded-lg shadow-lg w-full z-10">
+      {showSuggestions ? <ul className="absolute mt-2 bg-white rounded-lg shadow-lg w-full z-10">
           {filteredSuggestions.map((suggestion, index) => (
             <li
               key={index}
@@ -108,8 +107,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
               {suggestion}
             </li>
           ))}
-        </ul>
-      )}
+        </ul> : null}
     </div>
   );
 };

@@ -1,17 +1,18 @@
 'use client';
 
+import type {
+  ReactNode} from 'react';
 import {
   createContext,
   useContext,
   useState,
-  useEffect,
-  ReactNode,
+  useEffect
 } from 'react';
 
-type AppContextType = {
+interface AppContextType {
   cliMode: boolean;
   toggleCliMode: () => void;
-};
+}
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 

@@ -142,7 +142,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
   }, []);
 
   useEffect(() => {
-    const consoleElement = document.querySelector('.console') as HTMLDivElement;
+    const consoleElement = document.querySelector('.console')!;
 
     if (consoleElement) {
       consoleElement.focus(); // Auto-focus on mount
@@ -151,7 +151,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
   useEffect(() => {
     const consoleElement = document.querySelector(
       '.console-output'
-    ) as HTMLDivElement;
+    )!;
     if (consoleElement) {
       consoleElement.scrollTop = consoleElement.scrollHeight;
     }
@@ -212,8 +212,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
               {line}
             </div>
           ))}
-          {!loading && (
-            <>
+          {!loading ? <>
               <span className="prompt">┌──(dave㉿Daev)-[~]</span>
               <span className="prompt">
                 └─$ <span className="command">{command}</span>
@@ -221,8 +220,7 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
                   _
                 </span>
               </span>
-            </>
-          )}
+            </> : null}
         </div>
       </div>
     </div>

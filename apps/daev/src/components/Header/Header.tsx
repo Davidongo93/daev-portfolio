@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
         </div>
 
         {/* Navegación principal para pantallas grandes */}
-        <div className={`hidden md:flex space-x-6 items-center ml-8`}>
+        <div className="hidden md:flex space-x-6 items-center ml-8">
           <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
           <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
           <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
@@ -85,8 +85,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
           </div>
         <div className='w-80 mx-8 flex items-center justify-end'><SearchBar onSearch={console.log}/></div>
       {/* Menú desplegable para pantallas pequeñas */}
-      {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
+      {isMenuOpen ? <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
           <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
           <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
           <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
@@ -114,8 +113,7 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             icon={<TerminalButton onStateChange={onStateChange} />}
             label="CLI version"
           />
-        </div>
-      )}
+        </div> : null}
     </nav>
   );
 };

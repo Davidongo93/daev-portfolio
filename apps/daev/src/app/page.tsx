@@ -1,8 +1,8 @@
 'use client';
-import { useAppContext } from '../context/AppContext';
-import ConsoleCLI from '../views/console/ConsoleCLI';
-import Home from '../views/Home/Home';
 import { useEffect, useState } from 'react';
+import { useAppContext } from '../context/AppContext';
+import Home from '../views/Home/Home';
+import ConsoleCLI from '../views/console/ConsoleCLI';
 
 export default function Index() {
   const { cliMode, toggleCliMode } = useAppContext();

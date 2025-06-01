@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => {
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center mx-8">
           <div className="relative w-2/3 sm:w-1/2 md:w-3/4 lg:w-2/3 xl:w-1/2 shadow rounded-sm brightness-110 contrast-150 saturate-0 hover:saturate-100">
             <Image
-              src={'/daveDad.png'}
+              src="/daveDad.png"
               layout="responsive"
               width={100}
               height={100}

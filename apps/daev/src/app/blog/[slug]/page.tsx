@@ -1,22 +1,22 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
-import Markdown from 'react-markdown';
 import Link from 'next/link';
+import path from 'path';
+import Markdown from 'react-markdown';
 import HeroSection from '../../../components/HeroSection/HeroSection';
 
 // Definición de tipos simplificada
-type Post = {
+interface Post {
   slug: string;
   frontmatter: {
     title: string;
     date: string;
     [key: string]: any;
   };
-};
+}
 
 // Esta es la clave: Usamos el tipo que Next.js espera directamente
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const postsDir = path.join(process.cwd(), 'posts');
   return fs.readdirSync(postsDir).map((filename) => ({
     slug: filename.replace('.md', ''),
@@ -77,14 +77,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="flex justify-between mt-10">
-            {prevPost && (
-              <Link
+            {prevPost ? <Link
                 href={`/blog/${prevPost.slug}`}
                 className="text-blue-600 hover:text-blue-800 px-4 py-2 bg-gray-100 rounded"
               >
                 ⬅️ Anterior
-              </Link>
-            )}
+              </Link> : null}
 
             <Link
               href="/blog"
@@ -93,14 +91,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
               🏠 Volver
             </Link>
 
-            {nextPost && (
-              <Link
+            {nextPost ? <Link
                 href={`/blog/${nextPost.slug}`}
                 className="text-blue-600 hover:text-blue-800 px-4 py-2 bg-gray-100 rounded"
               >
                 Siguiente ➡️
-              </Link>
-            )}
+              </Link> : null}
           </div>
         </div>
       </div>

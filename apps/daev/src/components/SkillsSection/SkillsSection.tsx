@@ -3,9 +3,9 @@ import React from 'react';
 import TechPill from '../TechPill/TechPill'; // Importamos el componente de TechPill
 
 const skillsData = {
-  frontend: ['React', 'Next.js', 'Tailwind CSS', 'HTML', 'CSS'],
-  backend: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL'],
-  tools: ['Git', 'Docker', 'Webpack', 'REST APIs'],
+  frontend: ['React', 'Next.js', 'Vue', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
+  backend: ['Node.js', 'NestJS', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'],
+  tools: ['Git', 'Docker', 'NX', 'Redux', 'Jest', 'Vercel', 'GitHub Actions'],
 };
 
 const SkillsSection: React.FC = () => {

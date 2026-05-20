@@ -28,7 +28,7 @@ const IconButton: React.FC<IconButtonProps> = ({ href, icon, label, size = 'medi
       <div className={`${sizeClasses[size].split(' ')[0]}`}>{icon}</div>
       <span className={`${sizeClasses[size].split(' ')[1]} mt-1 relative`}>
         {label}
-        <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-green-300 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">hello</span>
+        <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-green-300 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
       </span>
     </a>
   );

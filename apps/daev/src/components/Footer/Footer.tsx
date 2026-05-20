@@ -32,7 +32,7 @@ export default function Footer() {
         <p>
           &copy; {getCurrentYear()} By{' '}
           <a
-            href="https://davidongo93.github.io/"
+            href="https://github.com/Davidongo93"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 font-semibold"

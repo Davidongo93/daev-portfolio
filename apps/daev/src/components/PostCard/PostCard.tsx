@@ -25,14 +25,13 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <div className="relative bg-white/80 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out hover:bg-white/90 hover:scale-105 transform hover:-translate-y-1">
       {/* Imagen destacada */}
-      <div className="relative overflow-hidden rounded-xl mb-4">
-      <Image
-  src={post.frontmatter.image || '/default-image.jpg'} // Usa una imagen por defecto si `post.frontmatter.image` es undefined
-  alt={post.frontmatter.title}
-  width={100}
-  height={100}
-  className="w-full h-full object-cover transition-transform duration-500 ease-in-out hover:scale-110"
-/>
+      <div className="relative h-48 overflow-hidden rounded-xl mb-4">
+        <Image
+          src={post.frontmatter.image || '/citydraw.png'}
+          alt={post.frontmatter.title}
+          fill
+          className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+        />
       </div>
 
       {/* Título y descripción */}

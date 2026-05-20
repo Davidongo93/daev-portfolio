@@ -11,7 +11,7 @@ const ContactSection: React.FC = () => {
           {/* Formulario de Contacto */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-full">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Contact</h2>
-            <form className="space-y-6">
+            <form action="mailto:domirandar@gmail.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-lg mb-2 text-white">Name</label>
                 <input

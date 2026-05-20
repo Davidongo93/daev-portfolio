@@ -24,16 +24,20 @@ interface PostProviderProps {
   children: (posts: Post[]) => ReactNode;
 }
 
-// Función para obtener los posts desde el servidor
+const localPath = path.join(process.cwd(), 'posts');
+const postsDirectory = fs.existsSync(localPath)
+  ? localPath
+  : path.join(process.cwd(), 'apps/daev/posts');
+
 const getPosts = (): Post[] => {
   try {
-    const files = fs.readdirSync(path.join('posts')); // Leer archivos del directorio 'posts'
+    const files = fs.readdirSync(postsDirectory);
 
     const posts: Post[] = files.map((filename) => {
-      const slug = filename.replace('.md', ''); // Eliminar extensión '.md' para obtener el slug
-      const filePath = path.join('posts', filename); // Ruta completa del archivo
-      const fileContents = fs.readFileSync(filePath, 'utf-8'); // Leer el contenido del archivo Markdown
-      const { data: frontmatter } = matter(fileContents); // Extraer los metadatos de frontmatter
+      const slug = filename.replace('.md', '');
+      const filePath = path.join(postsDirectory, filename);
+      const fileContents = fs.readFileSync(filePath, 'utf-8');
+      const { data: frontmatter } = matter(fileContents);
 
       return {
         slug,

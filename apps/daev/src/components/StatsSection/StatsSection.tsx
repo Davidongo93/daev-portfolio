@@ -44,16 +44,16 @@ const StatsSection: React.FC = () => {
       {/* Additional Stats */}
       <div className="mt-12 w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center px-4">
         <div className="bg-gray-800 p-4 rounded-lg">
-          <p className="text-3xl font-bold">15+ Years</p>
+          <p className="text-3xl font-bold">4+ Years</p>
           <p>Industry Experience</p>
         </div>
         <div className="bg-gray-800 p-4 rounded-lg">
-          <p className="text-3xl font-bold">6+ Projects</p>
+          <p className="text-3xl font-bold">10+ Projects</p>
           <p>Completed</p>
         </div>
         <div className="bg-gray-800 p-4 rounded-lg">
-          <p className="text-3xl font-bold">5+ Clients</p>
-          <p>Worldwide</p>
+          <p className="text-3xl font-bold">3+ Clients</p>
+          <p>Satisfied</p>
         </div>
       </div>
     </section>

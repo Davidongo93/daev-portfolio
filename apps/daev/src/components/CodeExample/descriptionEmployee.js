@@ -5,16 +5,16 @@ class DavidMiranda extends MasterProgrammer {
       'David Orlando Miranda',
       'Full Stack Developer',
       {
-        years: 3,
-        companiesWorkedWith: 1,
-        projectsCompleted: 4,
+        years: 4,
+        companiesWorkedWith: 3,
+        projectsCompleted: 10,
       },
       {
-        frontend: ['React', 'Next.js', 'Tailwind CSS'],
-        backend: ['Node.js', 'Express', 'MongoDB'],
-        other: ['Git', 'Redux', 'GraphQL', 'REST APIs'],
+        frontend: ['React', 'Next.js', 'Vue', 'Tailwind CSS', 'TypeScript'],
+        backend: ['Node.js', 'NestJS', 'Express', 'PostgreSQL', 'MongoDB'],
+        other: ['Git', 'Docker', 'NX', 'Redux', 'GraphQL', 'REST APIs'],
       }
     );
-    this.email = 'domirandar@unal.edu.co';
+    this.email = 'domirandar@gmail.com';
   }
 `;

@@ -58,17 +58,58 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
     };
   }, []);
 
-  // Command handler function
   const handleCommandExecution = (command: string) => {
-    switch (command.toLowerCase()) {
+    switch (command.toLowerCase().trim()) {
       case 'help':
       case '-h':
-        setHistory((prevHistory) => [
-          ...prevHistory,
-          'Available commands: \n\n',
-          'clear - Clear the console',
-          'gui  - Load GUI environment',
-          'help, -h - Display help message',
+        setHistory((prev) => [
+          ...prev,
+          'Available commands:\n',
+          '  about    — Who is Dave',
+          '  skills   — Tech stack',
+          '  projects — Featured projects',
+          '  contact  — Get in touch',
+          '  gui      — Load graphic interface',
+          '  clear    — Clear console',
+          '  help, -h — Show this message',
+        ]);
+        break;
+      case 'about':
+        setHistory((prev) => [
+          ...prev,
+          'David Orlando Miranda — Full Stack Developer',
+          '4+ years building web products across frontend and backend.',
+          'Currently available for freelance and full-time opportunities.',
+          'Based in Colombia 🇨🇴',
+        ]);
+        break;
+      case 'skills':
+        setHistory((prev) => [
+          ...prev,
+          'Frontend : React · Next.js · Vue · TypeScript · Tailwind CSS',
+          'Backend  : Node.js · NestJS · Express · PostgreSQL · MongoDB',
+          'Tools    : Git · Docker · NX · Redux · Jest · Vercel',
+        ]);
+        break;
+      case 'projects':
+        setHistory((prev) => [
+          ...prev,
+          '1. Ukraine Population Map  → https://pop-ukraine-map.vercel.app/',
+          '2. Rescatista Gallery      → https://rescatista.vercel.app',
+          '3. GitPulse Web            → https://github.com/Davidongo93/git-pulse-web',
+          '4. VideoApp API Challenge  → https://github.com/Davidongo93/videoapp-API-challenge',
+          '5. Disruptive Media MERN   → https://github.com/Davidongo93/disruptive-media',
+          '',
+          'More: https://github.com/Davidongo93',
+        ]);
+        break;
+      case 'contact':
+        setHistory((prev) => [
+          ...prev,
+          'Email    : domirandar@gmail.com',
+          'LinkedIn : https://linkedin.com/in/domirandar',
+          'GitHub   : https://github.com/Davidongo93',
+          'WhatsApp : https://wa.me/+573015740156',
         ]);
         break;
       case 'clear':
@@ -76,17 +117,13 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
         setHelper([]);
         break;
       case 'gui':
-        setHistory((prevHistory) => [
-          ...prevHistory,
-          'Loading graphic user interface....',
-        ]);
-        setTimeout( ()=> onStateChange(false),2500)
-      break;
-
+        setHistory((prev) => [...prev, 'Loading graphic user interface....']);
+        setTimeout(() => onStateChange(false), 2500);
+        break;
       default:
-        setHistory((prevHistory) => [
-          ...prevHistory,
-          `Command not recognized: ${command}`,
+        setHistory((prev) => [
+          ...prev,
+          `Command not recognized: ${command}. Type 'help' for available commands.`,
         ]);
         break;
     }

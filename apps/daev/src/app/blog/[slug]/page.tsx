@@ -5,18 +5,34 @@ import Markdown from 'react-markdown';
 import Link from 'next/link';
 import HeroSection from '../../../components/HeroSection/HeroSection';
 
-// Genera las rutas estáticas para cada post basado en el slug
+const localPath = path.join(process.cwd(), 'posts');
+const postsDirectory = fs.existsSync(localPath)
+  ? localPath
+  : path.join(process.cwd(), 'apps/daev/posts');
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const { frontmatter } = await getPostData(params.slug);
+  return {
+    title: `${frontmatter.title} | Dave Miranda`,
+    description: frontmatter.description || frontmatter.excerpt || '',
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.description || '',
+      images: frontmatter.image ? [frontmatter.image] : ['/profileDave.png'],
+    },
+  };
+}
+
 export async function generateStaticParams() {
-  const files = fs.readdirSync(path.join('posts'));
+  const files = fs.readdirSync(postsDirectory);
 
   return files.map((filename) => ({
-    slug: filename.replace('.md', ''), // Elimina la extensión del archivo
+    slug: filename.replace('.md', ''),
   }));
 }
 
-// Obtiene el contenido del post basado en el slug
 async function getPostData(slug: string) {
-  const filePath = path.join('posts', `${slug}.md`);
+  const filePath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, 'utf-8');
   const { data: frontmatter, content } = matter(fileContents);
 
@@ -71,13 +87,12 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-// Función para obtener los posts (reutilizada para la navegación)
 async function getPosts() {
-  const files = fs.readdirSync(path.join('posts'));
+  const files = fs.readdirSync(postsDirectory);
 
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
-    const filePath = path.join('posts', filename);
+    const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const { data: frontmatter } = matter(fileContents);
 

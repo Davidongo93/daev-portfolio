@@ -12,8 +12,6 @@ import {
 } from 'react-icons/fa';
 import IconButton from '../IconButton/IconButton';
 import TerminalButton from '../TerminalButton/TerminalButton';
-import SearchBar from '../SearchBar/SearchBar';
-import { Fa0 } from 'react-icons/fa6';
 
 interface HeaderProps {
   onStateChange: (newValue: boolean) => void;
@@ -81,9 +79,8 @@ const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
             label="Term"
           />
          </div>
-          
+
           </div>
-        <div className='w-80 mx-8 flex items-center justify-end'><SearchBar onSearch={console.log}/></div>
       {/* Menú desplegable para pantallas pequeñas */}
       {isMenuOpen && (
         <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">

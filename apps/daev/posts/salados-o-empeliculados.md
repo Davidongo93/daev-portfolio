@@ -2,7 +2,7 @@
 title: "para que le eche cabeza un rato y luego me cuente"
 date: "2024-10-07"
 description: "no se, digamelo usted..."
-image: "/cityDraw.png"
+image: "/citydraw.png"
 keywords: ["energía vital", "buenos hábitos", "rutinas productivas", "salud mental"]  # Palabras clave
 related_posts: [
 #   { title: "5 Hábitos para Mejorar Tu Energía Diaria", slug: "/blog/habitos-energia-diaria" },

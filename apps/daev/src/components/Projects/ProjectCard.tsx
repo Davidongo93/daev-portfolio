@@ -19,11 +19,10 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       {/* Imagen de Snapshot */}
       <div className="relative w-full h-48">
         <Image
-          src={`/thumbnails${project.thumbnail}`}
+          src={project.thumbnail}
           alt={`${project.name} thumbnail`}
-          layout="fill" // Utilizamos fill para asegurarnos de que la imagen ocupe todo el contenedor
-          objectFit="cover" // Para que la imagen se ajuste sin deformarse
-          className="opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100"
+          fill
+          className="object-cover opacity-90 transition-opacity duration-300 ease-in-out hover:opacity-100"
         />
       </div>
 

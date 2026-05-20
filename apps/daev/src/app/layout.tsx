@@ -5,6 +5,7 @@ import { ThemeProvider } from '../context/ThemeContext';
 import { LangProvider } from '../context/LangContext';
 import { UIProvider } from '../context/UIContext';
 import UnifiedNav from '../components/UnifiedNav/UnifiedNav';
+import ConsoleOverlay from '../components/ConsoleOverlay/ConsoleOverlay';
 import WhatsAppButton from '../components/WhatsAppButton/WhatsAppButton';
 import { siteConfig } from '../config/site';
 
@@ -176,6 +177,7 @@ export default function RootLayout({
               <UnifiedNav />
               {children}
               <WhatsAppButton />
+              <ConsoleOverlay />
             </UIProvider>
           </LangProvider>
         </ThemeProvider>

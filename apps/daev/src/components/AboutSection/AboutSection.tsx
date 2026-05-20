@@ -19,7 +19,7 @@ const AboutSection: React.FC = () => {
         <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
           <div className="relative w-56 sm:w-64 md:w-72 lg:w-80 aspect-square overflow-hidden rounded-2xl shadow-2xl ring-2 ring-accent/20">
             <Image
-              src="/daveDad.png"
+              src="/1779257228045.jpeg"
               fill
               sizes="(max-width: 768px) 224px, 320px"
               className="object-cover transition-all duration-500 saturate-0 hover:saturate-100"

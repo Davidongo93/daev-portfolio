@@ -201,7 +201,7 @@ export const siteConfig = {
       technologies: ['JavaScript', 'React', 'Redux', 'Express', 'PostgreSQL'],
       type: { en: 'Academic', es: 'Académico' },
       collaboration: null,
-      thumbnail: '/daveEmployee.png',
+      thumbnail: '/1779257228045.jpeg',
       featured: true,
     },
   ],

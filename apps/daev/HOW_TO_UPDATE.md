@@ -180,7 +180,7 @@ npx nx dev daev     # dev server en localhost
 
 ## 📁 Imágenes y assets
 
-- **Foto de perfil**: `apps/daev/public/daveDad.png` (se usa en hero)
+- **Foto de perfil**: `apps/daev/public/1779257228045.jpeg` (se usa en hero)
 - **Background**: `apps/daev/public/bwCity.jpg` (animated background)
 - **Logo OG/Twitter**: `apps/daev/public/profileDave.png` (1200x630 recomendado)
 - **Thumbnails proyectos**: `apps/daev/public/thumbnails/`

@@ -222,7 +222,7 @@ export const siteConfig = {
       technologies: ['JavaScript', 'React', 'Redux', 'Express', 'PostgreSQL'],
       type: { en: 'Academic', es: 'Académico' },
       collaboration: null,
-      thumbnail: '/daveEmployee.png',
+      thumbnail: '/1779257228045.jpeg',
     },
   ],
 
@@ -823,7 +823,7 @@ Usar `useLang()` para textos. Layout:
 - Izquierda: foto (ya existe), badges de disponibilidad
 - Derecha: nombre + rol + bio + botones CTA
 
-**Foto**: mantener el `<Image src="/daveDad.png" width={400} height={400} />` con filtros CSS hover.
+**Foto**: mantener el `<Image src="/1779257228045.jpeg" width={400} height={400} />` con filtros CSS hover.
 
 **Badge de disponibilidad**:
 ```tsx

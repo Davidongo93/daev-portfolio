@@ -1,94 +1,47 @@
 'use client';
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination, EffectFade, Keyboard } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 import AboutSection from '../AboutSection/AboutSection';
 import ExperienceSection from '../ExperienceSection/ExperienceSection';
 import StatsSection from '../StatsSection/StatsSection';
 import FeaturedProjects from '../FeaturedProjects.tsx/FeaturedProjects';
 
-function SampleNextArrow(props: { className?: any; style?: any; onClick?: any; }) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ 
-        ...style, 
-        paddingRight: 80, 
-        zIndex: 2,
-        opacity: 0.5, // Aumentar transparencia
-        transition: 'opacity 0.3s ease', // Suave transición en hover
-      }}
-      onClick={onClick}
-      onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-      onMouseLeave={(e) => e.currentTarget.style.opacity = '0.5'}
-    />
-  );
-}
-
-function SamplePrevArrow(props: { className?: any; style?: any; onClick?: any; }) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ 
-        ...style, 
-        paddingLeft: 60, 
-        zIndex: 2,
-        opacity: 0.5, // Aumentar transparencia
-        transition: 'opacity 0.3s ease', // Suave transición en hover
-      }}
-      onClick={onClick}
-      onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-      onMouseLeave={(e) => e.currentTarget.style.opacity = '0.5'}
-    />
-  );
-}
-
 const Carousel: React.FC = () => {
-  const settings = {
-    dots: false,
-    dotsClass: "slick-dots slick-thumb",
-    infinite: true,
-    speed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 8000,
-    arrows: true,
-    pauseOnHover: true,
-    fade: true,
-    cssEase: '',
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 768, // Para pantallas móviles
-        settings: {
-          arrows: false, // Ocultar flechas en pantallas móviles
-          dots: true,  // Mostrar puntos de navegación en lugar de flechas
-        }
-      }
-    ]
-  };
-
   return (
-    <section id="carousel" className="pt-16 z-0">
-      <Slider {...settings} className="w-full h-full">
-        <div>
+    <section id="about-carousel" className="pt-16 z-0 relative">
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination, EffectFade, Keyboard]}
+        effect="fade"
+        fadeEffect={{ crossFade: true }}
+        speed={800}
+        autoplay={{ delay: 8000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        navigation
+        pagination={{ clickable: true }}
+        keyboard={{ enabled: true }}
+        loop
+        a11y={{
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+        }}
+        className="w-full"
+      >
+        <SwiperSlide>
           <AboutSection />
-        </div>
-        <div>
+        </SwiperSlide>
+        <SwiperSlide>
           <ExperienceSection />
-        </div>
-        <div>
+        </SwiperSlide>
+        <SwiperSlide>
           <StatsSection />
-        </div>
-        <div>
+        </SwiperSlide>
+        <SwiperSlide>
           <FeaturedProjects />
-        </div>
-      </Slider>
+        </SwiperSlide>
+      </Swiper>
     </section>
   );
 };

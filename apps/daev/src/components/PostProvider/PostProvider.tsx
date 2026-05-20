@@ -31,7 +31,9 @@ const postsDirectory = fs.existsSync(localPath)
 
 const getPosts = (): Post[] => {
   try {
-    const files = fs.readdirSync(postsDirectory);
+    const files = fs
+      .readdirSync(postsDirectory)
+      .filter((f) => f.endsWith('.md') && !f.startsWith('_'));
 
     const posts: Post[] = files.map((filename) => {
       const slug = filename.replace('.md', '');

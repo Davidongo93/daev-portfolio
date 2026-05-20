@@ -1,9 +1,7 @@
+'use client';
 import Image from 'next/image';
-
-interface RelatedPost {
-  title: string;
-  slug: string;
-}
+import Link from 'next/link';
+import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 
 interface Post {
   slug: string;
@@ -13,7 +11,7 @@ interface Post {
     excerpt: string;
     image?: string;
     keywords?: string[];
-    related_posts?: RelatedPost[];
+    description?: string;
   };
 }
 
@@ -23,54 +21,57 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className="relative bg-white/80 backdrop-blur-md p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out hover:bg-white/90 hover:scale-105 transform hover:-translate-y-1">
-      {/* Imagen destacada */}
-      <div className="relative h-48 overflow-hidden rounded-xl mb-4">
-        <Image
-          src={post.frontmatter.image || '/citydraw.png'}
-          alt={post.frontmatter.title}
-          fill
-          className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
-        />
-      </div>
+    <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group flex flex-col h-full">
+      <Link href={`/blog/${post.slug}`} className="block">
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={post.frontmatter.image || '/citydraw.png'}
+            alt={post.frontmatter.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
+        </div>
+      </Link>
 
-      {/* Título y descripción */}
-      <div className="relative">
-        <a href={`/blog/${post.slug}`}>
-          <h2 className="text-3xl font-bold text-blue-700 hover:underline transition-all duration-300 ease-in-out">
+      <div className="p-5 flex-1 flex flex-col">
+        <p className="text-xs text-muted mb-2 flex items-center gap-1.5">
+          <FaCalendarAlt /> {post.frontmatter.date}
+        </p>
+
+        <Link href={`/blog/${post.slug}`}>
+          <h2 className="font-display text-xl font-semibold text-fore hover:text-accent transition mb-2 line-clamp-2">
             {post.frontmatter.title}
           </h2>
-        </a>
-        <p className="text-sm text-gray-500 mt-2">{post.frontmatter.date}</p>
-        <p className="text-gray-700 mt-4">{post.frontmatter.excerpt}</p>
+        </Link>
 
-        {/* Palabras clave */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          {post.frontmatter.keywords?.map((keyword, index) => (
-            <span 
-              key={index}
-              className="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold"
-            >
-              #{keyword}
-            </span>
-          ))}
-        </div>
+        <p className="text-sm text-muted line-clamp-3 mb-4 flex-1">
+          {post.frontmatter.excerpt}
+        </p>
 
-        {/* Posts relacionados */}
-        <div className="mt-6 border-t pt-4">
-          <h3 className="font-semibold text-gray-600 mb-2">Posts Relacionados</h3>
-          <ul className="space-y-2">
-            {post.frontmatter.related_posts?.map((related, index) => (
-              <li key={index}>
-                <a href={related.slug} className="text-blue-500 hover:underline">
-                  {related.title}
-                </a>
-              </li>
+        {post.frontmatter.keywords && post.frontmatter.keywords.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {post.frontmatter.keywords.slice(0, 3).map((kw) => (
+              <span
+                key={kw}
+                className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20"
+              >
+                #{kw}
+              </span>
             ))}
-          </ul>
-        </div>
+          </div>
+        )}
+
+        <Link
+          href={`/blog/${post.slug}`}
+          className="text-sm font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1 mt-auto group/link"
+        >
+          Read more
+          <FaArrowRight size={10} className="transition-transform group-hover/link:translate-x-1" />
+        </Link>
       </div>
-    </div>
+    </article>
   );
 };
 

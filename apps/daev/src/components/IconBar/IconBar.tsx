@@ -1,18 +1,44 @@
 'use client';
 import React from 'react';
-import { FaGithub, FaLinkedin, FaDiscord, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
-import IconButton from '../IconButton/IconButton';
+import {
+  FaGithub,
+  FaLinkedin,
+  FaDiscord,
+  FaInstagram,
+  FaWhatsapp,
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { siteConfig } from '../../config/site';
 
-const IconBar: React.FC = () => {
+interface IconBarProps {
+  className?: string;
+}
+
+const IconBar: React.FC<IconBarProps> = ({ className = '' }) => {
+  const items = [
+    { href: siteConfig.links.github, Icon: FaGithub, label: 'GitHub', color: '' },
+    { href: siteConfig.links.linkedin, Icon: FaLinkedin, label: 'LinkedIn', color: '' },
+    { href: siteConfig.links.twitter, Icon: FaXTwitter, label: 'X / Twitter', color: '' },
+    { href: siteConfig.whatsapp, Icon: FaWhatsapp, label: 'WhatsApp', color: 'text-[#25D366]' },
+    { href: siteConfig.links.discord, Icon: FaDiscord, label: 'Discord', color: '' },
+    { href: siteConfig.links.instagram, Icon: FaInstagram, label: 'Instagram', color: '' },
+  ];
+
   return (
-    <div className="flex justify-center space-x-4 p-8 px-4 lg:px-8">
-      <IconButton size='small' href="https://github.com/Davidongo93" icon={<FaGithub />} label="GitHub" target="_blank" rel="noopener noreferrer" />
-      <IconButton size='small' href="https://linkedin.com/in/domirandar" icon={<FaLinkedin />} label="LinkedIn" target="_blank" rel="noopener noreferrer" />
-      <IconButton size='small' href="https://x.com/domirandar" icon={<FaXTwitter />} label="X" target="_blank" rel="noopener noreferrer" />
-      <IconButton size='small' href="https://wa.me/+573015740156" icon={<FaWhatsapp />} label="Whatsapp" target="_blank" rel="noopener noreferrer" />
-      <IconButton size='small' href="https://discordapp.com/users/1072550664762298468" icon={<FaDiscord />} label="Discord" target="_blank" rel="noopener noreferrer" />
-      <IconButton size='small' href="https://www.instagram.com/davegoes2rock/" icon={<FaInstagram />} label="Instagram" target="_blank" rel="noopener noreferrer" />
+    <div className={`flex justify-center gap-4 flex-wrap ${className}`}>
+      {items.map(({ href, Icon, label, color }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          title={label}
+          className={`${color || 'text-muted'} hover:text-accent hover:scale-110 transition-all duration-200 text-xl`}
+        >
+          <Icon />
+        </a>
+      ))}
     </div>
   );
 };

@@ -1,115 +1,165 @@
-import { useState, useEffect } from 'react';
+'use client';
+import { useState, useEffect, useRef } from 'react';
 import './ConsoleCLI.style.css';
+import { siteConfig } from '../../config/site';
+import { useLang } from '../../context/LangContext';
 
 interface ChildComponentProps {
   onStateChange: (newValue: boolean) => void;
 }
 
 const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
+  const { lang, t } = useLang();
   const [command, setCommand] = useState('');
   const [blinking, setBlinking] = useState(true);
-  const [commandCounter, setCommandCounter] = useState(0);
+  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [history, setHistory] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true); // Flag for loading phase
+  const [loading, setLoading] = useState(true);
   const [helper, setHelper] = useState<string[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
 
-  // Helper function to get the current timestamp in a spy-movie format
   const getTimestamp = () => {
     const now = new Date();
-    return `${now.toISOString().slice(0, 10)} ${now.toLocaleTimeString()}.${now.getMilliseconds()}`;
+    return `${now.toISOString().slice(0, 10)} ${now.toLocaleTimeString()}`;
   };
 
-  // Simulate OS loading and secret agent-style connection logs
   useEffect(() => {
     const loadMessages = [
       `[${getTimestamp()}] Initializing covert protocols...`,
       `[${getTimestamp()}] Establishing connection with satellite THETA-12...`,
       `[${getTimestamp()}] <SENDING ENCRYPTION KEYS> Status: [OK]`,
-      `[${getTimestamp()}] Syncing data streams with secure server [45.76.23.89]...`,
-      `[${getTimestamp()}] Latency: 48ms | Uplink Speed: 256 Mbps | Status: [OK]`,
-      `[${getTimestamp()}] Attempting handshake with proxy node DELTA-39...`,
+      `[${getTimestamp()}] Latency: 48ms | Uplink: 256 Mbps | Status: [OK]`,
       `[${getTimestamp()}] Handshake successful. Proxy node active.`,
-      `[${getTimestamp()}] Routing signal through relay AEGIS-1 to conceal source...`,
-      `[${getTimestamp()}] Verifying secure channels... Status: [OK]`,
-      `[${getTimestamp()}] Gaining access to classified database...`,
-      `[${getTimestamp()}] Connection established with satellite OMEGA-7 [192.168.12.48]...`,
-      `[${getTimestamp()}] Loading cryptographic modules...`,
+      `[${getTimestamp()}] Routing signal through relay AEGIS-1...`,
       `[${getTimestamp()}] ********** ULTRA-SECURE DATA LINK ONLINE **********`,
-      `[${getTimestamp()}] SSH connection established successfully.\n\n`,
-      `[Welcome]  To get help, prompt: help or -h.\n\n`,
-      `[Hint]  if your prompt doesnt show characters please click on screen\n\n`,
-      `[Hint]  To load graphic user interface prompt: gui\n\n`,
+      `[${getTimestamp()}] SSH connection established successfully.`,
+      ``,
+      `Welcome to ${siteConfig.alias} terminal.`,
+      `Type 'help' or '-h' to see available commands.`,
+      `Type 'gui' to load the graphic user interface.`,
+      ``,
     ];
 
     const timeoutIds: NodeJS.Timeout[] = [];
-
     loadMessages.forEach((message, index) => {
-      const timeoutId = setTimeout(() => {
-        setHelper((prevHelper) => [...prevHelper, message]);
-        if (index === loadMessages.length - 1) {
-          setLoading(false); // Loading complete
-        }
-      }, (index + 1) * 150);
-      timeoutIds.push(timeoutId);
+      const id = setTimeout(() => {
+        setHelper((prev) => [...prev, message]);
+        if (index === loadMessages.length - 1) setLoading(false);
+      }, (index + 1) * 120);
+      timeoutIds.push(id);
     });
 
-    return () => {
-      timeoutIds.forEach(clearTimeout);
-    };
+    return () => timeoutIds.forEach(clearTimeout);
   }, []);
 
-  const handleCommandExecution = (command: string) => {
-    switch (command.toLowerCase().trim()) {
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [history, helper]);
+
+  useEffect(() => {
+    const blinkInterval = setInterval(() => setBlinking((prev) => !prev), 500);
+    return () => clearInterval(blinkInterval);
+  }, []);
+
+  const handleCommandExecution = (cmd: string) => {
+    const trimmed = cmd.toLowerCase().trim();
+    switch (trimmed) {
       case 'help':
       case '-h':
         setHistory((prev) => [
           ...prev,
-          'Available commands:\n',
-          '  about    — Who is Dave',
-          '  skills   — Tech stack',
-          '  projects — Featured projects',
-          '  contact  — Get in touch',
-          '  gui      — Load graphic interface',
-          '  clear    — Clear console',
-          '  help, -h — Show this message',
+          'Available commands:',
+          '  about     — Who is Dave',
+          '  skills    — Tech stack',
+          '  projects  — Featured projects',
+          '  contact   — Get in touch',
+          '  experience — Work history',
+          '  social    — Social media links',
+          '  whoami    — Quick intro',
+          '  gui       — Load graphic interface',
+          '  clear     — Clear console',
+          '  help, -h  — Show this message',
+          '',
         ]);
         break;
       case 'about':
         setHistory((prev) => [
           ...prev,
-          'David Orlando Miranda — Full Stack Developer',
-          '4+ years building web products across frontend and backend.',
-          'Currently available for freelance and full-time opportunities.',
-          'Based in Colombia 🇨🇴',
+          `${siteConfig.name} — ${siteConfig.role[lang]}`,
+          siteConfig.bio[lang],
+          `Location: ${siteConfig.location} ${siteConfig.locationFlag}`,
+          siteConfig.available
+            ? `Status: Available for work ✓`
+            : `Status: Not available`,
+          '',
+        ]);
+        break;
+      case 'whoami':
+        setHistory((prev) => [
+          ...prev,
+          `dave@daev:~$ ${siteConfig.name}`,
+          `Role: ${siteConfig.role[lang]}`,
+          '',
         ]);
         break;
       case 'skills':
         setHistory((prev) => [
           ...prev,
-          'Frontend : React · Next.js · Vue · TypeScript · Tailwind CSS',
-          'Backend  : Node.js · NestJS · Express · PostgreSQL · MongoDB',
-          'Tools    : Git · Docker · NX · Redux · Jest · Vercel',
+          'Frontend : ' + siteConfig.skills.frontend.join(' · '),
+          'Backend  : ' + siteConfig.skills.backend.join(' · '),
+          'Tools    : ' + siteConfig.skills.tools.join(' · '),
+          '',
         ]);
         break;
       case 'projects':
         setHistory((prev) => [
           ...prev,
-          '1. Ukraine Population Map  → https://pop-ukraine-map.vercel.app/',
-          '2. Rescatista Gallery      → https://rescatista.vercel.app',
-          '3. GitPulse Web            → https://github.com/Davidongo93/git-pulse-web',
-          '4. VideoApp API Challenge  → https://github.com/Davidongo93/videoapp-API-challenge',
-          '5. Disruptive Media MERN   → https://github.com/Davidongo93/disruptive-media',
+          'Featured projects:',
+          ...siteConfig.featuredProjects.map(
+            (p, i) => `  ${i + 1}. ${p.name} — ${p.liveUrl}`
+          ),
           '',
-          'More: https://github.com/Davidongo93',
+          `More: ${siteConfig.links.github}`,
+          '',
+        ]);
+        break;
+      case 'experience':
+        setHistory((prev) => [
+          ...prev,
+          'Work history:',
+          ...siteConfig.experience.map(
+            (e) => `  ${e.period} | ${e.company} — ${e.role[lang]}`
+          ),
+          '',
         ]);
         break;
       case 'contact':
         setHistory((prev) => [
           ...prev,
-          'Email    : domirandar@gmail.com',
-          'LinkedIn : https://linkedin.com/in/domirandar',
-          'GitHub   : https://github.com/Davidongo93',
-          'WhatsApp : https://wa.me/+573015740156',
+          `Email    : ${siteConfig.email}`,
+          `WhatsApp : ${siteConfig.whatsapp}`,
+          `LinkedIn : ${siteConfig.links.linkedin}`,
+          `GitHub   : ${siteConfig.links.github}`,
+          '',
+        ]);
+        break;
+      case 'social':
+        setHistory((prev) => [
+          ...prev,
+          `GitHub    : ${siteConfig.links.github}`,
+          `LinkedIn  : ${siteConfig.links.linkedin}`,
+          `Twitter/X : ${siteConfig.links.twitter}`,
+          `Instagram : ${siteConfig.links.instagram}`,
+          `Discord   : ${siteConfig.links.discord}`,
+          '',
         ]);
         break;
       case 'clear':
@@ -117,91 +167,74 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
         setHelper([]);
         break;
       case 'gui':
-        setHistory((prev) => [...prev, 'Loading graphic user interface....']);
-        setTimeout(() => onStateChange(false), 2500);
+        setHistory((prev) => [...prev, 'Loading graphic user interface...']);
+        setTimeout(() => onStateChange(false), 1500);
+        break;
+      case '':
         break;
       default:
         setHistory((prev) => [
           ...prev,
-          `Command not recognized: ${command}. Type 'help' for available commands.`,
+          `Command not recognized: ${cmd}. Type 'help' for available commands.`,
+          '',
         ]);
         break;
     }
   };
 
-  // Handle key events, including command execution
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !loading) {
-      setHistory((prevHistory) => [
-        ...prevHistory,
-        `┌──(dave㉿Daev)-[~]\n└─$ ${command}`,
-      ]);
-      handleCommandExecution(command); // Execute the command
-      setCommand(''); // Clear the input
-      setCommandCounter(0); // Reset command counter
-    } else if (e.key === 'Backspace') {
-      setCommand((prev) => prev.slice(0, -1)); // Handle backspace
-    } else if (e.key.length === 1) {
-      setCommand((prev) => prev + e.key); // Append printable characters
-    } else if (e.key === 'ArrowUp') {
-      // Command history navigation: Move up
-      if (history.length > 0 && commandCounter < history.length) {
-        setCommandCounter((prevCounter) => prevCounter + 1);
-        setCommand(
-          history[history.length - commandCounter - 1].replace(
-            '┌──(dave㉿Daev)-[~]\n└─$ ',
-            ''
-          )
-        ); // Retrieve command from history
+    if (loading) return;
+
+    if (e.key === 'Enter') {
+      setHistory((prev) => [...prev, `┌──(dave㉿Daev)-[~]\n└─$ ${command}`]);
+      if (command.trim()) {
+        setCommandHistory((prev) => [...prev, command]);
       }
+      handleCommandExecution(command);
+      setCommand('');
+      setHistoryIndex(-1);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length === 0) return;
+      const newIdx = historyIndex < commandHistory.length - 1 ? historyIndex + 1 : historyIndex;
+      setHistoryIndex(newIdx);
+      setCommand(commandHistory[commandHistory.length - 1 - newIdx]);
     } else if (e.key === 'ArrowDown') {
-      // Command history navigation: Move down
-      if (commandCounter > 0) {
-        setCommandCounter((prevCounter) => prevCounter - 1);
-        setCommand(
-          history[history.length - commandCounter + 1]?.replace(
-            '┌──(dave㉿Daev)-[~]\n└─$ ',
-            ''
-          ) || ''
-        );
+      e.preventDefault();
+      if (historyIndex <= 0) {
+        setHistoryIndex(-1);
+        setCommand('');
+      } else {
+        const newIdx = historyIndex - 1;
+        setHistoryIndex(newIdx);
+        setCommand(commandHistory[commandHistory.length - 1 - newIdx]);
       }
     }
   };
 
-  // Blinking cursor effect and focus 
-  useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      setBlinking((prev) => !prev);
-    }, 500);
-    return () => clearInterval(blinkInterval);
-  }, []);
-
-  useEffect(() => {
-    const consoleElement = document.querySelector('.console') as HTMLDivElement;
-  
-    if (consoleElement) {
-      consoleElement.focus(); // Auto-focus on mount
-    }
-  }, []);
-  useEffect(() => {
-    const consoleElement = document.querySelector('.console-output') as HTMLDivElement;
-    if (consoleElement) {
-      consoleElement.scrollTop = consoleElement.scrollHeight;
-    }
-  }, []);
+  const focusInput = () => inputRef.current?.focus();
 
   return (
-    <div className="console" onKeyDown={handleKeyDown} tabIndex={0}>
-      <div className="console-output flex-col">
+    <div className="console" onClick={focusInput} tabIndex={0}>
+      <input
+        ref={inputRef}
+        type="text"
+        value={command}
+        onChange={(e) => setCommand(e.target.value)}
+        onKeyDown={handleKeyDown}
+        className="console-hidden-input"
+        aria-label="Console command input"
+        autoCapitalize="none"
+        autoCorrect="off"
+        spellCheck={false}
+      />
+
+      <div ref={outputRef} className="console-output">
         {helper.map((line, index) => (
-          <div key={index} className="console-output">
-            {line}
-          </div>
+          <div key={`h-${index}`}>{line}</div>
         ))}
         {history.map((line, index) => (
-          <div key={index} className="console-output">
-            {line}
-          </div>
+          <div key={`c-${index}`}>{line}</div>
         ))}
         {!loading && (
           <>
@@ -213,6 +246,8 @@ const Console: React.FC<ChildComponentProps> = ({ onStateChange }) => {
           </>
         )}
       </div>
+
+      <div className="console-tap-hint md:hidden">{t.console.tapHint} ↓</div>
     </div>
   );
 };

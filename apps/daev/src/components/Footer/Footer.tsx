@@ -1,46 +1,28 @@
-'use client'
-import { useState, useEffect } from 'react';
-import styles from './Footer.module.css';
+'use client';
+import { FaHeart } from 'react-icons/fa';
+import { siteConfig } from '../../config/site';
+import { useLang } from '../../context/LangContext';
 
 export default function Footer() {
-  const [showFooter, setShowFooter] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
-      setShowFooter(isAtBottom);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const getCurrentYear = () => {
-    return new Date().getFullYear();
-  };
+  const { t, lang } = useLang();
+  const year = new Date().getFullYear();
 
   return (
-    <nav
-      className={`${styles.footer} ${showFooter ? styles['opacity-1'] : styles['opacity-0']} ${
-        showFooter ? styles['blur-10px'] : ''
-      } ${showFooter ? styles['pointer-events-auto'] : ''}`}
-    >
-      <footer className="text-center">
-        <p>
-          &copy; {getCurrentYear()} By{' '}
-          <a
-            href="https://github.com/Davidongo93"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 font-semibold"
-          >
-            DÆV
-          </a>
+    <footer className="bg-surface border-t border-border py-8 mt-8">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <div>
+          <p className="font-display font-bold text-accent text-lg">{siteConfig.alias}</p>
+          <p className="text-xs text-muted mt-1">{t.footer.tagline}</p>
+        </div>
+
+        <p className="text-xs text-muted flex items-center gap-1.5">
+          © {year} {siteConfig.name}. {t.footer.rights}.
         </p>
-      </footer>
-    </nav>
+
+        <p className="text-xs text-muted flex items-center gap-1.5">
+          {t.footer.madeWith} <FaHeart className="text-red-500" /> {lang === 'es' ? 'en' : 'in'} {siteConfig.location} {siteConfig.locationFlag}
+        </p>
+      </div>
+    </footer>
   );
 }

@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect } from 'react';
 import {
   FaGithub,
@@ -9,9 +10,13 @@ import {
   FaBars,
   FaTimes,
   FaBlogger,
+  FaTerminal,
+  FaSun,
+  FaMoon,
 } from 'react-icons/fa';
-import IconButton from '../IconButton/IconButton';
-import TerminalButton from '../TerminalButton/TerminalButton';
+import { useTheme } from '../../context/ThemeContext';
+import { useLang } from '../../context/LangContext';
+import { siteConfig } from '../../config/site';
 
 interface HeaderProps {
   onStateChange: (newValue: boolean) => void;
@@ -19,98 +24,151 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onStateChange }) => {
   const [scrolling, setScrolling] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para el menú hamburguesa
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const { theme, toggle: toggleTheme } = useTheme();
+  const { t, toggle: toggleLang } = useLang();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolling(window.scrollY > 0);
-    };
-
+    const handleScroll = () => setScrolling(window.scrollY > 12);
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id);
+        }),
+      { threshold: 0.3 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  const navLinks = [
+    { href: '#about', label: t.nav.about, id: 'about' },
+    { href: '/blog', label: t.nav.blog, id: 'blog' },
+    { href: '#skills', label: t.nav.skills, id: 'skills' },
+    { href: '#projects', label: t.nav.projects, id: 'projects' },
+    { href: '#contact', label: t.nav.contact, id: 'contact' },
+  ];
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav
-      className={`z-20 flex justify-end align-center h-16  w-screen fixed ${
-        scrolling ? 'bg-gray-900 shadow-lg' : 'bg-gray-900 opacity-80'
-      } transition-all duration-1000 backdrop-blur-md`}
+      className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${
+        scrolling
+          ? 'bg-surface/95 backdrop-blur-md shadow-lg border-b border-border'
+          : 'bg-surface/70 backdrop-blur-sm'
+      }`}
     >
-      <div className="flex-grow flex items-center justify-start flex-1 p-4 ml-4 ">
-        {/* Menú Hamburguesa */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-white focus:outline-none"
-          >
-            {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
+      <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
+        {/* Logo */}
+        <a
+          href="/"
+          className="font-display font-bold text-xl text-accent tracking-widest hover:opacity-80 transition"
+          aria-label={`${siteConfig.alias} home`}
+        >
+          {siteConfig.alias}
+        </a>
+
+        {/* Nav desktop */}
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              className={`text-sm font-medium transition hover:text-accent ${
+                activeSection === link.id ? 'text-accent' : 'text-muted'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        {/* Navegación principal para pantallas grandes */}
-        <div className={`hidden md:flex space-x-6 items-center ml-8`}>
-          <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
-          <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
-          <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
-          <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />
-          <IconButton
-           size='small' 
-            href="https://github.com/Davidongo93"
-            icon={<FaGithub />}
-            label="GitHub"
-            target="_blank" // Abre en nueva pestaña
-            rel="noopener noreferrer" // Mejora la seguridad
-          />
-          <IconButton
-           size='small' 
-            href="https://www.linkedin.com/in/domirandar/"
-            icon={<FaLinkedin />}
-            label="LinkedIn"
-            target="_blank" // Abre en nueva pestaña
-            rel="noopener noreferrer" // Mejora la seguridad
-          />
-          <IconButton
-           size='small' 
-            href=""
-            icon={<TerminalButton onStateChange={onStateChange} />}
-            label="Term"
-          />
-         </div>
+        {/* Controls */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Lang toggle */}
+          <button
+            onClick={toggleLang}
+            aria-label="Toggle language"
+            className="text-xs font-mono font-bold text-muted hover:text-accent transition px-2 py-1 border border-border rounded hover:border-accent"
+          >
+            {t.lang.switch}
+          </button>
 
-          </div>
-      {/* Menú desplegable para pantallas pequeñas */}
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? t.theme.light : t.theme.dark}
+            title={theme === 'dark' ? t.theme.light : t.theme.dark}
+            className="text-muted hover:text-accent transition p-1.5 rounded hover:bg-surface-el"
+          >
+            {theme === 'dark' ? <FaSun size={16} /> : <FaMoon size={16} />}
+          </button>
+
+          {/* Terminal */}
+          <button
+            onClick={() => onStateChange(true)}
+            aria-label={t.nav.cli}
+            title={t.nav.cli}
+            className="text-muted hover:text-accent transition p-1.5 rounded hover:bg-surface-el"
+          >
+            <FaTerminal size={16} />
+          </button>
+
+          {/* Hamburger */}
+          <button
+            className="md:hidden text-fore hover:text-accent transition p-1.5"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-16 left-0 w-fit bg-gray-800 flex flex-col items-center p-4 space-y-4 md:hidden">
-          <IconButton size='small' href="#about" icon={<FaUser />} label="About" />
-          <IconButton size='small' href="/blog" icon={<FaBlogger />} label="Blog" />
-          <IconButton size='small' href="#skills" icon={<FaTools />} label="Skills" />
-          <IconButton size='small' href="#projects" icon={<FaProjectDiagram />} label="Projects" />
-          <IconButton size='small' href="#contact" icon={<FaEnvelope />} label="Contact" />
-          <IconButton
-           size='small' 
-            href="https://github.com/Davidongo93"
-            icon={<FaGithub />}
-            label="GitHub"
-            target="_blank" // Abre en nueva pestaña
-            rel="noopener noreferrer" // Mejora la seguridad
-          />
-          <IconButton
-           size='small' 
-            href="https://www.linkedin.com/in/domirandar/"
-            icon={<FaLinkedin />}
-            label="LinkedIn"
-            target="_blank" // Abre en nueva pestaña
-            rel="noopener noreferrer" // Mejora la seguridad
-          />
-          <IconButton
-           size='small' 
-            href=""
-            icon={<TerminalButton onStateChange={onStateChange} />}
-            label="CLI version"
-          />
+        <div className="md:hidden bg-surface border-t border-border flex flex-col px-6 py-4 gap-4 shadow-xl animate-fade-in">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              onClick={closeMenu}
+              className={`text-base font-medium transition hover:text-accent ${
+                activeSection === link.id ? 'text-accent' : 'text-fore'
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="flex items-center gap-4 pt-3 border-t border-border">
+            <a
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} />
+            </a>
+          </div>
         </div>
       )}
     </nav>

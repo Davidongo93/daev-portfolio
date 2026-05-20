@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
+import { FaStar, FaCodeBranch, FaCalendarAlt } from 'react-icons/fa';
 
 interface Repo {
   id: number;
@@ -15,43 +17,57 @@ interface Repo {
 }
 
 interface CardGridProps {
-  currentPage: number;
-  projectsPerPage: number;
+  repos: Repo[];
 }
 
-const CardGrid: React.FC<CardGridProps> = ({ currentPage, projectsPerPage }) => {
-  const [repos, setRepos] = React.useState<Repo[]>([]);
-
-  React.useEffect(() => {
-    fetch('/api/github')
-      .then((response) => response.json())
-      .then((data: Repo[]) => {
-        setRepos(data);
-      })
-      .catch((error) => console.error('Error fetching repositories:', error));
-  }, []);
-
-  // Calcular los índices de los proyectos a mostrar
-  const indexOfLastProject = currentPage * projectsPerPage;
-  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = repos.slice(indexOfFirstProject, indexOfLastProject);
-
+const CardGrid: React.FC<CardGridProps> = ({ repos }) => {
   return (
-    <div className="shadow border-4 rounded mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {currentProjects.map((repo) => (
-          <Link key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            <div className="p-4 rounded shadow-lg border bg-gray-800 w-full h-64 flex flex-col justify-between">
-              <div>
-                <h2 className="text-xl font-bold truncate">{repo.name}</h2>
-                <p className="text-sm mb-2">{repo.description || 'No description available.'}</p>
-                <p className="text-xs italic">Language: {repo.language || 'Unknown'}</p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {repos.map((repo) => (
+        <Link
+          key={repo.id}
+          href={repo.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block group"
+        >
+          <article className="h-full p-5 rounded-2xl border border-border bg-surface-el hover:border-accent/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col">
+            <header className="mb-3">
+              <h3 className="font-display text-lg font-semibold text-fore group-hover:text-accent transition line-clamp-1">
+                {repo.name}
+              </h3>
+              {repo.language && (
+                <span className="inline-block mt-1 text-xs text-accent font-mono">
+                  {repo.language}
+                </span>
+              )}
+            </header>
+
+            <p className="text-sm text-muted line-clamp-3 mb-4 flex-1">
+              {repo.description || 'No description available.'}
+            </p>
+
+            <footer className="flex items-center justify-between text-xs text-muted pt-3 border-t border-border">
+              <div className="flex items-center gap-3">
+                {repo.stargazers_count > 0 && (
+                  <span className="inline-flex items-center gap-1">
+                    <FaStar /> {repo.stargazers_count}
+                  </span>
+                )}
+                {repo.forks_count > 0 && (
+                  <span className="inline-flex items-center gap-1">
+                    <FaCodeBranch /> {repo.forks_count}
+                  </span>
+                )}
               </div>
-              <p className="text-xs italic text-right mt-2">Last updated: {new Date(repo.updated_at).toLocaleDateString()}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
+              <span className="inline-flex items-center gap-1">
+                <FaCalendarAlt />
+                {new Date(repo.updated_at).toLocaleDateString()}
+              </span>
+            </footer>
+          </article>
+        </Link>
+      ))}
     </div>
   );
 };

@@ -1,28 +1,28 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
+import BlogNav from '../../components/BlogNav/BlogNav';
+import Footer from '../../components/Footer/Footer';
+import { siteConfig } from '../../config/site';
 
-export const metadata = {
-  title: 'Blog | Dave Miranda',
-  description: 'Thoughts and articles by David Miranda — Full Stack Developer.',
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: `Articles, tutorials and reflections by ${siteConfig.name} — ${siteConfig.role.en}.`,
+  alternates: { canonical: `${siteConfig.siteUrl}/blog` },
+  openGraph: {
+    title: `Blog | ${siteConfig.alias}`,
+    description: `Articles, tutorials and reflections by ${siteConfig.name}.`,
+    url: `${siteConfig.siteUrl}/blog`,
+    type: 'website',
+  },
 };
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <nav className="fixed top-0 left-0 w-screen z-20 h-14 bg-gray-900 bg-opacity-90 backdrop-blur-md flex items-center px-6 gap-6">
-        <Link href="/" className="text-white font-bold text-lg tracking-widest hover:text-green-300 transition">
-          DÆV
-        </Link>
-        <Link href="/#about" className="text-gray-300 text-sm hover:text-white transition">About</Link>
-        <Link href="/#skills" className="text-gray-300 text-sm hover:text-white transition">Skills</Link>
-        <Link href="/#projects" className="text-gray-300 text-sm hover:text-white transition">Projects</Link>
-        <Link href="/#contact" className="text-gray-300 text-sm hover:text-white transition">Contact</Link>
-        <Link href="/blog" className="text-green-400 text-sm font-semibold hover:text-green-300 transition ml-auto">
-          /blog
-        </Link>
-      </nav>
-      <div className="pt-14">
+      <BlogNav />
+      <div className="pt-16 min-h-screen bg-bg">
         {children}
       </div>
+      <Footer />
     </>
   );
 }

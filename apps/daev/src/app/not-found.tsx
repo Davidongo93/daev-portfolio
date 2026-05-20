@@ -1,34 +1,38 @@
-'use client'
+'use client';
 import React from 'react';
 import Link from 'next/link';
-import HeroSection from '../components/HeroSection/HeroSection';
-import { Highlight } from 'prism-react-renderer';
-import { themes } from 'prism-react-renderer';
+import { FaHome, FaArrowRight } from 'react-icons/fa';
+import { Highlight, themes } from 'prism-react-renderer';
+import { useLang } from '../context/LangContext';
 
-const goHomeCode = `
-  const goHome = () => {
-    window.location.href = '/';
-  };
-  
-  goHome();
-`;
+const goHomeCode = `const goHome = () => {
+  window.location.href = '/';
+};
+
+goHome();`;
 
 const Custom404: React.FC = () => {
-  return (
-    <div className="relative min-h-screen flex flex-col justify-center items-center text-white">
-      {/* Hero Section with background image */}
-      <HeroSection />
-      
-      <div className="relative z-10 text-center bg-gray-900 opacity-70  h-min w-min rounded-sm">
-        <h1 className="text-6xl font-bold mb-4">404</h1>
-        <p className="text-xl mb-8">Oops! The page you are looking for does not exist.</p>
+  const { t } = useLang();
 
-        {/* Code Block with Prism highlighting */}
-        <Link href="/" passHref>
-        <div className="bg-gray-900 opacity-95 z-auto rounded-lg shadow-lg p-4  hover:scale-105 transition-transform duration-300 ease-in-out">
-          <Highlight theme={themes.dracula} code={goHomeCode.trim()} language="javascript">
+  return (
+    <main className="relative min-h-screen bg-bg text-fore flex flex-col items-center justify-center px-4 py-20">
+      <div className="max-w-xl w-full text-center space-y-6 animate-fade-in">
+        <p className="font-display font-bold text-[8rem] md:text-[10rem] leading-none text-accent">
+          404
+        </p>
+        <h1 className="font-display text-2xl md:text-3xl text-fore">{t.notFound.title}</h1>
+        <p className="text-muted">{t.notFound.message}</p>
+
+        <Link
+          href="/"
+          className="block bg-surface-el rounded-2xl shadow-xl p-5 border border-border hover:border-accent transition group text-left"
+        >
+          <Highlight theme={themes.dracula} code={goHomeCode} language="javascript">
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre className={`${className} p-4 rounded-lg overflow-hidden`} style={style}>
+              <pre
+                className={`${className} text-sm rounded-lg overflow-hidden bg-transparent p-0 m-0`}
+                style={{ ...style, background: 'transparent' }}
+              >
                 {tokens.map((line, i) => (
                   <div key={i} {...getLineProps({ line, key: i })}>
                     {line.map((token, key) => (
@@ -39,10 +43,16 @@ const Custom404: React.FC = () => {
               </pre>
             )}
           </Highlight>
-        </div>
+        </Link>
+
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-bg font-semibold text-sm hover:bg-accent-hover transition-all hover:scale-105 shadow-lg"
+        >
+          <FaHome /> {t.notFound.back} <FaArrowRight size={12} />
         </Link>
       </div>
-    </div>
+    </main>
   );
 };
 

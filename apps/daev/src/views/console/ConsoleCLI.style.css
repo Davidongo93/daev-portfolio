@@ -38,6 +38,20 @@
   flex-direction: column;
   position: relative;
   z-index: 1;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.console-output::-webkit-scrollbar {
+  width: 6px;
+}
+.console-output::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 0, 0.3);
+  border-radius: 3px;
+}
+.console-output::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .console-output > div {

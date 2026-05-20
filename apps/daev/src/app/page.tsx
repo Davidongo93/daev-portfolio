@@ -1,24 +1,10 @@
 'use client';
-import { useState } from 'react';
 import ConsoleCLI from '../views/console/ConsoleCLI';
 import Home from '../views/Home/Home';
+import { useUI } from '../context/UIContext';
 
 export default function Index() {
+  const { cliMode, hideCli } = useUI();
 
-  const [cliMode, setCliMode] = useState<boolean | null>(null);
-
-
-  const handleUiChange = (newValue: boolean) => {
-    setCliMode(!cliMode);
-  };
-
-  return (
-    <>
-      {cliMode ? (
-        <ConsoleCLI onStateChange={handleUiChange} />
-      ) : (
-        <Home onStateChange={handleUiChange} />
-      )}
-    </>
-  );
+  return cliMode ? <ConsoleCLI onExit={hideCli} /> : <Home />;
 }

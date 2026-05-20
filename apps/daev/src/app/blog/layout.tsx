@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import BlogNav from '../../components/BlogNav/BlogNav';
 import Footer from '../../components/Footer/Footer';
 import { siteConfig } from '../../config/site';
 
@@ -18,8 +17,7 @@ export const metadata: Metadata = {
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <BlogNav />
-      <div className="pt-16 min-h-screen bg-bg">
+      <div className="pt-16 min-h-screen bg-bg animate-fade-in">
         {children}
       </div>
       <Footer />

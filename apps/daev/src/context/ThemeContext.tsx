@@ -3,14 +3,15 @@ import { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
 
+const noop = () => undefined;
+
 const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
   theme: 'dark',
-  toggle: () => {},
+  toggle: noop,
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = (typeof window !== 'undefined' && localStorage.getItem('theme')) as Theme | null;
@@ -19,7 +20,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     setTheme(preferred);
     document.documentElement.classList.toggle('dark', preferred === 'dark');
-    setMounted(true);
   }, []);
 
   const toggle = () => {

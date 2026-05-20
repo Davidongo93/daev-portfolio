@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { ThemeProvider } from '../context/ThemeContext';
 import { LangProvider } from '../context/LangContext';
+import { UIProvider } from '../context/UIContext';
+import UnifiedNav from '../components/UnifiedNav/UnifiedNav';
 import WhatsAppButton from '../components/WhatsAppButton/WhatsAppButton';
 import { siteConfig } from '../config/site';
 
@@ -170,8 +172,11 @@ export default function RootLayout({
       <body className="bg-bg text-fore font-sans transition-colors duration-300 antialiased">
         <ThemeProvider>
           <LangProvider>
-            {children}
-            <WhatsAppButton />
+            <UIProvider>
+              <UnifiedNav />
+              {children}
+              <WhatsAppButton />
+            </UIProvider>
           </LangProvider>
         </ThemeProvider>
       </body>

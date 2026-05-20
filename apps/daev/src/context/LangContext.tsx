@@ -208,6 +208,8 @@ export type Translations = typeof translations.en;
 
 const tMap: Record<Lang, Translations> = translations as unknown as Record<Lang, Translations>;
 
+const noop = () => undefined;
+
 const LangContext = createContext<{
   lang: Lang;
   t: Translations;
@@ -216,8 +218,8 @@ const LangContext = createContext<{
 }>({
   lang: 'en',
   t: translations.en as unknown as Translations,
-  toggle: () => {},
-  setLang: () => {},
+  toggle: noop,
+  setLang: noop,
 });
 
 export function LangProvider({ children }: { children: React.ReactNode }) {

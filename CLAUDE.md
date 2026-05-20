@@ -1,6 +1,35 @@
-# CLAUDE.md — Plan de rediseño completo: daev-portfolio v2
+# CLAUDE.md — Plan de refinamiento v2.1: daev-portfolio
 
-> **Para Opus:** Ejecuta cada fase en orden. Lee la sección completa antes de escribir código. Verifica `npx nx build daev` sin errores al terminar cada fase. No agregues dependencias externas — todo lo necesario ya está instalado.
+> **Para Opus:** Refinamiento post-producción del portafolio. Ejecuta cada fase en orden. Lee la sección completa antes de escribir código. Verifica `npx nx build daev` sin errores al terminar cada fase. No agregues dependencias externas — todo lo necesario ya está instalado.
+
+## 🎯 Objetivo v2.1 — Feedback de Opus v2
+
+La v2 está en producción y funciona bien, pero hay inconsistencias visuales y de navegación que necesitan pulido:
+
+1. **Inconsistencia visual**: La imagen de fondo en home (HeroSection) afecta mucho la consistencia visual del sitio. Debe removerse.
+2. **Estructura inconsistente**: Home y blog tienen layouts muy diferentes. Home debe ser más similar a blog (limpio, sin background distractor).
+3. **Navbar inconsistente**: Header en home ≠ BlogNav en blog. Deben unificarse en un único navbar disponible en TODAS las secciones.
+4. **Indicador de sección**: El navbar debe mostrar visualmente dónde estamos (underline + color, no solo color).
+5. **Consola integrada**: Terminal button debe estar en el navbar (derecha, junto con tema/idioma), y la consola debe estar disponible desde ANY sección.
+6. **CLI command**: "gui" → "exit" (más lógico para volver a la interfaz gráfica).
+7. **Auto-scroll en consola**: Debe hacer scroll automático cuando hay nuevas líneas (más realista).
+8. **Más comandos CLI**: Agregar más comandos informativos y Easter eggs (sorpresas) que despierten curiosidad.
+9. **Transiciones pulidas**: Revisar y mejorar las transiciones entre vistas (fade, slide, etc.) para coherencia.
+10. **Público objetivo**: Reclutadores, equipos técnicos, compañeros de trabajo. El sitio debe verse **profesional**, **dinámico** e **intuitivo**.
+
+---
+
+## Visión: "El mejor portafolio de la galaxia"
+
+**Criterios de éxito:**
+- Coherencia visual en TODAS las vistas (home, blog, CLI, 404)
+- Navbar unificado y accesible desde cualquier lugar
+- Transiciones smooth entre vistas
+- CLI con personalidad y Easter eggs
+- Paleta de colores perfecta (ya está bien, solo ajustar para sin background)
+- Impresionar a reclutadores en primera vista
+- Mobile-first responsiveness
+- Performance excelente (build clean, no warnings)
 
 ---
 
@@ -524,92 +553,207 @@ Agregar estilos de personalización en `global.css` para los botones de Swiper:
 
 ---
 
-## FASE 2 — Header: tema, idioma, responsive mejorado
+## FASE 2 — Navbar unificado: Header, tema, idioma, responsive mejorado
 
-### 2.1 — Redesign completo del Header
+### 2.1 — Eliminar BlogNav, crear Navbar unificado
 
-**Archivo:** `apps/daev/src/components/Header/Header.tsx`
+**Problemas actuales:**
+- Header en home ≠ BlogNav en blog (inconsistencia)
+- Navbar no disponible en CLI
+- Terminal button no está siempre accesible
+- Sin indicador visual clear de sección activa
 
-El nuevo Header tiene:
-1. Logo "DÆV" a la izquierda (texto, clickeable → `href="/"`)
-2. Nav links en el centro (desktop)
-3. Tres controles a la derecha: toggle idioma | toggle tema | terminal button
-4. Hamburger en mobile con menú desplegable que se cierra al hacer click en un link
+**Solución:** Crear un único componente `UnifiedNav` que:
+1. Se usa en `layout.tsx` (encima del `{children}`)
+2. Funciona igual en home, blog, y dentro de CLI
+3. Muestra indicador de sección activa (color + underline/border-bottom)
+4. Terminal button siempre a la derecha
+5. Responsive: hamburger en mobile
 
-Estructura JSX del nav desktop:
+**Archivo:** `apps/daev/src/components/UnifiedNav/UnifiedNav.tsx`
+
 ```tsx
-<nav className="fixed top-0 left-0 w-screen z-50 h-16 bg-surface/80 backdrop-blur-md border-b border-border transition-all duration-300">
-  <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { FaBars, FaTimes, FaMoon, FaSun, FaTerminal } from 'react-icons/fa';
+import { useTheme } from '../../context/ThemeContext';
+import { useLang } from '../../context/LangContext';
+import { siteConfig } from '../../config/site';
 
-    {/* Logo */}
-    <a href="/" className="font-display font-bold text-xl text-accent tracking-widest hover:opacity-80 transition">
-      DÆV
-    </a>
+interface UnifiedNavProps {
+  onShowTerminal?: () => void;
+  currentPath?: string; // Ej: '/blog' o '/'
+}
 
-    {/* Nav desktop */}
-    <div className="hidden md:flex items-center gap-6">
-      {/* Render nav links from translations */}
-    </div>
+export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: UnifiedNavProps) {
+  const { theme, toggle: toggleTheme } = useTheme();
+  const { lang, toggle: toggleLang, t } = useLang();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
-    {/* Controls */}
-    <div className="flex items-center gap-3">
-      {/* Lang toggle: muestra "ES" o "EN" según idioma activo */}
-      <button onClick={langToggle} className="text-xs font-mono font-bold text-muted hover:text-accent transition px-2 py-1 border border-border rounded">
-        {t.lang.switch}
-      </button>
+  useEffect(() => {
+    // Detect active section using IntersectionObserver
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { threshold: 0.3 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
-      {/* Theme toggle: ícono luna/sol */}
-      <button onClick={themeToggle} className="text-muted hover:text-accent transition">
-        {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
-      </button>
+  const navLinks = [
+    { href: '#about', label: t.nav.about, sectionId: 'about' },
+    { href: '#experience', label: t.nav.experience, sectionId: 'experience' },
+    { href: '#skills', label: t.nav.skills, sectionId: 'skills' },
+    { href: '#projects', label: t.nav.projects, sectionId: 'projects' },
+    { href: '/blog', label: t.nav.blog, sectionId: 'blog' },
+    { href: '#contact', label: t.nav.contact, sectionId: 'contact' },
+  ];
 
-      {/* Terminal button */}
-      <button onClick={() => onStateChange(true)} className="text-muted hover:text-accent transition">
-        <FaTerminal size={18} />
-      </button>
+  const isNavLinkActive = (link: typeof navLinks[0]) => {
+    if (link.sectionId === 'blog' && currentPath === '/blog') return true;
+    return activeSection === link.sectionId;
+  };
 
-      {/* Hamburger (mobile only) */}
-      <button className="md:hidden text-fore" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-      </button>
-    </div>
+  return (
+    <nav className="fixed top-0 left-0 w-full z-50 h-16 bg-surface/80 backdrop-blur-md border-b border-border transition-all duration-300">
+      <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
+        
+        {/* Logo */}
+        <Link href="/" className="font-display font-bold text-xl text-accent tracking-widest hover:opacity-80 transition">
+          DÆV
+        </Link>
 
-  </div>
+        {/* Nav desktop */}
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = isNavLinkActive(link);
+            return (
+              <a
+                key={link.sectionId}
+                href={link.href}
+                className={`text-sm font-medium px-3 py-2 rounded-md transition-all relative ${
+                  isActive
+                    ? 'text-accent'
+                    : 'text-muted hover:text-accent'
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent" />
+                )}
+              </a>
+            );
+          })}
+        </div>
 
-  {/* Mobile dropdown */}
-  {isMenuOpen && (
-    <div className="md:hidden bg-surface border-t border-border flex flex-col px-6 py-4 gap-4">
-      {/* Nav links — al hacer click cierra el menú: onClick={() => setIsMenuOpen(false)} */}
-    </div>
-  )}
-</nav>
-```
+        {/* Controls */}
+        <div className="flex items-center gap-3">
+          {/* Lang toggle */}
+          <button
+            onClick={toggleLang}
+            className="text-xs font-mono font-bold text-muted hover:text-accent transition px-2 py-1 border border-border rounded"
+            title={`Switch to ${lang === 'en' ? 'Spanish' : 'English'}`}
+          >
+            {t.lang.switch}
+          </button>
 
-Los nav links usan `href="#about"` etc. y tienen este estilo:
-```tsx
-<a href="#about" className="text-sm text-muted hover:text-accent transition font-medium">
-  {t.nav.about}
-</a>
-```
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="text-muted hover:text-accent transition"
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
+          </button>
 
-### 2.2 — NavLink activo con IntersectionObserver
+          {/* Terminal button */}
+          <button
+            onClick={onShowTerminal}
+            className="text-muted hover:text-accent transition"
+            title="Open terminal"
+          >
+            <FaTerminal size={18} />
+          </button>
 
-Agrega un hook que detecta la sección visible y resalta el link activo:
-```tsx
-const [activeSection, setActiveSection] = useState('');
+          {/* Hamburger (mobile) */}
+          <button
+            className="md:hidden text-fore"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          </button>
+        </div>
 
-useEffect(() => {
-  const sections = document.querySelectorAll('section[id]');
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => e.isIntersecting && setActiveSection(e.target.id)),
-    { threshold: 0.3 }
+      </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-surface border-t border-border flex flex-col px-4 py-4 gap-2 max-h-96 overflow-y-auto">
+          {navLinks.map((link) => {
+            const isActive = isNavLinkActive(link);
+            return (
+              <a
+                key={link.sectionId}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-sm font-medium px-3 py-2 rounded-md transition-all ${
+                  isActive
+                    ? 'text-accent bg-accent/10'
+                    : 'text-muted hover:text-accent'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </nav>
   );
-  sections.forEach(s => observer.observe(s));
-  return () => observer.disconnect();
-}, []);
+}
 ```
 
-Link activo: `text-accent font-semibold` en lugar de `text-muted`.
+### 2.2 — Integrar UnifiedNav en layout.tsx
+
+**Archivo:** `apps/daev/src/app/layout.tsx`
+
+```tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      {/* ... metadata/head ... */}
+      <body className="bg-bg text-fore font-sans transition-colors duration-300">
+        <ThemeProvider>
+          <LangProvider>
+            <UnifiedNav />
+            {children}
+            <WhatsAppButton />
+          </LangProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+### 2.3 — Eliminar Header.tsx y BlogNav.tsx
+
+Borrar:
+- `apps/daev/src/components/Header/Header.tsx`
+- `apps/daev/src/components/BlogNav/BlogNav.tsx`
+
+Actualizar las rutas que importaban Header:
+- `apps/daev/src/views/Home/Home.tsx` — remover `<Header />`
+- `apps/daev/src/app/blog/layout.tsx` — remover `<BlogNav />`
+
+Las vistas ya tendrán acceso a UnifiedNav vía layout.tsx.
 
 ---
 
@@ -617,11 +761,58 @@ Link activo: `text-accent font-semibold` en lugar de `text-muted`.
 
 Cada sección usa las variables CSS del tema. Paleta: `bg-surface`, `bg-surface-el`, `text-fore`, `text-muted`, `text-accent`, `border-border`. Fuente de display en headings: `font-display`.
 
-### 3.1 — HeroSection: background image
+### 3.1 — HeroSection: simplificar sin background, consistencia visual
 
 **Archivo:** `apps/daev/src/components/HeroSection/HeroSection.tsx`
 
-El background animado sigue igual (bwCity.jpg, animated-background). Solo asegurar que el `pt-16` del section que lo contiene esté bien para que no tape el header fixed.
+**CAMBIO IMPORTANTE:** Remover la imagen de fondo (bwCity.jpg) del home. Esto causa:
+- Inconsistencia visual entre home y blog
+- Distracción visual para reclutadores
+- Afecta legibilidad en mobile
+
+La sección hero debe ser simple, limpia y similar al blog:
+
+```tsx
+'use client';
+import { useTheme } from '../../context/ThemeContext';
+
+export default function HeroSection() {
+  const { theme } = useTheme();
+
+  return (
+    <section id="about" className="relative w-full min-h-screen bg-gradient-to-b from-surface to-bg flex items-center justify-center pt-20 pb-16">
+      <div className="max-w-6xl w-full px-4 md:px-8">
+        <div className="text-center space-y-6 animate-fade-in">
+          <h1 className="font-display font-bold text-4xl md:text-6xl text-fore leading-tight">
+            Welcome to my portfolio
+          </h1>
+          <p className="text-lg text-muted max-w-2xl mx-auto">
+            Full Stack Developer passionate about building beautiful, scalable web experiences.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <a href="#projects" className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-bg font-semibold hover:bg-accent-hover transition-all">
+              View My Work
+            </a>
+            <a href="#contact" className="inline-flex items-center px-6 py-3 rounded-lg border border-border text-fore hover:border-accent hover:text-accent transition-all">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+**Lo que cambió:**
+- ❌ Imagen de fondo `bwCity.jpg` removida
+- ❌ CSS animation `animated-background` no se necesita
+- ✅ Gradiente simple `from-surface to-bg` para profundidad
+- ✅ Centrado y limpio
+- ✅ Botones CTA claros
+- ✅ Coherente con diseño blog
+
+Verificar que la clase `animate-fade-in` esté definida en `global.css`.
 
 ### 3.2 — AboutSection: rediseño completo
 
@@ -986,7 +1177,7 @@ Aplicar `className="prose-article"` al div que envuelve `<Markdown>`.
 
 ---
 
-## FASE 5 — ConsoleCLI: fix y mejoras
+## FASE 5 — ConsoleCLI: fix, mejoras y personalidad
 
 ### 5.1 — Eliminar duplicación CSS
 
@@ -994,7 +1185,7 @@ El CSS del console está duplicado en `global.css` Y en `ConsoleCLI.style.css`. 
 
 Mantener `.bg-white-01` en `global.css`.
 
-### 5.2 — Fix `pointer-events: visibleStroke`
+### 5.2 — Fix `pointer-events: visibleStroke` y layout
 
 **Archivo:** `apps/daev/src/views/console/ConsoleCLI.style.css`
 
@@ -1005,60 +1196,354 @@ pointer-events: visibleStroke;
 pointer-events: none;
 ```
 
-Mismo fix en `global.css` si quedara alguna referencia.
-
-### 5.3 — Fix console-output layout
-
-El `.console-output { display: flex; }` hace que las líneas se pongan en fila horizontal en lugar de columna. Cambiar a:
+El `.console-output { display: flex; }` debe ser:
 ```css
 .console-output {
   display: flex;
   flex-direction: column;
+  max-height: 70vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 ```
 
-### 5.4 — Actualizar comandos con idioma activo
+### 5.3 — Auto-scroll en console
 
 **Archivo:** `apps/daev/src/views/console/ConsoleCLI.tsx`
 
-Pasar `lang` desde el contexto para que los comandos `about`, `skills`, `projects`, `contact` respondan en el idioma activo del sitio:
+Agregar un `useRef` para la sección de output y hacer auto-scroll cuando se agrega una nueva línea:
 
 ```tsx
-const { lang } = useLang();
+const outputRef = useRef<HTMLDivElement>(null);
+
+useEffect(() => {
+  // Auto-scroll to bottom when history updates
+  if (outputRef.current) {
+    outputRef.current.scrollTop = outputRef.current.scrollHeight;
+  }
+}, [history]);
+
+// Luego en el JSX:
+<div ref={outputRef} className="console-output">
+  {/* ... output lines ... */}
+</div>
 ```
 
-Los outputs de `about` y `skills` deben usar `siteConfig` en lugar de strings hardcodeados:
+### 5.4 — Cambiar comando "gui" a "exit"
+
+**Archivo:** `apps/daev/src/views/console/ConsoleCLI.tsx`
+
 ```tsx
-case 'about':
+// ANTES:
+case 'gui':
+  onExit(); // Volver a home
+  break;
+
+// DESPUÉS:
+case 'exit':
+  onExit(); // Volver a home
+  break;
+```
+
+También actualizar el mensaje de help y las traducciones en `LangContext`:
+
+```ts
+// En LangContext.tsx, traducciones:
+console: { 
+  help: 'Type help for available commands',
+  exit: 'exit — return to graphic interface'
+}
+```
+
+### 5.5 — Expandir comandos informativos y agregar Easter eggs
+
+**Archivo:** `apps/daev/src/views/console/ConsoleCLI.tsx`
+
+Nuevos comandos base (además de los existentes: help, about, whoami, skills, projects, experience, contact, social, clear, exit):
+
+```tsx
+case 'date':
+  setHistory(prev => [...prev, new Date().toString()]);
+  break;
+
+case 'whoami':
   setHistory(prev => [
     ...prev,
-    `${siteConfig.name} — ${siteConfig.role[lang]}`,
-    siteConfig.bio[lang],
-    `📍 ${siteConfig.location}`,
+    `${siteConfig.name} (${siteConfig.alias})`,
+    `Role: ${siteConfig.role[lang]}`,
+    `Location: ${siteConfig.location}`,
+  ]);
+  break;
+
+case 'ls':
+  setHistory(prev => [
+    ...prev,
+    '📁 home/',
+    '  ├─ about/',
+    '  ├─ experience/',
+    '  ├─ skills/',
+    '  ├─ projects/',
+    '  └─ contact/',
+    '📰 blog/',
+    '🎨 theme',
+    '🌍 lang',
+  ]);
+  break;
+
+case 'pwd':
+  setHistory(prev => [...prev, '/home/dave']);
+  break;
+
+case 'echo':
+  const echoText = input.replace('echo ', '').trim();
+  if (echoText) {
+    setHistory(prev => [...prev, echoText]);
+  }
+  break;
+
+// Easter eggs:
+case 'hack':
+  setHistory(prev => [
+    ...prev,
+    '🔓 Accessing secret vault...',
+    '... decrypting files ...',
+    '... you found nothing, sorry! 😄',
+  ]);
+  break;
+
+case 'matrix':
+  setHistory(prev => [
+    ...prev,
+    '    ᠎᠎ ᠎ ᠎᠎ ᠎ ᠎᠎ ᠎᠎ ᠎ ᠎᠎',
+    '   ᠎ ᠎᠎ ᠎ ᠎ ᠎᠎ ᠎ ᠎ ᠎᠎ ᠎ ᠎',
+    '  ᠎ ᠎ ᠎᠎ ᠎ ᠎᠎ ᠎ ᠎ ᠎ ᠎ ᠎ ᠎ ᠎',
+    'Wake up, Neo... ☁️',
+  ]);
+  break;
+
+case 'spotify':
+  setHistory(prev => [
+    ...prev,
+    '🎵 Playing: "Chasing Code Dreams"',
+    '   by Dave Frontend Orchestra',
+    '🎧 2:43 / 3:21',
+  ]);
+  break;
+
+case 'coffee':
+  setHistory(prev => [
+    ...prev,
+    '☕ Brewing your favorite coffee...',
+    '   This is where the magic happens',
+    '   *sips* 😋',
+  ]);
+  break;
+
+case 'time':
+  const now = new Date();
+  setHistory(prev => [
+    ...prev,
+    `🕐 ${now.toLocaleTimeString()}`,
+    `It's a great time to hire me! 😉`,
+  ]);
+  break;
+
+default:
+  setHistory(prev => [...prev, `command not found: ${input}`]);
+```
+
+Actualizar `help` para mostrar todos los comandos:
+
+```tsx
+case 'help':
+  setHistory(prev => [
+    ...prev,
+    '📚 Available commands:',
+    '  about      - Tell you about me',
+    '  whoami     - Show identity info',
+    '  skills     - List my skills',
+    '  experience - Work experience',
+    '  projects   - Featured projects',
+    '  contact    - Contact information',
+    '  social     - Social media links',
+    '  ls         - List available sections',
+    '  pwd        - Print working directory',
+    '  echo       - Echo text',
+    '  date       - Show current date',
+    '  time       - Show current time',
+    '  clear      - Clear screen',
+    '  exit       - Return to graphic interface',
+    '',
+    '🎮 Easter eggs: try "hack", "matrix", "spotify", "coffee" 🎉',
   ]);
   break;
 ```
 
-### 5.5 — Hint en mobile
+### 5.6 — Hint en mobile y mejor UX
 
-En mobile el teclado virtual no aparece solo. Agregar un botón visible en mobile:
 ```tsx
 {/* Mobile keyboard hint */}
-<div className="md:hidden absolute bottom-4 right-4 text-xs text-green/50">
+<div className="md:hidden absolute bottom-4 right-4 text-xs text-green/50 animate-pulse">
   tap to type ↓
+</div>
+
+// En el div principal:
+<div 
+  className="console" 
+  onClick={() => inputRef.current?.focus()} 
+  onKeyDown={handleKeyDown} 
+  tabIndex={0}
+>
+  {/* ... */}
+  <input 
+    ref={inputRef} 
+    type="text" 
+    className="opacity-0 absolute pointer-events-none" 
+    autoComplete="off"
+  />
 </div>
 ```
 
-Y agregar `onClick` al div principal del console para hacer focus:
-```tsx
-<div className="console" onClick={() => inputRef.current?.focus()} onKeyDown={handleKeyDown} tabIndex={0}>
+---
+
+## FASE 6 — Transiciones pulidas y consistencia visual
+
+Esta fase asegura que TODAS las vistas (home, blog, CLI, 404) tengan transiciones suaves y coherencia visual.
+
+### 6.1 — Animaciones de entrada (fade, slide)
+
+**Archivo:** `apps/daev/src/app/global.css`
+
+Agregar animaciones reutilizables:
+
+```css
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out; }
+.animate-slide-up { animation: slideUp 0.4s ease-out; }
+.animate-slide-down { animation: slideDown 0.3s ease-out; }
+.animate-slide-in-left { animation: slideInLeft 0.3s ease-out; }
+.animate-slide-in-right { animation: slideInRight 0.3s ease-out; }
 ```
 
-Usar un `<input ref={inputRef} />` invisible (`opacity-0 absolute pointer-events-none`) para capturar el teclado virtual en iOS/Android.
+En `tailwind.config.js`, agregar a `animation`:
+```js
+animation: {
+  'fade-in':  'fadeIn 0.5s ease-out',
+  'slide-up': 'slideUp 0.4s ease-out',
+  'slide-down': 'slideDown 0.3s ease-out',
+  'slide-in-left': 'slideInLeft 0.3s ease-out',
+  'slide-in-right': 'slideInRight 0.3s ease-out',
+}
+```
+
+### 6.2 — Page transitions (entrada a new page)
+
+Cuando naveguemos a `/blog`, la página debe fade-in. Lo mismo con `/blog/[slug]`.
+
+**Archivo:** `apps/daev/src/app/blog/page.tsx`
+
+```tsx
+export default function BlogPage() {
+  return (
+    <div className="animate-fade-in">
+      {/* ... content ... */}
+    </div>
+  );
+}
+```
+
+**Archivo:** `apps/daev/src/app/blog/[slug]/page.tsx`
+
+```tsx
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const { frontmatter, content } = await getPostData(params.slug);
+  
+  return (
+    <article className="animate-fade-in">
+      {/* ... content ... */}
+    </article>
+  );
+}
+```
+
+### 6.3 — Secciones con staggered animations
+
+En la Home, cada sección debe tener una entrada escalonada (fade-in con pequeña variación de delay):
+
+**Archivo:** `apps/daev/src/components/AboutSection/AboutSection.tsx`
+
+```tsx
+<section id="about" className="animate-fade-in">
+  {/* ... */}
+</section>
+```
+
+Todos los componentes de sección: AboutSection, ExperienceSection, SkillsSection, etc. deben tener `animate-fade-in`.
+
+### 6.4 — Smooth transitions entre light/dark
+
+Ya está implementado con `transition-colors duration-300` en el body. Verificar que todos los elementos usen `transition-colors duration-300` cuando cambien color con el tema.
+
+### 6.5 — Navbar transitions
+
+**Archivo:** `apps/daev/src/components/UnifiedNav/UnifiedNav.tsx`
+
+Todos los links y botones deben tener transiciones suaves:
+
+```tsx
+className={`transition-all duration-200 ${isActive ? '...' : '...'}`}
+```
+
+### 6.6 — CLI transition (enter/exit)
+
+Cuando abres la CLI, la pantalla debe fade-in. Cuando haces `exit`, fade-out.
+
+**Archivo:** `apps/daev/src/views/console/ConsoleCLI.tsx`
+
+```tsx
+<div className="animate-fade-in">
+  {/* CLI content */}
+</div>
+```
+
+### 6.7 — Verificar coherencia de espaciado y padding
+
+Todos los sections deben tener:
+- `pt-20` (espacio para navbar fixed)
+- `pb-16` o `py-16`
+- `px-4 md:px-8`
+- `max-w-7xl mx-auto`
+
+Esto asegura que el contenido esté centrado y legible en todos los tamaños.
 
 ---
 
-## FASE 6 — not-found.tsx: actualizar con tema
+## FASE 7 — not-found.tsx: actualizar con tema
 
 **Archivo:** `apps/daev/src/app/not-found.tsx`
 
@@ -1066,14 +1551,14 @@ Usar las variables de tema. El CodeBlock de prism con `goHomeCode` está bien �
 
 Actualizar fondo:
 ```tsx
-<div className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-fore">
+<div className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-fore animate-fade-in">
 ```
 
 ---
 
-## FASE 7 — Performance y limpieza final
+## FASE 9 — Performance y limpieza final
 
-### 7.1 — Verificar que `react-slick` no se importe en ningún archivo
+### 9.1 — Verificar que `react-slick` no se importe en ningún archivo
 
 ```bash
 grep -r "react-slick\|slick-carousel" apps/daev/src/
@@ -1081,38 +1566,38 @@ grep -r "react-slick\|slick-carousel" apps/daev/src/
 
 Si aparece algún import, eliminarlo.
 
-### 7.2 — Limpiar import duplicados de Google Fonts
+### 9.2 — Limpiar imports duplicados
 
-Asegurarse de que `@import url('https://fonts.googleapis.com')` solo esté en `layout.tsx` (via `<link>`) y NO en ningún archivo CSS.
+Asegurarse de que:
+- Google Fonts solo en `layout.tsx` (via `<link>`)
+- Header.tsx y BlogNav.tsx no existen (reemplazados por UnifiedNav)
+- ConsoleCLI.style.css no tiene duplicaciones con global.css
+- No hay imports de componentes eliminados
 
-### 7.3 — Agregar `loading="lazy"` a imágenes de stats
+### 9.3 — Agregar `loading="lazy"` a imágenes de stats
 
 **Archivo:** `apps/daev/src/components/StatsSection/StatsSection.tsx`
 ```tsx
 <img src="..." alt="..." className="w-full max-w-sm" loading="lazy" />
 ```
 
-### 7.4 — `next.config.js`: activar compresión de imágenes para assets locales
+### 9.4 — Verificar que Posts.tsx fue borrado
 
-No se necesitan cambios si `sharp` ya está instalado (lo está). Verificar que el build no dé warnings de imagen.
-
-### 7.5 — Posts/Posts.tsx: verificar que fue borrado
-
-Si sigue existiendo `apps/daev/src/components/Posts/Posts.tsx`, borrarlo ahora.
+Si sigue existiendo `apps/daev/src/components/Posts/Posts.tsx`, borrarlo.
 
 ---
 
-## FASE 8 — Build, revisión visual y deploy
+## FASE 10 — Build, revisión visual y deploy
 
-### 8.1 — Build limpio
+### 10.1 — Build limpio
 
 ```bash
 npx nx build daev
 ```
 
-Sin errores TypeScript. Los warnings de `metadataBase` deben estar resueltos (se hizo en la sesión anterior).
+Sin errores TypeScript, sin warnings innecesarios.
 
-### 8.2 — Dev server y checklist visual
+### 10.2 — Dev server y checklist visual
 
 ```bash
 npx nx dev daev
@@ -1120,74 +1605,176 @@ npx nx dev daev
 
 Revisar en `localhost:4200`:
 
+**Home — General:**
+- [ ] Navbar unificado visible en top (logo DÆV, nav links, toggle idioma, toggle tema, terminal)
+- [ ] Sin imagen de fondo en home (limpio, similar a blog)
+- [ ] HeroSection: gradiente simple, botones CTA claros
+- [ ] Secciones (About, Experience, Stats, Featured Projects, Skills, Projects, Contact) todas visibles
+- [ ] Navbar highlight muestra dónde estamos (dot + color en link activo)
+- [ ] Transiciones fade-in al cargar página
+- [ ] Footer visible
+
 **Home — Dark mode:**
-- [ ] Fondo animado visible (bwCity.jpg, pan)
-- [ ] Header: logo DÆV, nav links, toggle idioma, toggle tema, terminal button
-- [ ] Carousel: 4 slides con Swiper, fade correcto, autoplay, flechas y paginación
-- [ ] AboutSection: foto, badge disponible, botón "Hire Me" scrollea a #contact
-- [ ] ExperienceSection: timeline con logos de empresas, no tabla
-- [ ] StatsSection: cards con contadores reales, GitHub stats lazy-loaded
-- [ ] FeaturedProjects: 6 cards con thumbnails, botones Repo y Demo funcionales
-- [ ] SkillsSection: 3 categorías, pills con tema
-- [ ] ProjectsSection: carga repos de GitHub, skeleton mientras carga, paginación real
-- [ ] ContactSection: formulario con tema, IconBar, enlace de email y WhatsApp directo
-- [ ] Footer: visible al bajar, link a GitHub
-- [ ] WhatsApp FAB: visible en esquina inferior derecha, color #25D366
+- [ ] Colores correctos (variables CSS aplicadas)
+- [ ] Contraste legible
+- [ ] Carousel: 4 slides con Swiper, fade correcto
+- [ ] AboutSection: foto, badge disponible, botón "Hire Me"
+- [ ] ExperienceSection: timeline con logos, no tabla
+- [ ] StatsSection: cards con números, GitHub stats lazy-loaded
+- [ ] FeaturedProjects: 6 cards con thumbnails
+- [ ] SkillsSection: 3 categorías con pills
+- [ ] ProjectsSection: repos de GitHub con paginación real
+- [ ] ContactSection: formulario, IconBar, WhatsApp
+- [ ] WhatsApp FAB: esquina inferior derecha, #25D366
 
 **Home — Light mode (toggle):**
-- [ ] Todos los fondos, textos y bordes cambian al tema claro
-- [ ] El toggle persiste en localStorage al recargar
+- [ ] Todos los colores cambian (tema claro correcto)
+- [ ] Toggle persiste en localStorage
 
 **Cambio de idioma (toggle EN/ES):**
-- [ ] Todos los textos de la UI cambian
-- [ ] La bio, roles y tipos de proyecto aparecen en español
-- [ ] Los botones de CTA cambian de texto
+- [ ] Todos los textos de UI cambian
+- [ ] Bio, roles, descripciones en español
+- [ ] Botones CTA en español
 
 **Mobile (≤768px):**
-- [ ] Hamburger abre/cierra menú
-- [ ] Carousel muestra dots en lugar de flechas
-- [ ] WhatsApp FAB sigue visible
-- [ ] ContactSection: columna única
-- [ ] ProjectsSection: columna única
-- [ ] ExperienceSection: timeline en columna única
+- [ ] Navbar hamburger abre/cierra menú
+- [ ] Todo responsive (single column donde se necesita)
+- [ ] Carousel funcional en mobile
+
+**Navbar consistency:**
+- [ ] Navbar visible en home ✓
+- [ ] Navbar visible en /blog ✓
+- [ ] Navbar visible en CLI (en el background) ✓
+- [ ] Terminal button siempre accesible
+- [ ] Active indicator (dot) funciona en todas partes
 
 **Terminal (ConsoleCLI):**
-- [ ] Botón de terminal en el header activa la vista CLI
-- [ ] Líneas de log aparecen correctamente en columna (no en fila)
-- [ ] Comandos `help`, `about`, `skills`, `projects`, `contact`, `gui`, `clear` funcionan
-- [ ] `gui` regresa a la vista Home
+- [ ] Terminal abre desde navbar button
+- [ ] Comando `exit` regresa a home (no `gui`)
+- [ ] Auto-scroll funciona (baja cuando hay nuevas líneas)
+- [ ] Comandos nuevos: `ls`, `pwd`, `echo`, `date`, `time`
+- [ ] Easter eggs: `hack`, `matrix`, `spotify`, `coffee`
+- [ ] Help lista todos los comandos
 - [ ] Mobile: tap activa teclado virtual
+- [ ] Output en columna (no en fila)
+- [ ] Green-on-black aesthetic intacto
 
 **Blog (/blog):**
-- [ ] Nav del blog tiene controles de tema e idioma
-- [ ] Cards de posts con imágenes
+- [ ] Navbar unificado (mismo que home)
+- [ ] Cards de posts con imágenes, fecha, excerpt
 - [ ] Búsqueda y sort funcionan
-- [ ] Post individual: tipografía de artículo legible en ambos temas
+- [ ] Post individual: tipografía legible
+- [ ] Fade-in transition al cargar
 
-**404:**
-- [ ] CodeBlock visible, link a home funciona
+**404 (/non-existent):**
+- [ ] Página visible, CodeBlock legible
+- [ ] Link "Go home" funciona
+- [ ] Tema aplicado
 
-### 8.3 — Git commit y push
+### 10.3 — Verificar rendimiento
+
+```bash
+npm run nx lint daev
+npx nx build daev
+```
+
+Sin errores, sin warnings críticos.
+
+### 10.4 — Git commit y push
 
 ```bash
 git add -A
-git commit -m "feat: redesign v2 — dark/light theme, EN/ES i18n, Swiper, CTA buttons, WhatsApp FAB, site config"
+git commit -m "refactor: v2.1 refinements — unified nav, no background, CLI enhancements, transitions"
 git push origin main
 ```
 
-### 8.4 — Vercel deploy
+### 10.5 — Vercel deploy
 
-Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el build pase.
+Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el build pase. La versión debe estar live en producción.
 
 ---
 
-## Notas finales para Opus
+## Notas finales para Opus — v2.1
 
-1. **No agregar nuevas dependencias npm** salvo que sea absolutamente imposible sin ellas. Todo lo necesario ya está instalado: Swiper, react-icons, prism-react-renderer.
-2. **Orden estricto**: Fase 0 completa antes de tocar cualquier componente. Los contextos deben existir antes de que los componentes los usen.
-3. **Build check** después de cada fase. Si TypeScript da error, resolverlo antes de continuar.
-4. **No borrar** `ConsoleCLI.style.css` — solo el bloque de console en `global.css`.
-5. **El archivo `site.ts`** es la única fuente de verdad para datos de Dave. Nunca hardcodear strings de datos personales en los componentes.
-6. **Las clases de Tailwind** deben usar los nombres de los custom colors definidos en `tailwind.config.js` (`bg-surface`, `text-fore`, `text-accent`, etc.) — no los colores hardcodeados de Tailwind (`bg-gray-900`, etc.) en componentes nuevos. Los componentes existentes se pueden migrar progresivamente.
-7. **El `<html>` necesita `suppressHydrationWarning`** por el ThemeProvider — sin esto Next.js lanza hydration mismatch en producción.
-8. **Swiper CSS imports**: deben ir en el componente Carousel, no en global.css, para que el tree-shaking funcione correctamente.
+### Principios clave
+
+1. **No agregar nuevas dependencias npm** salvo que sea absolutamente imposible. Todo está instalado: Swiper, react-icons, prism-react-renderer, gray-matter.
+
+2. **Orden estricto de fases**: Cumple cada fase en orden. FASE 2 (Navbar unificado) debe hacerse ANTES de tocar vistas. El navbar es el eje central.
+
+3. **Build check** después de CADA fase:
+   ```bash
+   npx nx build daev
+   ```
+   Si TypeScript falla, resuelve ANTES de continuar.
+
+4. **Archivos a eliminar:**
+   - `apps/daev/src/components/Header/Header.tsx` ← reemplazado por UnifiedNav
+   - `apps/daev/src/components/BlogNav/BlogNav.tsx` ← reemplazado por UnifiedNav
+   - `apps/daev/src/components/HeroSection/HeroSection.tsx` (contenido reescrito, sin background)
+   - Cualquier otro archivo que importe Header o BlogNav
+
+5. **Archivos a crear:**
+   - `apps/daev/src/components/UnifiedNav/UnifiedNav.tsx` ← este es el nuevo navbar
+
+6. **El archivo `site.ts`** es la única fuente de verdad. Nunca hardcodear datos personales en componentes.
+
+7. **Tailwind colors**: Usa siempre `bg-surface`, `text-fore`, `text-accent`, etc. — nunca `bg-gray-900` ni colores hardcodeados.
+
+8. **HTML suppressHydrationWarning**: El `<html>` ya tiene esto por el ThemeProvider. Déjalo.
+
+9. **Animaciones**: Todas las nuevas animaciones van en `global.css`. Usa las clases `animate-fade-in`, `animate-slide-up`, etc.
+
+10. **ConsoleCLI improvements:**
+    - Comando `gui` → `exit`
+    - Auto-scroll con `useRef` + `useEffect`
+    - Nuevos comandos: `ls`, `pwd`, `echo`, `date`, `time`
+    - Easter eggs: `hack`, `matrix`, `spotify`, `coffee`
+    - Help actualizado con lista completa
+
+11. **Navbar en TODAS partes:**
+    - Home: sí ✓
+    - Blog: sí (remover BlogNav) ✓
+    - CLI: visible en background ✓
+    - 404: sí ✓
+    - Layout.tsx lo provee globalmente
+
+12. **Transiciones suaves:**
+    - Cada página/sección entra con `animate-fade-in`
+    - Navbar tiene `transition-all duration-200`
+    - CLI fade-in al abrir, fade-out al salir
+
+13. **Responsiveness:**
+    - Mobile-first approach
+    - Navbar hamburger ≤ md (768px)
+    - Tests en mobile antes de finalizar
+
+14. **Público objetivo (ajusta copy/UX para esto):**
+    - 🎯 Reclutadores (impresion inmediata, profesionalismo)
+    - 🎯 Equipos técnicos (código limpio, no gimmicks excesivos)
+    - 🎯 Compañeros de trabajo (accesibilidad, light mode)
+
+15. **Testing visual:**
+    - Dark mode ✓
+    - Light mode ✓
+    - EN y ES ✓
+    - Mobile ✓
+    - Desktop ✓
+    - Terminal ✓
+    - Blog ✓
+    - Sin background image en home ✓
+
+### Checklist de éxito
+
+- [ ] FASE 2: UnifiedNav creado, Header/BlogNav eliminados
+- [ ] FASE 3.1: HeroSection sin background, gradiente simple
+- [ ] FASE 5: CLI mejorado con exit, auto-scroll, Easter eggs
+- [ ] FASE 6: Animaciones en global.css, fade-in en secciones
+- [ ] FASE 10: Build clean, visual checklist completado
+- [ ] Deploy a main, live en producción
+
+### Visión final
+
+El portafolio debe verse como **el mejor portafolio de la galaxia** 🌌 — profesional, dinámico, intuitivo, sin distracciones innecesarias. La consistencia visual entre home, blog y CLI es crítica. Cada transición debe ser smooth. Cada interacción debe sentirse pulida.
+
+¡Éxito, Opus! 🚀

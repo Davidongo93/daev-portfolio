@@ -5,7 +5,7 @@ const BlogPage = () => {
   return (
     <PostProvider>
       {(posts) => (
-        <main className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <main className="max-w-6xl mx-auto px-4 py-12 md:py-16 animate-fade-in">
           <PostGrid posts={posts} />
         </main>
       )}

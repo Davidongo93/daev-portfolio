@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
         </h1>
 
         <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto">
-          {siteConfig.bio[lang]}
+          {siteConfig.shortBio[lang]}
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 pt-4">
@@ -46,7 +46,7 @@ const HeroSection: React.FC = () => {
             {t.hero.cta}
           </a>
           <a
-            href="#projects"
+            href="#featured-projects"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-fore font-semibold text-sm hover:border-accent hover:text-accent transition-all"
           >
             {t.featured.title}

@@ -8,7 +8,7 @@ const ContactSection: React.FC = () => {
   const { t, lang } = useLang();
 
   return (
-    <section id="contact" className="bg-bg py-16 md:py-20">
+    <section id="contact" className="bg-bg py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display font-bold text-3xl md:text-4xl text-fore mb-3 text-center">
           {t.contact.title}

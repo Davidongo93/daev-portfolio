@@ -13,11 +13,7 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section
-      id="stats"
-      className="bg-surface/95 backdrop-blur-sm py-12 md:py-16"
-      style={{ minHeight: 'calc(100vh - 4rem)' }}
-    >
+    <section id="stats" className="bg-bg py-20 md:py-24">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display font-bold text-3xl md:text-4xl text-fore mb-3 text-center">
           {t.stats.title}

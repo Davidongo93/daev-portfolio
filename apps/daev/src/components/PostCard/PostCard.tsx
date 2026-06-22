@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
+import BrandPlaceholder from '../Brand/BrandPlaceholder';
 
 interface Post {
   slug: string;
@@ -24,14 +25,22 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group flex flex-col h-full">
       <Link href={`/blog/${post.slug}`} className="block">
         <div className="relative h-48 overflow-hidden">
-          <Image
-            src={post.frontmatter.image || '/citydraw.png'}
-            alt={post.frontmatter.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
+          {post.frontmatter.image ? (
+            <>
+              <Image
+                src={post.frontmatter.image}
+                alt={post.frontmatter.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
+            </>
+          ) : (
+            <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+              <BrandPlaceholder title={post.frontmatter.title} label={post.frontmatter.keywords?.[0]} />
+            </div>
+          )}
         </div>
       </Link>
 

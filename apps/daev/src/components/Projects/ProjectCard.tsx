@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import TechPill from '../TechPill/TechPill';
+import BrandPlaceholder from '../Brand/BrandPlaceholder';
 import { useLang } from '../../context/LangContext';
 import type { Lang } from '../../context/LangContext';
 
@@ -15,7 +16,7 @@ interface Project {
   date?: string;
   type: { en: string; es: string };
   collaboration: string | null;
-  thumbnail: string;
+  thumbnail: string | null;
 }
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
@@ -25,15 +26,23 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group flex flex-col">
       {/* Thumbnail */}
       <div className="relative w-full h-44 overflow-hidden">
-        <Image
-          src={project.thumbnail}
-          alt={`${project.name} preview`}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-el via-surface-el/30 to-transparent opacity-80" />
-        <span className="absolute top-3 right-3 text-xs font-mono px-2 py-1 rounded-full bg-bg/80 backdrop-blur-sm border border-border text-muted">
+        {project.thumbnail ? (
+          <>
+            <Image
+              src={project.thumbnail}
+              alt={`${project.name} preview`}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-el via-surface-el/30 to-transparent opacity-80" />
+          </>
+        ) : (
+          <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+            <BrandPlaceholder title={project.name} compact />
+          </div>
+        )}
+        <span className="absolute top-3 right-3 text-xs font-mono px-2 py-1 rounded-full bg-bg/80 backdrop-blur-sm border border-border text-muted z-10">
           {project.type[lang as Lang]}
         </span>
       </div>

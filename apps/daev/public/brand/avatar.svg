@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1626"/>
+      <stop offset="100%" stop-color="#080d14"/>
+    </linearGradient>
+    <linearGradient id="ae" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="78%" cy="18%" r="60%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+  <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="#1e3a5f" stroke-width="6"/>
+  <path d="M150 96 H110 V136 M362 96 H402 V136 M150 416 H110 V376 M362 416 H402 V376" fill="none" stroke="#00e5ff" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+  <text x="256" y="330" text-anchor="middle" font-family="'Space Grotesk',Archivo,Arial,sans-serif" font-weight="700" font-size="230" letter-spacing="-6" fill="url(#ae)">Æ</text>
+  <text x="256" y="430" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="44" letter-spacing="14" fill="#94a3b8">DÆV</text>
+</svg>

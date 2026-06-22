@@ -15,7 +15,7 @@ const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="bg-bg py-16 md:py-20 relative z-10">
+    <section id="skills" className="bg-bg py-20 md:py-24 relative z-10">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display font-bold text-3xl md:text-4xl text-fore mb-3 text-center">
           {t.skills.title}

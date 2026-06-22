@@ -37,21 +37,13 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.alias} | ${siteConfig.name}`,
     title: `${siteConfig.name} | ${siteConfig.role.en}`,
     description: siteConfig.bio.en,
-    images: [
-      {
-        url: '/profileDave.png',
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    // og:image is provided by the file-based opengraph-image.tsx (branded DÆV card).
   },
   twitter: {
     card: 'summary_large_image',
     title: `${siteConfig.name} | ${siteConfig.role.en}`,
     description: siteConfig.bio.en,
     creator: '@domirandar',
-    images: ['/profileDave.png'],
   },
   robots: {
     index: true,
@@ -84,7 +76,8 @@ const jsonLdPerson = {
   url: siteConfig.siteUrl,
   email: `mailto:${siteConfig.email}`,
   telephone: siteConfig.phone,
-  image: `${siteConfig.siteUrl}/profileDave.png`,
+  image: `${siteConfig.siteUrl}/brand/avatar.svg`,
+  logo: `${siteConfig.siteUrl}/brand/avatar.svg`,
   jobTitle: siteConfig.role.en,
   description: siteConfig.bio.en,
   address: {
@@ -118,6 +111,20 @@ const jsonLdWebsite = {
   description: siteConfig.bio.en,
   inLanguage: ['en-US', 'es-CO'],
   publisher: { '@id': `${siteConfig.siteUrl}#person` },
+};
+
+const jsonLdFaq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${siteConfig.siteUrl}#faq`,
+  mainEntity: siteConfig.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q.en,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a.en,
+    },
+  })),
 };
 
 const jsonLdProfessionalService = {
@@ -166,6 +173,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProfessionalService) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
         />
       </head>
       <GoogleTagManager gtmId="GTM-K5PFW7FW" />

@@ -52,6 +52,10 @@ export const translations = {
       collab: 'Collaboration with',
       cta: 'Let’s discuss your project',
     },
+    faq: {
+      title: 'Frequently Asked Questions',
+      subtitle: 'Quick answers about my work, stack and availability',
+    },
     projects: {
       title: 'All Projects on GitHub',
       viewAll: 'View all on GitHub',
@@ -150,6 +154,10 @@ export const translations = {
       liveDemo: 'Demo',
       collab: 'Colaboración con',
       cta: 'Hablemos de tu proyecto',
+    },
+    faq: {
+      title: 'Preguntas Frecuentes',
+      subtitle: 'Respuestas rápidas sobre mi trabajo, stack y disponibilidad',
     },
     projects: {
       title: 'Todos los Proyectos en GitHub',

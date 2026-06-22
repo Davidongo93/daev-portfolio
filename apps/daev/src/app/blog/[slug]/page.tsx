@@ -5,6 +5,7 @@ import Markdown from 'react-markdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
+import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
 import { siteConfig } from '../../../config/site';
 
 const localPath = path.join(process.cwd(), 'posts');
@@ -27,13 +28,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       url: `${siteConfig.siteUrl}/blog/${params.slug}`,
       publishedTime: frontmatter.date,
       authors: [siteConfig.name],
-      images: frontmatter.image ? [{ url: frontmatter.image }] : ['/profileDave.png'],
+      // og:image is supplied by the per-post opengraph-image.tsx (branded card).
+      ...(frontmatter.image ? { images: [{ url: frontmatter.image }] } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: frontmatter.title,
       description,
-      images: frontmatter.image ? [frontmatter.image] : ['/profileDave.png'],
+      ...(frontmatter.image ? { images: [frontmatter.image] } : {}),
     },
   };
 }
@@ -80,6 +82,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const prevPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;
   const nextPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
   const readingTime = getReadingTime(content);
+  const wordCount = content.trim().split(/\s+/).length;
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -88,21 +91,36 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
     description: frontmatter.description || frontmatter.excerpt,
     image: frontmatter.image
       ? `${siteConfig.siteUrl}${frontmatter.image}`
-      : `${siteConfig.siteUrl}/profileDave.png`,
+      : `${siteConfig.siteUrl}/blog/${params.slug}/opengraph-image`,
     datePublished: frontmatter.date,
     dateModified: frontmatter.date,
+    wordCount,
+    inLanguage: 'es',
     author: {
       '@type': 'Person',
+      '@id': `${siteConfig.siteUrl}#person`,
       name: siteConfig.name,
       url: siteConfig.siteUrl,
     },
-    publisher: {
-      '@type': 'Person',
-      name: siteConfig.name,
-      url: siteConfig.siteUrl,
-    },
+    publisher: { '@id': `${siteConfig.siteUrl}#person` },
+    isPartOf: { '@id': `${siteConfig.siteUrl}#website` },
     mainEntityOfPage: `${siteConfig.siteUrl}/blog/${params.slug}`,
     keywords: frontmatter.keywords?.join(', '),
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteConfig.siteUrl}/blog` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: frontmatter.title,
+        item: `${siteConfig.siteUrl}/blog/${params.slug}`,
+      },
+    ],
   };
 
   return (
@@ -110,6 +128,10 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Back link */}
@@ -121,8 +143,8 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
       </Link>
 
       {/* Hero */}
-      {frontmatter.image && (
-        <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-8 border border-border">
+      <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-8 border border-border">
+        {frontmatter.image ? (
           <Image
             src={frontmatter.image}
             alt={frontmatter.title}
@@ -130,8 +152,13 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
             className="object-cover"
             priority
           />
-        </div>
-      )}
+        ) : (
+          <BrandPlaceholder
+            title={frontmatter.title}
+            label={frontmatter.keywords?.[0]}
+          />
+        )}
+      </div>
 
       {/* Header */}
       <header className="mb-10">

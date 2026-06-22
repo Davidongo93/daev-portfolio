@@ -8,12 +8,8 @@ const ExperienceSection: React.FC = () => {
   const { t, lang } = useLang();
 
   return (
-    <section
-      id="experience"
-      className="bg-surface/95 backdrop-blur-sm relative"
-      style={{ minHeight: 'calc(100vh - 4rem)' }}
-    >
-      <div className="max-w-6xl mx-auto px-4 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-start">
+    <section id="experience" className="bg-surface relative py-20 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
         {/* Title and intro */}
         <div className="space-y-5">
           <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-fore">

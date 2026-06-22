@@ -12,12 +12,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const files = fs.existsSync(postsDirectory)
     ? fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md') && !f.startsWith('_'))
     : [];
-  const posts = files.map((filename) => ({
-    url: `${siteConfig.siteUrl}/blog/${filename.replace('.md', '')}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
+  const posts = files.map((filename) => {
+    let lastModified = new Date();
+    try {
+      lastModified = fs.statSync(path.join(postsDirectory, filename)).mtime;
+    } catch {
+      /* keep default */
+    }
+    return {
+      url: `${siteConfig.siteUrl}/blog/${filename.replace('.md', '')}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    };
+  });
 
   return [
     {

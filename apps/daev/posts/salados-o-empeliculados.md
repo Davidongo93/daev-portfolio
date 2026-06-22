@@ -1,9 +1,10 @@
 ---
 title: "para que le eche cabeza un rato y luego me cuente"
 date: "2024-10-07"
-description: "no se, digamelo usted..."
-image: "/citydraw.png"
-keywords: ["energía vital", "buenos hábitos", "rutinas productivas", "salud mental"]  # Palabras clave
+description: "Reflexión sobre supuestas cadenas de mala suerte en la historia, la mitología y la cultura, y qué hay de cierto en ellas."
+excerpt: "Ejemplos históricos, mitológicos y culturales de 'maldiciones' y mala suerte encadenada — y una opinión sincera al respecto."
+image: ""
+keywords: ["mala suerte", "maldiciones", "mitología", "cultura", "historia"]  # Palabras clave
 related_posts: [
 #   { title: "5 Hábitos para Mejorar Tu Energía Diaria", slug: "/blog/habitos-energia-diaria" },
 #   { title: "La Importancia de la Meditación", slug: "/blog/importancia-meditacion" },

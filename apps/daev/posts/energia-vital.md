@@ -2,7 +2,8 @@
 title: "Reuniendo Energía Vital para Cumplir Nuestros Propósitos"
 date: "2024-10-13"
 description: "Cómo crear buenos hábitos y rutinas ideales para alcanzar nuestras metas."
-image: "/citydraw.png"
+excerpt: "Estrategias prácticas para reunir energía vital, crear buenos hábitos y diseñar rutinas que te acerquen a tus metas."
+image: ""
 keywords: ["energía vital", "buenos hábitos", "rutinas productivas", "salud mental"]
 related_posts: []  # Posts relacionados
 ---

@@ -159,7 +159,7 @@ export const siteConfig = {
       technologies: ['TypeScript', 'React', 'GitHub API'],
       type: { en: 'Personal', es: 'Personal' },
       collaboration: null,
-      thumbnail: '/cityDrawImp.jpg',
+      thumbnail: null,
       featured: true,
     },
     {
@@ -173,7 +173,7 @@ export const siteConfig = {
       technologies: ['TypeScript', 'NestJS', 'PostgreSQL'],
       type: { en: 'Tech Challenge', es: 'Reto Técnico' },
       collaboration: null,
-      thumbnail: '/bwCity.jpg',
+      thumbnail: null,
       featured: true,
     },
     {
@@ -187,7 +187,7 @@ export const siteConfig = {
       technologies: ['TypeScript', 'React', 'Node.js', 'MongoDB'],
       type: { en: 'Tech Challenge', es: 'Reto Técnico' },
       collaboration: null,
-      thumbnail: '/citydraw.png',
+      thumbnail: null,
       featured: true,
     },
     {
@@ -201,8 +201,52 @@ export const siteConfig = {
       technologies: ['JavaScript', 'React', 'Redux', 'Express', 'PostgreSQL'],
       type: { en: 'Academic', es: 'Académico' },
       collaboration: null,
-      thumbnail: '/1779257228045.jpeg',
+      thumbnail: null,
       featured: true,
+    },
+  ],
+
+  // ── FAQ (GEO/AEO — answer-first, citable by AI engines) ─────────
+  faq: [
+    {
+      q: {
+        en: 'Who is David Orlando Miranda (DÆV)?',
+        es: '¿Quién es David Orlando Miranda (DÆV)?',
+      },
+      a: {
+        en: 'David Orlando Miranda, known as DÆV, is a Full Stack Developer from Colombia with 4+ years of experience building web products with React, Next.js, Node.js, NestJS and TypeScript, from idea to deployment.',
+        es: 'David Orlando Miranda, conocido como DÆV, es un Desarrollador Full Stack de Colombia con más de 4 años de experiencia construyendo productos web con React, Next.js, Node.js, NestJS y TypeScript, desde la idea hasta el despliegue.',
+      },
+    },
+    {
+      q: {
+        en: 'What technologies does DÆV specialize in?',
+        es: '¿En qué tecnologías se especializa DÆV?',
+      },
+      a: {
+        en: 'He specializes in React, Next.js and Vue on the frontend; Node.js, NestJS, Express, PostgreSQL, MongoDB and GraphQL on the backend; plus Git, Docker, NX and Vercel for tooling and DevOps.',
+        es: 'Se especializa en React, Next.js y Vue en frontend; Node.js, NestJS, Express, PostgreSQL, MongoDB y GraphQL en backend; además de Git, Docker, NX y Vercel para tooling y DevOps.',
+      },
+    },
+    {
+      q: {
+        en: 'Is DÆV available for freelance or full-time work?',
+        es: '¿DÆV está disponible para trabajo freelance o tiempo completo?',
+      },
+      a: {
+        en: 'Yes. David is available for freelance projects and full-time roles, working remotely with teams across Latin America, the US and Europe. The fastest way to reach him is email or WhatsApp.',
+        es: 'Sí. David está disponible para proyectos freelance y roles de tiempo completo, trabajando de forma remota con equipos de Latinoamérica, EE. UU. y Europa. La vía más rápida de contacto es email o WhatsApp.',
+      },
+    },
+    {
+      q: {
+        en: 'Where is DÆV based and what languages does he speak?',
+        es: '¿Dónde reside DÆV y qué idiomas habla?',
+      },
+      a: {
+        en: 'He is based in Colombia and works in both Spanish and English, collaborating comfortably across time zones in the Americas and Europe.',
+        es: 'Reside en Colombia y trabaja en español e inglés, colaborando sin problema en zonas horarias de América y Europa.',
+      },
     },
   ],
 

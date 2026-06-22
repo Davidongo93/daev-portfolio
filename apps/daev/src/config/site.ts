@@ -11,8 +11,8 @@ export const siteConfig = {
     es: 'Desarrollador Full Stack especializado en React, Next.js, Node.js y TypeScript.',
   },
   bio: {
-    en: 'I build fast, scalable web products from idea to deployment. Passionate about clean code, great UX, and shipping quality software that drives business results.',
-    es: 'Construyo productos web rápidos y escalables desde la idea hasta el despliegue. Apasionado por el código limpio, la buena UX y entregar software de calidad que genere resultados de negocio.',
+    en: 'I build fast, scalable web products, from the first idea to production. I care about clean code, great user experience, and shipping software that delivers real results for people and businesses.',
+    es: 'Construyo productos web rápidos y escalables, desde la primera idea hasta producción. Me importa el código limpio, una gran experiencia de usuario y entregar software que genere resultados reales para personas y empresas.',
   },
   location: 'Colombia',
   locationFlag: '🇨🇴',
@@ -252,18 +252,18 @@ export const siteConfig = {
   faq: [
     {
       q: {
-        en: 'Who are you?',
-        es: '¿Quién eres?',
+        en: 'Who am I?',
+        es: '¿Quién soy?',
       },
       a: {
-        en: "I'm David Orlando Miranda — DÆV — a Full Stack Developer based in Colombia. I build fast, scalable web products end to end, from the idea to production, with React, Next.js, Astro, Node.js, NestJS and TypeScript.",
-        es: 'Soy David Orlando Miranda — DÆV — Desarrollador Full Stack radicado en Colombia. Construyo productos web rápidos y escalables de extremo a extremo, desde la idea hasta producción, con React, Next.js, Astro, Node.js, NestJS y TypeScript.',
+        en: "I'm David Orlando Miranda, a Full Stack Developer based in Colombia. I build fast, scalable web products end to end —from the idea to production— with React, Next.js, Astro, Node.js, NestJS and TypeScript. I work under my personal brand, DÆV.",
+        es: 'Soy David Orlando Miranda, Desarrollador Full Stack radicado en Colombia. Construyo productos web rápidos y escalables de extremo a extremo —desde la idea hasta producción— con React, Next.js, Astro, Node.js, NestJS y TypeScript. Lo hago bajo mi marca personal, DÆV.',
       },
     },
     {
       q: {
-        en: 'What can you build for me or my company?',
-        es: '¿Qué puedes construir para mí o para mi empresa?',
+        en: 'What can I build for you or your company?',
+        es: '¿Qué puedo construir para ti o para tu empresa?',
       },
       a: {
         en: 'Landing pages, custom websites, e-commerce stores, educational platforms (LMS), custom software and full SaaS products. I work with both companies and individuals, and I can take a project from design through deployment and maintenance.',
@@ -272,18 +272,18 @@ export const siteConfig = {
     },
     {
       q: {
-        en: 'Are you available to work together?',
-        es: '¿Estás disponible para trabajar juntos?',
+        en: 'Am I available for new projects?',
+        es: '¿Estoy disponible para nuevos proyectos?',
       },
       a: {
-        en: "Yes — I'm open to freelance projects and full-time roles, working remotely with teams across Latin America, the US and Europe. The fastest way to reach me is WhatsApp or email; tell me about your project and I'll reply shortly.",
-        es: 'Sí — estoy abierto a proyectos freelance y a roles de tiempo completo, trabajando de forma remota con equipos de Latinoamérica, EE. UU. y Europa. La vía más rápida es WhatsApp o correo; cuéntame sobre tu proyecto y te respondo enseguida.',
+        en: "Yes. I'm open to freelance projects and full-time roles, working remotely with teams across Latin America, the US and Europe. The fastest way to reach me is WhatsApp or email; tell me about your project and I'll get back to you shortly.",
+        es: 'Sí. Estoy abierto a proyectos freelance y a roles de tiempo completo, trabajando de forma remota con equipos de Latinoamérica, EE. UU. y Europa. La vía más rápida es WhatsApp o correo; cuéntame sobre tu proyecto y te respondo enseguida.',
       },
     },
     {
       q: {
-        en: 'Where are you based and what languages do you speak?',
-        es: '¿Dónde resides y qué idiomas hablas?',
+        en: 'Where am I based and what languages do I work in?',
+        es: '¿Dónde resido y en qué idiomas trabajo?',
       },
       a: {
         en: 'I’m based in Colombia and I work in both Spanish and English, collaborating comfortably across time zones in the Americas and Europe.',

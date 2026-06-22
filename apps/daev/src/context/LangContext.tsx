@@ -24,6 +24,7 @@ export const translations = {
       title: 'About Me',
       available: 'Available for work',
       unavailable: 'Not available',
+      brand: 'Personal brand',
     },
     experience: {
       title: 'Experience',
@@ -111,7 +112,7 @@ export const translations = {
     footer: {
       rights: 'All rights reserved',
       madeWith: 'Built with',
-      tagline: 'Full Stack Developer crafting digital experiences',
+      tagline: 'I build web products that help people and companies grow.',
     },
     console: {
       help: 'Type help for available commands',
@@ -152,6 +153,7 @@ export const translations = {
       title: 'Sobre mí',
       available: 'Disponible para trabajar',
       unavailable: 'No disponible',
+      brand: 'Marca personal',
     },
     experience: {
       title: 'Experiencia',
@@ -239,7 +241,7 @@ export const translations = {
     footer: {
       rights: 'Todos los derechos reservados',
       madeWith: 'Hecho con',
-      tagline: 'Desarrollador Full Stack creando experiencias digitales',
+      tagline: 'Construyo productos web que ayudan a personas y empresas a crecer.',
     },
     console: {
       help: 'Escribe help para ver los comandos disponibles',

@@ -41,7 +41,10 @@ const AboutSection: React.FC = () => {
               <p className="mt-5 text-center font-display text-2xl font-bold text-fore tracking-wide">
                 {siteConfig.alias}
               </p>
-              <p className="text-center text-sm text-accent font-medium">
+              <p className="text-center text-[10px] uppercase tracking-[0.25em] text-muted">
+                {t.about.brand}
+              </p>
+              <p className="mt-1 text-center text-sm text-accent font-medium">
                 {siteConfig.role[lang]}
               </p>
               <p className="mt-1 text-center text-xs text-muted">

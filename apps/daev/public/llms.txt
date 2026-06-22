@@ -1,14 +1,15 @@
 # David Orlando Miranda (DÆV)
 
-> I'm David Orlando Miranda — DÆV — a Full Stack Developer based in Colombia.
-> I build fast, scalable web products end to end, from the idea to production,
-> with React, Next.js, Astro, Node.js, NestJS and TypeScript. I'm available for
-> freelance and full-time work, remote, and I work in both Spanish and English.
+> I'm David Orlando Miranda, a Full Stack Developer based in Colombia, working
+> under my personal brand DÆV. I build fast, scalable web products end to end,
+> from the idea to production, with React, Next.js, Astro, Node.js, NestJS and
+> TypeScript. I'm available for freelance and full-time work, remote, and I work
+> in both Spanish and English.
 
 ## About me
 
 - Name: David Orlando Miranda
-- Alias / brand: DÆV
+- Personal brand: DÆV (this is my brand, not my name)
 - Role: Full Stack Developer
 - Location: Colombia (remote-friendly, across the Americas and Europe)
 - Languages: Spanish (native), English (professional)

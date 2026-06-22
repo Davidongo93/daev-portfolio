@@ -5,7 +5,7 @@ import BrandMark from '../Brand/BrandMark';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 
-const coreStack = ['React', 'Next.js', 'Node.js', 'TypeScript', 'NestJS'];
+const coreStack = ['React', 'Next.js', 'Astro', 'Node.js', 'TypeScript', 'NestJS'];
 
 const AboutSection: React.FC = () => {
   const { t, lang } = useLang();

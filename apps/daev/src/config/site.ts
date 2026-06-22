@@ -68,32 +68,32 @@ export const siteConfig = {
   // ── Experiencia laboral ─────────────────────────────────────────
   experience: [
     {
-      company: 'AppTender',
+      company: 'Colombian Cannabis Center',
       role: {
-        en: 'Junior Backend Developer',
-        es: 'Desarrollador Backend Junior',
+        en: 'Development Lead',
+        es: 'Líder de Desarrollo',
       },
-      period: '2021 – 2022',
+      period: 'Nov 2024 – Present',
       description: {
-        en: 'Developed backend APIs, collaborated with frontend teams, optimized database queries.',
-        es: 'Desarrollé APIs backend, colaboré con equipos frontend y optimicé queries de base de datos.',
+        en: 'I lead development of a traceability platform that handles agricultural management and end-to-end traceability for compliance with Colombian regulation and international standards.',
+        es: 'Lidero el desarrollo de una plataforma de trazabilidad que gestiona la operación agrícola y la trazabilidad de extremo a extremo para el cumplimiento de la norma colombiana y los estándares internacionales.',
       },
-      logo: '/icons/appTender.svg',
-      website: null,
+      logo: null,
+      website: 'https://app.colombiancannabiscenter.space',
     },
     {
-      company: 'Invicto',
+      company: 'DigitalYa',
       role: {
-        en: 'Backend Developer (Freelance)',
-        es: 'Desarrollador Backend (Freelance)',
+        en: 'Frontend Developer',
+        es: 'Desarrollador Frontend',
       },
-      period: '2022 – 2023',
+      period: '2026 – Present',
       description: {
-        en: 'Designed RESTful services, handled server-side logic, integrated third-party APIs.',
-        es: 'Diseñé servicios RESTful, manejé lógica del servidor e integré APIs de terceros.',
+        en: 'Frontend developer at a marketing agency, building and optimizing high-performance websites and landing pages for clients.',
+        es: 'Desarrollador frontend en una agencia de marketing, construyendo y optimizando sitios web y landing pages de alto rendimiento para clientes.',
       },
-      logo: '/icons/invicto.png',
-      website: null,
+      logo: null,
+      website: 'https://digitalya.com.ar/',
     },
     {
       company: 'Rescatista',
@@ -101,25 +101,67 @@ export const siteConfig = {
         en: 'Frontend Engineer (Freelance)',
         es: 'Ingeniero Frontend (Freelance)',
       },
-      period: '2023 – Present',
+      period: '2024 – Present',
       description: {
-        en: 'Implemented responsive UIs, optimized performance, contributed to product design.',
-        es: 'Implementé UIs responsivas, optimicé rendimiento y contribuí al diseño del producto.',
+        en: 'I implement responsive UIs, optimize performance and contribute to product design as a freelance collaborator.',
+        es: 'Implemento interfaces responsivas, optimizo el rendimiento y contribuyo al diseño de producto como colaborador freelance.',
       },
       logo: '/icons/rescatista.png',
       website: 'https://rescatista.vercel.app',
+    },
+    {
+      company: 'AppTender',
+      role: {
+        en: 'Full Stack Developer',
+        es: 'Desarrollador Full Stack',
+      },
+      period: '2023 – 2024',
+      description: {
+        en: 'I improved the core API, integrated the META and Brevo APIs and shipped new backend and frontend features.',
+        es: 'Mejoré la API principal, integré las APIs de META y Brevo e implementé nuevas funcionalidades en backend y frontend.',
+      },
+      logo: '/icons/appTender.svg',
+      website: null,
     },
   ],
 
   // ── Skills ──────────────────────────────────────────────────────
   skills: {
-    frontend: ['React', 'Next.js', 'Vue', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
+    frontend: ['React', 'Next.js', 'Astro', 'Vue', 'TypeScript', 'Tailwind CSS', 'HTML', 'CSS'],
     backend: ['Node.js', 'NestJS', 'Express', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'],
-    tools: ['Git', 'Docker', 'NX', 'Redux', 'Jest', 'Vercel', 'GitHub Actions'],
+    tools: ['Git', 'Docker', 'NX', 'Redux', 'Jest', 'Vercel', 'Cloudflare', 'GitHub Actions'],
   },
 
   // ── Proyectos destacados ────────────────────────────────────────
   featuredProjects: [
+    {
+      name: 'Colombian Cannabis Center — Traceability Platform',
+      description: {
+        en: 'Agricultural management and compliance traceability platform I lead, aligned with Colombian regulation and international standards.',
+        es: 'Plataforma de gestión agrícola y trazabilidad para cumplimiento normativo que lidero, alineada con la norma colombiana y los estándares internacionales.',
+      },
+      repoUrl: null,
+      liveUrl: 'https://app.colombiancannabiscenter.space',
+      technologies: ['React', 'Next.js', 'NestJS', 'PostgreSQL', 'Docker'],
+      type: { en: 'Lead · Full Stack', es: 'Líder · Full Stack' },
+      collaboration: null,
+      thumbnail: 'https://image.thum.io/get/width/1200/crop/900/https://app.colombiancannabiscenter.space',
+      featured: true,
+    },
+    {
+      name: 'Ópticas Apolo Vision — E-commerce',
+      description: {
+        en: 'Custom e-commerce store I built for an optical retailer, with product catalog and a smooth online shopping experience.',
+        es: 'Tienda e-commerce a medida que construí para una óptica, con catálogo de productos y una experiencia de compra fluida.',
+      },
+      repoUrl: null,
+      liveUrl: 'https://opticasapolovision.com/',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'E-commerce'],
+      type: { en: 'Freelance · E-commerce', es: 'Freelance · E-commerce' },
+      collaboration: null,
+      thumbnail: 'https://image.thum.io/get/width/1200/crop/900/https://opticasapolovision.com',
+      featured: true,
+    },
     {
       name: 'Ukraine Population & Roads Map',
       description: {
@@ -210,42 +252,42 @@ export const siteConfig = {
   faq: [
     {
       q: {
-        en: 'Who is David Orlando Miranda (DÆV)?',
-        es: '¿Quién es David Orlando Miranda (DÆV)?',
+        en: 'Who are you?',
+        es: '¿Quién eres?',
       },
       a: {
-        en: 'David Orlando Miranda, known as DÆV, is a Full Stack Developer from Colombia with 4+ years of experience building web products with React, Next.js, Node.js, NestJS and TypeScript, from idea to deployment.',
-        es: 'David Orlando Miranda, conocido como DÆV, es un Desarrollador Full Stack de Colombia con más de 4 años de experiencia construyendo productos web con React, Next.js, Node.js, NestJS y TypeScript, desde la idea hasta el despliegue.',
+        en: "I'm David Orlando Miranda — DÆV — a Full Stack Developer based in Colombia. I build fast, scalable web products end to end, from the idea to production, with React, Next.js, Astro, Node.js, NestJS and TypeScript.",
+        es: 'Soy David Orlando Miranda — DÆV — Desarrollador Full Stack radicado en Colombia. Construyo productos web rápidos y escalables de extremo a extremo, desde la idea hasta producción, con React, Next.js, Astro, Node.js, NestJS y TypeScript.',
       },
     },
     {
       q: {
-        en: 'What technologies does DÆV specialize in?',
-        es: '¿En qué tecnologías se especializa DÆV?',
+        en: 'What can you build for me or my company?',
+        es: '¿Qué puedes construir para mí o para mi empresa?',
       },
       a: {
-        en: 'He specializes in React, Next.js and Vue on the frontend; Node.js, NestJS, Express, PostgreSQL, MongoDB and GraphQL on the backend; plus Git, Docker, NX and Vercel for tooling and DevOps.',
-        es: 'Se especializa en React, Next.js y Vue en frontend; Node.js, NestJS, Express, PostgreSQL, MongoDB y GraphQL en backend; además de Git, Docker, NX y Vercel para tooling y DevOps.',
+        en: 'Landing pages, custom websites, e-commerce stores, educational platforms (LMS), custom software and full SaaS products. I work with both companies and individuals, and I can take a project from design through deployment and maintenance.',
+        es: 'Landing pages, sitios web a medida, tiendas e-commerce, plataformas educativas (LMS), software a medida y productos SaaS completos. Trabajo tanto con empresas como con particulares, y puedo llevar un proyecto desde el diseño hasta el despliegue y el mantenimiento.',
       },
     },
     {
       q: {
-        en: 'Is DÆV available for freelance or full-time work?',
-        es: '¿DÆV está disponible para trabajo freelance o tiempo completo?',
+        en: 'Are you available to work together?',
+        es: '¿Estás disponible para trabajar juntos?',
       },
       a: {
-        en: 'Yes. David is available for freelance projects and full-time roles, working remotely with teams across Latin America, the US and Europe. The fastest way to reach him is email or WhatsApp.',
-        es: 'Sí. David está disponible para proyectos freelance y roles de tiempo completo, trabajando de forma remota con equipos de Latinoamérica, EE. UU. y Europa. La vía más rápida de contacto es email o WhatsApp.',
+        en: "Yes — I'm open to freelance projects and full-time roles, working remotely with teams across Latin America, the US and Europe. The fastest way to reach me is WhatsApp or email; tell me about your project and I'll reply shortly.",
+        es: 'Sí — estoy abierto a proyectos freelance y a roles de tiempo completo, trabajando de forma remota con equipos de Latinoamérica, EE. UU. y Europa. La vía más rápida es WhatsApp o correo; cuéntame sobre tu proyecto y te respondo enseguida.',
       },
     },
     {
       q: {
-        en: 'Where is DÆV based and what languages does he speak?',
-        es: '¿Dónde reside DÆV y qué idiomas habla?',
+        en: 'Where are you based and what languages do you speak?',
+        es: '¿Dónde resides y qué idiomas hablas?',
       },
       a: {
-        en: 'He is based in Colombia and works in both Spanish and English, collaborating comfortably across time zones in the Americas and Europe.',
-        es: 'Reside en Colombia y trabaja en español e inglés, colaborando sin problema en zonas horarias de América y Europa.',
+        en: 'I’m based in Colombia and I work in both Spanish and English, collaborating comfortably across time zones in the Americas and Europe.',
+        es: 'Resido en Colombia y trabajo en español e inglés, colaborando sin problema en zonas horarias de América y Europa.',
       },
     },
   ],

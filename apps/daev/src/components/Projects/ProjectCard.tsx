@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import TechPill from '../TechPill/TechPill';
@@ -10,7 +10,7 @@ import type { Lang } from '../../context/LangContext';
 interface Project {
   name: string;
   description: { en: string; es: string };
-  repoUrl: string;
+  repoUrl: string | null;
   liveUrl: string;
   technologies: readonly string[];
   date?: string;
@@ -21,20 +21,36 @@ interface Project {
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   const { t, lang } = useLang();
+  const [imgError, setImgError] = useState(false);
+
+  const isExternal = !!project.thumbnail && project.thumbnail.startsWith('http');
+  const showImage = !!project.thumbnail && !imgError;
 
   return (
     <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group flex flex-col">
       {/* Thumbnail */}
       <div className="relative w-full h-44 overflow-hidden">
-        {project.thumbnail ? (
+        {showImage ? (
           <>
-            <Image
-              src={project.thumbnail}
-              alt={`${project.name} preview`}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+            {isExternal ? (
+              // Live screenshot (external service): graceful fallback on error.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={project.thumbnail as string}
+                alt={`${project.name} preview`}
+                loading="lazy"
+                onError={() => setImgError(true)}
+                className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            ) : (
+              <Image
+                src={project.thumbnail as string}
+                alt={`${project.name} preview`}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-surface-el via-surface-el/30 to-transparent opacity-80" />
           </>
         ) : (
@@ -65,20 +81,24 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
         {/* Buttons */}
         <div className="flex gap-2 mt-auto">
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs py-2 rounded-md border border-border text-muted hover:text-accent hover:border-accent transition"
-            aria-label={`View ${project.name} repository`}
-          >
-            <FaGithub /> {t.featured.viewRepo}
-          </a>
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs py-2 rounded-md border border-border text-muted hover:text-accent hover:border-accent transition"
+              aria-label={`View ${project.name} repository`}
+            >
+              <FaGithub /> {t.featured.viewRepo}
+            </a>
+          )}
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs py-2 rounded-md bg-accent text-bg font-semibold hover:bg-accent-hover transition"
+            className={`${
+              project.repoUrl ? 'flex-1' : 'w-full'
+            } inline-flex items-center justify-center gap-1.5 text-xs py-2 rounded-md bg-accent text-bg font-semibold hover:bg-accent-hover transition`}
             aria-label={`View ${project.name} live demo`}
           >
             <FaExternalLinkAlt /> {t.featured.liveDemo}

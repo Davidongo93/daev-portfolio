@@ -38,13 +38,19 @@ const ExperienceSection: React.FC = () => {
               <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-accent border-4 border-bg shadow-md" />
               <div className="bg-surface-el rounded-xl p-4 border border-border hover:border-accent/40 transition">
                 <div className="flex items-center gap-3 mb-2">
-                  <Image
-                    src={exp.logo}
-                    alt={exp.company}
-                    width={32}
-                    height={32}
-                    className="rounded object-contain"
-                  />
+                  {exp.logo ? (
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company}
+                      width={32}
+                      height={32}
+                      className="rounded object-contain"
+                    />
+                  ) : (
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent font-display font-bold text-sm">
+                      {exp.company.charAt(0)}
+                    </span>
+                  )}
                   <div className="flex-1">
                     {exp.website ? (
                       <a

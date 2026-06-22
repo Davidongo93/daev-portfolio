@@ -3,6 +3,7 @@ import { useState } from 'react';
 import PostCard from '../PostCard/PostCard';
 import SearchBar from '../SearchBar/SearchBar';
 import SortDropdown from '../SortDropDown/SortDropDown';
+import BrandMark from '../Brand/BrandMark';
 import { useLang } from '../../context/LangContext';
 
 interface Post {
@@ -63,25 +64,35 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
         <p className="text-muted">{t.blog.subtitle}</p>
       </div>
 
-      {/* Controls */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-10">
-        <SearchBar onSearch={handleSearch} placeholder={t.blog.search} />
-        <SortDropdown
-          sortOption={sortOption}
-          onSortChange={handleSortChange}
-          labels={{ title: t.blog.sortTitle, date: t.blog.sortDate }}
-        />
-      </div>
-
-      {/* Grid */}
-      {filteredPosts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPosts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
+      {posts.length === 0 ? (
+        /* Empty blog — friendly branded "coming soon" state */
+        <div className="flex flex-col items-center justify-center gap-5 py-20 text-center">
+          <BrandMark size={88} />
+          <p className="text-muted max-w-sm">{t.blog.comingSoon}</p>
         </div>
       ) : (
-        <p className="text-center text-muted py-16">{t.blog.noResults}</p>
+        <>
+          {/* Controls */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-10">
+            <SearchBar onSearch={handleSearch} placeholder={t.blog.search} />
+            <SortDropdown
+              sortOption={sortOption}
+              onSortChange={handleSortChange}
+              labels={{ title: t.blog.sortTitle, date: t.blog.sortDate }}
+            />
+          </div>
+
+          {/* Grid */}
+          {filteredPosts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredPosts.map((post) => (
+                <PostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-muted py-16">{t.blog.noResults}</p>
+          )}
+        </>
       )}
     </div>
   );

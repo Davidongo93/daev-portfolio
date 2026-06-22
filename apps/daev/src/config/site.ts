@@ -17,7 +17,7 @@ export const siteConfig = {
   location: 'Colombia',
   locationFlag: '🇨🇴',
   available: true,
-  siteUrl: 'https://daev.vercel.app',
+  siteUrl: 'https://daev.space',
 
   // ── Contacto ────────────────────────────────────────────────────
   email: 'domirandar@gmail.com',

@@ -28,7 +28,7 @@
     <circle cx="26" cy="22" r="6" fill="#22c55e"/>
     <text x="46" y="29" font-family="Arial,sans-serif" font-weight="500" font-size="20" fill="#22c55e">Available for work</text>
   </g>
-  <text x="1120" y="566" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="24" fill="#64748b">daev.vercel.app</text>
+  <text x="1120" y="566" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="24" fill="#64748b">daev.space</text>
   <path d="M1000 120 h-40 v40 M1120 120 h40 v40 M1000 510 h-40 v-40 M1120 510 h40 v-40" fill="none" stroke="#00e5ff" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
   <text x="1060" y="345" text-anchor="middle" font-family="'Space Grotesk',Archivo,Arial,sans-serif" font-weight="700" font-size="280" letter-spacing="-8" fill="url(#ae)" opacity="0.1">Æ</text>
 </svg>

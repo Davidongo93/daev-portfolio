@@ -88,7 +88,7 @@ export default function OpengraphImage() {
             display: 'flex',
           }}
         >
-          daev.vercel.app
+          daev.space
         </div>
       </div>
     ),

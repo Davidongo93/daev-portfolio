@@ -6,7 +6,6 @@ import SkillsSection from '../../components/SkillsSection/SkillsSection';
 import ExperienceSection from '../../components/ExperienceSection/ExperienceSection';
 import StatsSection from '../../components/StatsSection/StatsSection';
 import FeaturedProjects from '../../components/FeaturedProjects.tsx/FeaturedProjects';
-import ProjectsSection from '../../components/ProjectsSection/ProjectsSection';
 import FaqSection from '../../components/FaqSection/FaqSection';
 import ContactSection from '../../components/ContactSection/ContactSection';
 import Footer from '../../components/Footer/Footer';
@@ -33,9 +32,6 @@ const Home: React.FC = () => {
       </Reveal>
       <Reveal>
         <FeaturedProjects />
-      </Reveal>
-      <Reveal>
-        <ProjectsSection />
       </Reveal>
       <Reveal>
         <FaqSection />

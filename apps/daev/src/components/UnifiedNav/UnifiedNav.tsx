@@ -59,7 +59,7 @@ export default function UnifiedNav() {
     { href: '/#about', label: t.nav.about, sectionId: 'about' },
     { href: '/#services', label: t.nav.services, sectionId: 'services' },
     { href: '/#skills', label: t.nav.skills, sectionId: 'skills' },
-    { href: '/#projects', label: t.nav.projects, sectionId: 'projects' },
+    { href: '/#featured-projects', label: t.nav.projects, sectionId: 'featured-projects' },
     { href: '/blog', label: t.nav.blog, sectionId: 'blog' },
     { href: '/#contact', label: t.nav.contact, sectionId: 'contact' },
   ];

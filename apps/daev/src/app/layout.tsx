@@ -144,6 +144,18 @@ const jsonLdProfessionalService = {
     'Backend Development',
     'API Development',
   ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Web & Software Development Services',
+    itemListElement: siteConfig.services.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title.en,
+        description: s.description.en,
+      },
+    })),
+  },
 };
 
 export default function RootLayout({

@@ -57,6 +57,7 @@ export default function UnifiedNav() {
 
   const navLinks: NavLink[] = [
     { href: '/#about', label: t.nav.about, sectionId: 'about' },
+    { href: '/#services', label: t.nav.services, sectionId: 'services' },
     { href: '/#skills', label: t.nav.skills, sectionId: 'skills' },
     { href: '/#projects', label: t.nav.projects, sectionId: 'projects' },
     { href: '/blog', label: t.nav.blog, sectionId: 'blog' },

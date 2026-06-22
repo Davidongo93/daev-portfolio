@@ -250,6 +250,88 @@ export const siteConfig = {
     },
   ],
 
+  // ── Servicios / tipos de proyecto (CTA → WhatsApp) ──────────────
+  services: [
+    {
+      key: 'landing',
+      icon: 'rocket',
+      title: { en: 'Landing Pages', es: 'Landing Pages' },
+      description: {
+        en: 'Fast, conversion-optimized landing pages that turn visitors into customers.',
+        es: 'Páginas de aterrizaje rápidas y optimizadas para convertir visitantes en clientes.',
+      },
+      whatsapp: {
+        en: "Hi Dave! I'm interested in a high-impact *landing page* for my business. Can we set up a call?",
+        es: '¡Hola Dave! Me interesa una *landing page* de alto impacto para mi negocio. ¿Podemos coordinar una llamada?',
+      },
+    },
+    {
+      key: 'website',
+      icon: 'web',
+      title: { en: 'Custom Websites', es: 'Sitios Web a Medida' },
+      description: {
+        en: 'Bespoke corporate sites and portfolios — responsive and SEO-ready.',
+        es: 'Sitios corporativos y portafolios a medida, responsivos y listos para SEO.',
+      },
+      whatsapp: {
+        en: 'Hi Dave! I need a *custom website*. I’d like to tell you about my idea.',
+        es: '¡Hola Dave! Necesito un *sitio web a medida*. Me gustaría contarte mi idea.',
+      },
+    },
+    {
+      key: 'ecommerce',
+      icon: 'cart',
+      title: { en: 'E-commerce', es: 'Comercios Electrónicos' },
+      description: {
+        en: 'Online stores with payment gateways, cart and product management.',
+        es: 'Tiendas online con pasarelas de pago, carrito y gestión de productos.',
+      },
+      whatsapp: {
+        en: 'Hi Dave! I want to launch an *online store (e-commerce)*. Shall we talk?',
+        es: '¡Hola Dave! Quiero lanzar una *tienda online (e-commerce)*. ¿Hablamos?',
+      },
+    },
+    {
+      key: 'lms',
+      icon: 'lms',
+      title: { en: 'Educational Platforms (LMS)', es: 'Plataformas Educativas (LMS)' },
+      description: {
+        en: 'Learning platforms with courses, roles, progress tracking and assessments.',
+        es: 'Plataformas de aprendizaje con cursos, roles, seguimiento de progreso y evaluaciones.',
+      },
+      whatsapp: {
+        en: 'Hi Dave! I’m looking to build an *educational platform (LMS)*. Can we coordinate?',
+        es: '¡Hola Dave! Busco desarrollar una *plataforma educativa (LMS)*. ¿Podemos coordinar?',
+      },
+    },
+    {
+      key: 'software',
+      icon: 'software',
+      title: { en: 'Custom Software', es: 'Software a Medida' },
+      description: {
+        en: "Tailored applications that automate and solve your business's specific needs.",
+        es: 'Aplicaciones a medida que automatizan y resuelven necesidades específicas de tu negocio.',
+      },
+      whatsapp: {
+        en: 'Hi Dave! I need *custom software* to solve a specific problem. Can we discuss it?',
+        es: '¡Hola Dave! Necesito *software a medida* para resolver un problema específico. ¿Lo conversamos?',
+      },
+    },
+    {
+      key: 'saas',
+      icon: 'saas',
+      title: { en: 'SaaS Products', es: 'Productos SaaS' },
+      description: {
+        en: 'Scalable SaaS products with subscriptions, multi-tenant and dashboards.',
+        es: 'Productos SaaS escalables, con suscripciones, multi-tenant y panel de control.',
+      },
+      whatsapp: {
+        en: 'Hi Dave! I want to build a *SaaS product*. I’d love your help taking it to production.',
+        es: '¡Hola Dave! Quiero construir un *producto SaaS*. Me encantaría tu ayuda para llevarlo a producción.',
+      },
+    },
+  ],
+
   // ── Snippet de código (terminal / About) ────────────────────────
   codeSnippet: `class DavidMiranda extends MasterProgrammer {
   constructor() {

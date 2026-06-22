@@ -1,6 +1,7 @@
 'use client';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import AboutSection from '../../components/AboutSection/AboutSection';
+import ServicesSection from '../../components/ServicesSection/ServicesSection';
 import SkillsSection from '../../components/SkillsSection/SkillsSection';
 import ExperienceSection from '../../components/ExperienceSection/ExperienceSection';
 import StatsSection from '../../components/StatsSection/StatsSection';
@@ -17,6 +18,9 @@ const Home: React.FC = () => {
       <HeroSection />
       <Reveal>
         <AboutSection />
+      </Reveal>
+      <Reveal>
+        <ServicesSection />
       </Reveal>
       <Reveal>
         <SkillsSection />

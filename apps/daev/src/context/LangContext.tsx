@@ -7,6 +7,7 @@ export const translations = {
   en: {
     nav: {
       about: 'About',
+      services: 'Services',
       blog: 'Blog',
       skills: 'Skills',
       projects: 'Projects',
@@ -56,6 +57,11 @@ export const translations = {
       title: 'Frequently Asked Questions',
       subtitle: 'Quick answers about my work, stack and availability',
     },
+    services: {
+      title: 'What I Can Build For You',
+      subtitle: 'From a quick landing page to a full SaaS platform — pick what you need and let’s talk.',
+      cta: 'Discuss on WhatsApp',
+    },
     projects: {
       title: 'All Projects on GitHub',
       viewAll: 'View all on GitHub',
@@ -69,6 +75,11 @@ export const translations = {
       message: 'Your message',
       send: 'Send Message',
       or: 'Or reach me directly',
+      projectType: 'What do you need?',
+      general: 'General inquiry',
+      details: 'Tell me about your project (optional)',
+      sendWhatsapp: 'Send via WhatsApp',
+      whatsappNote: 'Opens WhatsApp with your message ready to send.',
     },
     blog: {
       title: 'Blog',
@@ -110,6 +121,7 @@ export const translations = {
   es: {
     nav: {
       about: 'Sobre mí',
+      services: 'Servicios',
       blog: 'Blog',
       skills: 'Habilidades',
       projects: 'Proyectos',
@@ -159,6 +171,11 @@ export const translations = {
       title: 'Preguntas Frecuentes',
       subtitle: 'Respuestas rápidas sobre mi trabajo, stack y disponibilidad',
     },
+    services: {
+      title: 'Lo Que Puedo Construir Para Ti',
+      subtitle: 'Desde una landing page hasta una plataforma SaaS completa — elige lo que necesitas y hablemos.',
+      cta: 'Hablemos por WhatsApp',
+    },
     projects: {
       title: 'Todos los Proyectos en GitHub',
       viewAll: 'Ver todos en GitHub',
@@ -172,6 +189,11 @@ export const translations = {
       message: 'Tu mensaje',
       send: 'Enviar mensaje',
       or: 'O contáctame directamente',
+      projectType: '¿Qué necesitas?',
+      general: 'Consulta general',
+      details: 'Cuéntame sobre tu proyecto (opcional)',
+      sendWhatsapp: 'Enviar por WhatsApp',
+      whatsappNote: 'Abre WhatsApp con tu mensaje listo para enviar.',
     },
     blog: {
       title: 'Blog',

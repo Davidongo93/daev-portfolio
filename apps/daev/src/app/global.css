@@ -127,6 +127,34 @@ svg {
   transform: none;
 }
 
+/* ── Hero ────────────────────────────────────────────── */
+.hero-grid {
+  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 38%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 38%, #000 30%, transparent 78%);
+}
+
+@keyframes heroGlow {
+  0%, 100% { opacity: 0.12; transform: translateX(-50%) scale(1); }
+  50% { opacity: 0.22; transform: translateX(-50%) scale(1.08); }
+}
+
+.hero-glow {
+  animation: heroGlow 7s ease-in-out infinite;
+}
+
+@keyframes rotateWordIn {
+  from { opacity: 0; transform: translateY(0.4em); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.rotating-word {
+  display: inline-block;
+  animation: rotateWordIn 0.5s ease-out;
+}
+
 /* ── Article prose styles ────────────────────────────── */
 .prose-article {
   color: var(--text);

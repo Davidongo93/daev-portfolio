@@ -15,10 +15,13 @@ export const translations = {
       cli: 'Terminal',
     },
     hero: {
-      greeting: "Hi, I'm Dave",
+      greeting: "Hi, I'm David Orlando",
       cta: 'Hire Me',
       ctaContact: 'Contact Me',
       ctaWhatsapp: 'Chat on WhatsApp',
+      buildVerb: 'I build',
+      types: ['custom websites', 'landing pages', 'e-commerce stores', 'custom software', 'SaaS apps', 'LMS platforms'],
+      seeProjects: 'See my work',
     },
     about: {
       title: 'About Me',
@@ -144,10 +147,13 @@ export const translations = {
       cli: 'Terminal',
     },
     hero: {
-      greeting: 'Hola, soy Dave',
+      greeting: 'Hola, soy David Orlando',
       cta: 'Contrátame',
       ctaContact: 'Contáctame',
       ctaWhatsapp: 'Chatea por WhatsApp',
+      buildVerb: 'Construyo',
+      types: ['sitios web a medida', 'landing pages', 'e-commerce', 'software a medida', 'apps SaaS', 'plataformas LMS'],
+      seeProjects: 'Ver mi trabajo',
     },
     about: {
       title: 'Sobre mí',

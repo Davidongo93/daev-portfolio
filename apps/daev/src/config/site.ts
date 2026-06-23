@@ -374,6 +374,161 @@ export const siteConfig = {
     },
   ],
 
+  // ── Precios / planes (página /pricing) ──────────────────────────
+  pricing: {
+    currency: 'COP',
+    // Tasa USD→COP de referencia para mostrar equivalencias. Editable.
+    trmUsdToCop: 4000,
+    plans: [
+      {
+        key: 'landing',
+        icon: 'rocket',
+        name: { en: 'Landing Page', es: 'Landing Page' },
+        tagline: {
+          en: 'A simple, high-impact one-page site to present your business.',
+          es: 'Un sitio de una sola página, sencillo y de alto impacto para presentar tu negocio.',
+        },
+        priceCop: 850000,
+        priceSuffix: { en: 'one-time', es: 'pago único' },
+        featured: false,
+        features: [
+          {
+            en: 'Responsive design for every device',
+            es: 'Diseño adaptable a todos los dispositivos',
+          },
+          {
+            en: 'WhatsApp and social media buttons',
+            es: 'Botones a WhatsApp y redes sociales',
+          },
+          {
+            en: 'Basic search engine optimization (SEO)',
+            es: 'Optimización básica para buscadores (SEO)',
+          },
+          {
+            en: 'Domain and hosting included for the first year',
+            es: 'Dominio y hosting incluidos el primer año',
+          },
+        ],
+        whatsapp: {
+          en: 'Hi Dave! I’m interested in a *landing page* (COP $850,000). Can we set up a call?',
+          es: '¡Hola Dave! Me interesa una *landing page* (COP $850.000). ¿Coordinamos una llamada?',
+        },
+      },
+      {
+        key: 'ecommerce',
+        icon: 'cart',
+        name: { en: 'E-commerce', es: 'E-commerce' },
+        tagline: {
+          en: 'A complete online store to sell your products with payments.',
+          es: 'Una tienda online completa para vender tus productos con pagos.',
+        },
+        priceCop: 1800000,
+        priceSuffix: { en: 'from', es: 'desde' },
+        featured: true,
+        features: [
+          {
+            en: 'Everything in the Landing Page plan',
+            es: 'Todo lo del plan Landing Page',
+          },
+          {
+            en: 'Product catalog and shopping cart',
+            es: 'Catálogo de productos y carrito de compras',
+          },
+          {
+            en: 'Payment gateway integration',
+            es: 'Integración de pasarela de pagos',
+          },
+          {
+            en: '50% off domain and hosting the first year',
+            es: '50% de descuento en dominio y hosting el primer año',
+          },
+        ],
+        whatsapp: {
+          en: 'Hi Dave! I want an *e-commerce store* (from COP $1,800,000). Shall we talk?',
+          es: '¡Hola Dave! Quiero una *tienda e-commerce* (desde COP $1.800.000). ¿Hablamos?',
+        },
+      },
+      {
+        key: 'lms',
+        icon: 'lms',
+        name: { en: 'LMS · Educational Platform', es: 'LMS · Plataforma Educativa' },
+        tagline: {
+          en: 'A learning platform with courses, students and progress tracking.',
+          es: 'Una plataforma de aprendizaje con cursos, estudiantes y seguimiento de progreso.',
+        },
+        priceCop: 1500000,
+        priceSuffix: { en: 'from', es: 'desde' },
+        featured: false,
+        features: [
+          {
+            en: 'Course and lesson management',
+            es: 'Gestión de cursos y lecciones',
+          },
+          {
+            en: 'User roles and student progress tracking',
+            es: 'Roles de usuario y seguimiento del progreso',
+          },
+          {
+            en: 'Assessments and certificates',
+            es: 'Evaluaciones y certificados',
+          },
+          {
+            en: '50% off domain and hosting the first year',
+            es: '50% de descuento en dominio y hosting el primer año',
+          },
+        ],
+        whatsapp: {
+          en: 'Hi Dave! I’m interested in an *educational platform (LMS)* (from COP $1,500,000). Can we coordinate?',
+          es: '¡Hola Dave! Me interesa una *plataforma educativa (LMS)* (desde COP $1.500.000). ¿Podemos coordinar?',
+        },
+      },
+    ],
+    // Costos recurrentes de infraestructura (en USD, se muestran también en COP).
+    infrastructure: [
+      {
+        key: 'domain',
+        icon: 'domain',
+        name: { en: 'Domain', es: 'Dominio' },
+        priceUsd: 60,
+        per: { en: '/year', es: '/año' },
+        note: {
+          en: 'Approximate — the final price depends on the chosen domain.',
+          es: 'Aproximado — el precio final depende del dominio elegido.',
+        },
+      },
+      {
+        key: 'hosting',
+        icon: 'hosting',
+        name: { en: 'Hosting', es: 'Hosting' },
+        priceUsd: 45,
+        per: { en: '/month', es: '/mes' },
+        note: {
+          en: 'Scales with your traffic and resource needs.',
+          es: 'Escala según tu tráfico y necesidades de recursos.',
+        },
+      },
+    ],
+    // Complementos opcionales.
+    addons: [
+      {
+        key: 'email',
+        icon: 'email',
+        name: { en: 'Email marketing lists', es: 'Listas de correo' },
+        description: {
+          en: 'Send campaigns to up to 5,000 contacts.',
+          es: 'Envía campañas a hasta 5.000 contactos.',
+        },
+        priceUsd: 10,
+        per: { en: '/month', es: '/mes' },
+      },
+    ],
+    // CTA para productos a medida / no listados.
+    quoteWhatsapp: {
+      en: 'Hi Dave! I need a quote for a custom project. Let me share the details.',
+      es: '¡Hola Dave! Necesito una cotización para un proyecto a medida. Te cuento los detalles.',
+    },
+  },
+
   // ── Snippet de código (terminal / About) ────────────────────────
   codeSnippet: `class DavidMiranda extends MasterProgrammer {
   constructor() {

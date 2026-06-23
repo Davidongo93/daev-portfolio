@@ -8,6 +8,7 @@ export const translations = {
     nav: {
       about: 'About',
       services: 'Services',
+      pricing: 'Pricing',
       blog: 'Blog',
       skills: 'Skills',
       projects: 'Projects',
@@ -79,6 +80,25 @@ export const translations = {
       subtitle: 'From a quick landing page to a full SaaS platform — pick what you need and let’s talk.',
       cta: 'Discuss on WhatsApp',
     },
+    pricing: {
+      title: 'Pricing',
+      subtitle:
+        'Clear, transparent prices for the most common projects. Need something different? Let’s talk.',
+      popular: 'Most popular',
+      cta: 'Request this',
+      infraTitle: 'Domain & hosting',
+      infraSubtitle:
+        'Recurring infrastructure costs. Shown in USD with an approximate value in Colombian pesos (COP), subject to the daily exchange rate (TRM).',
+      infraDiscount:
+        'The E-commerce and LMS plans include 50% off domain and hosting during the first year.',
+      addonsTitle: 'Optional add-ons',
+      customTitle: 'Need something else?',
+      customText:
+        'Custom websites, custom software, SaaS products and anything not listed here are quoted individually. Tell me what you have in mind and I’ll prepare a tailored quote.',
+      customCta: 'Request a quote',
+      trmNote: 'Reference exchange rate: USD $1 ≈ COP',
+      approx: '≈',
+    },
     projects: {
       title: 'All Projects on GitHub',
       viewAll: 'View all on GitHub',
@@ -140,6 +160,7 @@ export const translations = {
     nav: {
       about: 'Sobre mí',
       services: 'Servicios',
+      pricing: 'Precios',
       blog: 'Blog',
       skills: 'Habilidades',
       projects: 'Proyectos',
@@ -210,6 +231,25 @@ export const translations = {
       title: 'Lo Que Puedo Construir Para Ti',
       subtitle: 'Desde una landing page hasta una plataforma SaaS completa — elige lo que necesitas y hablemos.',
       cta: 'Hablemos por WhatsApp',
+    },
+    pricing: {
+      title: 'Precios',
+      subtitle:
+        'Precios claros y transparentes para los proyectos más comunes. ¿Necesitas algo diferente? Hablemos.',
+      popular: 'Más popular',
+      cta: 'Solicitar este',
+      infraTitle: 'Dominio y hosting',
+      infraSubtitle:
+        'Costos recurrentes de infraestructura. Se muestran en USD con un valor aproximado en pesos colombianos (COP), sujeto a la tasa de cambio del día (TRM).',
+      infraDiscount:
+        'Los planes de E-commerce y LMS incluyen 50% de descuento en dominio y hosting durante el primer año.',
+      addonsTitle: 'Complementos opcionales',
+      customTitle: '¿Necesitas algo más?',
+      customText:
+        'Los sitios web a medida, el software a medida, los productos SaaS y cualquier otro producto no listado se cotizan de forma individual. Cuéntame qué tienes en mente y prepararé una cotización a tu medida.',
+      customCta: 'Solicitar cotización',
+      trmNote: 'Tasa de cambio de referencia: USD $1 ≈ COP',
+      approx: '≈',
     },
     projects: {
       title: 'Todos los Proyectos en GitHub',

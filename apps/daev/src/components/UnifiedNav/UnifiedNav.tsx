@@ -58,6 +58,7 @@ export default function UnifiedNav() {
   const navLinks: NavLink[] = [
     { href: '/#about', label: t.nav.about, sectionId: 'about' },
     { href: '/#services', label: t.nav.services, sectionId: 'services' },
+    { href: '/pricing', label: t.nav.pricing, sectionId: 'pricing' },
     { href: '/#skills', label: t.nav.skills, sectionId: 'skills' },
     { href: '/#featured-projects', label: t.nav.projects, sectionId: 'featured-projects' },
     { href: '/blog', label: t.nav.blog, sectionId: 'blog' },
@@ -65,10 +66,12 @@ export default function UnifiedNav() {
   ];
 
   const isOnBlog = pathname.startsWith('/blog');
+  const isOnPricing = pathname.startsWith('/pricing');
 
   const isActive = (link: NavLink) => {
     if (link.sectionId === 'blog') return isOnBlog;
-    if (isOnBlog) return false;
+    if (link.sectionId === 'pricing') return isOnPricing;
+    if (isOnBlog || isOnPricing) return false;
     return activeSection === link.sectionId;
   };
 

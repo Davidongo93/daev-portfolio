@@ -59,7 +59,7 @@ const PricingSection: React.FC = () => {
         </header>
 
         {/* Plans */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
           {pricing.plans.map((plan) => {
             const Icon = planIcon[plan.icon] ?? FaRocket;
             return (
@@ -122,6 +122,12 @@ const PricingSection: React.FC = () => {
                 >
                   <FaWhatsapp /> {t.pricing.cta}
                 </a>
+
+                {plan.fineprint && (
+                  <p className="mt-3 text-[11px] leading-snug text-muted">
+                    * {plan.fineprint[lang]}
+                  </p>
+                )}
               </article>
             );
           })}

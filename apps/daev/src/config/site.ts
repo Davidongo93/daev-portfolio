@@ -391,6 +391,7 @@ export const siteConfig = {
         priceCop: 850000,
         priceSuffix: { en: 'one-time', es: 'pago único' },
         featured: false,
+        fineprint: null,
         features: [
           {
             en: 'Responsive design for every device',
@@ -425,6 +426,10 @@ export const siteConfig = {
         priceCop: 1800000,
         priceSuffix: { en: 'from', es: 'desde' },
         featured: true,
+        fineprint: {
+          en: 'This price covers up to 50 product references and 4 photos per product.',
+          es: 'Este precio cubre únicamente 50 referencias de producto y 4 fotografías por producto.',
+        },
         features: [
           {
             en: 'Everything in the Landing Page plan',
@@ -460,23 +465,29 @@ export const siteConfig = {
         priceSuffix: { en: 'from', es: 'desde' },
         featured: false,
         features: [
+          { en: 'User management', es: 'Gestión de usuarios' },
           {
-            en: 'Course and lesson management',
-            es: 'Gestión de cursos y lecciones',
+            en: 'Roles (Admin, Instructor, Student)',
+            es: 'Roles (Administrador, Instructor, Estudiante)',
           },
+          { en: 'Course management', es: 'Gestión de cursos' },
+          { en: 'Modules and lessons', es: 'Módulos y lecciones' },
+          { en: 'Assessments', es: 'Evaluaciones' },
+          { en: 'Quizzes', es: 'Cuestionarios' },
+          { en: 'Progress tracking', es: 'Seguimiento de progreso' },
+          { en: 'PDF certificates with QR code', es: 'Certificados PDF con código QR' },
+          { en: 'Admin dashboard', es: 'Panel administrativo' },
           {
-            en: 'User roles and student progress tracking',
-            es: 'Roles de usuario y seguimiento del progreso',
+            en: 'PostgreSQL database (Supabase)',
+            es: 'Base de datos PostgreSQL (Supabase)',
           },
-          {
-            en: 'Assessments and certificates',
-            es: 'Evaluaciones y certificados',
-          },
-          {
-            en: '50% off domain and hosting the first year',
-            es: '50% de descuento en dominio y hosting el primer año',
-          },
+          { en: 'Global hosting (Cloudflare)', es: 'Hosting global (Cloudflare)' },
+          { en: 'CDN', es: 'CDN' },
+          { en: 'SSL', es: 'SSL' },
+          { en: 'Backups', es: 'Copias de seguridad' },
+          { en: 'Responsive design', es: 'Diseño responsive' },
         ],
+        fineprint: null,
         whatsapp: {
           en: 'Hi Dave! I’m interested in an *educational platform (LMS)* (from COP $1,500,000). Can we coordinate?',
           es: '¡Hola Dave! Me interesa una *plataforma educativa (LMS)* (desde COP $1.500.000). ¿Podemos coordinar?',

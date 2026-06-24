@@ -18,7 +18,7 @@ export default async function PostOgImage({ params }: { params: { slug: string }
   let date = '';
   let image = '';
   try {
-    const file = fs.readFileSync(path.join(getPostsDir(), `${params.slug}.md`), 'utf-8');
+    const file = fs.readFileSync(path.join(getPostsDir(), `${decodeURIComponent(params.slug)}.md`), 'utf-8');
     const { data } = matter(file);
     title = (data.title as string) || title;
     date = (data.date as string) || '';

@@ -49,7 +49,9 @@ export async function generateStaticParams() {
 }
 
 async function getPostData(slug: string) {
-  const filePath = path.join(postsDirectory, `${slug}.md`);
+  // The route param arrives URL-encoded (e.g. spaces -> %20). Decode it so the
+  // filesystem path matches the real file name on disk.
+  const filePath = path.join(postsDirectory, `${decodeURIComponent(slug)}.md`);
   const fileContents = fs.readFileSync(filePath, 'utf-8');
   const { data: frontmatter, content } = matter(fileContents);
   return { frontmatter, content };

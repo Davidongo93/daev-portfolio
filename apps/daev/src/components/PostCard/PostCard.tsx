@@ -1,8 +1,9 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
+import { FaCalendarAlt, FaArrowRight, FaClock } from 'react-icons/fa';
 import BrandPlaceholder from '../Brand/BrandPlaceholder';
+import { useLang } from '../../context/LangContext';
 
 interface Post {
   slug: string;
@@ -13,6 +14,7 @@ interface Post {
     image?: string;
     keywords?: string[];
     description?: string;
+    readingTime?: number;
   };
 }
 
@@ -22,6 +24,7 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
+  const { t } = useLang();
   const { slug, frontmatter } = post;
 
   // ── List variant: a compact archive-style row, not a stretched card ──────
@@ -54,6 +57,11 @@ const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
           <div className="min-w-0 flex-1">
             <p className="text-xs text-muted mb-1 flex items-center gap-1.5">
               <FaCalendarAlt /> {frontmatter.date}
+              {frontmatter.readingTime && (
+                <span className="flex items-center gap-1">
+                  · <FaClock /> {frontmatter.readingTime} {t.blog.readingTime}
+                </span>
+              )}
               {frontmatter.keywords?.[0] && (
                 <span className="text-accent">· #{frontmatter.keywords[0]}</span>
               )}
@@ -104,6 +112,11 @@ const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
       <div className="p-5 flex-1 flex flex-col">
         <p className="text-xs text-muted mb-2 flex items-center gap-1.5">
           <FaCalendarAlt /> {frontmatter.date}
+          {frontmatter.readingTime && (
+            <span className="flex items-center gap-1">
+              · <FaClock /> {frontmatter.readingTime} {t.blog.readingTime}
+            </span>
+          )}
         </p>
 
         <Link href={`/blog/${slug}`}>

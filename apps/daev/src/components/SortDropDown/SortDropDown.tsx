@@ -1,18 +1,35 @@
 'use client';
 import React from 'react';
 
-export type SortOption = 'date-desc' | 'date-asc' | 'title';
+export type SortOption =
+  | 'date-desc'
+  | 'date-asc'
+  | 'title'
+  | 'read-desc'
+  | 'read-asc';
 
 interface SortDropdownProps {
   sortOption: SortOption;
   onSortChange: (option: SortOption) => void;
-  labels?: { newest: string; oldest: string; title: string };
+  labels?: {
+    newest: string;
+    oldest: string;
+    title: string;
+    readLong: string;
+    readShort: string;
+  };
 }
 
 const SortDropdown: React.FC<SortDropdownProps> = ({
   sortOption,
   onSortChange,
-  labels = { newest: 'Newest first', oldest: 'Oldest first', title: 'Title (A–Z)' },
+  labels = {
+    newest: 'Newest first',
+    oldest: 'Oldest first',
+    title: 'Title (A–Z)',
+    readLong: 'Longest read',
+    readShort: 'Shortest read',
+  },
 }) => {
   return (
     <select
@@ -24,6 +41,8 @@ const SortDropdown: React.FC<SortDropdownProps> = ({
       <option value="date-desc">{labels.newest}</option>
       <option value="date-asc">{labels.oldest}</option>
       <option value="title">{labels.title}</option>
+      <option value="read-desc">{labels.readLong}</option>
+      <option value="read-asc">{labels.readShort}</option>
     </select>
   );
 };

@@ -17,8 +17,15 @@ interface Post {
     image?: string; // Agregado campo opcional para la imagen
     keywords?: string[]; // Agregado campo opcional para las palabras clave
     related_posts?: RelatedPost[]; // Agregado campo opcional para posts relacionados
+    readingTime: number; // Minutos estimados de lectura, calculado desde el contenido
   };
 }
+
+// Estimación de tiempo de lectura: ~200 palabras por minuto, mínimo 1 min.
+const estimateReadingTime = (content: string): number => {
+  const words = content.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+};
 
 interface PostProviderProps {
   children: (posts: Post[]) => ReactNode;
@@ -39,7 +46,7 @@ const getPosts = (): Post[] => {
       const slug = filename.replace('.md', '');
       const filePath = path.join(postsDirectory, filename);
       const fileContents = fs.readFileSync(filePath, 'utf-8');
-      const { data: frontmatter } = matter(fileContents);
+      const { data: frontmatter, content } = matter(fileContents);
 
       return {
         slug,
@@ -50,6 +57,7 @@ const getPosts = (): Post[] => {
           image: frontmatter.image || '', // Manejar la imagen si está disponible
           keywords: frontmatter.keywords || [], // Manejar las palabras clave si están disponibles
           related_posts: frontmatter.related_posts || [], // Manejar los posts relacionados si están disponibles
+          readingTime: estimateReadingTime(content), // Calculado desde el cuerpo del post
         },
       };
     });

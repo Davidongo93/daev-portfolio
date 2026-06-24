@@ -1,6 +1,6 @@
 ---
 title: "Bienvenida"
-date: "2026-06-23"
+date: "2026-06-22"
 description: "Unas primeras palabras, escritas a mano y sin inteligencia artificial, para comenzar este blog y mantener viva la esperanza en la humanidad."
 excerpt: "Una breve glosa para comenzar: escribir con honestidad, agradecer lo que tengo y compartir estas letras como compañía, como puente, como iniciativa."
 image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto/v1704840813/davidongo93/kqrlatlmrsnhx4q9otzm.jpg"

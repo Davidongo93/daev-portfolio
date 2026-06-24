@@ -16,6 +16,7 @@ interface Post {
     image?: string;
     keywords?: string[];
     description?: string;
+    readingTime?: number;
   };
 }
 
@@ -57,15 +58,27 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
       return matchesQuery && matchesTag;
     });
 
+    const byTitle = (a: Post, b: Post) =>
+      a.frontmatter.title.localeCompare(b.frontmatter.title);
+
     return [...filtered].sort((a, b) => {
       if (sort === 'title') {
-        return a.frontmatter.title.localeCompare(b.frontmatter.title);
+        return byTitle(a, b);
       }
+
+      if (sort === 'read-asc' || sort === 'read-desc') {
+        const diff =
+          (a.frontmatter.readingTime ?? 0) - (b.frontmatter.readingTime ?? 0);
+        // Posts con igual tiempo de lectura mantienen un orden A–Z estable.
+        if (diff === 0) return byTitle(a, b);
+        return sort === 'read-asc' ? diff : -diff;
+      }
+
       const diff =
         new Date(a.frontmatter.date).getTime() -
         new Date(b.frontmatter.date).getTime();
       // Posts sharing a date keep a stable A–Z order instead of looking unsorted.
-      if (diff === 0) return a.frontmatter.title.localeCompare(b.frontmatter.title);
+      if (diff === 0) return byTitle(a, b);
       return sort === 'date-asc' ? diff : -diff;
     });
   }, [posts, query, activeTag, sort]);
@@ -99,6 +112,8 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
                   newest: t.blog.sortNewest,
                   oldest: t.blog.sortOldest,
                   title: t.blog.sortTitle,
+                  readLong: t.blog.sortReadLong,
+                  readShort: t.blog.sortReadShort,
                 }}
               />
               {/* View toggle */}

@@ -1,6 +1,6 @@
 ---
 
-title: "No es la flecha, sino el indio"
+title: "Recalculando rumbo"
 date: "2026-06-23"
 description: "Mi historia como programador Full Stack: un relato sobre comenzar desde cero, vencer el miedo y aprender a terminar lo que se empieza."
 excerpt: "La historia de cómo comencé a programar en uno de los momentos más difíciles de mi vida y encontré en el código una forma de transformarme."

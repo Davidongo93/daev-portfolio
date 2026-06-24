@@ -18,6 +18,16 @@ const postsDirectory = fs.existsSync(localPath)
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { frontmatter } = await getPostData(params.slug);
   const description = frontmatter.description || frontmatter.excerpt || '';
+
+  // Point og:image straight at Cloudinary (a 1200x630 CDN thumbnail) instead of
+  // generating it on a serverless route. The generated route was dynamic, ~4.6s
+  // and ~1.9MB, so social crawlers (WhatsApp, X, Facebook) timed out and showed
+  // nothing. A direct CDN image is small, instant and globally cached. Posts
+  // without their own image fall back to the static branded site card.
+  const ogImage = frontmatter.image
+    ? toOgThumb(frontmatter.image as string)
+    : `${siteConfig.siteUrl}/opengraph-image`;
+
   return {
     title: frontmatter.title,
     description,
@@ -30,17 +40,28 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       url: `${siteConfig.siteUrl}/blog/${params.slug}`,
       publishedTime: frontmatter.date,
       authors: [siteConfig.name],
-      // og:image is supplied by the per-post opengraph-image.tsx, which shows the
-      // post image when present, otherwise a branded DÆV card. Single source so
-      // there is no duplicate og:image tag.
+      images: [{ url: ogImage, width: 1200, height: 630, alt: frontmatter.title as string }],
     },
     twitter: {
       card: 'summary_large_image',
       title: frontmatter.title,
       description,
-      // twitter:image falls back to og:image (the opengraph-image route).
+      images: [ogImage],
     },
   };
+}
+
+// Turn any Cloudinary image URL into a 1200x630 OG thumbnail, replacing an
+// existing leading transformation segment so the request stays a single, small
+// transform (q_auto + f_auto keep it light and CDN-cached).
+function toOgThumb(url: string): string {
+  if (!url.includes('res.cloudinary.com') || !url.includes('/upload/')) return url;
+  const [base, rest] = url.split('/upload/');
+  const segments = rest.split('/');
+  // Drop a leading transformation segment (e.g. "c_limit,w_1600,q_auto") so we
+  // don't chain transforms; a folder/public-id like "treenet/..." is preserved.
+  if (/(^|,)[a-z]{1,3}_/.test(segments[0])) segments.shift();
+  return `${base}/upload/w_1200,h_630,c_fill,q_auto,f_auto/${segments.join('/')}`;
 }
 
 export async function generateStaticParams() {
@@ -135,7 +156,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
       ? frontmatter.image.startsWith('http')
         ? frontmatter.image
         : `${siteConfig.siteUrl}${frontmatter.image}`
-      : `${siteConfig.siteUrl}/blog/${params.slug}/opengraph-image`,
+      : `${siteConfig.siteUrl}/opengraph-image`,
     datePublished: frontmatter.date,
     dateModified: frontmatter.date,
     wordCount,

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
 import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
+import ShareBar from '../../../components/ShareBar/ShareBar';
 import { siteConfig } from '../../../config/site';
 
 const localPath = path.join(process.cwd(), 'posts');
@@ -189,6 +190,14 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
               </div>
             </>
           )}
+        </div>
+
+        {/* Share */}
+        <div className="mt-6 pt-6 border-t border-border">
+          <ShareBar
+            url={`${siteConfig.siteUrl}/blog/${params.slug}`}
+            title={frontmatter.title as string}
+          />
         </div>
       </header>
 

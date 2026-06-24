@@ -13,6 +13,15 @@ function getPostsDir() {
   return fs.existsSync(localPath) ? localPath : path.join(process.cwd(), 'apps/daev/posts');
 }
 
+// Turn a Cloudinary image URL into a 1200x630 OG-sized thumbnail. Non-Cloudinary
+// URLs are returned unchanged.
+function toThumb(url: string) {
+  if (url.includes('res.cloudinary.com') && url.includes('/upload/')) {
+    return url.replace('/upload/', '/upload/w_1200,h_630,c_fill,q_auto,f_auto/');
+  }
+  return url;
+}
+
 export default async function PostOgImage({ params }: { params: { slug: string } }) {
   let title: string = siteConfig.alias;
   let date = '';
@@ -27,11 +36,11 @@ export default async function PostOgImage({ params }: { params: { slug: string }
     // fall back to defaults
   }
 
-  // Resolve the post image to an absolute URL when present.
+  // Resolve the post image to an absolute URL when present, requesting a
+  // 1200x630 thumbnail from Cloudinary so the OG card is correctly sized and
+  // loads fast instead of pulling the full-resolution original.
   const absImage = image
-    ? image.startsWith('http')
-      ? image
-      : `${siteConfig.siteUrl}${image}`
+    ? toThumb(image.startsWith('http') ? image : `${siteConfig.siteUrl}${image}`)
     : '';
 
   // Variant 1 — post has its own image: full-bleed photo with a branded overlay.

@@ -146,6 +146,9 @@ export const translations = {
       previous: 'Previous',
       next: 'Next',
       readingTime: 'min read',
+      share: 'Share',
+      copyLink: 'Copy link',
+      linkCopied: 'Link copied!',
     },
     footer: {
       rights: 'All rights reserved',
@@ -315,6 +318,9 @@ export const translations = {
       previous: 'Anterior',
       next: 'Siguiente',
       readingTime: 'min de lectura',
+      share: 'Compartir',
+      copyLink: 'Copiar enlace',
+      linkCopied: '¡Enlace copiado!',
     },
     footer: {
       rights: 'Todos los derechos reservados',

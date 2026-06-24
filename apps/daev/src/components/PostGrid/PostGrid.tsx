@@ -64,6 +64,8 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
       const diff =
         new Date(a.frontmatter.date).getTime() -
         new Date(b.frontmatter.date).getTime();
+      // Posts sharing a date keep a stable A–Z order instead of looking unsorted.
+      if (diff === 0) return a.frontmatter.title.localeCompare(b.frontmatter.title);
       return sort === 'date-asc' ? diff : -diff;
     });
   }, [posts, query, activeTag, sort]);
@@ -163,7 +165,7 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
                 ))}
               </div>
             ) : (
-              <div className="flex flex-col gap-4 max-w-3xl mx-auto">
+              <div className="max-w-3xl mx-auto rounded-2xl border border-border bg-surface divide-y divide-border overflow-hidden">
                 {displayed.map((post) => (
                   <PostCard key={post.slug} post={post} variant="list" />
                 ))}

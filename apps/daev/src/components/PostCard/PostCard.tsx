@@ -22,40 +22,73 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
-  const isList = variant === 'list';
   const { slug, frontmatter } = post;
 
-  return (
-    <article
-      className={`bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl group flex ${
-        isList ? 'flex-col sm:flex-row' : 'flex-col h-full hover:-translate-y-1'
-      }`}
-    >
-      <Link
-        href={`/blog/${slug}`}
-        className={`block ${isList ? 'sm:w-60 sm:shrink-0' : ''}`}
-      >
-        <div
-          className={`relative overflow-hidden ${
-            isList ? 'h-44 sm:h-full sm:min-h-[12rem]' : 'h-48'
-          }`}
+  // ── List variant: a compact archive-style row, not a stretched card ──────
+  if (variant === 'list') {
+    return (
+      <article className="group">
+        <Link
+          href={`/blog/${slug}`}
+          className="flex items-center gap-4 px-4 py-4 hover:bg-surface-el/70 transition-colors"
         >
+          {/* Small square thumbnail */}
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg overflow-hidden border border-border">
+            {frontmatter.image ? (
+              <Image
+                src={frontmatter.image}
+                alt={frontmatter.title}
+                fill
+                sizes="80px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <BrandPlaceholder
+                title={frontmatter.title}
+                label={frontmatter.keywords?.[0]}
+              />
+            )}
+          </div>
+
+          {/* Text block */}
+          <div className="min-w-0 flex-1">
+            <p className="text-xs text-muted mb-1 flex items-center gap-1.5">
+              <FaCalendarAlt /> {frontmatter.date}
+              {frontmatter.keywords?.[0] && (
+                <span className="text-accent">· #{frontmatter.keywords[0]}</span>
+              )}
+            </p>
+            <h2 className="font-display text-base sm:text-lg font-semibold text-fore group-hover:text-accent transition-colors truncate">
+              {frontmatter.title}
+            </h2>
+            <p className="text-sm text-muted line-clamp-1">{frontmatter.excerpt}</p>
+          </div>
+
+          {/* Affordance */}
+          <FaArrowRight
+            size={12}
+            className="shrink-0 text-muted group-hover:text-accent transition-transform group-hover:translate-x-1"
+          />
+        </Link>
+      </article>
+    );
+  }
+
+  // ── Grid variant: the full card ──────────────────────────────────────────
+  return (
+    <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl group flex flex-col h-full hover:-translate-y-1">
+      <Link href={`/blog/${slug}`} className="block">
+        <div className="relative overflow-hidden h-48">
           {frontmatter.image ? (
             <>
               <Image
                 src={frontmatter.image}
                 alt={frontmatter.title}
                 fill
-                sizes={
-                  isList
-                    ? '(max-width: 640px) 100vw, 240px'
-                    : '(max-width: 768px) 100vw, 33vw'
-                }
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              {!isList && (
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
-              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
             </>
           ) : (
             <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
@@ -79,11 +112,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
           </h2>
         </Link>
 
-        <p
-          className={`text-sm text-muted mb-4 flex-1 ${
-            isList ? 'line-clamp-2' : 'line-clamp-3'
-          }`}
-        >
+        <p className="text-sm text-muted mb-4 flex-1 line-clamp-3">
           {frontmatter.excerpt}
         </p>
 

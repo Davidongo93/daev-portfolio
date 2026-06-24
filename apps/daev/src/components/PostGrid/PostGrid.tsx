@@ -1,8 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { FaThLarge, FaList } from 'react-icons/fa';
 import PostCard from '../PostCard/PostCard';
 import SearchBar from '../SearchBar/SearchBar';
-import SortDropdown from '../SortDropDown/SortDropDown';
+import SortDropdown, { SortOption } from '../SortDropDown/SortDropDown';
 import BrandMark from '../Brand/BrandMark';
 import { useLang } from '../../context/LangContext';
 
@@ -22,37 +23,50 @@ interface PostGridProps {
   posts: Post[];
 }
 
+type ViewMode = 'grid' | 'list';
+
+const chipClass = (active: boolean) =>
+  `text-xs font-medium px-3 py-1.5 rounded-full border transition ${
+    active
+      ? 'bg-accent text-bg border-accent'
+      : 'bg-surface-el text-muted border-border hover:text-accent hover:border-accent'
+  }`;
+
 const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   const { t } = useLang();
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
-  const [sortOption, setSortOption] = useState<'title' | 'date'>('date');
+  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState<SortOption>('date-desc');
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [view, setView] = useState<ViewMode>('grid');
 
-  const handleSearch = (searchTerm: string) => {
-    if (searchTerm === '') {
-      setFilteredPosts(posts);
-      return;
-    }
-    const term = searchTerm.toLowerCase();
-    setFilteredPosts(
-      posts.filter(
-        (p) =>
-          p.frontmatter.title.toLowerCase().includes(term) ||
-          p.frontmatter.excerpt.toLowerCase().includes(term) ||
-          p.frontmatter.keywords?.some((kw) => kw.toLowerCase().includes(term))
-      )
-    );
-  };
+  const tags = useMemo(() => {
+    const set = new Set<string>();
+    posts.forEach((p) => p.frontmatter.keywords?.forEach((k) => set.add(k)));
+    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  }, [posts]);
 
-  const handleSortChange = (option: 'title' | 'date') => {
-    setSortOption(option);
-    setFilteredPosts((prev) =>
-      [...prev].sort((a, b) =>
-        option === 'title'
-          ? a.frontmatter.title.localeCompare(b.frontmatter.title)
-          : new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
-      )
-    );
-  };
+  const displayed = useMemo(() => {
+    const term = query.trim().toLowerCase();
+    const filtered = posts.filter((p) => {
+      const matchesQuery =
+        !term ||
+        p.frontmatter.title.toLowerCase().includes(term) ||
+        p.frontmatter.excerpt.toLowerCase().includes(term) ||
+        p.frontmatter.keywords?.some((k) => k.toLowerCase().includes(term));
+      const matchesTag = !activeTag || p.frontmatter.keywords?.includes(activeTag);
+      return matchesQuery && matchesTag;
+    });
+
+    return [...filtered].sort((a, b) => {
+      if (sort === 'title') {
+        return a.frontmatter.title.localeCompare(b.frontmatter.title);
+      }
+      const diff =
+        new Date(a.frontmatter.date).getTime() -
+        new Date(b.frontmatter.date).getTime();
+      return sort === 'date-asc' ? diff : -diff;
+    });
+  }, [posts, query, activeTag, sort]);
 
   return (
     <div className="w-full">
@@ -73,22 +87,88 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
       ) : (
         <>
           {/* Controls */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-10">
-            <SearchBar onSearch={handleSearch} placeholder={t.blog.search} />
-            <SortDropdown
-              sortOption={sortOption}
-              onSortChange={handleSortChange}
-              labels={{ title: t.blog.sortTitle, date: t.blog.sortDate }}
-            />
+          <div className="flex flex-col gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-center">
+              <SearchBar onSearch={setQuery} placeholder={t.blog.search} />
+              <SortDropdown
+                sortOption={sort}
+                onSortChange={setSort}
+                labels={{
+                  newest: t.blog.sortNewest,
+                  oldest: t.blog.sortOldest,
+                  title: t.blog.sortTitle,
+                }}
+              />
+              {/* View toggle */}
+              <div className="flex items-center gap-1 self-center rounded-full border border-border bg-surface-el p-1">
+                <button
+                  type="button"
+                  onClick={() => setView('grid')}
+                  aria-label={t.blog.viewGrid}
+                  aria-pressed={view === 'grid'}
+                  className={`p-2 rounded-full transition ${
+                    view === 'grid'
+                      ? 'bg-accent text-bg'
+                      : 'text-muted hover:text-accent'
+                  }`}
+                >
+                  <FaThLarge size={14} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setView('list')}
+                  aria-label={t.blog.viewList}
+                  aria-pressed={view === 'list'}
+                  className={`p-2 rounded-full transition ${
+                    view === 'list'
+                      ? 'bg-accent text-bg'
+                      : 'text-muted hover:text-accent'
+                  }`}
+                >
+                  <FaList size={14} />
+                </button>
+              </div>
+            </div>
+
+            {/* Tag filters */}
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setActiveTag(null)}
+                  className={chipClass(activeTag === null)}
+                >
+                  {t.blog.allTopics}
+                </button>
+                {tags.map((tag) => (
+                  <button
+                    type="button"
+                    key={tag}
+                    onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                    className={chipClass(activeTag === tag)}
+                  >
+                    #{tag}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Grid */}
-          {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
+          {/* Results */}
+          {displayed.length > 0 ? (
+            view === 'grid' ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayed.map((post) => (
+                  <PostCard key={post.slug} post={post} variant="grid" />
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col gap-4 max-w-3xl mx-auto">
+                {displayed.map((post) => (
+                  <PostCard key={post.slug} post={post} variant="list" />
+                ))}
+              </div>
+            )
           ) : (
             <p className="text-center text-muted py-16">{t.blog.noResults}</p>
           )}

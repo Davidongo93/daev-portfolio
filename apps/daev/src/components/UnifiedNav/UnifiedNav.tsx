@@ -30,13 +30,24 @@ export default function UnifiedNav() {
   const pathname = usePathname() ?? '/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => setScrolling(window.scrollY > 12);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      setScrolling(window.scrollY > 12);
+      setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (pathname !== '/') return;
@@ -58,11 +69,10 @@ export default function UnifiedNav() {
   const navLinks: NavLink[] = [
     { href: '/#about', label: t.nav.about, sectionId: 'about' },
     { href: '/#services', label: t.nav.services, sectionId: 'services' },
-    { href: '/pricing', label: t.nav.pricing, sectionId: 'pricing' },
     { href: '/#skills', label: t.nav.skills, sectionId: 'skills' },
     { href: '/#featured-projects', label: t.nav.projects, sectionId: 'featured-projects' },
-    { href: '/blog', label: t.nav.blog, sectionId: 'blog' },
     { href: '/#contact', label: t.nav.contact, sectionId: 'contact' },
+    { href: '/blog', label: '/blog', sectionId: 'blog' },
   ];
 
   const isOnBlog = pathname.startsWith('/blog');
@@ -167,6 +177,13 @@ export default function UnifiedNav() {
           </button>
         </div>
       </div>
+
+      {/* Sequential scroll progress bar (home, blog, pricing, posts) */}
+      <div
+        className="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-accent to-accent-2 transition-[width] duration-150 ease-out"
+        style={{ width: `${progress}%` }}
+        aria-hidden="true"
+      />
 
       {/* Mobile dropdown */}
       {isMenuOpen && (

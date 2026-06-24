@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import {
   FaRocket,
   FaLaptopCode,
@@ -7,6 +8,7 @@ import {
   FaCogs,
   FaCloud,
   FaWhatsapp,
+  FaArrowRight,
 } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { siteConfig } from '../../config/site';
@@ -68,6 +70,15 @@ const ServicesSection: React.FC = () => {
               </article>
             );
           })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/pricing"
+            className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-bg"
+          >
+            {t.services.pricingCta} <FaArrowRight size={12} />
+          </Link>
         </div>
       </div>
     </section>

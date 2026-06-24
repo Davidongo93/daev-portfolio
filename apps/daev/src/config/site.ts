@@ -377,8 +377,9 @@ export const siteConfig = {
   // ── Precios / planes (página /pricing) ──────────────────────────
   pricing: {
     currency: 'COP',
-    // Tasa USD→COP de referencia para mostrar equivalencias. Editable.
-    trmUsdToCop: 4000,
+    // Última lectura válida de la TRM (USD→COP). Sirve de respaldo si la API falla.
+    trmUsdToCop: 3426,
+    trmDate: '2026-06-24',
     plans: [
       {
         key: 'landing',
@@ -391,7 +392,12 @@ export const siteConfig = {
         priceCop: 850000,
         priceSuffix: { en: 'one-time', es: 'pago único' },
         featured: false,
-        fineprint: null,
+        fineprint: [
+          {
+            en: 'The price does not include recurring hosting: the first year is free and, from the second year on, it costs COP $300,000 per year.',
+            es: 'El precio no incluye el hosting recurrente: el primer año es sin costo y, a partir del segundo, cuesta $300.000 COP al año.',
+          },
+        ],
         features: [
           {
             en: 'Responsive design for every device',
@@ -406,8 +412,12 @@ export const siteConfig = {
             es: 'Optimización básica para buscadores (SEO)',
           },
           {
-            en: 'Domain and hosting included for the first year',
-            es: 'Dominio y hosting incluidos el primer año',
+            en: 'Hosting included free for the first year',
+            es: 'Hosting sin costo el primer año',
+          },
+          {
+            en: 'Free basic support for 3 months',
+            es: 'Soporte básico sin costo durante 3 meses',
           },
         ],
         whatsapp: {
@@ -426,14 +436,24 @@ export const siteConfig = {
         priceCop: 1800000,
         priceSuffix: { en: 'from', es: 'desde' },
         featured: true,
-        fineprint: {
-          en: 'This price covers up to 50 product references and 4 photos per product.',
-          es: 'Este precio cubre únicamente 50 referencias de producto y 4 fotografías por producto.',
-        },
+        fineprint: [
+          {
+            en: 'This price covers up to 50 product references and 4 photos per product.',
+            es: 'Este precio cubre únicamente 50 referencias de producto y 4 fotografías por producto.',
+          },
+          {
+            en: 'It does not include the fees of the payment gateway you choose.',
+            es: 'No incluye los costos de la pasarela de pago que elijas.',
+          },
+        ],
         features: [
           {
-            en: 'Everything in the Landing Page plan',
-            es: 'Todo lo del plan Landing Page',
+            en: 'Responsive design and basic SEO',
+            es: 'Diseño responsive y SEO básico',
+          },
+          {
+            en: 'WhatsApp and social media buttons',
+            es: 'Botones a WhatsApp y redes sociales',
           },
           {
             en: 'Product catalog and shopping cart',
@@ -443,9 +463,11 @@ export const siteConfig = {
             en: 'Payment gateway integration',
             es: 'Integración de pasarela de pagos',
           },
+          { en: 'Admin dashboard', es: 'Panel administrativo' },
+          { en: 'Database', es: 'Base de datos' },
           {
-            en: '50% off domain and hosting the first year',
-            es: '50% de descuento en dominio y hosting el primer año',
+            en: 'Free premium support for 3 months',
+            es: 'Soporte premium sin costo durante 3 meses',
           },
         ],
         whatsapp: {
@@ -477,17 +499,22 @@ export const siteConfig = {
           { en: 'Progress tracking', es: 'Seguimiento de progreso' },
           { en: 'PDF certificates with QR code', es: 'Certificados PDF con código QR' },
           { en: 'Admin dashboard', es: 'Panel administrativo' },
+          { en: 'Database', es: 'Base de datos' },
           {
-            en: 'PostgreSQL database (Supabase)',
-            es: 'Base de datos PostgreSQL (Supabase)',
+            en: 'Responsive design with basic optimization (SEO)',
+            es: 'Diseño responsive con optimización básica (SEO)',
           },
-          { en: 'Global hosting (Cloudflare)', es: 'Hosting global (Cloudflare)' },
-          { en: 'CDN', es: 'CDN' },
-          { en: 'SSL', es: 'SSL' },
-          { en: 'Backups', es: 'Copias de seguridad' },
-          { en: 'Responsive design', es: 'Diseño responsive' },
+          {
+            en: 'Free premium support for 3 months',
+            es: 'Soporte premium sin costo durante 3 meses',
+          },
         ],
-        fineprint: null,
+        fineprint: [
+          {
+            en: 'Includes 1 administrator, 1 instructor, 10 modules and unlimited students.',
+            es: 'Incluye 1 administrador, 1 instructor, 10 módulos y estudiantes ilimitados.',
+          },
+        ],
         whatsapp: {
           en: 'Hi Dave! I’m interested in an *educational platform (LMS)* (from COP $1,500,000). Can we coordinate?',
           es: '¡Hola Dave! Me interesa una *plataforma educativa (LMS)* (desde COP $1.500.000). ¿Podemos coordinar?',
@@ -500,22 +527,36 @@ export const siteConfig = {
         key: 'domain',
         icon: 'domain',
         name: { en: 'Domain', es: 'Dominio' },
-        priceUsd: 60,
-        per: { en: '/year', es: '/año' },
+        priceUsd: null,
+        priceCop: null,
+        per: null,
         note: {
-          en: 'Approximate — the final price depends on the chosen domain.',
-          es: 'Aproximado — el precio final depende del dominio elegido.',
+          en: 'Variable — depends on the domain you choose, or free if you already own one.',
+          es: 'Variable — depende del dominio que elijas, o sin costo si ya tienes uno.',
         },
       },
       {
-        key: 'hosting',
+        key: 'hosting-landing',
         icon: 'hosting',
-        name: { en: 'Hosting', es: 'Hosting' },
-        priceUsd: 45,
-        per: { en: '/month', es: '/mes' },
+        name: { en: 'Hosting · Landing Page', es: 'Hosting · Landing Page' },
+        priceUsd: null,
+        priceCop: 300000,
+        per: { en: '/year', es: '/año' },
         note: {
-          en: 'Scales with your traffic and resource needs.',
-          es: 'Escala según tu tráfico y necesidades de recursos.',
+          en: 'First year free.',
+          es: 'Primer año sin costo.',
+        },
+      },
+      {
+        key: 'hosting-store',
+        icon: 'hosting',
+        name: { en: 'Hosting · E-commerce & LMS', es: 'Hosting · E-commerce y LMS' },
+        priceUsd: 540,
+        priceCop: null,
+        per: { en: '/year', es: '/año' },
+        note: {
+          en: 'Resources for an online store or learning platform.',
+          es: 'Recursos para una tienda online o plataforma educativa.',
         },
       },
     ],
@@ -530,13 +571,123 @@ export const siteConfig = {
           es: 'Envía campañas a hasta 5.000 contactos.',
         },
         priceUsd: 10,
+        priceCop: null,
         per: { en: '/month', es: '/mes' },
+        priceLabel: null,
+      },
+      {
+        key: 'api',
+        icon: 'api',
+        name: { en: 'API integrations', es: 'Integraciones con APIs' },
+        description: {
+          en: 'Connect services like Meta, Telegram and others. The cost depends on the service and may vary.',
+          es: 'Conexión con servicios como Meta, Telegram y otros. El costo depende del servicio y puede variar.',
+        },
+        priceUsd: null,
+        priceCop: null,
+        per: null,
+        priceLabel: { en: 'Variable', es: 'Variable' },
+      },
+      {
+        key: 'chatbot',
+        icon: 'chatbot',
+        name: { en: 'Chatbot integration', es: 'Integración de chatbots' },
+        description: {
+          en: 'Automated assistants for your site or channels. Variable price, agreed per project.',
+          es: 'Asistentes automatizados para tu sitio o canales. Precio variable y a convenir.',
+        },
+        priceUsd: null,
+        priceCop: null,
+        per: null,
+        priceLabel: { en: 'On request', es: 'A convenir' },
+      },
+      {
+        key: 'seo',
+        icon: 'seo',
+        name: {
+          en: 'SEO positioning strategy',
+          es: 'Estrategia de posicionamiento SEO',
+        },
+        description: {
+          en: 'Search positioning strategy with Google metrics and tracking.',
+          es: 'Estrategia de posicionamiento con métricas de Google y seguimiento.',
+        },
+        priceUsd: null,
+        priceCop: null,
+        per: null,
+        priceLabel: { en: 'On request', es: 'A convenir' },
+      },
+      {
+        key: 'scheduling',
+        icon: 'scheduling',
+        name: {
+          en: 'Booking & appointment scheduling',
+          es: 'Integración y agendamiento de citas',
+        },
+        description: {
+          en: 'Bookings and appointment scheduling — ideal for independent professionals.',
+          es: 'Reservas y agendamiento de citas, ideal para profesionales independientes.',
+        },
+        priceUsd: null,
+        priceCop: null,
+        per: null,
+        priceLabel: { en: 'On request', es: 'A convenir' },
+      },
+    ],
+    // Planes de soporte mensual (sección aparte en /pricing).
+    support: [
+      {
+        key: 'support-basic',
+        icon: 'support-basic',
+        name: { en: 'Monthly support · Basic', es: 'Soporte mensual · Básico' },
+        description: {
+          en: 'Add simple features and edit texts and sections.',
+          es: 'Agrega funcionalidades sencillas y modifica textos y secciones.',
+        },
+        priceUsd: null,
+        priceCop: 150000,
+        per: { en: '/month', es: '/mes' },
+        priceLabel: null,
+      },
+      {
+        key: 'support-premium',
+        icon: 'support-premium',
+        name: { en: 'Monthly support · Premium', es: 'Soporte mensual · Premium' },
+        description: {
+          en: 'Add features, edit texts and sections, plus 24/7 technical support.',
+          es: 'Agrega funcionalidades, modifica textos y secciones, y soporte técnico 24/7.',
+        },
+        priceUsd: null,
+        priceCop: 350000,
+        per: { en: '/month', es: '/mes' },
+        priceLabel: null,
       },
     ],
     // CTA para productos a medida / no listados.
     quoteWhatsapp: {
       en: 'Hi Dave! I need a quote for a custom project. Let me share the details.',
       es: '¡Hola Dave! Necesito una cotización para un proyecto a medida. Te cuento los detalles.',
+    },
+    // Ejemplo ilustrativo de precios de dominio (referencia de un registrador).
+    domainExample: {
+      items: [
+        {
+          label: { en: '.CO Domain', es: 'Dominio .CO' },
+          domain: 'example.co',
+          term: { en: '1 Year', es: '1 año' },
+          priceUsd: 29.99,
+          renewsUsd: 56.99,
+          offUsd: 27,
+        },
+        {
+          label: { en: '.COM.CO Domain', es: 'Dominio .COM.CO' },
+          domain: 'example.com.co',
+          term: { en: '3 Years — $20/yr', es: '3 años — $20/año' },
+          priceUsd: 60,
+          renewsUsd: 125.97,
+          offUsd: 65.97,
+        },
+      ],
     },
   },
 

@@ -44,3 +44,11 @@ Thumbs.db
 # Next.js
 .next
 out
+
+.nx/polygraph
+.claude/worktrees
+.claude/settings.local.json
+
+# Local env files (secrets — never commit)
+.env.local
+.env.*.local

@@ -79,6 +79,7 @@ export const translations = {
       title: 'What I Can Build For You',
       subtitle: 'From a quick landing page to a full SaaS platform — pick what you need and let’s talk.',
       cta: 'Discuss on WhatsApp',
+      pricingCta: 'View pricing & plans',
     },
     pricing: {
       title: 'Pricing',
@@ -88,16 +89,25 @@ export const translations = {
       cta: 'Request this',
       infraTitle: 'Domain & hosting',
       infraSubtitle:
-        'Recurring infrastructure costs. Shown in USD with an approximate value in Colombian pesos (COP), subject to the daily exchange rate (TRM).',
-      infraDiscount:
-        'The E-commerce and LMS plans include 50% off domain and hosting during the first year.',
+        'Hosting and domain are quoted in US dollars and may vary depending on the provider. Amounts in Colombian pesos (COP) are approximate, based on the current exchange rate (TRM).',
+      variable: 'Variable',
       addonsTitle: 'Optional add-ons',
+      supportTitle: 'Support plans',
+      supportSubtitle:
+        'Monthly maintenance and support once your project is live.',
       customTitle: 'Need something else?',
       customText:
         'Custom websites, custom software, SaaS products and anything not listed here are quoted individually. Tell me what you have in mind and I’ll prepare a tailored quote.',
       customCta: 'Request a quote',
       trmNote: 'Reference exchange rate: USD $1 ≈ COP',
+      trmAsOf: 'as of',
+      trmLastValid: 'last valid reading from',
       approx: '≈',
+      renewsAt: 'Renews at',
+      domainExampleTitle: 'Illustrative domain pricing example',
+      domainExampleNote:
+        'Reference values from a registrar; the final price depends on the domain and provider.',
+      disclaimer: 'Prices may change without prior notice.',
     },
     projects: {
       title: 'All Projects on GitHub',
@@ -123,7 +133,12 @@ export const translations = {
       subtitle: 'Thoughts, tutorials and reflections',
       search: 'Search articles...',
       sortDate: 'Sort by date',
-      sortTitle: 'Sort by title',
+      sortTitle: 'Title (A–Z)',
+      sortNewest: 'Newest first',
+      sortOldest: 'Oldest first',
+      viewGrid: 'Card view',
+      viewList: 'List view',
+      allTopics: 'All',
       noResults: 'No articles found',
       comingSoon: 'New articles are on the way — check back soon.',
       related: 'Related Posts',
@@ -136,6 +151,8 @@ export const translations = {
       rights: 'All rights reserved',
       madeWith: 'Built with',
       tagline: 'I build web products that help people and companies grow.',
+      navTitle: 'Navigation',
+      exploreTitle: 'Explore',
     },
     console: {
       help: 'Type help for available commands',
@@ -231,6 +248,7 @@ export const translations = {
       title: 'Lo Que Puedo Construir Para Ti',
       subtitle: 'Desde una landing page hasta una plataforma SaaS completa — elige lo que necesitas y hablemos.',
       cta: 'Hablemos por WhatsApp',
+      pricingCta: 'Ver precios y planes',
     },
     pricing: {
       title: 'Precios',
@@ -240,16 +258,25 @@ export const translations = {
       cta: 'Solicitar este',
       infraTitle: 'Dominio y hosting',
       infraSubtitle:
-        'Costos recurrentes de infraestructura. Se muestran en USD con un valor aproximado en pesos colombianos (COP), sujeto a la tasa de cambio del día (TRM).',
-      infraDiscount:
-        'Los planes de E-commerce y LMS incluyen 50% de descuento en dominio y hosting durante el primer año.',
+        'El hosting y el dominio se cotizan en dólares estadounidenses y pueden variar según el proveedor. Los montos en pesos colombianos (COP) son aproximados, según la tasa de cambio actual (TRM).',
+      variable: 'Variable',
       addonsTitle: 'Complementos opcionales',
+      supportTitle: 'Planes de soporte',
+      supportSubtitle:
+        'Mantenimiento y soporte mensual una vez tu proyecto está en línea.',
       customTitle: '¿Necesitas algo más?',
       customText:
         'Los sitios web a medida, el software a medida, los productos SaaS y cualquier otro producto no listado se cotizan de forma individual. Cuéntame qué tienes en mente y prepararé una cotización a tu medida.',
       customCta: 'Solicitar cotización',
       trmNote: 'Tasa de cambio de referencia: USD $1 ≈ COP',
+      trmAsOf: 'al',
+      trmLastValid: 'última lectura válida del',
       approx: '≈',
+      renewsAt: 'Renueva en',
+      domainExampleTitle: 'Ejemplo ilustrativo de precios de dominio',
+      domainExampleNote:
+        'Valores de referencia de un registrador; el precio final depende del dominio y el proveedor.',
+      disclaimer: 'Los precios pueden variar sin previo aviso.',
     },
     projects: {
       title: 'Todos los Proyectos en GitHub',
@@ -275,7 +302,12 @@ export const translations = {
       subtitle: 'Pensamientos, tutoriales y reflexiones',
       search: 'Buscar artículos...',
       sortDate: 'Ordenar por fecha',
-      sortTitle: 'Ordenar por título',
+      sortTitle: 'Título (A–Z)',
+      sortNewest: 'Más recientes',
+      sortOldest: 'Más antiguos',
+      viewGrid: 'Vista de tarjetas',
+      viewList: 'Vista de lista',
+      allTopics: 'Todos',
       noResults: 'No se encontraron artículos',
       comingSoon: 'Pronto publicaré nuevos artículos. ¡Vuelve pronto!',
       related: 'Posts Relacionados',
@@ -288,6 +320,8 @@ export const translations = {
       rights: 'Todos los derechos reservados',
       madeWith: 'Hecho con',
       tagline: 'Construyo productos web que ayudan a personas y empresas a crecer.',
+      navTitle: 'Navegación',
+      exploreTitle: 'Explorar',
     },
     console: {
       help: 'Escribe help para ver los comandos disponibles',

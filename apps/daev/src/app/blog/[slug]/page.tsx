@@ -28,14 +28,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       url: `${siteConfig.siteUrl}/blog/${params.slug}`,
       publishedTime: frontmatter.date,
       authors: [siteConfig.name],
-      // og:image is supplied by the per-post opengraph-image.tsx (branded card).
-      ...(frontmatter.image ? { images: [{ url: frontmatter.image }] } : {}),
+      // og:image is supplied by the per-post opengraph-image.tsx, which shows the
+      // post image when present, otherwise a branded DÆV card. Single source so
+      // there is no duplicate og:image tag.
     },
     twitter: {
       card: 'summary_large_image',
       title: frontmatter.title,
       description,
-      ...(frontmatter.image ? { images: [frontmatter.image] } : {}),
+      // twitter:image falls back to og:image (the opengraph-image route).
     },
   };
 }

@@ -8,6 +8,12 @@ import {
   FaGlobe,
   FaServer,
   FaEnvelope,
+  FaPlug,
+  FaRobot,
+  FaChartLine,
+  FaCalendarCheck,
+  FaLifeRing,
+  FaHeadset,
 } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { siteConfig } from '../../config/site';
@@ -23,28 +29,110 @@ const itemIcon: Record<string, IconType> = {
   domain: FaGlobe,
   hosting: FaServer,
   email: FaEnvelope,
+  api: FaPlug,
+  chatbot: FaRobot,
+  seo: FaChartLine,
+  scheduling: FaCalendarCheck,
+  'support-basic': FaLifeRing,
+  'support-premium': FaHeadset,
 };
 
 const formatCop = (value: number) =>
-  new Intl.NumberFormat('es-CO', {
+  `${new Intl.NumberFormat('es-CO', {
     style: 'currency',
     currency: 'COP',
+    currencyDisplay: 'narrowSymbol',
     maximumFractionDigits: 0,
-  }).format(value);
+  }).format(value)} COP`;
 
 const formatUsd = (value: number) =>
-  new Intl.NumberFormat('en-US', {
+  `${new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    currencyDisplay: 'narrowSymbol',
     maximumFractionDigits: 0,
-  }).format(value);
+  }).format(value)} USD`;
 
-const PricingSection: React.FC = () => {
+const formatUsdCents = (value: number) =>
+  `${new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'narrowSymbol',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value)} USD`;
+
+interface PricingSectionProps {
+  trm?: number;
+  trmDate?: string;
+  trmLive?: boolean;
+}
+
+const PricingSection: React.FC<PricingSectionProps> = ({
+  trm: trmProp,
+  trmDate,
+  trmLive = true,
+}) => {
   const { t, lang } = useLang();
   const { pricing } = siteConfig;
-  const trm = pricing.trmUsdToCop;
+  const trm = trmProp ?? pricing.trmUsdToCop;
+  const date = trmDate ?? pricing.trmDate;
   const wa = (text: string) =>
     `${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
+
+  const formatDate = (iso: string) =>
+    new Date(`${iso}T12:00:00`).toLocaleDateString(
+      lang === 'es' ? 'es-CO' : 'en-US',
+      { year: 'numeric', month: 'long', day: 'numeric' }
+    );
+
+  const renderAddon = (
+    addon: (typeof pricing.addons)[number] | (typeof pricing.support)[number]
+  ) => {
+    const Icon = itemIcon[addon.icon] ?? FaEnvelope;
+    return (
+      <div
+        key={addon.key}
+        className="flex items-start gap-4 rounded-xl border border-border bg-surface-el p-5"
+      >
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+          <Icon size={18} />
+        </span>
+        <div>
+          <h3 className="font-semibold text-fore">{addon.name[lang]}</h3>
+          <p className="mt-1">
+            {addon.priceUsd != null ? (
+              <>
+                <span className="font-display text-lg font-bold text-fore">
+                  {formatUsd(addon.priceUsd)}
+                </span>
+                {addon.per && (
+                  <span className="text-sm text-muted">{addon.per[lang]}</span>
+                )}
+                <span className="ml-2 text-xs text-muted">
+                  {t.pricing.approx} {formatCop(addon.priceUsd * trm)}
+                </span>
+              </>
+            ) : addon.priceCop != null ? (
+              <>
+                <span className="font-display text-lg font-bold text-fore">
+                  {formatCop(addon.priceCop)}
+                </span>
+                {addon.per && (
+                  <span className="text-sm text-muted">{addon.per[lang]}</span>
+                )}
+              </>
+            ) : (
+              <span className="font-display text-lg font-bold text-accent">
+                {addon.priceLabel ? addon.priceLabel[lang] : t.pricing.variable}
+              </span>
+            )}
+          </p>
+          <p className="mt-1 text-xs text-muted">{addon.description[lang]}</p>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <section id="pricing" className="bg-bg py-16 md:py-24">
@@ -59,7 +147,7 @@ const PricingSection: React.FC = () => {
         </header>
 
         {/* Plans */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {pricing.plans.map((plan) => {
             const Icon = planIcon[plan.icon] ?? FaRocket;
             return (
@@ -124,9 +212,16 @@ const PricingSection: React.FC = () => {
                 </a>
 
                 {plan.fineprint && (
-                  <p className="mt-3 text-[11px] leading-snug text-muted">
-                    * {plan.fineprint[lang]}
-                  </p>
+                  <div className="mt-3 space-y-1">
+                    {[...plan.fineprint].map((note, i) => (
+                      <p
+                        key={i}
+                        className="text-[11px] leading-snug text-muted"
+                      >
+                        * {note[lang]}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </article>
             );
@@ -142,7 +237,7 @@ const PricingSection: React.FC = () => {
             {t.pricing.infraSubtitle}
           </p>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {pricing.infrastructure.map((item) => {
               const Icon = itemIcon[item.icon] ?? FaGlobe;
               return (
@@ -156,13 +251,32 @@ const PricingSection: React.FC = () => {
                   <div>
                     <h3 className="font-semibold text-fore">{item.name[lang]}</h3>
                     <p className="mt-1">
-                      <span className="font-display text-lg font-bold text-fore">
-                        {formatUsd(item.priceUsd)}
-                      </span>
-                      <span className="text-sm text-muted">{item.per[lang]}</span>
-                      <span className="ml-2 text-xs text-muted">
-                        {t.pricing.approx} {formatCop(item.priceUsd * trm)}
-                      </span>
+                      {item.priceUsd != null ? (
+                        <>
+                          <span className="font-display text-lg font-bold text-fore">
+                            {formatUsd(item.priceUsd)}
+                          </span>
+                          {item.per && (
+                            <span className="text-sm text-muted">{item.per[lang]}</span>
+                          )}
+                          <span className="ml-2 text-xs text-muted">
+                            {t.pricing.approx} {formatCop(item.priceUsd * trm)}
+                          </span>
+                        </>
+                      ) : item.priceCop != null ? (
+                        <>
+                          <span className="font-display text-lg font-bold text-fore">
+                            {formatCop(item.priceCop)}
+                          </span>
+                          {item.per && (
+                            <span className="text-sm text-muted">{item.per[lang]}</span>
+                          )}
+                        </>
+                      ) : (
+                        <span className="font-display text-lg font-bold text-accent">
+                          {t.pricing.variable}
+                        </span>
+                      )}
                     </p>
                     <p className="mt-1 text-xs text-muted">{item.note[lang]}</p>
                   </div>
@@ -171,12 +285,56 @@ const PricingSection: React.FC = () => {
             })}
           </div>
 
-          <p className="mt-6 text-center text-sm font-medium text-accent max-w-2xl mx-auto">
-            {t.pricing.infraDiscount}
+          <p className="mt-6 text-center text-xs text-muted">
+            {t.pricing.trmNote}{' '}
+            {new Intl.NumberFormat('es-CO', { maximumFractionDigits: 2 }).format(
+              trm
+            )}{' '}
+            · {trmLive ? t.pricing.trmAsOf : t.pricing.trmLastValid}{' '}
+            {formatDate(date)}
           </p>
-          <p className="mt-2 text-center text-xs text-muted">
-            {t.pricing.trmNote} {new Intl.NumberFormat('es-CO').format(trm)}
-          </p>
+
+          {/* Ejemplo ilustrativo de precios de dominio */}
+          <div className="mt-8 max-w-xl mx-auto rounded-lg border border-dashed border-border bg-surface-el/40 p-4">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              {t.pricing.domainExampleTitle}
+            </p>
+            <p className="mt-0.5 text-[11px] text-muted">
+              {t.pricing.domainExampleNote}
+            </p>
+
+            <div className="mt-3 space-y-2">
+              {pricing.domainExample.items.map((d) => (
+                <div
+                  key={d.domain}
+                  className="rounded-md border border-border bg-surface px-3 py-2"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="truncate text-sm">
+                      <span className="font-mono font-semibold text-fore">
+                        {d.domain}
+                      </span>
+                      <span className="ml-2 text-[11px] text-muted">
+                        {d.label[lang]}
+                      </span>
+                    </p>
+                    <span className="shrink-0 rounded-full bg-green/10 px-2 py-0.5 text-[10px] font-semibold text-green">
+                      {formatUsdCents(d.offUsd)} OFF
+                    </span>
+                  </div>
+                  <p className="mt-1 text-[11px] leading-relaxed text-muted">
+                    {d.term[lang]} ·{' '}
+                    <span className="font-semibold text-fore">
+                      {formatUsdCents(d.priceUsd)}
+                    </span>{' '}
+                    {t.pricing.approx} {formatCop(d.priceUsd * trm)} ·{' '}
+                    {t.pricing.renewsAt} {formatUsdCents(d.renewsUsd)}{' '}
+                    {t.pricing.approx} {formatCop(d.renewsUsd * trm)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Add-ons */}
@@ -184,35 +342,21 @@ const PricingSection: React.FC = () => {
           <h2 className="font-display text-2xl font-semibold text-fore text-center">
             {t.pricing.addonsTitle}
           </h2>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {pricing.addons.map(renderAddon)}
+          </div>
+        </div>
+
+        {/* Support plans */}
+        <div className="mt-16 md:mt-20">
+          <h2 className="font-display text-2xl font-semibold text-fore text-center">
+            {t.pricing.supportTitle}
+          </h2>
+          <p className="mt-3 text-sm text-muted text-center max-w-2xl mx-auto">
+            {t.pricing.supportSubtitle}
+          </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            {pricing.addons.map((addon) => {
-              const Icon = itemIcon[addon.icon] ?? FaEnvelope;
-              return (
-                <div
-                  key={addon.key}
-                  className="flex items-start gap-4 rounded-xl border border-border bg-surface-el p-5"
-                >
-                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                    <Icon size={18} />
-                  </span>
-                  <div>
-                    <h3 className="font-semibold text-fore">{addon.name[lang]}</h3>
-                    <p className="mt-1">
-                      <span className="font-display text-lg font-bold text-fore">
-                        {formatUsd(addon.priceUsd)}
-                      </span>
-                      <span className="text-sm text-muted">{addon.per[lang]}</span>
-                      <span className="ml-2 text-xs text-muted">
-                        {t.pricing.approx} {formatCop(addon.priceUsd * trm)}
-                      </span>
-                    </p>
-                    <p className="mt-1 text-xs text-muted">
-                      {addon.description[lang]}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
+            {pricing.support.map(renderAddon)}
           </div>
         </div>
 
@@ -233,6 +377,10 @@ const PricingSection: React.FC = () => {
             <FaWhatsapp /> {t.pricing.customCta}
           </a>
         </div>
+
+        <p className="mt-12 text-center text-xs text-muted">
+          {t.pricing.disclaimer}
+        </p>
       </div>
     </section>
   );

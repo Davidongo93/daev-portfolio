@@ -18,27 +18,51 @@ interface Post {
 
 interface PostCardProps {
   post: Post;
+  variant?: 'grid' | 'list';
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
+  const isList = variant === 'list';
+  const { slug, frontmatter } = post;
+
   return (
-    <article className="bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl group flex flex-col h-full">
-      <Link href={`/blog/${post.slug}`} className="block">
-        <div className="relative h-48 overflow-hidden">
-          {post.frontmatter.image ? (
+    <article
+      className={`bg-surface-el rounded-2xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-2xl group flex ${
+        isList ? 'flex-col sm:flex-row' : 'flex-col h-full hover:-translate-y-1'
+      }`}
+    >
+      <Link
+        href={`/blog/${slug}`}
+        className={`block ${isList ? 'sm:w-60 sm:shrink-0' : ''}`}
+      >
+        <div
+          className={`relative overflow-hidden ${
+            isList ? 'h-44 sm:h-full sm:min-h-[12rem]' : 'h-48'
+          }`}
+        >
+          {frontmatter.image ? (
             <>
               <Image
-                src={post.frontmatter.image}
-                alt={post.frontmatter.title}
+                src={frontmatter.image}
+                alt={frontmatter.title}
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes={
+                  isList
+                    ? '(max-width: 640px) 100vw, 240px'
+                    : '(max-width: 768px) 100vw, 33vw'
+                }
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
+              {!isList && (
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-el/80 to-transparent" />
+              )}
             </>
           ) : (
             <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">
-              <BrandPlaceholder title={post.frontmatter.title} label={post.frontmatter.keywords?.[0]} />
+              <BrandPlaceholder
+                title={frontmatter.title}
+                label={frontmatter.keywords?.[0]}
+              />
             </div>
           )}
         </div>
@@ -46,22 +70,26 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
       <div className="p-5 flex-1 flex flex-col">
         <p className="text-xs text-muted mb-2 flex items-center gap-1.5">
-          <FaCalendarAlt /> {post.frontmatter.date}
+          <FaCalendarAlt /> {frontmatter.date}
         </p>
 
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${slug}`}>
           <h2 className="font-display text-xl font-semibold text-fore hover:text-accent transition mb-2 line-clamp-2">
-            {post.frontmatter.title}
+            {frontmatter.title}
           </h2>
         </Link>
 
-        <p className="text-sm text-muted line-clamp-3 mb-4 flex-1">
-          {post.frontmatter.excerpt}
+        <p
+          className={`text-sm text-muted mb-4 flex-1 ${
+            isList ? 'line-clamp-2' : 'line-clamp-3'
+          }`}
+        >
+          {frontmatter.excerpt}
         </p>
 
-        {post.frontmatter.keywords && post.frontmatter.keywords.length > 0 && (
+        {frontmatter.keywords && frontmatter.keywords.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-4">
-            {post.frontmatter.keywords.slice(0, 3).map((kw) => (
+            {frontmatter.keywords.slice(0, 3).map((kw) => (
               <span
                 key={kw}
                 className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20"
@@ -73,11 +101,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         )}
 
         <Link
-          href={`/blog/${post.slug}`}
+          href={`/blog/${slug}`}
           className="text-sm font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1 mt-auto group/link"
         >
           Read more
-          <FaArrowRight size={10} className="transition-transform group-hover/link:translate-x-1" />
+          <FaArrowRight
+            size={10}
+            className="transition-transform group-hover/link:translate-x-1"
+          />
         </Link>
       </div>
     </article>

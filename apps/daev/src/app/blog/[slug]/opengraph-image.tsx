@@ -16,15 +16,89 @@ function getPostsDir() {
 export default async function PostOgImage({ params }: { params: { slug: string } }) {
   let title: string = siteConfig.alias;
   let date = '';
+  let image = '';
   try {
     const file = fs.readFileSync(path.join(getPostsDir(), `${params.slug}.md`), 'utf-8');
     const { data } = matter(file);
     title = (data.title as string) || title;
     date = (data.date as string) || '';
+    image = (data.image as string) || '';
   } catch {
     // fall back to defaults
   }
 
+  // Resolve the post image to an absolute URL when present.
+  const absImage = image
+    ? image.startsWith('http')
+      ? image
+      : `${siteConfig.siteUrl}${image}`
+    : '';
+
+  // Variant 1 — post has its own image: full-bleed photo with a branded overlay.
+  if (absImage) {
+    return new ImageResponse(
+      (
+        <div style={{ width: '100%', height: '100%', display: 'flex', position: 'relative' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={absImage}
+            alt=""
+            width={size.width}
+            height={size.height}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              padding: '80px',
+              background:
+                'linear-gradient(0deg, rgba(8,13,20,0.94) 0%, rgba(8,13,20,0.45) 45%, rgba(8,13,20,0) 72%)',
+              color: '#e2e8f0',
+              fontFamily: 'sans-serif',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
+              <div style={{ fontSize: 34, fontWeight: 700, color: '#00e5ff', display: 'flex' }}>
+                DÆV
+              </div>
+              <div style={{ fontSize: 24, color: '#94a3b8', display: 'flex' }}>/ blog</div>
+            </div>
+            <div
+              style={{
+                fontSize: 62,
+                fontWeight: 700,
+                lineHeight: 1.1,
+                maxWidth: 1000,
+                display: 'flex',
+              }}
+            >
+              {title}
+            </div>
+            {date && (
+              <div
+                style={{
+                  fontSize: 24,
+                  color: '#00e5ff',
+                  fontFamily: 'monospace',
+                  marginTop: 18,
+                  display: 'flex',
+                }}
+              >
+                {date}
+              </div>
+            )}
+          </div>
+        </div>
+      ),
+      { ...size }
+    );
+  }
+
+  // Variant 2 — no image: branded DÆV card.
   return new ImageResponse(
     (
       <div
@@ -85,9 +159,7 @@ export default async function PostOgImage({ params }: { params: { slug: string }
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontSize: 26, color: '#94a3b8', display: 'flex' }}>
-            {siteConfig.name}
-          </div>
+          <div style={{ fontSize: 26, color: '#94a3b8', display: 'flex' }}>{siteConfig.name}</div>
           <div style={{ fontSize: 26, color: '#00e5ff', fontFamily: 'monospace', display: 'flex' }}>
             {date}
           </div>

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { ReactNode } from 'react';
+import { estimateReadingTime } from '../../lib/readingTime';
 
 interface RelatedPost {
   title: string;
@@ -20,12 +21,6 @@ interface Post {
     readingTime: number; // Minutos estimados de lectura, calculado desde el contenido
   };
 }
-
-// Estimación de tiempo de lectura: ~200 palabras por minuto, mínimo 1 min.
-const estimateReadingTime = (content: string): number => {
-  const words = content.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
-};
 
 interface PostProviderProps {
   children: (posts: Post[]) => ReactNode;

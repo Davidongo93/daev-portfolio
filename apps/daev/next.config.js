@@ -20,6 +20,16 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    // The blog OG image route is a dynamic route handler, so Next does not
+    // auto-bundle the markdown it reads at runtime (unlike the prerendered post
+    // page). Without these files in the serverless bundle the read fails on
+    // Vercel and the OG card falls back to the plain branded variant. Include
+    // the posts so the photo + title card renders in production.
+    outputFileTracingIncludes: {
+      '/blog/[slug]/opengraph-image': ['./posts/**/*.md'],
+    },
+  },
 };
 
 const plugins = [

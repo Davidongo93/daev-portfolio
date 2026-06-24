@@ -8,6 +8,7 @@ import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 
 import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
 import ShareBar from '../../../components/ShareBar/ShareBar';
 import { siteConfig } from '../../../config/site';
+import { getReadingStats } from '../../../lib/readingTime';
 
 const localPath = path.join(process.cwd(), 'posts');
 const postsDirectory = fs.existsSync(localPath)
@@ -69,11 +70,6 @@ async function getPosts() {
   });
 }
 
-function getReadingTime(content: string) {
-  const words = content.trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200));
-}
-
 // Render Cloudinary media inside the article body: ![caption](url) becomes a
 // <figure>; .mp4 URLs render as a <video> with a generated poster, everything
 // else renders as a lazy-loaded <img>. The custom <p> unwraps paragraphs that
@@ -128,8 +124,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const currentIndex = sorted.findIndex((p) => p.slug === params.slug);
   const prevPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;
   const nextPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
-  const readingTime = getReadingTime(content);
-  const wordCount = content.trim().split(/\s+/).length;
+  const { words: wordCount, minutes: readingTime } = getReadingStats(content);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -137,7 +132,9 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
     headline: frontmatter.title,
     description: frontmatter.description || frontmatter.excerpt,
     image: frontmatter.image
-      ? `${siteConfig.siteUrl}${frontmatter.image}`
+      ? frontmatter.image.startsWith('http')
+        ? frontmatter.image
+        : `${siteConfig.siteUrl}${frontmatter.image}`
       : `${siteConfig.siteUrl}/blog/${params.slug}/opengraph-image`,
     datePublished: frontmatter.date,
     dateModified: frontmatter.date,

@@ -7,10 +7,25 @@ import { siteConfig } from '../../../config/site';
 export const alt = `${siteConfig.alias} — Blog`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
+// Force build-time generation (paired with generateStaticParams below) so the
+// markdown is read where the files exist, not at runtime on Vercel.
+export const dynamic = 'force-static';
 
 function getPostsDir() {
   const localPath = path.join(process.cwd(), 'posts');
   return fs.existsSync(localPath) ? localPath : path.join(process.cwd(), 'apps/daev/posts');
+}
+
+// Prerender the OG image for every post at build time. Without this the route is
+// dynamic and runs on-demand on Vercel, where the markdown files are not bundled
+// into the serverless function — the file read then fails and we fall back to the
+// plain branded card (no title, no photo). Generating statically reads the post
+// at build time, where the files exist, so the photo + title card is baked in.
+export function generateStaticParams() {
+  return fs
+    .readdirSync(getPostsDir())
+    .filter((f) => f.endsWith('.md') && !f.startsWith('_'))
+    .map((f) => ({ slug: f.replace('.md', '') }));
 }
 
 // Turn a Cloudinary image URL into a 1200x630 OG-sized thumbnail. Non-Cloudinary

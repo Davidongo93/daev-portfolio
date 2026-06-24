@@ -3,7 +3,7 @@ title: "TreeNet: tejer redes en los árboles, tejer comunidad"
 date: "2026-06-24"
 description: "Un viaje visual por TreeNet en los paisajes de Cundinamarca: redes en los árboles como punto de encuentro, conservación y economía local en Colombia."
 excerpt: "Subimos a los árboles para tejer redes y, sin darnos cuenta, terminamos tejiendo comunidad. Una bitácora visual sobre encontrarnos, cuidar la vida y valorar el territorio colombiano."
-image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto/treenet/IMG_20241123_145353_fdxafq.jpg"
+image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/treenet/IMG_20241004_134951_ocg5ja.jpg"
 keywords: ["TreeNet", "redes en árboles", "Cundinamarca", "Colombia", "comunidad", "conservación", "turismo de naturaleza", "sostenibilidad"]
 ---
 

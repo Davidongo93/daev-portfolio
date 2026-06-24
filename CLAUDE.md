@@ -22,6 +22,7 @@ La v2 está en producción y funciona bien, pero hay inconsistencias visuales y 
 ## Visión: "El mejor portafolio de la galaxia"
 
 **Criterios de éxito:**
+
 - Coherencia visual en TODAS las vistas (home, blog, CLI, 404)
 - Navbar unificado y accesible desde cualquier lugar
 - Transiciones smooth entre vistas
@@ -42,6 +43,7 @@ npx nx lint daev         # linter
 ```
 
 Rutas clave:
+
 - App: `apps/daev/src/`
 - Config personal: `apps/daev/src/config/site.ts` ← **crear en Fase 0**
 - Contextos: `apps/daev/src/context/` ← **crear en Fase 0**
@@ -52,6 +54,7 @@ Rutas clave:
 - Layout root: `apps/daev/src/app/layout.tsx`
 
 Dependencias ya instaladas relevantes:
+
 - `swiper ^11` — reemplaza react-slick
 - `react-icons ^5` — iconos (incluye FaWhatsapp, FaMoon, FaSun, etc.)
 - `prism-react-renderer ^2` — bloques de código
@@ -259,34 +262,34 @@ Reemplaza el contenido con el siguiente sistema de tokens. Mantén los `@tailwin
 /* ── Design tokens ───────────────────────────────────── */
 :root {
   /* Light theme (default) */
-  --bg:              #f0f4ff;
-  --surface:         #ffffff;
-  --surface-el:      #e4ecfb;
-  --accent:          #0369a1;
-  --accent-hover:    #0284c7;
-  --accent-2:        #4f46e5;
-  --green:           #16a34a;
-  --green-hover:     #15803d;
-  --text:            #0f172a;
-  --text-muted:      #475569;
-  --border:          #cbd5e1;
-  --shadow:          rgba(15, 23, 42, 0.08);
+  --bg: #f0f4ff;
+  --surface: #ffffff;
+  --surface-el: #e4ecfb;
+  --accent: #0369a1;
+  --accent-hover: #0284c7;
+  --accent-2: #4f46e5;
+  --green: #16a34a;
+  --green-hover: #15803d;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #cbd5e1;
+  --shadow: rgba(15, 23, 42, 0.08);
 }
 
 .dark {
   /* Dark theme */
-  --bg:              #080d14;
-  --surface:         #0f1724;
-  --surface-el:      #1a2332;
-  --accent:          #00e5ff;
-  --accent-hover:    #38bdf8;
-  --accent-2:        #818cf8;
-  --green:           #22c55e;
-  --green-hover:     #4ade80;
-  --text:            #e2e8f0;
-  --text-muted:      #64748b;
-  --border:          #1e3a5f;
-  --shadow:          rgba(0, 229, 255, 0.04);
+  --bg: #080d14;
+  --surface: #0f1724;
+  --surface-el: #1a2332;
+  --accent: #00e5ff;
+  --accent-hover: #38bdf8;
+  --accent-2: #818cf8;
+  --green: #22c55e;
+  --green-hover: #4ade80;
+  --text: #e2e8f0;
+  --text-muted: #64748b;
+  --border: #1e3a5f;
+  --shadow: rgba(0, 229, 255, 0.04);
 }
 ```
 
@@ -300,34 +303,31 @@ const { join } = require('path');
 
 module.exports = {
   darkMode: 'class',
-  content: [
-    join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'),
-    ...createGlobPatternsForDependencies(__dirname),
-  ],
+  content: [join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'), ...createGlobPatternsForDependencies(__dirname)],
   theme: {
     extend: {
       colors: {
-        bg:         'var(--bg)',
-        surface:    'var(--surface)',
+        bg: 'var(--bg)',
+        surface: 'var(--surface)',
         'surface-el': 'var(--surface-el)',
-        accent:     'var(--accent)',
+        accent: 'var(--accent)',
         'accent-hover': 'var(--accent-hover)',
         'accent-2': 'var(--accent-2)',
-        green:      'var(--green)',
+        green: 'var(--green)',
         'green-hover': 'var(--green-hover)',
-        fore:       'var(--text)',
-        muted:      'var(--text-muted)',
-        border:     'var(--border)',
+        fore: 'var(--text)',
+        muted: 'var(--text-muted)',
+        border: 'var(--border)',
       },
       fontFamily: {
-        sans:    ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['Space Grotesk', 'Inter', 'sans-serif'],
-        mono:    ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       animation: {
-        'fade-in':  'fadeIn 0.5s ease-out',
+        'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.4s ease-out',
-        'bg-pan':   'moveBackground 20s ease-in-out infinite',
+        'bg-pan': 'moveBackground 20s ease-in-out infinite',
       },
     },
   },
@@ -340,6 +340,7 @@ module.exports = {
 **Archivo:** `apps/daev/src/app/layout.tsx`
 
 Agrega en el `<head>` (dentro del `RootLayout`):
+
 ```tsx
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -350,6 +351,7 @@ Agrega en el `<head>` (dentro del `RootLayout`):
 ```
 
 Agrega también `suppressHydrationWarning` al `<html>` (necesario para el tema):
+
 ```tsx
 <html lang="en" suppressHydrationWarning>
 ```
@@ -452,11 +454,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
 
   const toggle = () => setLang((l) => (l === 'en' ? 'es' : 'en'));
 
-  return (
-    <LangContext.Provider value={{ lang, t: translations[lang], toggle }}>
-      {children}
-    </LangContext.Provider>
-  );
+  return <LangContext.Provider value={{ lang, t: translations[lang], toggle }}>{children}</LangContext.Provider>;
 }
 
 export const useLang = () => useContext(LangContext);
@@ -467,6 +465,7 @@ export const useLang = () => useContext(LangContext);
 **Archivo:** `apps/daev/src/app/layout.tsx`
 
 El `body` debe quedar así:
+
 ```tsx
 <body className="bg-bg text-fore font-sans transition-colors duration-300">
   <ThemeProvider>
@@ -485,14 +484,17 @@ Importar `ThemeProvider`, `LangProvider` (ambos `'use client'`), y `WhatsAppButt
 ### 0.8 — Eliminar archivos obsoletos
 
 Eliminar:
+
 - `apps/daev/src/components/Posts/Posts.tsx` — no se usa, tiene bug de path antiguo
 - `apps/daev/src/hooks/hook.ts` — `useTailwindColors` no se usa en ningún componente
 - `apps/daev/src/components/Projects/projectData.ts` — datos ficticios nunca usados
 
 Desinstalar dependencias pesadas no reemplazadas:
+
 ```bash
 npm uninstall react-slick slick-carousel
 ```
+
 Eliminar del `package.json` manual si el uninstall falla por workspace. Verificar que `react-slick` ya no se importe en ningún archivo.
 
 ---
@@ -520,24 +522,26 @@ import FeaturedProjects from '../FeaturedProjects.tsx/FeaturedProjects';
 ```
 
 Configuración de Swiper:
+
 ```tsx
-<Swiper
-  modules={[Autoplay, Navigation, Pagination, EffectFade]}
-  effect="fade"
-  autoplay={{ delay: 8000, disableOnInteraction: false, pauseOnMouseEnter: true }}
-  navigation
-  pagination={{ clickable: true }}
-  loop
-  className="w-full"
->
-  <SwiperSlide><AboutSection /></SwiperSlide>
-  <SwiperSlide><ExperienceSection /></SwiperSlide>
-  <SwiperSlide><StatsSection /></SwiperSlide>
-  <SwiperSlide><FeaturedProjects /></SwiperSlide>
+<Swiper modules={[Autoplay, Navigation, Pagination, EffectFade]} effect="fade" autoplay={{ delay: 8000, disableOnInteraction: false, pauseOnMouseEnter: true }} navigation pagination={{ clickable: true }} loop className="w-full">
+  <SwiperSlide>
+    <AboutSection />
+  </SwiperSlide>
+  <SwiperSlide>
+    <ExperienceSection />
+  </SwiperSlide>
+  <SwiperSlide>
+    <StatsSection />
+  </SwiperSlide>
+  <SwiperSlide>
+    <FeaturedProjects />
+  </SwiperSlide>
 </Swiper>
 ```
 
 Agregar estilos de personalización en `global.css` para los botones de Swiper:
+
 ```css
 /* Swiper customization */
 .swiper-button-next,
@@ -547,8 +551,12 @@ Agregar estilos de personalización en `global.css` para los botones de Swiper:
   transition: opacity 0.3s;
 }
 .swiper-button-next:hover,
-.swiper-button-prev:hover { opacity: 1; }
-.swiper-pagination-bullet-active { background: var(--accent) !important; }
+.swiper-button-prev:hover {
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent) !important;
+}
 ```
 
 ---
@@ -558,12 +566,14 @@ Agregar estilos de personalización en `global.css` para los botones de Swiper:
 ### 2.1 — Eliminar BlogNav, crear Navbar unificado
 
 **Problemas actuales:**
+
 - Header en home ≠ BlogNav en blog (inconsistencia)
 - Navbar no disponible en CLI
 - Terminal button no está siempre accesible
 - Sin indicador visual clear de sección activa
 
 **Solución:** Crear un único componente `UnifiedNav` que:
+
 1. Se usa en `layout.tsx` (encima del `{children}`)
 2. Funciona igual en home, blog, y dentro de CLI
 3. Muestra indicador de sección activa (color + underline/border-bottom)
@@ -616,7 +626,7 @@ export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: Unifie
     { href: '#contact', label: t.nav.contact, sectionId: 'contact' },
   ];
 
-  const isNavLinkActive = (link: typeof navLinks[0]) => {
+  const isNavLinkActive = (link: (typeof navLinks)[0]) => {
     if (link.sectionId === 'blog' && currentPath === '/blog') return true;
     return activeSection === link.sectionId;
   };
@@ -624,7 +634,6 @@ export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: Unifie
   return (
     <nav className="fixed top-0 left-0 w-full z-50 h-16 bg-surface/80 backdrop-blur-md border-b border-border transition-all duration-300">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
-        
         {/* Logo */}
         <Link href="/" className="font-display font-bold text-xl text-accent tracking-widest hover:opacity-80 transition">
           DÆV
@@ -635,19 +644,9 @@ export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: Unifie
           {navLinks.map((link) => {
             const isActive = isNavLinkActive(link);
             return (
-              <a
-                key={link.sectionId}
-                href={link.href}
-                className={`text-sm font-medium px-3 py-2 rounded-md transition-all relative ${
-                  isActive
-                    ? 'text-accent'
-                    : 'text-muted hover:text-accent'
-                }`}
-              >
+              <a key={link.sectionId} href={link.href} className={`text-sm font-medium px-3 py-2 rounded-md transition-all relative ${isActive ? 'text-accent' : 'text-muted hover:text-accent'}`}>
                 {link.label}
-                {isActive && (
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent" />
-                )}
+                {isActive && <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent" />}
               </a>
             );
           })}
@@ -656,41 +655,25 @@ export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: Unifie
         {/* Controls */}
         <div className="flex items-center gap-3">
           {/* Lang toggle */}
-          <button
-            onClick={toggleLang}
-            className="text-xs font-mono font-bold text-muted hover:text-accent transition px-2 py-1 border border-border rounded"
-            title={`Switch to ${lang === 'en' ? 'Spanish' : 'English'}`}
-          >
+          <button onClick={toggleLang} className="text-xs font-mono font-bold text-muted hover:text-accent transition px-2 py-1 border border-border rounded" title={`Switch to ${lang === 'en' ? 'Spanish' : 'English'}`}>
             {t.lang.switch}
           </button>
 
           {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="text-muted hover:text-accent transition"
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
+          <button onClick={toggleTheme} className="text-muted hover:text-accent transition" title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
           </button>
 
           {/* Terminal button */}
-          <button
-            onClick={onShowTerminal}
-            className="text-muted hover:text-accent transition"
-            title="Open terminal"
-          >
+          <button onClick={onShowTerminal} className="text-muted hover:text-accent transition" title="Open terminal">
             <FaTerminal size={18} />
           </button>
 
           {/* Hamburger (mobile) */}
-          <button
-            className="md:hidden text-fore"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden text-fore" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
           </button>
         </div>
-
       </div>
 
       {/* Mobile menu */}
@@ -699,16 +682,7 @@ export default function UnifiedNav({ onShowTerminal, currentPath = '/' }: Unifie
           {navLinks.map((link) => {
             const isActive = isNavLinkActive(link);
             return (
-              <a
-                key={link.sectionId}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`text-sm font-medium px-3 py-2 rounded-md transition-all ${
-                  isActive
-                    ? 'text-accent bg-accent/10'
-                    : 'text-muted hover:text-accent'
-                }`}
-              >
+              <a key={link.sectionId} href={link.href} onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium px-3 py-2 rounded-md transition-all ${isActive ? 'text-accent bg-accent/10' : 'text-muted hover:text-accent'}`}>
                 {link.label}
               </a>
             );
@@ -746,10 +720,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ### 2.3 — Eliminar Header.tsx y BlogNav.tsx
 
 Borrar:
+
 - `apps/daev/src/components/Header/Header.tsx`
 - `apps/daev/src/components/BlogNav/BlogNav.tsx`
 
 Actualizar las rutas que importaban Header:
+
 - `apps/daev/src/views/Home/Home.tsx` — remover `<Header />`
 - `apps/daev/src/app/blog/layout.tsx` — remover `<BlogNav />`
 
@@ -766,6 +742,7 @@ Cada sección usa las variables CSS del tema. Paleta: `bg-surface`, `bg-surface-
 **Archivo:** `apps/daev/src/components/HeroSection/HeroSection.tsx`
 
 **CAMBIO IMPORTANTE:** Remover la imagen de fondo (bwCity.jpg) del home. Esto causa:
+
 - Inconsistencia visual entre home y blog
 - Distracción visual para reclutadores
 - Afecta legibilidad en mobile
@@ -783,12 +760,8 @@ export default function HeroSection() {
     <section id="about" className="relative w-full min-h-screen bg-gradient-to-b from-surface to-bg flex items-center justify-center pt-20 pb-16">
       <div className="max-w-6xl w-full px-4 md:px-8">
         <div className="text-center space-y-6 animate-fade-in">
-          <h1 className="font-display font-bold text-4xl md:text-6xl text-fore leading-tight">
-            Welcome to my portfolio
-          </h1>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            Full Stack Developer passionate about building beautiful, scalable web experiences.
-          </p>
+          <h1 className="font-display font-bold text-4xl md:text-6xl text-fore leading-tight">Welcome to my portfolio</h1>
+          <p className="text-lg text-muted max-w-2xl mx-auto">Full Stack Developer passionate about building beautiful, scalable web experiences.</p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <a href="#projects" className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-bg font-semibold hover:bg-accent-hover transition-all">
               View My Work
@@ -805,6 +778,7 @@ export default function HeroSection() {
 ```
 
 **Lo que cambió:**
+
 - ❌ Imagen de fondo `bwCity.jpg` removida
 - ❌ CSS animation `animated-background` no se necesita
 - ✅ Gradiente simple `from-surface to-bg` para profundidad
@@ -819,6 +793,7 @@ Verificar que la clase `animate-fade-in` esté definida en `global.css`.
 **Archivo:** `apps/daev/src/components/AboutSection/AboutSection.tsx`
 
 Usar `useLang()` para textos. Layout:
+
 - Background: `bg-surface/95` con mínimo `calc(100vh - 4rem)`
 - Izquierda: foto (ya existe), badges de disponibilidad
 - Derecha: nombre + rol + bio + botones CTA
@@ -826,33 +801,30 @@ Usar `useLang()` para textos. Layout:
 **Foto**: mantener el `<Image src="/1779257228045.jpeg" width={400} height={400} />` con filtros CSS hover.
 
 **Badge de disponibilidad**:
+
 ```tsx
-{siteConfig.available && (
-  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 border border-green/30 text-green text-xs font-medium">
-    <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-    {t.about.available}
-  </span>
-)}
+{
+  siteConfig.available && (
+    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 border border-green/30 text-green text-xs font-medium">
+      <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
+      {t.about.available}
+    </span>
+  );
+}
 ```
 
 **Botón "Hire Me" (CTA primario)**: reemplaza CodeButton por un botón real:
+
 ```tsx
-<a
-  href="#contact"
-  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-bg font-semibold text-sm hover:bg-accent-hover transition-all hover:scale-105 shadow-lg"
->
+<a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-bg font-semibold text-sm hover:bg-accent-hover transition-all hover:scale-105 shadow-lg">
   {t.hero.cta}
 </a>
 ```
 
 **Botón secundario** (GitHub):
+
 ```tsx
-<a
-  href={siteConfig.links.github}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-fore text-sm font-medium hover:border-accent hover:text-accent transition-all"
->
+<a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-fore text-sm font-medium hover:border-accent hover:text-accent transition-all">
   <FaGithub /> GitHub
 </a>
 ```
@@ -868,6 +840,7 @@ Leer datos desde `siteConfig.experience`. Usar `useLang()` para textos.
 Layout: dos columnas en desktop, una en mobile. Izquierda: texto + CTA. Derecha: timeline vertical.
 
 Timeline item:
+
 ```tsx
 <div className="relative pl-8 pb-8 border-l-2 border-border last:border-l-0">
   <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-accent border-2 border-bg" />
@@ -882,6 +855,7 @@ Timeline item:
 ```
 
 Eliminar la tabla hardcodeada. El botón "Contact Me" se convierte en:
+
 ```tsx
 <a href="#contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-bg text-sm font-semibold hover:bg-accent-hover transition-all">
   {t.experience.contact}
@@ -895,14 +869,14 @@ Eliminar la tabla hardcodeada. El botón "Contact Me" se convierte en:
 Leer desde `siteConfig.skills`. Usar `useLang()`.
 
 Cada categoría en una card `bg-surface-el rounded-xl p-6 border border-border`:
+
 - Header de la card: ícono de categoría + título (en el idioma activo)
 - Pills con `TechPill` que responde al tema:
 
 **Actualizar TechPill** (`apps/daev/src/components/TechPill/TechPill.tsx`):
+
 ```tsx
-<span className="bg-accent/10 text-accent border border-accent/20 text-xs font-medium px-3 py-1 rounded-full">
-  {tech}
-</span>
+<span className="bg-accent/10 text-accent border border-accent/20 text-xs font-medium px-3 py-1 rounded-full">{tech}</span>
 ```
 
 ### 3.5 — StatsSection: counters y GitHub stats
@@ -912,6 +886,7 @@ Cada categoría en una card `bg-surface-el rounded-xl p-6 border border-border`:
 Leer `siteConfig.stats`. Usar `useLang()`.
 
 Cards de stats:
+
 ```tsx
 <div className="bg-surface-el rounded-xl p-6 border border-border text-center">
   <p className="text-4xl font-display font-bold text-accent">{siteConfig.stats.years}+</p>
@@ -928,6 +903,7 @@ Mantener las `<picture>` de github-readme-stats como están (son SVGs externos q
 Leer desde `siteConfig.featuredProjects`. Usar `useLang()`.
 
 **ProjectCard** (`apps/daev/src/components/Projects/ProjectCard.tsx`) — agregar prop `description` y usar `lang`:
+
 ```tsx
 <div className="bg-surface-el rounded-xl overflow-hidden border border-border hover:border-accent/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
   {/* thumbnail */}
@@ -942,12 +918,10 @@ Leer desde `siteConfig.featuredProjects`. Usar `useLang()`.
     {/* tech pills */}
     {/* links */}
     <div className="flex gap-2 mt-3">
-      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"
-        className="flex-1 text-center text-xs py-1.5 rounded-md border border-border text-muted hover:text-accent hover:border-accent transition">
+      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-xs py-1.5 rounded-md border border-border text-muted hover:text-accent hover:border-accent transition">
         {t.featured.viewRepo}
       </a>
-      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
-        className="flex-1 text-center text-xs py-1.5 rounded-md bg-accent text-bg font-medium hover:bg-accent-hover transition">
+      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center text-xs py-1.5 rounded-md bg-accent text-bg font-medium hover:bg-accent-hover transition">
         {t.featured.liveDemo}
       </a>
     </div>
@@ -970,9 +944,9 @@ const projectsPerPage = 6; // cambiar de 3 a 6 para mostrar más
 
 useEffect(() => {
   fetch('/api/github')
-    .then(r => r.json())
+    .then((r) => r.json())
     .then((data: Repo[]) => {
-      setRepos(data.filter(r => !r.fork)); // filtrar forks
+      setRepos(data.filter((r) => !r.fork)); // filtrar forks
       setLoading(false);
     });
 }, []);
@@ -984,14 +958,17 @@ const currentProjects = repos.slice((currentPage - 1) * projectsPerPage, current
 Pasar `currentProjects` directamente a `CardGrid` (eliminar fetch de `CardGrid`, recibe repos como prop).
 
 Agregar estado de loading con skeleton:
+
 ```tsx
-{loading && (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {[...Array(6)].map((_, i) => (
-      <div key={i} className="h-48 bg-surface-el rounded-xl animate-pulse border border-border" />
-    ))}
-  </div>
-)}
+{
+  loading && (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="h-48 bg-surface-el rounded-xl animate-pulse border border-border" />
+      ))}
+    </div>
+  );
+}
 ```
 
 ### 3.8 — ContactSection: layout mejorado + IconBar
@@ -1001,15 +978,18 @@ Agregar estado de loading con skeleton:
 Leer desde `siteConfig`. Usar `useLang()`.
 
 Layout 2 columnas en desktop:
+
 - **Izquierda**: formulario funcional con mailto (ya implementado)
 - **Derecha**: info de contacto directo + IconBar
 
 Formulario con estilos del tema:
+
 ```tsx
 <input className="w-full px-4 py-3 rounded-lg bg-surface-el border border-border text-fore placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent/50 transition" />
 ```
 
 Botón de envío (CTA primario):
+
 ```tsx
 <button type="submit" className="w-full py-3 rounded-lg bg-accent text-bg font-semibold hover:bg-accent-hover transition-all hover:scale-[1.02]">
   {t.contact.send}
@@ -1017,13 +997,13 @@ Botón de envío (CTA primario):
 ```
 
 Sección de contacto directo (derecha del grid en desktop):
+
 ```tsx
 <div className="space-y-4">
   <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 text-muted hover:text-accent transition">
     <FaEnvelope className="text-accent" /> {siteConfig.email}
   </a>
-  <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer"
-    className="flex items-center gap-3 text-muted hover:text-green transition">
+  <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted hover:text-green transition">
     <FaWhatsapp className="text-green" /> WhatsApp
   </a>
   <IconBar />
@@ -1037,9 +1017,9 @@ Eliminar `CodeExample` del ContactSection — no aporta en este contexto.
 **Archivo:** `apps/daev/src/components/IconBar/IconBar.tsx`
 
 Leer desde `siteConfig.links`. El botón de WhatsApp debe tener el color verde oficial:
+
 ```tsx
-<a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer"
-  className="flex flex-col items-center text-[#25D366] hover:scale-110 transition-transform">
+<a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-[#25D366] hover:scale-110 transition-transform">
   <FaWhatsapp className="text-2xl" />
   <span className="text-xs mt-1">WhatsApp</span>
 </a>
@@ -1058,14 +1038,7 @@ import { siteConfig } from '../../config/site';
 
 export default function WhatsAppButton() {
   return (
-    <a
-      href={siteConfig.whatsapp}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contact on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
-      style={{ backgroundColor: '#25D366' }}
-    >
+    <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp" className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#25D366' }}>
       <FaWhatsapp className="text-white text-2xl" />
     </a>
   );
@@ -1110,6 +1083,7 @@ const BlogPage = () => (
 **Archivo:** `apps/daev/src/components/PostGrid/PostGrid.tsx`
 
 Usar `useLang()` para los textos de búsqueda, sort y "no results". Actualizar los estilos:
+
 ```tsx
 <SearchBar onSearch={handleSearch} placeholder={t.blog.search} />
 <SortDropdown sortOption={sortOption} onSortChange={handleSortChange} labels={{ title: t.blog.sortTitle, date: t.blog.sortDate }} />
@@ -1126,15 +1100,15 @@ Usar `useLang()` para los textos de búsqueda, sort y "no results". Actualizar l
   </div>
   <div className="p-5">
     <a href={`/blog/${post.slug}`}>
-      <h2 className="font-display font-semibold text-lg text-fore hover:text-accent transition mb-2 line-clamp-2">
-        {post.frontmatter.title}
-      </h2>
+      <h2 className="font-display font-semibold text-lg text-fore hover:text-accent transition mb-2 line-clamp-2">{post.frontmatter.title}</h2>
     </a>
     <p className="text-xs text-muted mb-3">{post.frontmatter.date}</p>
     <p className="text-sm text-muted line-clamp-3">{post.frontmatter.excerpt}</p>
     <div className="flex flex-wrap gap-2 mt-4">
       {post.frontmatter.keywords?.map((kw, i) => (
-        <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">#{kw}</span>
+        <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+          #{kw}
+        </span>
       ))}
     </div>
   </div>
@@ -1148,21 +1122,29 @@ Eliminar la sección "Posts Relacionados" del PostCard — mueve ese contenido a
 **Archivo:** `apps/daev/src/app/blog/[slug]/page.tsx`
 
 El cuerpo del artículo necesita prose styles. Agregar en `global.css`:
+
 ```css
 .prose-article {
   color: var(--text);
   line-height: 1.8;
   font-size: 1.05rem;
 }
-.prose-article h1, .prose-article h2, .prose-article h3 {
+.prose-article h1,
+.prose-article h2,
+.prose-article h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
 }
-.prose-article p { margin-bottom: 1.25rem; }
-.prose-article a { color: var(--accent); text-decoration: underline; }
+.prose-article p {
+  margin-bottom: 1.25rem;
+}
+.prose-article a {
+  color: var(--accent);
+  text-decoration: underline;
+}
 .prose-article code {
   background: var(--surface-el);
   padding: 0.15em 0.4em;
@@ -1170,7 +1152,9 @@ El cuerpo del artículo necesita prose styles. Agregar en `global.css`:
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9em;
 }
-.prose-article pre { margin: 1.5rem 0; }
+.prose-article pre {
+  margin: 1.5rem 0;
+}
 ```
 
 Aplicar `className="prose-article"` al div que envuelve `<Markdown>`.
@@ -1197,6 +1181,7 @@ pointer-events: none;
 ```
 
 El `.console-output { display: flex; }` debe ser:
+
 ```css
 .console-output {
   display: flex;
@@ -1226,7 +1211,7 @@ useEffect(() => {
 // Luego en el JSX:
 <div ref={outputRef} className="console-output">
   {/* ... output lines ... */}
-</div>
+</div>;
 ```
 
 ### 5.4 — Cambiar comando "gui" a "exit"
@@ -1249,7 +1234,7 @@ También actualizar el mensaje de help y las traducciones en `LangContext`:
 
 ```ts
 // En LangContext.tsx, traducciones:
-console: { 
+console: {
   help: 'Type help for available commands',
   exit: 'exit — return to graphic interface'
 }
@@ -1388,17 +1373,17 @@ case 'help':
 </div>
 
 // En el div principal:
-<div 
-  className="console" 
-  onClick={() => inputRef.current?.focus()} 
-  onKeyDown={handleKeyDown} 
+<div
+  className="console"
+  onClick={() => inputRef.current?.focus()}
+  onKeyDown={handleKeyDown}
   tabIndex={0}
 >
   {/* ... */}
-  <input 
-    ref={inputRef} 
-    type="text" 
-    className="opacity-0 absolute pointer-events-none" 
+  <input
+    ref={inputRef}
+    type="text"
+    className="opacity-0 absolute pointer-events-none"
     autoComplete="off"
   />
 </div>
@@ -1419,38 +1404,77 @@ Agregar animaciones reutilizables:
 ```css
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.animate-fade-in { animation: fadeIn 0.5s ease-out; }
-.animate-slide-up { animation: slideUp 0.4s ease-out; }
-.animate-slide-down { animation: slideDown 0.3s ease-out; }
-.animate-slide-in-left { animation: slideInLeft 0.3s ease-out; }
-.animate-slide-in-right { animation: slideInRight 0.3s ease-out; }
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
 ```
 
 En `tailwind.config.js`, agregar a `animation`:
+
 ```js
 animation: {
   'fade-in':  'fadeIn 0.5s ease-out',
@@ -1469,11 +1493,7 @@ Cuando naveguemos a `/blog`, la página debe fade-in. Lo mismo con `/blog/[slug]
 
 ```tsx
 export default function BlogPage() {
-  return (
-    <div className="animate-fade-in">
-      {/* ... content ... */}
-    </div>
-  );
+  return <div className="animate-fade-in">{/* ... content ... */}</div>;
 }
 ```
 
@@ -1482,12 +1502,8 @@ export default function BlogPage() {
 ```tsx
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const { frontmatter, content } = await getPostData(params.slug);
-  
-  return (
-    <article className="animate-fade-in">
-      {/* ... content ... */}
-    </article>
-  );
+
+  return <article className="animate-fade-in">{/* ... content ... */}</article>;
 }
 ```
 
@@ -1526,14 +1542,13 @@ Cuando abres la CLI, la pantalla debe fade-in. Cuando haces `exit`, fade-out.
 **Archivo:** `apps/daev/src/views/console/ConsoleCLI.tsx`
 
 ```tsx
-<div className="animate-fade-in">
-  {/* CLI content */}
-</div>
+<div className="animate-fade-in">{/* CLI content */}</div>
 ```
 
 ### 6.7 — Verificar coherencia de espaciado y padding
 
 Todos los sections deben tener:
+
 - `pt-20` (espacio para navbar fixed)
 - `pb-16` o `py-16`
 - `px-4 md:px-8`
@@ -1550,6 +1565,7 @@ Esto asegura que el contenido esté centrado y legible en todos los tamaños.
 Usar las variables de tema. El CodeBlock de prism con `goHomeCode` está bien — mantenerlo, es un touch divertido. Agregar `useLang()` para el texto "Page not found" y "Go home".
 
 Actualizar fondo:
+
 ```tsx
 <div className="relative min-h-screen bg-bg flex flex-col justify-center items-center text-fore animate-fade-in">
 ```
@@ -1569,6 +1585,7 @@ Si aparece algún import, eliminarlo.
 ### 9.2 — Limpiar imports duplicados
 
 Asegurarse de que:
+
 - Google Fonts solo en `layout.tsx` (via `<link>`)
 - Header.tsx y BlogNav.tsx no existen (reemplazados por UnifiedNav)
 - ConsoleCLI.style.css no tiene duplicaciones con global.css
@@ -1577,6 +1594,7 @@ Asegurarse de que:
 ### 9.3 — Agregar `loading="lazy"` a imágenes de stats
 
 **Archivo:** `apps/daev/src/components/StatsSection/StatsSection.tsx`
+
 ```tsx
 <img src="..." alt="..." className="w-full max-w-sm" loading="lazy" />
 ```
@@ -1606,6 +1624,7 @@ npx nx dev daev
 Revisar en `localhost:4200`:
 
 **Home — General:**
+
 - [ ] Navbar unificado visible en top (logo DÆV, nav links, toggle idioma, toggle tema, terminal)
 - [ ] Sin imagen de fondo en home (limpio, similar a blog)
 - [ ] HeroSection: gradiente simple, botones CTA claros
@@ -1615,6 +1634,7 @@ Revisar en `localhost:4200`:
 - [ ] Footer visible
 
 **Home — Dark mode:**
+
 - [ ] Colores correctos (variables CSS aplicadas)
 - [ ] Contraste legible
 - [ ] Carousel: 4 slides con Swiper, fade correcto
@@ -1628,20 +1648,24 @@ Revisar en `localhost:4200`:
 - [ ] WhatsApp FAB: esquina inferior derecha, #25D366
 
 **Home — Light mode (toggle):**
+
 - [ ] Todos los colores cambian (tema claro correcto)
 - [ ] Toggle persiste en localStorage
 
 **Cambio de idioma (toggle EN/ES):**
+
 - [ ] Todos los textos de UI cambian
 - [ ] Bio, roles, descripciones en español
 - [ ] Botones CTA en español
 
 **Mobile (≤768px):**
+
 - [ ] Navbar hamburger abre/cierra menú
 - [ ] Todo responsive (single column donde se necesita)
 - [ ] Carousel funcional en mobile
 
 **Navbar consistency:**
+
 - [ ] Navbar visible en home ✓
 - [ ] Navbar visible en /blog ✓
 - [ ] Navbar visible en CLI (en el background) ✓
@@ -1649,6 +1673,7 @@ Revisar en `localhost:4200`:
 - [ ] Active indicator (dot) funciona en todas partes
 
 **Terminal (ConsoleCLI):**
+
 - [ ] Terminal abre desde navbar button
 - [ ] Comando `exit` regresa a home (no `gui`)
 - [ ] Auto-scroll funciona (baja cuando hay nuevas líneas)
@@ -1660,6 +1685,7 @@ Revisar en `localhost:4200`:
 - [ ] Green-on-black aesthetic intacto
 
 **Blog (/blog):**
+
 - [ ] Navbar unificado (mismo que home)
 - [ ] Cards de posts con imágenes, fecha, excerpt
 - [ ] Búsqueda y sort funcionan
@@ -1667,6 +1693,7 @@ Revisar en `localhost:4200`:
 - [ ] Fade-in transition al cargar
 
 **404 (/non-existent):**
+
 - [ ] Página visible, CodeBlock legible
 - [ ] Link "Go home" funciona
 - [ ] Tema aplicado
@@ -1703,18 +1730,22 @@ Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el
 2. **Orden estricto de fases**: Cumple cada fase en orden. FASE 2 (Navbar unificado) debe hacerse ANTES de tocar vistas. El navbar es el eje central.
 
 3. **Build check** después de CADA fase:
+
    ```bash
    npx nx build daev
    ```
+
    Si TypeScript falla, resuelve ANTES de continuar.
 
 4. **Archivos a eliminar:**
+
    - `apps/daev/src/components/Header/Header.tsx` ← reemplazado por UnifiedNav
    - `apps/daev/src/components/BlogNav/BlogNav.tsx` ← reemplazado por UnifiedNav
    - `apps/daev/src/components/HeroSection/HeroSection.tsx` (contenido reescrito, sin background)
    - Cualquier otro archivo que importe Header o BlogNav
 
 5. **Archivos a crear:**
+
    - `apps/daev/src/components/UnifiedNav/UnifiedNav.tsx` ← este es el nuevo navbar
 
 6. **El archivo `site.ts`** es la única fuente de verdad. Nunca hardcodear datos personales en componentes.
@@ -1726,6 +1757,7 @@ Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el
 9. **Animaciones**: Todas las nuevas animaciones van en `global.css`. Usa las clases `animate-fade-in`, `animate-slide-up`, etc.
 
 10. **ConsoleCLI improvements:**
+
     - Comando `gui` → `exit`
     - Auto-scroll con `useRef` + `useEffect`
     - Nuevos comandos: `ls`, `pwd`, `echo`, `date`, `time`
@@ -1733,6 +1765,7 @@ Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el
     - Help actualizado con lista completa
 
 11. **Navbar en TODAS partes:**
+
     - Home: sí ✓
     - Blog: sí (remover BlogNav) ✓
     - CLI: visible en background ✓
@@ -1740,16 +1773,19 @@ Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el
     - Layout.tsx lo provee globalmente
 
 12. **Transiciones suaves:**
+
     - Cada página/sección entra con `animate-fade-in`
     - Navbar tiene `transition-all duration-200`
     - CLI fade-in al abrir, fade-out al salir
 
 13. **Responsiveness:**
+
     - Mobile-first approach
     - Navbar hamburger ≤ md (768px)
     - Tests en mobile antes de finalizar
 
 14. **Público objetivo (ajusta copy/UX para esto):**
+
     - 🎯 Reclutadores (impresion inmediata, profesionalismo)
     - 🎯 Equipos técnicos (código limpio, no gimmicks excesivos)
     - 🎯 Compañeros de trabajo (accesibilidad, light mode)
@@ -1778,3 +1814,27 @@ Push a `main` dispara el auto-deploy. Verificar en el dashboard de Vercel que el
 El portafolio debe verse como **el mejor portafolio de la galaxia** 🌌 — profesional, dinámico, intuitivo, sin distracciones innecesarias. La consistencia visual entre home, blog y CLI es crítica. Cada transición debe ser smooth. Cada interacción debe sentirse pulida.
 
 ¡Éxito, Opus! 🚀
+
+<!-- nx configuration start-->
+<!-- Leave the start & end comments to automatically receive updates. -->
+
+## General Guidelines for working with Nx
+
+- For navigating/exploring the workspace, invoke the `nx-workspace` skill first - it has patterns for querying projects, targets, and dependencies
+- When running tasks (for example build, lint, test, e2e, etc.), always prefer running the task through `nx` (i.e. `nx run`, `nx run-many`, `nx affected`) instead of using the underlying tooling directly
+- Prefix nx commands with the workspace's package manager (e.g., `pnpm nx build`, `npm exec nx test`) - avoids using globally installed CLI
+- You have access to the Nx MCP server and its tools, use them to help the user
+- For Nx plugin best practices, check `node_modules/@nx/<plugin>/PLUGIN.md`. Not all plugins have this file - proceed without it if unavailable.
+- NEVER guess CLI flags - always check nx_docs or `--help` first when unsure
+
+## Scaffolding & Generators
+
+- For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools
+
+## When to use nx_docs
+
+- USE for: advanced config options, unfamiliar flags, migration guides, plugin configuration, edge cases
+- DON'T USE for: basic generator syntax (`nx g @nx/react:app`), standard commands, things you already know
+- The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
+
+<!-- nx configuration end-->

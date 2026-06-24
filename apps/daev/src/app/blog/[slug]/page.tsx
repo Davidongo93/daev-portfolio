@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Markdown from 'react-markdown';
+import Markdown, { type Components } from 'react-markdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
@@ -73,6 +73,49 @@ function getReadingTime(content: string) {
   const words = content.trim().split(/\s+/).length;
   return Math.max(1, Math.ceil(words / 200));
 }
+
+// Render Cloudinary media inside the article body: ![caption](url) becomes a
+// <figure>; .mp4 URLs render as a <video> with a generated poster, everything
+// else renders as a lazy-loaded <img>. The custom <p> unwraps paragraphs that
+// only wrap a media element so we never nest <figure> inside <p>.
+const markdownComponents: Components = {
+  img: ({ src, alt }) => {
+    const caption = alt || undefined;
+    if (typeof src === 'string' && src.endsWith('.mp4')) {
+      const poster = src
+        .replace('/video/upload/', '/video/upload/so_0,')
+        .replace(/\.mp4$/, '.jpg');
+      return (
+        <figure>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video src={src} poster={poster} controls playsInline preload="metadata" />
+          {caption && <figcaption>{caption}</figcaption>}
+        </figure>
+      );
+    }
+    return (
+      <figure>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={alt || ''} loading="lazy" />
+        {caption && <figcaption>{caption}</figcaption>}
+      </figure>
+    );
+  },
+  p: ({ children, node }) => {
+    const imgChildren =
+      node?.children?.filter((c) => c.type === 'element' && c.tagName === 'img') ?? [];
+    // Two or more images in one block become a responsive gallery grid.
+    if (imgChildren.length >= 2) {
+      return <div className="post-gallery">{children}</div>;
+    }
+    // A single standalone media element is unwrapped so the <figure> is not
+    // illegally nested inside a <p>.
+    if (node?.children?.length === 1 && imgChildren.length === 1) {
+      return <>{children}</>;
+    }
+    return <p>{children}</p>;
+  },
+};
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const { frontmatter, content } = await getPostData(params.slug);
@@ -203,7 +246,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
 
       {/* Content */}
       <div className="prose-article">
-        <Markdown>{content}</Markdown>
+        <Markdown components={markdownComponents}>{content}</Markdown>
       </div>
 
       {/* Prev/Next */}

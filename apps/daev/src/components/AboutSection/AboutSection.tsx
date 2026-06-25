@@ -1,5 +1,4 @@
 'use client';
-import { useRef } from 'react';
 import Image from 'next/image';
 import { FaGithub, FaArrowRight, FaWhatsapp } from 'react-icons/fa';
 import IconBar from '../IconBar/IconBar';
@@ -8,26 +7,12 @@ import { useLang } from '../../context/LangContext';
 
 const AboutSection: React.FC = () => {
   const { t, lang } = useLang();
-  const tiltRef = useRef<HTMLDivElement>(null);
 
   const stats = [
     { value: `${siteConfig.stats.years}+`, label: t.stats.years },
     { value: `${siteConfig.stats.projects}+`, label: t.stats.projects },
     { value: `${siteConfig.stats.clients}+`, label: t.stats.clients },
   ];
-
-  // Interactive 3D tilt — a little physics on pointer move (desktop only).
-  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const el = tiltRef.current;
-    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `rotateY(${px * 9}deg) rotateX(${-py * 9}deg)`;
-  };
-  const handleLeave = () => {
-    if (tiltRef.current) tiltRef.current.style.transform = '';
-  };
 
   return (
     <section id="about" className="bg-surface relative py-20 md:py-24 overflow-hidden">
@@ -37,12 +22,8 @@ const AboutSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-16">
         {/* ── Photo card (right) ── */}
         <div className="w-full max-w-sm md:w-[44%] flex flex-col items-center">
-          <div
-            className="relative w-full [perspective:1200px]"
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-          >
-            <div className="about-float relative">
+          <div className="relative w-full">
+            <div className="relative">
               {/* animated glow */}
               <div
                 aria-hidden
@@ -74,26 +55,20 @@ const AboutSection: React.FC = () => {
                 </span>
               )}
 
-              {/* tilt card */}
-              <div
-                ref={tiltRef}
-                className="about-tilt relative z-10 overflow-hidden rounded-3xl border border-border bg-surface-el shadow-2xl [transform-style:preserve-3d] will-change-transform"
-              >
-                <div className="relative aspect-[4/5] w-full">
+              {/* photo card (static) */}
+              <div className="relative z-10 overflow-hidden rounded-3xl border border-border bg-surface-el shadow-2xl">
+                <div className="relative aspect-square w-full">
                   <Image
                     src={siteConfig.photo}
                     alt={`${siteConfig.name} — ${siteConfig.role[lang]}`}
                     fill
                     priority
                     sizes="(max-width: 768px) 90vw, 40vw"
-                    className="object-cover object-[68%_38%]"
+                    className="object-cover object-[60%_center]"
                   />
 
                   {/* bottom gradient for legibility / depth */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-el/70 via-transparent to-transparent" />
-
-                  {/* moving scan line — motion / lab feel */}
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent about-scan" />
 
                   {/* HUD corner brackets */}
                   <span className="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-accent/60 rounded-tl" />

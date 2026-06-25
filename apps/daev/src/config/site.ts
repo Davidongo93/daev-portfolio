@@ -17,6 +17,8 @@ export const siteConfig = {
   location: 'Colombia',
   locationFlag: '🇨🇴',
   available: true,
+  photo:
+    'https://res.cloudinary.com/de43jseoy/image/upload/v1782355482/davidongo93/daveTrabaja_kxooa1.png',
   siteUrl: 'https://daev.space',
 
   // ── Contacto ────────────────────────────────────────────────────

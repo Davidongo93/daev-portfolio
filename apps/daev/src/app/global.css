@@ -155,6 +155,34 @@ svg {
   animation: rotateWordIn 0.5s ease-out;
 }
 
+/* ── About photo card — physics / science / motion ───── */
+@keyframes aboutSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes aboutSpinReverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes aboutFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes aboutGlowPulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.07); }
+}
+@keyframes aboutScan {
+  0% { transform: translateY(-110%); opacity: 0; }
+  35%, 65% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+
+.about-float { animation: aboutFloat 7s ease-in-out infinite; }
+.about-glow { animation: aboutGlowPulse 8s ease-in-out infinite; }
+.about-orbit { animation: aboutSpin 22s linear infinite; }
+.about-orbit-rev { animation: aboutSpinReverse 30s linear infinite; }
+.about-scan { animation: aboutScan 5.5s ease-in-out infinite; }
+.about-tilt { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
 /* ── Article prose styles ────────────────────────────── */
 .prose-article {
   color: var(--text);

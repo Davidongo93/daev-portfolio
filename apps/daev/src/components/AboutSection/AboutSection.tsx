@@ -1,14 +1,14 @@
 'use client';
+import { useRef } from 'react';
+import Image from 'next/image';
 import { FaGithub, FaArrowRight, FaWhatsapp } from 'react-icons/fa';
 import IconBar from '../IconBar/IconBar';
-import BrandMark from '../Brand/BrandMark';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 
-const coreStack = ['React', 'Next.js', 'Astro', 'Node.js', 'TypeScript', 'NestJS'];
-
 const AboutSection: React.FC = () => {
   const { t, lang } = useLang();
+  const tiltRef = useRef<HTMLDivElement>(null);
 
   const stats = [
     { value: `${siteConfig.stats.years}+`, label: t.stats.years },
@@ -16,75 +16,100 @@ const AboutSection: React.FC = () => {
     { value: `${siteConfig.stats.clients}+`, label: t.stats.clients },
   ];
 
+  // Interactive 3D tilt — a little physics on pointer move (desktop only).
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = tiltRef.current;
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `rotateY(${px * 9}deg) rotateX(${-py * 9}deg)`;
+  };
+  const handleLeave = () => {
+    if (tiltRef.current) tiltRef.current.style.transform = '';
+  };
+
   return (
-    <section id="about" className="bg-surface relative py-20 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
-        {/* Brand identity card (replaces personal photo) */}
-        <div className="w-full md:w-2/5 flex flex-col items-center">
-          <div className="relative w-full max-w-sm">
-            {/* floating availability badge */}
-            {siteConfig.available && (
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 border border-green/30 text-green text-xs font-medium backdrop-blur-sm whitespace-nowrap">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
-                </span>
-                {t.about.available}
-              </span>
-            )}
+    <section id="about" className="bg-surface relative py-20 md:py-24 overflow-hidden">
+      {/* faint section grid for depth */}
+      <div className="hero-grid pointer-events-none absolute inset-0 opacity-[0.4]" />
 
-            <div className="rounded-3xl border border-border bg-surface-el p-8 shadow-2xl">
-              <div className="flex justify-center">
-                <BrandMark size={132} />
+      <div className="relative max-w-6xl mx-auto px-4 flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-16">
+        {/* ── Photo card (right) ── */}
+        <div className="w-full max-w-sm md:w-[44%] flex flex-col items-center">
+          <div
+            className="relative w-full [perspective:1200px]"
+            onMouseMove={handleMove}
+            onMouseLeave={handleLeave}
+          >
+            <div className="about-float relative">
+              {/* animated glow */}
+              <div
+                aria-hidden
+                className="about-glow absolute -inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_40%,var(--accent),transparent_70%)] opacity-50 blur-2xl"
+              />
+
+              {/* orbital rings — atom / physics motif */}
+              <div
+                aria-hidden
+                className="about-orbit pointer-events-none absolute left-1/2 top-1/2 h-[118%] w-[118%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/15"
+              >
+                <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_2px_var(--accent)]" />
+              </div>
+              <div
+                aria-hidden
+                className="about-orbit-rev pointer-events-none absolute left-1/2 top-1/2 h-[134%] w-[134%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent-2/10"
+              >
+                <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-2 shadow-[0_0_10px_2px_var(--accent-2)]" />
               </div>
 
-              <p className="mt-5 text-center font-display text-2xl font-bold text-fore tracking-wide">
-                {siteConfig.alias}
-              </p>
-              <p className="text-center text-[10px] uppercase tracking-[0.25em] text-muted">
-                {t.about.brand}
-              </p>
-              <p className="mt-1 text-center text-sm text-accent font-medium">
-                {siteConfig.role[lang]}
-              </p>
-              <p className="mt-1 text-center text-xs text-muted">
-                {siteConfig.location} {siteConfig.locationFlag}
-              </p>
-
-              {/* stat chips */}
-              <div className="mt-6 grid grid-cols-3 gap-2">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-xl bg-bg border border-border py-2.5 text-center"
-                  >
-                    <p className="font-display text-lg font-bold text-accent leading-none">
-                      {s.value}
-                    </p>
-                    <p className="mt-1 text-[10px] leading-tight text-muted">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* core stack badges */}
-              <div className="mt-5 flex flex-wrap justify-center gap-1.5">
-                {coreStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/20"
-                  >
-                    {tech}
+              {/* availability badge */}
+              {siteConfig.available && (
+                <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-green/30 bg-surface/80 px-3 py-1 text-xs font-medium text-green backdrop-blur-md">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
                   </span>
-                ))}
+                  {t.about.available}
+                </span>
+              )}
+
+              {/* tilt card */}
+              <div
+                ref={tiltRef}
+                className="about-tilt relative z-10 overflow-hidden rounded-3xl border border-border bg-surface-el shadow-2xl [transform-style:preserve-3d] will-change-transform"
+              >
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={siteConfig.photo}
+                    alt={`${siteConfig.name} — ${siteConfig.role[lang]}`}
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 90vw, 40vw"
+                    className="object-cover object-[68%_38%]"
+                  />
+
+                  {/* bottom gradient for legibility / depth */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-el/70 via-transparent to-transparent" />
+
+                  {/* moving scan line — motion / lab feel */}
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent about-scan" />
+
+                  {/* HUD corner brackets */}
+                  <span className="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-accent/60 rounded-tl" />
+                  <span className="pointer-events-none absolute right-3 top-3 h-5 w-5 border-r-2 border-t-2 border-accent/60 rounded-tr" />
+                  <span className="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-accent/60 rounded-bl" />
+                  <span className="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b-2 border-r-2 border-accent/60 rounded-br" />
+                </div>
               </div>
             </div>
           </div>
 
-          <IconBar className="mt-8" />
+          <IconBar className="mt-10" />
         </div>
 
-        {/* Intro content */}
-        <div className="w-full md:w-3/5 flex flex-col items-start justify-center space-y-5">
+        {/* ── Intro content (left) ── */}
+        <div className="w-full md:w-[56%] flex flex-col items-start justify-center space-y-5">
           <span className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent">
             <span className="h-px w-8 bg-accent" />
             {t.about.title}
@@ -98,6 +123,21 @@ const AboutSection: React.FC = () => {
           <p className="text-base text-muted leading-relaxed max-w-xl">
             {siteConfig.bio[lang]}
           </p>
+
+          {/* stat strip — quick credibility */}
+          <div className="grid w-full max-w-md grid-cols-3 gap-3 pt-1">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="rounded-xl border border-border bg-surface-el px-3 py-3 text-center transition-colors hover:border-accent/40"
+              >
+                <p className="font-display text-2xl font-bold leading-none text-accent">
+                  {s.value}
+                </p>
+                <p className="mt-1.5 text-[11px] leading-tight text-muted">{s.label}</p>
+              </div>
+            ))}
+          </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a

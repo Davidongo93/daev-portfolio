@@ -1,6 +1,7 @@
 import './global.css';
 import type { Metadata } from 'next';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from '../context/ThemeContext';
 import { LangProvider } from '../context/LangContext';
 import { UIProvider } from '../context/UIContext';
@@ -194,16 +195,18 @@ export default function RootLayout({
       <GoogleTagManager gtmId="GTM-K5PFW7FW" />
       <GoogleAnalytics gaId="G-7LTKWZT49T" />
       <body className="bg-bg text-fore font-sans transition-colors duration-300 antialiased">
-        <ThemeProvider>
-          <LangProvider>
-            <UIProvider>
-              <UnifiedNav />
-              {children}
-              <WhatsAppButton />
-              <ConsoleOverlay />
-            </UIProvider>
-          </LangProvider>
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider>
+            <LangProvider>
+              <UIProvider>
+                <UnifiedNav />
+                {children}
+                <WhatsAppButton />
+                <ConsoleOverlay />
+              </UIProvider>
+            </LangProvider>
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

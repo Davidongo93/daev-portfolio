@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
 import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
 import ShareBar from '../../../components/ShareBar/ShareBar';
+import CommentsSection from '../../../components/Comments/CommentsSection';
 import { siteConfig } from '../../../config/site';
 import { getReadingStats } from '../../../lib/readingTime';
 
@@ -301,6 +302,9 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
           <span />
         )}
       </nav>
+
+      {/* Comments + reactions */}
+      <CommentsSection slug={decodeURIComponent(params.slug)} />
     </article>
   );
 };

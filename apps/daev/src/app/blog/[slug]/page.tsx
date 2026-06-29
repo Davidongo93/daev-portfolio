@@ -96,9 +96,46 @@ async function getPosts() {
 // <figure>; .mp4 URLs render as a <video> with a generated poster, everything
 // else renders as a lazy-loaded <img>. The custom <p> unwraps paragraphs that
 // only wrap a media element so we never nest <figure> inside <p>.
+// Turn any YouTube URL (watch, youtu.be or embed) into an embeddable URL,
+// preserving query params like ?si=… ; returns null for non-YouTube URLs.
+function toYouTubeEmbed(src: string): string | null {
+  try {
+    const u = new URL(src);
+    const host = u.hostname.replace(/^www\./, '');
+    if (host === 'youtu.be') return `https://www.youtube.com/embed${u.pathname}${u.search}`;
+    if (host === 'youtube.com' || host === 'm.youtube.com') {
+      if (u.pathname.startsWith('/embed/')) return `https://www.youtube.com${u.pathname}${u.search}`;
+      const id = u.searchParams.get('v');
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 const markdownComponents: Components = {
   img: ({ src, alt }) => {
     const caption = alt || undefined;
+    // A YouTube link written as ![caption](url) becomes a responsive embed.
+    const yt = typeof src === 'string' ? toYouTubeEmbed(src) : null;
+    if (yt) {
+      return (
+        <figure>
+          <div className="relative w-full overflow-hidden rounded-xl aspect-video">
+            <iframe
+              src={yt}
+              title={alt || 'YouTube video'}
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          {caption && <figcaption>{caption}</figcaption>}
+        </figure>
+      );
+    }
     if (typeof src === 'string' && src.endsWith('.mp4')) {
       const poster = src
         .replace('/video/upload/', '/video/upload/so_0,')

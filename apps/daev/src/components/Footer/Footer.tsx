@@ -113,6 +113,22 @@ export default function Footer() {
                   <FaTerminal size={12} /> {t.nav.cli}
                 </button>
               </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm text-muted hover:text-accent transition"
+                >
+                  {lang === 'es' ? 'Privacidad' : 'Privacy'}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/data-deletion"
+                  className="text-sm text-muted hover:text-accent transition"
+                >
+                  {lang === 'es' ? 'Eliminar mis datos' : 'Data deletion'}
+                </Link>
+              </li>
             </ul>
           </nav>
 

@@ -36,6 +36,7 @@ export default function CommentItem({
 }: Props) {
   const { t } = useLang();
   const [replying, setReplying] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const isMine = !node.deleted && node.author?.id === meId;
 
   const remove = async () => {
@@ -55,13 +56,14 @@ export default function CommentItem({
             <span className="w-7 h-7 rounded-full bg-surface-el grid place-items-center text-muted text-xs">
               ×
             </span>
-          ) : node.author?.image ? (
+          ) : node.author?.image && !imgError ? (
             <Image
               src={node.author.image}
               alt={node.author.name ?? 'avatar'}
               width={28}
               height={28}
               className="rounded-full"
+              onError={() => setImgError(true)}
             />
           ) : (
             <span className="w-7 h-7 rounded-full bg-accent/20 text-accent grid place-items-center text-xs font-bold">

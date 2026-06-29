@@ -1,5 +1,6 @@
 'use client';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { FaGoogle, FaFacebook, FaSignOutAlt } from 'react-icons/fa';
 import { useLang } from '../../context/LangContext';
@@ -29,16 +30,18 @@ export function SignInButtons({ compact = false }: { compact?: boolean }) {
 export function UserBadge() {
   const { data: session } = useSession();
   const { t } = useLang();
+  const [imgError, setImgError] = useState(false);
   if (!session?.user) return null;
   return (
     <div className="flex items-center gap-2.5">
-      {session.user.image ? (
+      {session.user.image && !imgError ? (
         <Image
           src={session.user.image}
           alt={session.user.name ?? 'avatar'}
           width={28}
           height={28}
           className="rounded-full"
+          onError={() => setImgError(true)}
         />
       ) : (
         <span className="w-7 h-7 rounded-full bg-accent/20 text-accent grid place-items-center text-xs font-bold">

@@ -18,6 +18,21 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
       },
+      // Allow Google-hosted profile photos (lh#.googleusercontent.com)
+      {
+        protocol: 'https',
+        hostname: '**.googleusercontent.com',
+      },
+      // Facebook profile thumbnails (if used)
+      {
+        protocol: 'https',
+        hostname: 'platform-lookaside.fbsbx.com',
+      },
+      // GitHub avatars
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
     ],
   },
 };

@@ -1,26 +1,38 @@
 ---
-title: 'Casa Bonita: un recorrido visual por una casa de lujo'
+title: 'Casa bonita: un recorrido visual por una casa de lujo'
 date: '2026-07-03'
-description: 'Recorrido visual por Casa Bonita: una casa de lujo de líneas modernas, con piscina, jardines, dobles alturas llenas de luz y habitaciones con vista al verde.'
+description: 'Recorrido visual por una casa de lujo de arquitectura moderna, con piscina, cocina exterior, dobles alturas llenas de luz y habitaciones con vista a la naturaleza.'
 excerpt: 'Un paseo en fotos y video por una casa que respira calma: piscina de aguas azules, jardines floridos, dobles alturas llenas de luz y habitaciones con vista al verde.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
 keywords: ['casa de lujo', 'arquitectura moderna', 'piscina', 'recorrido visual', 'villa', 'diseño de interiores', 'casa con jardín']
 ---
 
-Hay casas que se cuentan mejor caminándolas. **Casa Bonita** es una de ellas: líneas limpias, mucho vidrio, aguas azules y un verde que entra por todas las ventanas. Este es un recorrido tranquilo, habitación por habitación, para que la conozcas como si estuvieras abriendo la puerta por primera vez.
+Un recorrido visual por una propiedad maravillosa en el mejor clima de Colombia. Ubicada en Anapoima Cundinamarca, Cuenta con 5 habitaciones muy bien iluminadas y con espectaculares vistas al exterior. Cada una con baño privado. parqueadero privado hasta 7 automoviles, en una zona residencial con vigilancia privada 24 horas. Un lugar exclusivo, tranquilo y perfecto para el descanso.
 
 ## La llegada
 
-Lo primero es la fachada: dos niveles de líneas rectas, grandes ventanales y un balcón que mira al jardín. Detrás ya se adivina el brillo de la piscina.
+Una casa con gran altura, lo cual brinda frescura y permite la circulacion de aire fresco al interior.
 
 ![La fachada blanca de dos niveles, con la piscina asomándose al frente.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/casaBonita/VID_20251010_150933_zukskm.mp4)
 
+Así se ve el frente desde la calle: dos niveles de líneas rectas y ventanales oscuros, el portón blanco de listones y una palmera que asoma sobre el muro. Una moto blanca descansa junto a la entrada, dando la escala real de la fachada dentro del conjunto residencial.
+
+![El frente de la casa desde la calle, con la moto blanca junto al portón y la palmera sobre el muro.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20241115_173206_nrnucs.jpg)
+
+Desde el aire se entiende la dimensión del terreno: la casa principal, el jardín verde recortado por los setos y la piscina azul encajada en el patio, todo rodeado de bosque.
+
+![Vista aérea de toda la propiedad: la casa, el jardín, la piscina azul y el bosque alrededor.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/casaBonita/VID-20241227-WA0040_q9gitr.mp4)
+
 ## Jardines que reciben con color
 
-Antes de entrar, el camino está rodeado de setos y de ixoras rojas en flor. Es el primer detalle que suaviza toda la arquitectura.
+El exterior está rodeado de setos y de ixoras rojas en flor. Es el primer detalle que se nota en el exterior.
 
 ![Setos con ixoras rojas en plena floración junto al sendero de piedra.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804110_lchqrq.jpg)
 ![El mismo macizo de flores rojas, un muro vivo de color.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804121_jraieq.jpg)
+
+Ese verde también atrae vida. Una mañana, una mariposa de alas naranjas y motas blancas se posó en la baranda del balcón, con los cerros y el cielo azul de fondo. Pequeños detalles que solo regala este clima.
+
+![Una mariposa de alas naranjas y puntos blancos posada en la baranda, con el verde y el cielo al fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20250715_105215_w9dpti.jpg)
 
 ## El corazón de la casa: la piscina
 
@@ -32,6 +44,8 @@ Todo gira alrededor del patio. La piscina de mosaico azul es amplia, con su jacu
 
 Los chorros de agua y el jacuzzi le dan al patio dos ritmos: uno para refrescarse y otro para quedarse en remojo mirando el verde.
 
+![Detalle del mosaico azul: la piscina y el jacuzzi integrado, con el escalón de piedra que los separa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20240707_130512_pvdccv.jpg)
+
 ![Los chorros de agua del espejo frente a la piscina.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20240309_131123_kykorf.jpg)
 ![La piscina con el jacuzzi integrado, y el valle verde al fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20240303_133040_rr1wzy.jpg)
 
@@ -39,18 +53,18 @@ Los chorros de agua y el jacuzzi le dan al patio dos ritmos: uno para refrescars
 
 ## Sobremesa al aire libre
 
-Junto a la piscina hay una zona techada con parrilla: el sitio natural para un almuerzo largo sin entrar a la casa.
+Junto a la piscina hay una zona techada con parrilla: el sitio natural para un asado y compartir bebidas heladas.
 
 ![La parrilla y la zona de asador techada, lista para reunir a la gente.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/casaBonita/VID_20260116_135356_zljfbv.mp4)
 
-![Rincón de descanso en el patio, entre el muro de setos y el piso de piedra.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG-20240301-WA0010_btda69.jpg)
+![Cubierta descanso en el patio, entre el muro de setos y el piso de piedra.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG-20240301-WA0010_btda69.jpg)
 ![Reposeras junto a la piscina, frente a los grandes ventanales.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20240219_094456_vyduu0.jpg)
 
 ## Adentro: luz y altura
 
 Al entrar, el recibidor conecta con el espacio central de la casa. Aquí manda la doble altura: techos altísimos, pisos brillantes y una escalera flotante que parece suspendida en el aire.
 
-![El recibidor, con la escalera y el espejo que amplían la entrada.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/recibidor_f0qypd.jpg)
+![El recibidor.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/recibidor_f0qypd.jpg)
 
 ![El salón principal a doble altura, con columnas y muchísima luz natural.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/4-casa23_yareqw.jpg)
 
@@ -70,7 +84,7 @@ La cocina sigue la misma paleta de la casa: negro y blanco, una gran isla centra
 
 El comedor está pensado para reuniones grandes: una mesa larga con lugar de sobra, junto a los ventanales que dan al jardín.
 
-![El comedor con mesa larga para diez, junto a los ventanales del jardín.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1-casa23_y7cavj.jpg)
+![El comedor con mesa larga para doce, junto a los ventanales del jardín.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1-casa23_y7cavj.jpg)
 
 ## Un guiño de arquitectura
 
@@ -93,7 +107,7 @@ Las demás habitaciones repiten lo mejor de la casa: espacio, luz y ventanales q
 
 ## Los baños
 
-Los baños mantienen el estilo: mármol, vidrio y detalles en mosaico. Amplios y luminosos.
+Los baños mantienen el estilo: vidrio y detalles en mosaico. Amplios y luminosos.
 
 ![Baño con mesón de mármol y mueble en madera oscura.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/mainBathroom_a0s4vf.jpg)
 ![Baño con detalles en mosaico azul, sencillo y luminoso.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/outerBathroom_zml6oo.jpg)
@@ -112,6 +126,10 @@ Lo que envuelve a la casa es, quizás, lo mejor: cerros verdes, palmeras y un ho
 Y al caer la tarde, la casa cambia de piel: la luna se refleja en el agua y el patio se vuelve otro lugar.
 
 ![Atardecer sobre la piscina, con la luna asomando entre las nubes.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/outdoor1_mosgsv.jpg)
+
+Ya de noche, sin luces alrededor, el cielo se llena de estrellas. En esta toma de larga exposición desde la parte trasera, la casa recorta su silueta iluminada contra la oscuridad mientras una estrella fugaz cruza el firmamento sobre el agua quieta de la piscina.
+
+![Fotografía de larga exposición de noche: la vista trasera de la casa iluminada bajo un cielo estrellado, con una estrella fugaz cruzando sobre la piscina.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20241104_225643_pi9n0t.jpg)
 
 ## Hasta aquí el recorrido
 

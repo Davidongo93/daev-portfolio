@@ -1,19 +1,19 @@
 ---
-title: "Casa Bonita: un recorrido visual por una casa de lujo"
-date: "2026-07-03"
-description: "Recorrido visual por Casa Bonita: una casa de lujo de líneas modernas, con piscina, jardines, dobles alturas llenas de luz y habitaciones con vista al verde."
-excerpt: "Un paseo en fotos y video por una casa que respira calma: piscina de aguas azules, jardines floridos, dobles alturas llenas de luz y habitaciones con vista al verde."
-image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg"
-keywords: ["casa de lujo", "arquitectura moderna", "piscina", "recorrido visual", "villa", "diseño de interiores", "casa con jardín"]
+title: 'Casa Bonita: un recorrido visual por una casa de lujo'
+date: '2026-07-03'
+description: 'Recorrido visual por Casa Bonita: una casa de lujo de líneas modernas, con piscina, jardines, dobles alturas llenas de luz y habitaciones con vista al verde.'
+excerpt: 'Un paseo en fotos y video por una casa que respira calma: piscina de aguas azules, jardines floridos, dobles alturas llenas de luz y habitaciones con vista al verde.'
+image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
+keywords: ['casa de lujo', 'arquitectura moderna', 'piscina', 'recorrido visual', 'villa', 'diseño de interiores', 'casa con jardín']
 ---
 
 Hay casas que se cuentan mejor caminándolas. **Casa Bonita** es una de ellas: líneas limpias, mucho vidrio, aguas azules y un verde que entra por todas las ventanas. Este es un recorrido tranquilo, habitación por habitación, para que la conozcas como si estuvieras abriendo la puerta por primera vez.
 
 ## La llegada
 
-Lo primero es la fachada: tres niveles de líneas rectas, grandes ventanales y un balcón que mira al jardín. Detrás ya se adivina el brillo de la piscina.
+Lo primero es la fachada: dos niveles de líneas rectas, grandes ventanales y un balcón que mira al jardín. Detrás ya se adivina el brillo de la piscina.
 
-![La fachada blanca de tres niveles, con la piscina asomándose al frente.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/casaBonita/VID_20251010_150933_zukskm.mp4)
+![La fachada blanca de dos niveles, con la piscina asomándose al frente.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/casaBonita/VID_20251010_150933_zukskm.mp4)
 
 ## Jardines que reciben con color
 

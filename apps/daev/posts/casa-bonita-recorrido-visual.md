@@ -4,7 +4,7 @@ date: '2026-07-03'
 description: 'Recorrido visual por una casa de lujo de arquitectura moderna, con piscina, cocina exterior, dobles alturas llenas de luz y habitaciones con vista a la naturaleza.'
 excerpt: 'Un paseo en fotos y video por una casa que respira calma: piscina de aguas azules, jardines floridos, dobles alturas llenas de luz y habitaciones con vista al verde.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
-keywords: ['casa de lujo', 'arquitectura moderna', 'piscina', 'recorrido visual', 'villa', 'diseño de interiores', 'casa con jardín']
+keywords: ['casa de lujo', 'arquitectura moderna', 'piscina', 'recorrido visual', 'villa', 'diseño de interiores', 'casa con jardín', 'condominio', 'Anapoima']
 ---
 
 Un recorrido visual por una propiedad maravillosa en el mejor clima de Colombia. Ubicada en Anapoima Cundinamarca, Cuenta con 5 habitaciones muy bien iluminadas y con espectaculares vistas al exterior. Cada una con baño privado. parqueadero privado hasta 7 automoviles, en una zona residencial con vigilancia privada 24 horas. Un lugar exclusivo, tranquilo y perfecto para el descanso.
@@ -130,6 +130,14 @@ Y al caer la tarde, la casa cambia de piel: la luna se refleja en el agua y el p
 Ya de noche, sin luces alrededor, el cielo se llena de estrellas. En esta toma de larga exposición desde la parte trasera, la casa recorta su silueta iluminada contra la oscuridad mientras una estrella fugaz cruza el firmamento sobre el agua quieta de la piscina.
 
 ![Fotografía de larga exposición de noche: la vista trasera de la casa iluminada bajo un cielo estrellado, con una estrella fugaz cruzando sobre la piscina.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/IMG_20241104_225643_pi9n0t.jpg)
+
+## El condominio: un club a la puerta de la casa
+
+La casa no está sola: hace parte de un condominio muy bien ubicado, a solo 5 minutos en carro del casco urbano de Anapoima. La seguridad es de las que dejan dormir tranquilo: vigilancia privada permanente y dos porterías de acceso.
+
+Puertas afuera de la casa, el condominio funciona como un pequeño club. Hay cancha de tenis, gimnasio al aire libre y cancha de vóley playa para los más activos, además de alquiler de mesas de ping pong y de bicicletas tándem para recorrer en pareja los senderos para caminar que atraviesan el conjunto.
+
+Si algo hace falta a mitad del día, el kiosko resuelve: bebidas, helados, agua y otros productos básicos sin salir del condominio. Y para las celebraciones, hay dos salones sociales disponibles para alquiler y dos piscinas públicas que también se pueden reservar para eventos.
 
 ## Hasta aquí el recorrido
 

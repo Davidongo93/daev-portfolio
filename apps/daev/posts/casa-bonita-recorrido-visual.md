@@ -133,11 +133,21 @@ Ya de noche, sin luces alrededor, el cielo se llena de estrellas. En esta toma d
 
 ## El condominio: un club a la puerta de la casa
 
-La casa no está sola: hace parte de un condominio muy bien ubicado, a solo 5 minutos en carro del casco urbano de Anapoima. La seguridad es de las que dejan dormir tranquilo: vigilancia privada permanente y dos porterías de acceso.
+La casa hace parte de un condominio privilegiadamente ubicado, a solo 5 minutos en carro del casco urbano de Anapoima. La tranquilidad está garantizada: vigilancia privada permanente y dos porterías controlan el acceso al conjunto.
 
-Puertas afuera de la casa, el condominio funciona como un pequeño club. Hay cancha de tenis, gimnasio al aire libre y cancha de vóley playa para los más activos, además de alquiler de mesas de ping pong y de bicicletas tándem para recorrer en pareja los senderos para caminar que atraviesan el conjunto.
+Puertas afuera, el condominio funciona como un pequeño club campestre. Estas son sus amenidades:
 
-Si algo hace falta a mitad del día, el kiosko resuelve: bebidas, helados, agua y otros productos básicos sin salir del condominio. Y para las celebraciones, hay dos salones sociales disponibles para alquiler y dos piscinas públicas que también se pueden reservar para eventos.
+- 🎾 Cancha de tenis
+- 🏋️ Gimnasio al aire libre
+- 🏐 Cancha de vóley playa
+- 🏓 Alquiler de mesas de ping pong
+- 🚲 Alquiler de bicicletas tándem
+- 🥾 Senderos para caminar entre el verde
+- 🍦 Kiosko con productos básicos: bebidas, helados, agua y más
+- 🎉 Dos salones sociales disponibles para alquiler
+- 🏊 Dos piscinas públicas, que también se pueden reservar para eventos
+
+Entre el deporte, los paseos y las celebraciones, el conjunto ofrece planes para todas las edades sin necesidad de salir de él.
 
 ## Hasta aquí el recorrido
 

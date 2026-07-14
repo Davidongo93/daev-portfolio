@@ -143,8 +143,9 @@ Puertas afuera, el condominio funciona como un pequeño club campestre. Estas so
 - 🏓 Alquiler de mesas de ping pong
 - 🚲 Alquiler de bicicletas tándem
 - 🥾 Senderos para caminar entre el verde
+- 🌊 Dos lagos
 - 🍦 Kiosko con productos básicos: bebidas, helados, agua y más
-- 🎉 Dos salones sociales disponibles para alquiler
+- 🎉 Dos salones sociales alquilables para eventos
 - 🏊 Dos piscinas públicas, que también se pueden reservar para eventos
 
 Entre el deporte, los paseos y las celebraciones, el conjunto ofrece planes para todas las edades sin necesidad de salir de él.

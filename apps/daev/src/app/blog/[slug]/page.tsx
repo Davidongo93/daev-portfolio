@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Markdown, { type Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
@@ -170,6 +171,11 @@ const markdownComponents: Components = {
     }
     return <p>{children}</p>;
   },
+  table: ({ children }) => (
+    <div className="table-scroll">
+      <table>{children}</table>
+    </div>
+  ),
 };
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
@@ -302,7 +308,9 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
 
       {/* Content */}
       <div className="prose-article">
-        <Markdown components={markdownComponents}>{content}</Markdown>
+        <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+          {content}
+        </Markdown>
       </div>
 
       {/* Prev/Next */}

@@ -15,8 +15,6 @@ Esta entrada reúne todo: la historia de origen, la receta completa, la crónica
 
 Esta experiencia nació como el **laboratorio final del curso de manipulación de alimentos del SENA**. La práctica de cierre que elegimos —en lugar de un ejercicio genérico— fue la elaboración de una receta ancestral: la **chucula de los siete granos**, un alimento tradicional del altiplano cundiboyacense que casi nadie por debajo de cierta edad conoce ya.
 
-![La plaza principal de Tocaima, Cundinamarca, con su fuente y su iglesia colonial de fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG-20260716-WA0002_n6udk6.jpg)
-
 Lo que empezó como una práctica de curso terminó revelando algo más grande: la posibilidad de convertir ese conocimiento ancestral en un emprendimiento real, nacido en Tocaima y hecho por mujeres que conocen la receta típica de memoria, de generación en generación.
 
 ## La receta: cacao tostado y siete granos
@@ -39,7 +37,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 
 *Tocaima, 16 de julio de 2026. Una cocina de barrio se convierte, por un día, en laboratorio de alimentos.*
 
-**15:47 — El fuego abre la escena**
+**El fuego abre la escena**
 
 *Un sartén de metal, un fogón encendido. Cientos de garbanzos secos caen sobre el metal caliente y empiezan a bailar.*
 
@@ -47,7 +45,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 
 ![Garbanzos secos tostándose en un sartén de metal sobre la estufa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_154715_ocpmzc.jpg)
 
-**16:17 — El molino y la harina**
+**El molino y la harina**
 
 *Un molino eléctrico gira. El grano tostado entra entero y sale convertido en un polvo fino, dorado, casi impalpable.*
 
@@ -56,7 +54,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 ![Harina fina y dorada de uno de los granos tostados, recién molida, sostenida sobre un plato.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_161729_jnkwyi.jpg)
 ![El molino eléctrico con la harina recién procesada en su recipiente.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_161747_zpkqwo.jpg)
 
-**17:17 — Todas las manos a la olla**
+**Todas las manos a la olla**
 
 *Varias personas, en fila frente a la estufa, cada una con su propia olla. Guantes, tapabocas, cofias: la disciplina de la manipulación de alimentos convertida en gesto cotidiano.*
 
@@ -65,7 +63,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 ![Una integrante del equipo, con cofia azul y tapabocas, revolviendo la mezcla en una olla sobre la estufa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_171720_yehbxz.jpg)
 ![Otra integrante, con cofia y tapabocas, removiendo su olla en el fogón.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_171823_gbciyl.jpg)
 
-**17:19 — El punto de la mezcla**
+**El punto de la mezcla**
 
 *El vapor sube. La harina de los siete granos, el cacao, el melao de panela y las especias se encuentran por fin en la misma olla.*
 
@@ -74,7 +72,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 ![Preparación de la mezcla de chucula en una olla sobre el fogón.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_171954_oxcixf.jpg)
 ![Dos personas más del equipo, en uniforme blanco, revolviendo sus respectivas ollas.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_172030_sswvsa.jpg)
 
-**17:42 — Una pausa para mirar de cerca**
+**Una pausa para mirar de cerca**
 
 *Un solo grano, ya tostado, sostenido sobre una mano enguantada. Un instante de pausa en medio de la jornada.*
 
@@ -82,7 +80,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 
 ![Uno de los siete granos, ya tostado, sostenido sobre una mano con guante.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_174231_oox7ws.jpg)
 
-**19:07 — Formar con las manos**
+**Formar con las manos**
 
 *La mezcla ya está en su punto: espesa, oscura, brillante de melao. Manos enguantadas toman porciones y las convierten, una por una, en pequeñas esferas.*
 
@@ -91,7 +89,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 ![Manos con guantes negros formando la mezcla de chucula en bolas, sobre una olla con la masa restante.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG-20260716-WA0082_ttrzeo.jpg)
 ![Video del proceso de amasado y formado de las bolas de chucula a varias manos.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/chucula/VID_20260716_191733_z1ahl6.mp4)
 
-**19:49 — El resultado, brillando en la bandeja**
+**El resultado, brillando en la bandeja**
 
 *Decenas de bolas oscuras, brillantes, recién formadas, se acomodan en bandejas de metal. La luz de la cocina se refleja en cada una como si fuera una piedra pulida.*
 
@@ -101,7 +99,7 @@ El resultado, una vez cocida la mezcla y formada en pequeñas bolas, es un alime
 ![Otra bandeja de bolas de chucula terminadas, vista desde otro ángulo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_194921_ai5gdr.jpg)
 ![Primer plano de las bolas de chucula terminadas, mostrando su textura brillante y granulada.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_195010_o3yuyn.jpg)
 
-**20:00 — Cierre de jornada**
+**Cierre de jornada**
 
 *Las últimas bandejas se acomodan, algunas junto al colador que sirvió para cernir la harina horas antes. El cierre del círculo: del grano crudo a la bola terminada, en una sola cocina, en un solo día.*
 
@@ -156,9 +154,9 @@ Lo que salta a la vista —y es, literalmente, la mejor razón para tomar chucul
 
 ### Cómo cambia según el líquido de preparación
 
-Una taza no es solo el polvo: también es lo que uses para prepararla. Estos son los tres escenarios más comunes —agua, leche entera y caldo de hueso de res—, calculados para una taza de 200 ml con una porción de 22,5 g de producto:
+Una taza no es solo el polvo: también es lo que uses para prepararla. Estos son los tres escenarios más comunes —agua, leche entera y caldo de mano de res—, calculados para una taza de 200 ml con una porción de 22,5 g de producto:
 
-| Por taza preparada (200 ml + 22,5 g de producto) | En agua | En leche entera | En caldo de hueso de res |
+| Por taza preparada (200 ml + 22,5 g de producto) | En agua | En leche entera | En caldo de mano de res |
 |---|---:|---:|---:|
 | Energía | 73 kcal | 195 kcal | 103 kcal |
 | Proteína | 3,3 g | 9,6 g | 10,3 g |
@@ -170,11 +168,11 @@ Una taza no es solo el polvo: también es lo que uses para prepararla. Estos son
 | Potasio | 228 mg | 508 mg | 328 mg |
 | Sodio | 4 mg | 84 mg | 121–521 mg** |
 
-**El sodio del caldo de hueso de res varía mucho según si se prepara sin sal o con la sazón casera habitual; por eso se muestra como rango.
+**El sodio del caldo de mano de res varía mucho según si se prepara sin sal o con la sazón casera habitual; por eso se muestra como rango.
 
 - **En agua**: la opción más ligera y la que mejor deja hablar al sabor de los siete granos, el cacao y las semillas; conserva intacto el perfil de minerales del polvo, sin nada adicional.
 - **En leche entera**: duplica y media la energía y dispara el calcio y el fósforo —una combinación clásica para el desayuno de niños en crecimiento o para después de entrenar—, gracias al aporte de calcio, proteína completa y vitaminas A, D y B12 de la leche.
-- **En caldo de hueso de res**: la opción más tradicional del altiplano y también la más interesante nutricionalmente —aporta la mayor cantidad de proteína de las tres por el colágeno, glicina y prolina que suelta el hueso durante la cocción, además de minerales adicionales—; es también la preparación reconfortante por excelencia en clima frío.
+- **En caldo de mano de res**: la opción más tradicional del altiplano y también la más interesante nutricionalmente —aporta la mayor cantidad de proteína de las tres gracias al colágeno, la glicina y la prolina que suelta la mano de res durante la cocción larga, además de minerales adicionales—; es también la preparación reconfortante por excelencia en clima frío.
 
 Hierro, zinc, cobre, manganeso y selenio vienen prácticamente en su totalidad del polvo de los siete granos, el cacao, la chía y el ajonjolí —el líquido de preparación apenas los modifica—, así que esos números se mantienen estables sin importar cómo la prepares.
 
@@ -201,7 +199,7 @@ La identidad de marca todavía está en construcción —el nombre definitivo no
 
 ## Propuesta de lanzamiento
 
-> **Producto:** Chucula de los 7 granos, en presentación de 45 g (2 porciones / 2 tazas), lista para preparar en agua, leche o caldo de hueso de res.
+> **Producto:** Chucula de los 7 granos, en presentación de 45 g (2 porciones / 2 tazas), lista para preparar en agua, leche o caldo de mano de res.
 >
 > **Propuesta de valor:** Alimento funcional ancestral, hecho a mano con cacao y siete granos tostados, molidos y cernidos artesanalmente, endulzado con melao de panela y especias naturales —sin conservantes, sin aceites ultraprocesados, sin saborizantes ni endulzantes artificiales.
 >

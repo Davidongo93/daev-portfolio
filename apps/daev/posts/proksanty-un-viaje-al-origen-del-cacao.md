@@ -9,7 +9,7 @@ keywords: ['Proksanty', 'cacao', 'Nilo Cundinamarca', 'Alto Magdalena', 'finca c
 
 Hay viajes cortos que rinden como si fueran largos. Este es uno de ellos: decidí salir desde Anapoima, Cundinamarca, sin más plan que llegar hasta una finca productora de cacao de la que había oído hablar. En menos de dos horas de camino, ya estaba entrando a **Pueblo Nuevo**, centro poblado y vereda del municipio de Nilo, en la provincia del Alto Magdalena. Ahí, entre montaña y cacaotales, queda **Proksanty**, la finca que le da vida la señora **Stella Noba**.
 
-Lo que sigue es la crónica de ese día: la llegada, el proceso completo del cacao —desde la siembra hasta el grano tostado—, los productos que se fabrican allí, y el camino de regreso, cruzando dos puentes sobre el río Bogotá con Tocaima asomando a lo lejos.
+Lo que sigue es la crónica de ese día: la llegada, el proceso completo del cacao —desde la siembra hasta el grano tostado—, los productos que se fabrican allí, y el camino de regreso, que termina, ya casi sobre Tocaima, cruzando dos puentes sobre el río Bogotá.
 
 ## La llegada a Proksanty
 
@@ -40,7 +40,7 @@ Ahí aprendí algo que no sabía: el color de la mazorca no indica si está madu
 ![Cuatro mazorcas de cacao de distintas variedades —amarilla, verde, naranja y roja— dispuestas sobre una tabla de madera.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_101426_a2bqgy.jpg)
 ![La misma selección de mazorcas de cacao, vista desde otro ángulo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_101430_jefjli.jpg)
 
-Stella y su equipo suelen armar estas composiciones para mostrar la diversidad de la cosecha: un abanico de mazorcas de colores sobre hojas de plátano,
+Stella y su equipo suelen armar estas composiciones para mostrar la diversidad de la cosecha: un abanico de mazorcas de colores sobre hojas de cacao,
 
 ![Mazorcas de cacao de varios colores dispuestas en abanico sobre hojas verdes.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0074_dtuagi.jpg)
 
@@ -48,17 +48,17 @@ y una canasta llena hasta el borde, recién bajada del cultivo.
 
 ![Una canasta de fibra llena de mazorcas de cacao de distintos colores.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0075_sbv40e.jpg)
 
-## La cosecha: abrir la mazorca y probar la pulpa
+## La cáscara reutilizada: velas moldeadas en la mazorca
 
-Después de la cosecha viene el momento que más me marcó: abrir una mazorca recién cortada. Por dentro no hay nada parecido al chocolate —hay una pulpa blanca, jugosa y dulce, envolviendo hileras de semillas moradas. Esa pulpa (el mucílago) se come directamente, chupando cada semilla como si fuera una fruta cualquiera.
+Algo que no esperaba ver tan pronto en el recorrido: la cáscara vacía de la mazorca, convertida en molde natural para una vela artesanal. Stella derrite cera de soya, la vierte dentro de la media cáscara con su mecha y trocitos de cáscara de cacao molida, y deja que enfríe hasta tomar la forma del propio fruto. No, no llegué a probar el mucílago fresco de la pulpa —lo que ves en estas fotos es justamente eso: la vela ya lista, todavía dentro de su molde de cáscara.
 
-![Una mazorca de cacao abierta a la mitad, mostrando la pulpa blanca y las semillas moradas en su interior.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102425_jdhwwq.jpg)
-![Otra mazorca abierta, con las hileras de semillas envueltas en pulpa blanca.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102437_qvryyc.jpg)
+![Una vela de cera de soya con trocitos de cáscara de cacao, moldeada dentro de media cáscara de mazorca, con la mecha visible.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102425_jdhwwq.jpg)
+![Dos velas de cera de soya moldeadas en cáscaras de mazorca, mostrando la mecha de cada una.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102437_qvryyc.jpg)
 
-![Detalle de la pulpa y las semillas de cacao recién extraídas de la mazorca.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102439_v9zm55.jpg)
-![Sosteniendo la mazorca abierta para mostrar el corte transversal de la pulpa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102444_xhfxh4.jpg)
+![Detalle de una vela de cera de soya con trocitos de cáscara de cacao, dentro de su molde natural.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102439_v9zm55.jpg)
+![Otra vela de cera de soya recién moldeada en cáscara de cacao, con la mecha lista para encender.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102444_xhfxh4.jpg)
 
-## Fermentación, secado y tueste: donde nace el sabor
+## Fermentación y secado: donde nace el sabor
 
 De ahí, las semillas con todo y pulpa pasan a un área dedicada exclusivamente a este paso —un cajón techado, marcado con un letrero hecho a mano.
 
@@ -68,10 +68,10 @@ La fermentación es lo que realmente le da al cacao su carácter: sin ella, el g
 
 ![Granos de cacao fermentados, extendidos sobre una zaranda de malla para secar al sol.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_103131_u4x5nd.jpg)
 
-Ya seco, el grano pasa al tueste en un tostador artesanal —un tambor giratorio, con su propio sistema de mezcla interna, que va rotando el cacao sobre el fuego hasta lograr el punto exacto.
+Cerca de la zaranda vi también un tambor de madera montado sobre un motor eléctrico —nada de fuego debajo, ni tiene que ver con el tueste—. Es parte de otro paso del proceso: ahí se recoge el líquido que suelta el grano al despulparse, la llamada miel o jugo de cacao, antes de que las semillas sigan su camino hacia la fermentación.
 
-![El tostador artesanal de cacao, un tambor metálico giratorio sobre una base con motor.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_103509_q22pbt.jpg)
-![Vista interior del tostador, con las paletas metálicas que remueven el grano mientras tuesta.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/proksanty/VID_20260716_103533_g4vnqz.mp4)
+![Un tambor de madera montado sobre un motor eléctrico, usado para recoger el líquido que suelta el cacao antes de fermentar.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_103509_q22pbt.jpg)
+![Vista interior del tambor, con las paletas metálicas que remueven el grano mientras gira.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/proksanty/VID_20260716_103533_g4vnqz.mp4)
 
 Todo el proceso ocurre bajo un techo de zinc, en una construcción abierta que deja ver, al fondo, las montañas del Alto Magdalena.
 
@@ -120,9 +120,9 @@ Todo listo para empacar: bolsas de grano tostado alineadas sobre la mesa, cada u
 ![Varias bolsas selladas de cacao tostado Proksanty, alineadas sobre una mesa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102546_bejzb6.jpg)
 ![Una bolsa de cacao tostado Proksanty, con su etiqueta y sello de calidad.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_102549_pl9tyy.jpg)
 
-Y la mesa completa, con toda la línea de productos servida sobre hojas de plátano: bolsas de grano, botellas, y mazorcas abiertas mostrando el contraste entre la pulpa fresca y el grano ya tostado.
+Y la mesa completa, con toda la línea de productos servida sobre hojas de cacao: bolsas de grano, botellas, y mazorcas abiertas mostrando el contraste entre la pulpa fresca y el grano ya tostado.
 
-![Mesa con toda la línea de productos Proksanty servida sobre hojas de plátano: bolsas, botellas y mazorcas abiertas.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0076_dygpb6.jpg)
+![Mesa con toda la línea de productos Proksanty servida sobre hojas de cacao: bolsas, botellas y mazorcas abiertas.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0076_dygpb6.jpg)
 
 Detrás del vidrio de una vitrina, alcancé a ver también el momento en que se organiza y empaca cada pedido, con calma y cuidado artesanal.
 
@@ -134,7 +134,7 @@ Antes de irme, Stella me mostró el afiche que resume por qué vale la pena incl
 
 ![Afiche informativo "Beneficios del cacao" de Proksanty, con los datos de contacto de la finca La Esperanza.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_104304_i9xqsc.jpg)
 
-## El regreso: puentes sobre el río Bogotá
+## El regreso: de Pueblo Nuevo a Tocaima
 
 De vuelta al camino, el paisaje del Alto Magdalena se despliega en toda su dimensión: montañas boscosas que se levantan abruptas junto a la vía.
 
@@ -157,17 +157,17 @@ Y de vuelta en la vía destapada, entre árboles a lado y lado, con el tablero d
 
 ![Vista desde el tablero de la moto, sobre una vía destapada rodeada de árboles.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_113830_dmbqgp.jpg)
 
-El momento más bonito del regreso llegó al cruzar el **puente de los Suspiros**, un puente peatonal colgante que atraviesa el río Bogotá justo antes de su paso por esta región, con las montañas del Alto Magdalena de telón de fondo.
+Una parada en la plaza principal de Nilo, Cundinamarca, todavía con el casco puesto: selfie de rigor antes de retomar la vía hacia Tocaima.
+
+![Selfie en la plaza principal de Nilo, Cundinamarca, junto a un monumento, todavía con el casco de moto puesto.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0003_ivon4u.jpg)
+
+Ya casi cerrando el viaje, llegando a Tocaima, el momento más bonito del regreso: cruzar el **puente de los Suspiros**, un puente peatonal colgante sobre el río Bogotá, con las montañas del Alto Magdalena de telón de fondo.
 
 ![El puente de los Suspiros, un puente colgante peatonal sobre el río Bogotá, con las montañas al fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_123230_glttnl.jpg)
 
-Justo al lado, el **puente Antonio Nariño** cruza el mismo río por la vía vehicular, con su estructura metálica reticulada recortada contra el sol del mediodía. Desde ahí, a lo lejos, se alcanza a ver el municipio de Tocaima.
+Justo al lado, el **puente Antonio Nariño** cruza el mismo río por la vía vehicular, con su estructura metálica reticulada recortada contra el sol del mediodía. Desde ahí, ya se ve el municipio de Tocaima, prácticamente el cierre del recorrido de ese día.
 
 ![El puente Antonio Nariño, de estructura metálica, sobre el río Bogotá, con el sol de mediodía de frente.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG_20260716_123238_hznhwd.jpg)
-
-Antes de cerrar el capítulo del regreso, una última selfie en la plaza principal de Nilo, Cundinamarca, todavía con el casco puesto y la sensación de haber aprendido mucho más de lo que esperaba en un solo día.
-
-![Selfie en la plaza principal de Nilo, Cundinamarca, junto a un monumento, todavía con el casco de moto puesto.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/IMG-20260716-WA0003_ivon4u.jpg)
 
 ## Cacao selecto para la chucula de los 7 granos
 
@@ -186,11 +186,9 @@ Si después de leer esto te dieron ganas de probar el cacao de Stella —velas a
 
 ## La marca Proksanty
 
-Proksanty también tiene su propia identidad de marca ya definida, lista para acompañar cada producto que sale de la finca: desde la ropa hasta el empaque de cada bolsa de cacao.
+Proksanty también tiene su propia identidad de marca ya definida, lista para acompañar cada producto que sale de la finca.
 
-![Camisetas negras con el logo de Proksanty estampado al frente y en la espalda.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/proksanty-mockup-camisetas.png)
-
-![Empaques de marca Proksanty: cajas de cartón kraft y bolsas de cacao de distintos tamaños, todos con el logo impreso.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/proksanty-mockup-empaques.png)
+![Logo de Proksanty sobre fondo café.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/proksanty-logo-fondo-cafe.png)
 
 ## Hasta la próxima mazorca
 

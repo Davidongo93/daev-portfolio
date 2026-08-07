@@ -4,7 +4,7 @@ date: '2026-08-06'
 description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
 excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las cinco formas concretas en las que alguien puede darme una mano.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914698_w5pxha.jpg'
-keywords: ['ayuda', 'apoyo', 'intolerancia', 'hematoma subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
+keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
 ---
 
 Pedir ayuda cuesta. Cuesta escribirlo, cuesta publicarlo y cuesta mandarle el enlace a alguien. Por eso preferí hacerlo de la forma que mejor sé: ordenado, explicado y sin letra pequeña.

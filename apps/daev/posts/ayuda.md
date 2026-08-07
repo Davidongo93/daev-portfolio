@@ -86,21 +86,23 @@ Esta es la forma más colectiva y la que menos cuesta por persona: las **activid
 3. **Elige tus stickers** dentro de la actividad que quieras. Cada sticker es un número; puedes escoger el que te guste, si sigue disponible.
 4. **Comparte el enlace.** Entre más rápido se completen los stickers, más rápido se define el sorteo. Compartir no cuesta nada y es, literalmente, parte del apoyo.
 
-### Las actividades vigentes
+### Las tres actividades vigentes
+
+| Actividad | Stickers | Precio por sticker | 1.º puesto | 2.º puesto |
+|---|---|---|---|---|
+| **Apoyo Accesible** | 1.000 | $500 | $250.000 | $50.000 |
+| **Apoyo Express** | 100 | $10.000 | $500.000 | $100.000 |
+| **Apoyo Mayor** | 10.000 | $1.000 | $5.000.000 | $1.000.000 |
 
 Cada tarjeta de abajo es una instantánea en vivo: muestra el premio, el precio del
 sticker y cuántos van vendidos en este momento. Toca la que te interese y entras
 directo a la actividad.
 
-[![Gran Premio en Efectivo — 10.000 stickers de $1.000 · premios de $5.000.000 y $500.000](https://www.unamanito.online/api/raffle/9c016dcf-5df5-4256-83ed-8ea5c1640426/share-image)](https://www.unamanito.online/actividad/9c016dcf-5df5-4256-83ed-8ea5c1640426)
+[![Apoyo Accesible — 1.000 stickers de $500 · premios de $250.000 y $50.000](https://www.unamanito.online/api/raffle/941a0454-cb2e-4cdd-8533-f01f13e845b7/share-image)](https://www.unamanito.online/actividad/941a0454-cb2e-4cdd-8533-f01f13e845b7)
 
-[![Dinero en Efectivo — 10.000 stickers de $500 · premios de $2.500.000 y $250.000](https://www.unamanito.online/api/raffle/55a3adb5-02ac-4919-806a-d0dea40271b2/share-image)](https://www.unamanito.online/actividad/55a3adb5-02ac-4919-806a-d0dea40271b2)
+[![Apoyo Express — solo 100 stickers de $10.000 · premios de $500.000 y $100.000](https://www.unamanito.online/api/raffle/492d713b-1b98-4567-ad7b-47d1d616d5a3/share-image)](https://www.unamanito.online/actividad/492d713b-1b98-4567-ad7b-47d1d616d5a3)
 
-[![Dinero en efectivo — 1.000 stickers de $1.000 · premios de $500.000 y $50.000](https://www.unamanito.online/api/raffle/e6a400af-af3c-4417-ab4b-a291d59607c0/share-image)](https://www.unamanito.online/actividad/e6a400af-af3c-4417-ab4b-a291d59607c0)
-
-[![¡Gana Rápido! — solo 100 stickers de $2.000 · premios de $100.000 y $10.000](https://www.unamanito.online/api/raffle/3301cbef-2ec7-4a9b-aa8e-db79871d4e9a/share-image)](https://www.unamanito.online/actividad/3301cbef-2ec7-4a9b-aa8e-db79871d4e9a)
-
-[![Exclusivo Premium — 1.000 stickers de $5.000 · premios de $1.000.000 y $100.000](https://www.unamanito.online/api/raffle/de185a9d-5ce9-4c95-bc34-19c531bad6c3/share-image)](https://www.unamanito.online/actividad/de185a9d-5ce9-4c95-bc34-19c531bad6c3)
+[![Apoyo Mayor — 10.000 stickers de $1.000 · premios de $5.000.000 y $1.000.000](https://www.unamanito.online/api/raffle/72da00da-8d8b-4505-bbbb-9dafe8f46992/share-image)](https://www.unamanito.online/actividad/72da00da-8d8b-4505-bbbb-9dafe8f46992)
 
 ### Las dos reglas que conviene entender
 

@@ -86,17 +86,21 @@ Esta es la forma más colectiva y la que menos cuesta por persona: las **activid
 3. **Elige tus stickers** dentro de la actividad que quieras. Cada sticker es un número; puedes escoger el que te guste, si sigue disponible.
 4. **Comparte el enlace.** Entre más rápido se completen los stickers, más rápido se define el sorteo. Compartir no cuesta nada y es, literalmente, parte del apoyo.
 
-### Las tres actividades vigentes
+### Las actividades vigentes
 
-| Actividad | Stickers | Precio por sticker | 1.º puesto | 2.º puesto |
-|---|---|---|---|---|
-| **Apoyo Accesible** | 1.000 | $500 | $250.000 | $50.000 |
-| **Apoyo Express** | 100 | $10.000 | $500.000 | $100.000 |
-| **Apoyo Mayor** | 10.000 | $1.000 | $5.000.000 | $1.000.000 |
+Cada tarjeta de abajo es una instantánea en vivo: muestra el premio, el precio del
+sticker y cuántos van vendidos en este momento. Toca la que te interese y entras
+directo a la actividad.
 
-![Apoyo Accesible: 1.000 stickers a $500, la más accesible para participar.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1200,q_auto,f_auto/blog/ayuda/actividad-apoyo-accesible.png)
-![Apoyo Express: solo 100 stickers a $10.000, la que más rápido se completa.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1200,q_auto,f_auto/blog/ayuda/actividad-apoyo-express.png)
-![Apoyo Mayor: 10.000 stickers a $1.000, el premio mayor de Una Manito.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1200,q_auto,f_auto/blog/ayuda/actividad-apoyo-mayor.png)
+[![Gran Premio en Efectivo — 10.000 stickers de $1.000 · premios de $5.000.000 y $500.000](https://www.unamanito.online/api/raffle/9c016dcf-5df5-4256-83ed-8ea5c1640426/share-image)](https://www.unamanito.online/actividad/9c016dcf-5df5-4256-83ed-8ea5c1640426)
+
+[![Dinero en Efectivo — 10.000 stickers de $500 · premios de $2.500.000 y $250.000](https://www.unamanito.online/api/raffle/55a3adb5-02ac-4919-806a-d0dea40271b2/share-image)](https://www.unamanito.online/actividad/55a3adb5-02ac-4919-806a-d0dea40271b2)
+
+[![Dinero en efectivo — 1.000 stickers de $1.000 · premios de $500.000 y $50.000](https://www.unamanito.online/api/raffle/e6a400af-af3c-4417-ab4b-a291d59607c0/share-image)](https://www.unamanito.online/actividad/e6a400af-af3c-4417-ab4b-a291d59607c0)
+
+[![¡Gana Rápido! — solo 100 stickers de $2.000 · premios de $100.000 y $10.000](https://www.unamanito.online/api/raffle/3301cbef-2ec7-4a9b-aa8e-db79871d4e9a/share-image)](https://www.unamanito.online/actividad/3301cbef-2ec7-4a9b-aa8e-db79871d4e9a)
+
+[![Exclusivo Premium — 1.000 stickers de $5.000 · premios de $1.000.000 y $100.000](https://www.unamanito.online/api/raffle/de185a9d-5ce9-4c95-bc34-19c531bad6c3/share-image)](https://www.unamanito.online/actividad/de185a9d-5ce9-4c95-bc34-19c531bad6c3)
 
 ### Las dos reglas que conviene entender
 
@@ -115,8 +119,8 @@ Estas son mis cuentas, tanto para las recargas de Una Manito como para las preve
 
 También puedes escanear los códigos QR:
 
-![Código QR para pagar por Bre-B a la llave 3115637979.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_700,q_auto,f_auto/blog/ayuda/qr-breb.png)
-![Código QR para pagar por Nequi a la llave 3015740156.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_700,q_auto,f_auto/blog/ayuda/qr-nequi.png)
+![Código QR para pagar por Bre-B a la llave 3115637979.](https://res.cloudinary.com/de43jseoy/image/upload/c_pad,b_auto,ar_4:3,w_800,q_auto,f_auto/blog/ayuda/qr-breb.png)
+![Código QR para pagar por Nequi a la llave 3015740156.](https://res.cloudinary.com/de43jseoy/image/upload/c_pad,b_auto,ar_4:3,w_800,q_auto,f_auto/blog/ayuda/qr-nequi.png)
 
 Después de transferir, **guarda el comprobante**: si es una recarga en Una Manito, se sube en la aplicación; si es una preventa, me lo mandas por WhatsApp y te confirmo el pedido.
 

@@ -339,6 +339,62 @@ svg {
   display: none;
 }
 
+/* Clickable media cards — [![caption](image)](url) */
+.prose-article .post-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 720px) {
+  .prose-article .post-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prose-article .post-linkcard {
+  display: block;
+  margin: 2rem 0;
+  text-decoration: none;
+  border-radius: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.prose-article .post-cards .post-linkcard {
+  margin: 0;
+}
+
+.prose-article .post-linkcard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface-el);
+}
+
+.prose-article .post-linkcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px var(--shadow);
+}
+
+.prose-article .post-linkcard:hover img {
+  border-color: var(--accent);
+}
+
+.prose-article .post-linkcard-label {
+  display: block;
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.prose-article .post-linkcard:hover .post-linkcard-label {
+  color: var(--accent);
+}
+
 /* ── Focus styles for accessibility ──────────────────── */
 :focus-visible {
   outline: 2px solid var(--accent);

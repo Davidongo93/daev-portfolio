@@ -157,16 +157,52 @@ const markdownComponents: Components = {
       </figure>
     );
   },
+  // [![caption](image)](url) becomes a clickable card: the image keeps its own
+  // aspect ratio (no gallery crop) and the caption doubles as the link label.
+  a: ({ href, children, node }) => {
+    const child = node?.children?.length === 1 ? node.children[0] : undefined;
+    const img =
+      child?.type === 'element' && child.tagName === 'img' ? child.properties : undefined;
+    if (img && typeof href === 'string') {
+      const src = typeof img.src === 'string' ? img.src : '';
+      const alt = typeof img.alt === 'string' ? img.alt : '';
+      const external = /^https?:\/\//.test(href);
+      return (
+        <a
+          href={href}
+          className="post-linkcard"
+          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={src} alt={alt} loading="lazy" />
+          {alt && <span className="post-linkcard-label">{alt}</span>}
+        </a>
+      );
+    }
+    return <a href={href}>{children}</a>;
+  },
   p: ({ children, node }) => {
-    const imgChildren =
-      node?.children?.filter((c) => c.type === 'element' && c.tagName === 'img') ?? [];
+    const kids = node?.children ?? [];
+    const isImage = (c: (typeof kids)[number]) => c.type === 'element' && c.tagName === 'img';
+    const isLinkedImage = (c: (typeof kids)[number]) =>
+      c.type === 'element' &&
+      c.tagName === 'a' &&
+      c.children.length === 1 &&
+      isImage(c.children[0]);
+    const imgChildren = kids.filter(isImage);
+    const cardChildren = kids.filter(isLinkedImage);
+    // Two or more linked images in one block become a card grid; they keep their
+    // natural proportions instead of being cropped like gallery photos.
+    if (cardChildren.length >= 2) {
+      return <div className="post-cards">{children}</div>;
+    }
     // Two or more images in one block become a responsive gallery grid.
     if (imgChildren.length >= 2) {
       return <div className="post-gallery">{children}</div>;
     }
     // A single standalone media element is unwrapped so the <figure> is not
     // illegally nested inside a <p>.
-    if (node?.children?.length === 1 && imgChildren.length === 1) {
+    if (kids.length === 1 && (imgChildren.length === 1 || cardChildren.length === 1)) {
       return <>{children}</>;
     }
     return <p>{children}</p>;

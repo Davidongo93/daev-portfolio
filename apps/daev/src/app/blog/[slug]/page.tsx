@@ -138,8 +138,10 @@ const markdownComponents: Components = {
       );
     }
     if (typeof src === 'string' && src.endsWith('.mp4')) {
+      // 30% in rather than frame 0: clips often open on a dark or blurred frame,
+      // which made the poster look like a broken image.
       const poster = src
-        .replace('/video/upload/', '/video/upload/so_0,')
+        .replace('/video/upload/', '/video/upload/so_30p,')
         .replace(/\.mp4$/, '.jpg');
       return (
         <figure>

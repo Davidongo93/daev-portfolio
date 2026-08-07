@@ -1,15 +1,97 @@
 ---
 title: 'Ayuda: cinco formas concretas de darme una mano'
 date: '2026-08-06'
-description: 'Reúno en un solo lugar las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
-excerpt: 'Pedir ayuda cuesta. Por eso quise dejarlo claro y ordenado: aquí están las cinco formas concretas en las que alguien puede darme una mano, cada una explicada paso a paso.'
-image: ''
-keywords: ['ayuda', 'apoyo', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
+description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
+excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las cinco formas concretas en las que alguien puede darme una mano.'
+image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914698_w5pxha.jpg'
+keywords: ['ayuda', 'apoyo', 'intolerancia', 'hematoma subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
 ---
 
 Pedir ayuda cuesta. Cuesta escribirlo, cuesta publicarlo y cuesta mandarle el enlace a alguien. Por eso preferí hacerlo de la forma que mejor sé: ordenado, explicado y sin letra pequeña.
 
-Esta página existe para responder una sola pregunta: **¿cómo te doy una mano?** Abajo están las cinco formas, de la más directa a la más colectiva. Ninguna es obligatoria y todas suman. Si ninguna te sirve, compartir este enlace también ayuda.
+Esta página existe para responder una sola pregunta: **¿cómo te doy una mano?** Pero antes de las cinco formas creo que corresponde contar por qué las estoy pidiendo. No quiero que se lea como un drama ni busco lástima: son los hechos, en orden, y lo que me dejaron.
+
+## Lo que pasó
+
+### La noche del concierto
+
+El **31 de mayo** fui al concierto de **La H no murió en Colombia**, la presentación de **Hermética** junto a varias agrupaciones. Llevaba **al menos 18 años** esperando ese show.
+
+Llegué al teatro desde muy temprano para asegurar mi lugar en la **primera fila**.
+
+![Con amigos en la fila, afuera del teatro, antes de que abrieran las puertas.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914828_gbuvyy.jpg)
+
+Poco después de haber ingresado, otro asistente decidió retirarme por la fuerza del lugar donde me encontraba, separándome de mis pertenencias, con el argumento de que esto no era un colegio en donde se guardaba puesto. Mi reacción fue reclamarle de manera educada: que por favor respetara mi lugar en la fila, que había llegado desde muy temprano para asegurarlo, que por favor se retirara de forma pacífica.
+
+Su respuesta fue **golpearme en la nariz y en el rostro en repetidas ocasiones**.
+
+Lamento mucho no haber solicitado en ese momento a la organización que esa persona fuera retirada e identificada ante las autoridades para poner la denuncia. No lo hice porque no quería arruinar una presentación que había esperado 18 años.
+
+Y voy a ser sincero también con lo mío: al terminar el evento me lancé a golpear a esa persona, porque sentí demasiada rabia y humillación por haber sido sometido sin posibilidad de defenderme. No tuve éxito —no soy alguien que acostumbre resolver nada por la fuerza física— y ahí quedó todo.
+
+El concierto terminó y no ocurrió nada más: fue una velada muy sentida y significativa para quienes seguimos a Hermética.
+
+![Hermética en escena, desde la primera fila.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914757_dvgfqn.jpg)
+![El telón de "La H no murió" al fondo del escenario.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914765_hdnxld.jpg)
+
+![Un tramo del show, grabado desde el lugar que había ido a defender.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/ayuda/VID-20260529-WA0079_cvnvbm.mp4)
+
+![El público del teatro, con los puños arriba.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio_pzd8go.png)
+![Otra imagen de la gente que llenó la sala esa noche.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio2_ig4duu.png)
+
+![El bajo, el piso del escenario y la primera fila al fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914713_hckqi1.jpg)
+
+Esa noche me quedé en casa de un amigo y tomé diclofenaco y naproxeno, porque el dolor era insoportable.
+
+### Las semanas siguientes
+
+Tenía un hematoma en el ojo derecho y una inflamación en los senos paranasales. Estuve delicado de salud esperando que bajara la inflamación, sin poder asistir al trabajo por la agresión y también por la vergüenza de generar opiniones que pudieran catalogarme como una persona violenta.
+
+Al cabo de la primera semana los síntomas se redujeron bastante: la inflamación, el dolor y la coloración del hematoma. Pero eso fue apenas el inicio de un padecimiento largo.
+
+Empecé a tener **apnea del sueño**. Me despertaba varias veces al día y fui perdiendo la calidad del sueño. Casi mes y medio después los síntomas se hicieron más agudos: un dolor demasiado alto y prolongado. Acudí varias veces al servicio de urgencias y siempre me enviaban de vuelta con medicamentos —tramadol, dexametasona, dipirona, diclofenaco, sumatriptán, acetaminofén, naproxeno— todos por vía oral y **sin recibir alivio alguno**.
+
+### El hospital
+
+El **miércoles 22 de julio** llegué al servicio de urgencias del **Hospital Mederi**. Me hospitalizaron de inmediato: ya estaba presentando pérdida de la movilidad del ojo, y náuseas con vómito ante los estímulos de luz.
+
+Horas después me realizaron una **tomografía simple de cráneo**. Ahí apareció lo que nadie había visto en las visitas anteriores: llevaba **un sangrado dentro de la cabeza durante los últimos 50 días** y requería cirugía inmediata.
+
+Fui remitido a una **Unidad de Cuidados Intensivos**, donde me realizaron una **cirugía de drenaje subdural**: un procedimiento con anestesia general en el que la respiración es asistida de manera artificial. El procedimiento fue exitoso, y el dolor de la lesión quedó reemplazado por el de la recuperación.
+
+![La vía en el brazo, uno de tantos días de esa semana.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914676_upqdek.jpg)
+![En cuidados intensivos, con el vendaje en la cabeza y los electrodos puestos.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914551_irgnx3.jpg)
+
+![Con la cánula de oxígeno, ya en la habitación.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914589_ujzzjf.jpg)
+![Otro de los días de hospitalización.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914615_yflffe.jpg)
+
+![La ciudad desde el hospital, una de esas noches.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914523_athjm4.jpg)
+
+![La cicatriz del drenaje, ya cerrada.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914441_sbmhgh.jpg)
+![La misma cicatriz desde otro ángulo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914471_ykm27y.jpg)
+
+El **lunes 31 de julio** me dieron de alta y por fin pude volver a casa a continuar con la recuperación, ya lejos del riesgo de una infección hospitalaria.
+
+![El día de la salida, esperando en el hospital.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914500_l6anqx.jpg)
+![De vuelta en casa, con el corte de la cirugía.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914418_ucvwi8.jpg)
+
+### Lo que quiero decir con esto
+
+Después de algo así uno realmente vuelve a valorar la vida. Sean cosas del destino, de Dios, o sencillamente una oportunidad para vivir en propósito, hoy me encuentro muy bien.
+
+Cuento esta historia porque no soy muy amigo de hacer publicaciones en video, pero sí quiero hacer un fuerte llamado a la gente: **a cuidar, a no destruir, a no atentar contra la vida.** Y lo digo con conocimiento de causa, porque era una posibilidad real perder la vida o perder funciones importantes.
+
+Lo digo lejos del rencor y de la venganza. Lo único que me importa en este momento es recuperarme de la mejor manera para no sufrir ninguna recaída, y eso requiere muchísima tranquilidad: dormir bien, alimentarme bien y asistir sin falta a las sesiones de terapia física —son **12 sesiones, un día de por medio**, es decir **24 días**.
+
+### Por qué pido ayuda
+
+Y aquí es donde empieza el drama. Mi lugar de residencia, mi trabajo y toda mi red de apoyo están fuera de la ciudad. A la fecha de la hospitalización **no contaba con servicio de salud**, razón por la cual tuve que asumir el **10 % del valor total de la cirugía** —y eso, dentro de todo, lo agradezco mucho—.
+
+Amigos, familiares y personas con quienes trabajo me prestaron algunas cantidades, y les pedí anticipos a mis socios y colaboradores para poder tener el paz y salvo de mi salida del hospital.
+
+Es vergonzoso tener que acudir a su colaboración. Pero sinceramente, en este momento no estoy en capacidad de asumir los gastos de transporte a las terapias: no he podido reanudar mis actividades laborales y, como al momento del accidente no contaba con servicio de salud ni caja de compensación, **no tengo ninguna incapacidad médica** y debo solventarlo por mis propios medios.
+
+Por eso hago este llamado solidario. Les ofrezco algunos de mis servicios profesionales y les comparto las actividades económicas adicionales que llevo a cabo, para que se animen a recomendarme y a comprar mis productos. Su colaboración es muy importante para mí en este momento.
 
 ## Las cinco formas, en resumen
 

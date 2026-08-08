@@ -165,23 +165,28 @@ const markdownComponents: Components = {
     const child = node?.children?.length === 1 ? node.children[0] : undefined;
     const img =
       child?.type === 'element' && child.tagName === 'img' ? child.properties : undefined;
+    // Links that lead somewhere else — another site or another page of the blog —
+    // open in a new tab so the reader never loses the article they were on.
+    // In-page anchors, mailto: and tel: stay in place.
+    const newTab =
+      typeof href === 'string' && (/^https?:\/\//.test(href) || href.startsWith('/'));
+    const newTabProps = newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {};
     if (img && typeof href === 'string') {
       const src = typeof img.src === 'string' ? img.src : '';
       const alt = typeof img.alt === 'string' ? img.alt : '';
-      const external = /^https?:\/\//.test(href);
       return (
-        <a
-          href={href}
-          className="post-linkcard"
-          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-        >
+        <a href={href} className="post-linkcard" {...newTabProps}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={src} alt={alt} loading="lazy" />
           {alt && <span className="post-linkcard-label">{alt}</span>}
         </a>
       );
     }
-    return <a href={href}>{children}</a>;
+    return (
+      <a href={href} {...newTabProps}>
+        {children}
+      </a>
+    );
   },
   p: ({ children, node }) => {
     const kids = node?.children ?? [];

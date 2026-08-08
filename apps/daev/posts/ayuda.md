@@ -1,5 +1,5 @@
 ---
-title: 'Ayuda: cinco formas concretas de darme una mano'
+title: 'Cinco formas concretas de darme una mano'
 date: '2026-08-06'
 description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
 excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las cinco formas concretas en las que alguien puede darme una mano.'
@@ -7,21 +7,21 @@ image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,
 keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
 ---
 
-Pedir ayuda cuesta. Cuesta escribirlo, cuesta publicarlo y cuesta mandarle el enlace a alguien. Por eso preferí hacerlo de la forma que mejor sé: ordenado, explicado y sin letra pequeña.
+Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 31 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, cinco alternativas concretas de apoyo, cada una explicada paso a paso.
 
-Esta página existe para responder una sola pregunta: **¿cómo te doy una mano?** Pero antes de las cinco formas creo que corresponde contar por qué las estoy pidiendo. No quiero que se lea como un drama ni busco lástima: son los hechos, en orden, y lo que me dejaron.
+Si prefieres ir directo a las alternativas, están más abajo. Si tienes un minuto para el contexto, empieza aquí.
 
 ## Lo que pasó
 
 ### La noche del concierto
 
-El **31 de mayo** fui al concierto de **La H no murió en Colombia**, la presentación de **Hermética** junto a varias agrupaciones. Llevaba **al menos 18 años** esperando ese show.
+El **31 de mayo** fui al concierto de **La H no murió en Colombia**, la presentación de **Hermética** junto a varias agrupaciones. Entre ellas **Perpetual Warfare**, que celebraba sus **20 años de carrera**. Llevaba **al menos 18 años** esperando ese show.
 
-Llegué al teatro desde muy temprano para asegurar mi lugar en la **primera fila**.
+Llegué al teatro desde muy temprano para asegurar mi lugar en la **primera fila**, justo al frente del escenario.
 
-![Con amigos en la fila, afuera del teatro, antes de que abrieran las puertas.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914828_gbuvyy.jpg)
+![En la fila afuera del teatro, antes de que abrieran las puertas, con los muchachos de Perpetual Warfare.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914828_gbuvyy.jpg)
 
-Poco después de haber ingresado, otro asistente decidió retirarme por la fuerza del lugar donde me encontraba, separándome de mis pertenencias, con el argumento de que esto no era un colegio en donde se guardaba puesto. Mi reacción fue reclamarle de manera educada: que por favor respetara mi lugar en la fila, que había llegado desde muy temprano para asegurarlo, que por favor se retirara de forma pacífica.
+Poco después de haber ingresado, otro asistente decidió retirarme por la fuerza del lugar donde me encontraba, separándome de mis pertenencias, con el argumento de que esto no era un colegio en donde se guardaba puesto. Mi reacción fue reclamarle de manera educada: que por favor respetara mi ubicación al frente del escenario, que había llegado desde muy temprano para asegurarla, que por favor se retirara de forma pacífica.
 
 Su respuesta fue **golpearme en la nariz y en el rostro en repetidas ocasiones**.
 
@@ -36,6 +36,8 @@ El concierto terminó y no ocurrió nada más: fue una velada muy sentida y sign
 
 ![Un tramo del show, grabado desde el lugar que había ido a defender.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/ayuda/VID-20260529-WA0079_cvnvbm.mp4)
 
+Estas dos fotos del público fueron tomadas sin mi autorización, y aparezco en las dos.
+
 ![El público del teatro, con los puños arriba.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio_pzd8go.png)
 ![Otra imagen de la gente que llenó la sala esa noche.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio2_ig4duu.png)
 
@@ -49,7 +51,7 @@ Tenía un hematoma en el ojo derecho y una inflamación en los senos paranasales
 
 Al cabo de la primera semana los síntomas se redujeron bastante: la inflamación, el dolor y la coloración del hematoma. Pero eso fue apenas el inicio de un padecimiento largo.
 
-Empecé a tener **apnea del sueño**. Me despertaba varias veces al día y fui perdiendo la calidad del sueño. Casi mes y medio después los síntomas se hicieron más agudos: un dolor demasiado alto y prolongado. Acudí varias veces al servicio de urgencias y siempre me enviaban de vuelta con medicamentos —tramadol, dexametasona, dipirona, diclofenaco, sumatriptán, acetaminofén, naproxeno— todos por vía oral y **sin recibir alivio alguno**.
+Empecé a tener **apnea del sueño**. Me despertaba varias veces cada noche y fui perdiendo la calidad del sueño. Casi mes y medio después los síntomas se hicieron más agudos: un dolor demasiado alto y prolongado. Acudí varias veces al servicio de urgencias y siempre me enviaban de vuelta con medicamentos —tramadol, dexametasona, dipirona, diclofenaco, sumatriptán, acetaminofén, naproxeno—, por vía oral e intramuscular, y **sin recibir alivio alguno**.
 
 ### El hospital
 
@@ -95,11 +97,11 @@ Por eso hago este llamado solidario. Les ofrezco algunos de mis servicios profes
 
 ## Las cinco formas, en resumen
 
-1. **Contrátame para hacer tu sitio web** — recibes un producto real a cambio.
-2. **Alquila la casa de Anapoima** — descanso en el mejor clima de Colombia.
-3. **Reserva la preventa de chucula** — $18.000 COP, entrega en septiembre.
-4. **Reserva la preventa de chilcuague** — $32.000 COP, tres versiones.
-5. **Participa en las actividades de apoyo** — desde $500 COP por sticker.
+1. **Contrátame para hacer tu [sitio web](https://daev.space/pricing)** — recibes un producto real a cambio.
+2. **Alquila la [casa](/blog/casa-bonita-recorrido-visual) de Anapoima** — descanso en el mejor clima de Colombia.
+3. **Reserva la preventa de [chucula](/blog/chucula-de-los-7-granos)** — $18.000 COP, entregas desde la segunda semana de septiembre.
+4. **Reserva la preventa de [chilcuague](https://chilcuague.site/co/)** — $32.000 COP, tres versiones.
+5. **Participa en las actividades de [apoyo](https://www.unamanito.online/)** — desde $500 COP por sticker.
 
 ---
 
@@ -109,7 +111,7 @@ Es la forma que más me sirve, porque no es un favor: es trabajo. Diseño y desa
 
 Dos ejemplos de lo que hago, para que veas el resultado antes de decidir:
 
-- [Óptica Sapolo Vision](https://opticasapolovision.com/) — sitio para una óptica, con catálogo y presencia local.
+- [Ópticas Apolo Visión](https://opticasapolovision.com/) — sitio para una óptica, con catálogo y presencia local.
 - [Rescatista](https://rescatista.vercel.app/) — sitio de marca y galería para una organización de rescate animal.
 
 Los planes, lo que incluye cada uno y los precios están detallados aquí:
@@ -123,6 +125,13 @@ Si no necesitas un sitio, pero conoces a alguien que sí —un negocio, un empre
 Tengo disponible para alquiler una casa en **Anapoima, Cundinamarca**, en zona residencial con vigilancia privada 24 horas: cinco habitaciones con baño privado, piscina, cocina exterior, jardines y parqueadero para hasta siete carros. Es un lugar pensado para descansar en grupo, con familia o con amigos.
 
 Puedes ver cómo es antes de preguntar: **[recorrido visual completo de la casa](/blog/casa-bonita-recorrido-visual)**.
+
+### Condiciones del alquiler
+
+- **Reserva:** se aparta con el **50 %** del valor; el saldo se paga al llegar.
+- **Grupo mínimo:** 10 personas.
+- **Grupo máximo:** 25 personas.
+- **Puentes festivos:** la reserva es de **mínimo 2 noches**.
 
 Las reservas las coordino directamente conmigo, por teléfono o WhatsApp:
 
@@ -140,13 +149,13 @@ Estamos abriendo la **preventa** de la primera producción:
 - **Presentación:** 270 gramos — 6 bolas.
 - **Rendimiento:** cada bola rinde para dos tazas.
 - **Precio de preventa:** **$18.000 COP**.
-- **Entrega:** segunda semana de septiembre de 2026.
+- **Entregas:** a partir de la segunda semana de septiembre de 2026.
 
 El precio de $18.000 es **promocional por ser preventa**: apoyar ahora es lo que nos permite financiar esa primera producción. Para reservar, escríbeme por [WhatsApp](https://wa.me/573015740156) o al **+57 301 574 0156** y te confirmo el pedido.
 
 ## 4. Preventa de chilcuague
 
-El **chilcuague** (*Heliopsis longipes*) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**.
+El **chilcuague** (*Heliopsis longipes*) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**, y el producto se puede ver en **[chilcuague.site](https://chilcuague.site/co/)**.
 
 También está en preventa:
 

@@ -7,7 +7,7 @@ image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,
 keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
 ---
 
-Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 31 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, cinco alternativas concretas de apoyo, cada una explicada paso a paso.
+Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 29 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, cinco alternativas concretas de apoyo, cada una explicada paso a paso.
 
 Si prefieres ir directo a las alternativas, están más abajo. Si tienes un minuto para el contexto, empieza aquí.
 
@@ -15,7 +15,7 @@ Si prefieres ir directo a las alternativas, están más abajo. Si tienes un minu
 
 ### La noche del concierto
 
-El **31 de mayo** fui al concierto de **La H no murió en Colombia**, la presentación de **Hermética** junto a varias agrupaciones. Entre ellas **Perpetual Warfare**, que celebraba sus **20 años de carrera**. Llevaba **al menos 18 años** esperando ese show.
+El **29 de mayo** fui al concierto de **La H no murió en Colombia**, la presentación de **Hermética** junto a varias agrupaciones. Entre ellas **Perpetual Warfare**, que celebraba sus **20 años de carrera**. Llevaba **al menos 18 años** esperando ese show.
 
 Llegué al teatro desde muy temprano para asegurar mi lugar en la **primera fila**, justo al frente del escenario.
 

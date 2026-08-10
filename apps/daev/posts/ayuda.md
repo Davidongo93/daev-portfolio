@@ -81,7 +81,9 @@ El **lunes 31 de julio** me dieron de alta y por fin pude volver a casa a contin
 
 Después de algo así uno realmente vuelve a valorar la vida. Sean cosas del destino, de Dios, o sencillamente una oportunidad para vivir en propósito, hoy me encuentro muy bien.
 
-Cuento esta historia porque no soy muy amigo de hacer publicaciones en video, pero sí quiero hacer un fuerte llamado a la gente: **a cuidar, a no destruir, a no atentar contra la vida.** Y lo digo con conocimiento de causa, porque era una posibilidad real perder la vida o perder funciones importantes.
+![Salí muy bien luego de una cirugía bastante delicada: el mismo relato, contado en video.](https://youtu.be/syZvTdF8qOI)
+
+No acostumbro a hacer publicaciones en video, y por eso también lo dejo escrito acá. Lo que sí quiero es hacer un fuerte llamado a la gente: **a cuidar, a no destruir, a no atentar contra la vida.** Y lo digo con conocimiento de causa, porque era una posibilidad real perder la vida o perder funciones importantes.
 
 Lo digo lejos del rencor y de la venganza. Lo único que me importa en este momento es recuperarme de la mejor manera para no sufrir ninguna recaída, y eso requiere muchísima tranquilidad: dormir bien, alimentarme bien y asistir sin falta a las sesiones de terapia física —son **12 sesiones, un día de por medio**, es decir **24 días**.
 

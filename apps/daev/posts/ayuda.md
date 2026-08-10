@@ -81,7 +81,7 @@ El **lunes 31 de julio** me dieron de alta y por fin pude volver a casa a contin
 
 Después de algo así uno realmente vuelve a valorar la vida. Sean cosas del destino, de Dios, o sencillamente una oportunidad para vivir en propósito, hoy me encuentro muy bien.
 
-![Salí muy bien luego de una cirugía bastante delicada: el mismo relato, contado en video.](https://youtu.be/syZvTdF8qOI)
+![Salí muy bien luego de una cirugía exitosa.](https://youtu.be/syZvTdF8qOI)
 
 No acostumbro a hacer publicaciones en video, y por eso también lo dejo escrito acá. Lo que sí quiero es hacer un fuerte llamado a la gente: **a cuidar, a no destruir, a no atentar contra la vida.** Y lo digo con conocimiento de causa, porque era una posibilidad real perder la vida o perder funciones importantes.
 
@@ -157,7 +157,7 @@ El precio de $18.000 es **promocional por ser preventa**: apoyar ahora es lo que
 
 ## 4. Preventa de chilcuague
 
-El **chilcuague** (*Heliopsis longipes*) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**, y el producto se puede ver en **[chilcuague.site](https://chilcuague.site/co/)**.
+El **chilcuague** (_Heliopsis longipes_) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**, y el producto se puede ver en **[chilcuague.site](https://chilcuague.site/co/)**.
 
 También está en preventa:
 
@@ -181,11 +181,11 @@ Esta es la forma más colectiva y la que menos cuesta por persona: las **activid
 
 ### Las tres actividades vigentes
 
-| Actividad | Stickers | Precio por sticker | 1.º puesto | 2.º puesto |
-|---|---|---|---|---|
-| **Apoyo Accesible** | 1.000 | $500 | $250.000 | $50.000 |
-| **Apoyo Express** | 100 | $10.000 | $500.000 | $100.000 |
-| **Apoyo Mayor** | 10.000 | $1.000 | $5.000.000 | $1.000.000 |
+| Actividad           | Stickers | Precio por sticker | 1.º puesto | 2.º puesto |
+| ------------------- | -------- | ------------------ | ---------- | ---------- |
+| **Apoyo Accesible** | 1.000    | $500               | $250.000   | $50.000    |
+| **Apoyo Express**   | 100      | $10.000            | $500.000   | $100.000   |
+| **Apoyo Mayor**     | 10.000   | $1.000             | $5.000.000 | $1.000.000 |
 
 Cada tarjeta de abajo es una instantánea en vivo: muestra el premio, el precio del
 sticker y cuántos van vendidos en este momento. Toca la que te interese y entras
@@ -207,10 +207,10 @@ directo a la actividad.
 
 Estas son mis cuentas, tanto para las recargas de Una Manito como para las preventas de chucula y chilcuague:
 
-| Medio | Llave / número |
-|---|---|
+| Medio                 | Llave / número |
+| --------------------- | -------------- |
 | **Bre-B / Daviplata** | **3115637979** |
-| **Nequi** | **3015740156** |
+| **Nequi**             | **3015740156** |
 
 También puedes escanear los códigos QR:
 

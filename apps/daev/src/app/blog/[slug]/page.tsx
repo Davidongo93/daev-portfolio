@@ -63,7 +63,9 @@ function toOgThumb(url: string): string {
   // Drop a leading transformation segment (e.g. "c_limit,w_1600,q_auto") so we
   // don't chain transforms; a folder/public-id like "treenet/..." is preserved.
   if (/(^|,)[a-z]{1,3}_/.test(segments[0])) segments.shift();
-  return `${base}/upload/w_1200,h_630,c_fill,q_auto,f_auto/${segments.join('/')}`;
+  // g_auto keeps the subject in frame: portrait covers cropped to 1200x630 from
+  // the centre cut faces in half.
+  return `${base}/upload/w_1200,h_630,c_fill,g_auto,q_auto,f_auto/${segments.join('/')}`;
 }
 
 export async function generateStaticParams() {

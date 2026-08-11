@@ -1,13 +1,13 @@
 ---
-title: 'Cinco formas concretas de darme una mano'
+title: 'Seis formas concretas de darme una mano'
 date: '2026-08-06'
-description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
-excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las cinco formas concretas en las que alguien puede darme una mano.'
-image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914698_w5pxha.jpg'
-keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'David Miranda']
+description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la instalación de redes TreeNet, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
+excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las seis formas concretas en las que alguien puede darme una mano.'
+image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_fill,ar_16:9,g_auto,w_1600,q_auto,f_auto/blog/ayuda/1786111914615_yflffe.jpg'
+keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'TreeNet', 'redes en árboles', 'David Miranda']
 ---
 
-Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 29 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, cinco alternativas concretas de apoyo, cada una explicada paso a paso.
+Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 29 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, seis alternativas concretas de apoyo, cada una explicada paso a paso.
 
 Si prefieres ir directo a las alternativas, están más abajo. Si tienes un minuto para el contexto, empieza aquí.
 
@@ -36,10 +36,12 @@ El concierto terminó y no ocurrió nada más: fue una velada muy sentida y sign
 
 ![Un tramo del show, grabado desde el lugar que había ido a defender.](https://res.cloudinary.com/de43jseoy/video/upload/c_limit,w_1280,q_auto/blog/ayuda/VID-20260529-WA0079_cvnvbm.mp4)
 
-Estas dos fotos del público fueron tomadas sin mi autorización, y aparezco en las dos.
+Estas dos fotos del público fueron tomadas desde la tarima, sin mi autorización, y aparezco en las dos. Las dejo acá por una razón concreta: **son de las pocas imágenes que existen de quienes estábamos en la primera fila esa noche, y con ellas quiero pedir ayuda para identificar a la persona que me agredió.**
 
-![El público del teatro, con los puños arriba.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio_pzd8go.png)
-![Otra imagen de la gente que llenó la sala esa noche.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio2_ig4duu.png)
+Si estuviste en ese concierto, si reconoces a alguien en estas fotos, o si tienes más registro de la primera fila —fotos o video—, escríbeme por [WhatsApp](https://wa.me/573015740156) o a [domirandar@gmail.com](mailto:domirandar@gmail.com). No busco exponer a nadie en público ni cobrar venganza: lo que necesito es poder identificarlo para presentar la denuncia ante las autoridades.
+
+![Fotos desde la tarima: el público de la primera fila, con los puños arriba. Si reconoces a alguien, escríbeme.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio_pzd8go.png)
+![La misma primera fila desde otro ángulo. Publico estas dos imágenes para pedir ayuda identificando al agresor.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/25-05-2026LaHNoMurio2_ig4duu.png)
 
 ![El bajo, el piso del escenario y la primera fila al fondo.](https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/ayuda/1786111914713_hckqi1.jpg)
 
@@ -97,13 +99,14 @@ Es vergonzoso tener que acudir a su colaboración. Pero sinceramente, en este mo
 
 Por eso hago este llamado solidario. Les ofrezco algunos de mis servicios profesionales y les comparto las actividades económicas adicionales que llevo a cabo, para que se animen a recomendarme y a comprar mis productos. Su colaboración es muy importante para mí en este momento.
 
-## Las cinco formas, en resumen
+## Las seis formas, en resumen
 
 1. **Contrátame para hacer tu [sitio web](https://daev.space/pricing)** — recibes un producto real a cambio.
 2. **Alquila la [casa](/blog/casa-bonita-recorrido-visual) de Anapoima** — descanso en el mejor clima de Colombia.
-3. **Reserva la preventa de [chucula](/blog/chucula-de-los-7-granos)** — $18.000 COP, entregas desde la segunda semana de septiembre.
-4. **Reserva la preventa de [chilcuague](https://chilcuague.site/co/)** — $32.000 COP, tres versiones.
-5. **Participa en las actividades de [apoyo](https://www.unamanito.online/)** — desde $500 COP por sticker.
+3. **Contrata la instalación de una red [TreeNet](/blog/treenet-tejer-redes-tejer-comunidad)** — redes entre los árboles, instaladas en tu lugar; se cotiza según el sitio.
+4. **Reserva la preventa de [chucula](/blog/chucula-de-los-7-granos)** — $18.000 COP, entregas desde la segunda semana de septiembre.
+5. **Reserva la preventa de [chilcuague](https://chilcuague.site/co/)** — $32.000 COP, tres versiones.
+6. **Participa en las actividades de [apoyo](https://www.unamanito.online/)** — desde $500 COP por sticker.
 
 ---
 
@@ -142,7 +145,23 @@ Las reservas las coordino directamente conmigo, por teléfono o WhatsApp:
 
 Cuéntame las fechas y cuántas personas son, y te confirmo disponibilidad y precio.
 
-## 3. Preventa de chucula de los 7 granos
+## 3. Contrata la instalación de una red TreeNet
+
+**TreeNet** es el otro proyecto que llevo adelante: tejo redes entre los árboles —un tejido suspendido sobre el que se puede subir, recostarse y mirar el bosque desde adentro— con anclajes que no lastiman la corteza y las tensiones bien repartidas.
+
+Lo conté completo, con fotos y videos de las instalaciones en Cundinamarca, acá:
+
+[![TreeNet: tejer redes en los árboles, tejer comunidad — la bitácora visual del proyecto](https://res.cloudinary.com/de43jseoy/image/upload/c_fill,ar_16:9,g_auto,w_1200,q_auto,f_auto/treenet/IMG_20241123_145353_fdxafq.jpg)](/blog/treenet-tejer-redes-tejer-comunidad)
+
+Lo que ofrezco acá es concreto: **la cotización y la instalación de la red en tu lugar.** Si tienes una finca, un hospedaje, un glamping, una reserva o simplemente árboles con buena sombra, la red queda instalada allá y es tuya.
+
+El precio depende del sitio, de los árboles disponibles y del tamaño de la red, así que se cotiza caso por caso. Escríbeme con una foto del lugar y te paso la cotización:
+
+- 📞 Teléfono: **+57 301 574 0156**
+- 💬 [Escríbeme por WhatsApp](https://wa.me/573015740156)
+- ✉️ [domirandar@gmail.com](mailto:domirandar@gmail.com)
+
+## 4. Preventa de chucula de los 7 granos
 
 La **chucula de los siete granos** es una receta ancestral del altiplano cundiboyacense que estamos reviviendo desde Tocaima: cacao tostado y molido junto a siete granos —garbanzo, maíz, cebada, soya, lenteja, arveja verde seca y haba—, endulzada con melao de panela. Si quieres conocer la historia y la receta completa, la conté acá: **[Chucula de los 7 granos](/blog/chucula-de-los-7-granos)**.
 
@@ -155,7 +174,7 @@ Estamos abriendo la **preventa** de la primera producción:
 
 El precio de $18.000 es **promocional por ser preventa**: apoyar ahora es lo que nos permite financiar esa primera producción. Para reservar, escríbeme por [WhatsApp](https://wa.me/573015740156) o al **+57 301 574 0156** y te confirmo el pedido.
 
-## 4. Preventa de chilcuague
+## 5. Preventa de chilcuague
 
 El **chilcuague** (_Heliopsis longipes_) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**, y el producto se puede ver en **[chilcuague.site](https://chilcuague.site/co/)**.
 
@@ -168,7 +187,7 @@ También está en preventa:
 
 Al reservar, dime qué versión quieres. Si no la conoces, la **natural** es la más fiel a la raíz; la de **menta** es la más amable para empezar.
 
-## 5. Actividades de apoyo y stickers solidarios
+## 6. Actividades de apoyo y stickers solidarios
 
 Esta es la forma más colectiva y la que menos cuesta por persona: las **actividades de apoyo** de [Una Manito](https://www.unamanito.online/). Funcionan como una colecta con premio: muchas personas aportan un monto pequeño comprando un **sticker solidario** con un número, y cuando se completan todos los stickers se define un ganador.
 
@@ -221,7 +240,7 @@ Después de transferir, **guarda el comprobante**: si es una recarga en Una Mani
 
 ## Gracias
 
-Si llegaste hasta acá, ya me diste una mano: leer todo esto también es una forma de acompañar. Cualquier duda —de los planes web, de la casa, de las preventas o de las actividades— me la puedes preguntar directo:
+Si llegaste hasta acá, ya me diste una mano: leer todo esto también es una forma de acompañar. Cualquier duda —de los planes web, de la casa, de TreeNet, de las preventas o de las actividades— me la puedes preguntar directo:
 
 - 💬 [WhatsApp](https://wa.me/573015740156) · **+57 301 574 0156**
 - ✉️ [domirandar@gmail.com](mailto:domirandar@gmail.com)

@@ -116,6 +116,9 @@ Esto crea `apps/daev/posts/el-titulo-de-mi-post.md` con el frontmatter completo.
 | `excerpt`     |             | Resumen mostrado en la card del blog                                    |
 | `image`       |             | Path desde `/public/`, ej: `/citydraw.png`. Si no se da, usa default    |
 | `keywords`    |             | Array de tags. Se muestran como #tags y se usan en SEO                  |
+| `captions`    |             | `false` oculta el pie de foto de todas las imágenes del post (recorrido |
+|               |             | visual). El texto del `![alt]` se conserva para SEO y lectores de       |
+|               |             | pantalla, pero no se imprime debajo de la foto                          |
 
 **Archivos con `_` al inicio se ignoran** (útil para `_template.md` y drafts: `_draft-mi-idea.md`).
 

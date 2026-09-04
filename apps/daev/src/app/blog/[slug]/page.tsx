@@ -99,6 +99,9 @@ async function getPosts() {
 // <figure>; .mp4 URLs render as a <video> with a generated poster, everything
 // else renders as a lazy-loaded <img>. The custom <p> unwraps paragraphs that
 // only wrap a media element so we never nest <figure> inside <p>.
+// A post can set `captions: false` in its frontmatter for a purely visual tour:
+// the alt text still reaches screen readers and search engines, but nothing is
+// printed under the photo.
 // Turn any YouTube URL (watch, youtu.be or embed) into an embeddable URL,
 // preserving query params like ?si=… ; returns null for non-YouTube URLs.
 function toYouTubeEmbed(src: string): string | null {
@@ -117,9 +120,9 @@ function toYouTubeEmbed(src: string): string | null {
   }
 }
 
-const markdownComponents: Components = {
+const buildMarkdownComponents = ({ captions }: { captions: boolean }): Components => ({
   img: ({ src, alt }) => {
-    const caption = alt || undefined;
+    const caption = captions ? alt || undefined : undefined;
     // A YouTube link written as ![caption](url) becomes a responsive embed.
     const yt = typeof src === 'string' ? toYouTubeEmbed(src) : null;
     if (yt) {
@@ -221,7 +224,7 @@ const markdownComponents: Components = {
       <table>{children}</table>
     </div>
   ),
-};
+});
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const { frontmatter, content } = await getPostData(params.slug);
@@ -353,7 +356,7 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
 
       {/* Content */}
       <div className="prose-article">
-        <Markdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+        <Markdown remarkPlugins={[remarkGfm]} components={buildMarkdownComponents({ captions: frontmatter.captions !== false })}>
           {content}
         </Markdown>
       </div>

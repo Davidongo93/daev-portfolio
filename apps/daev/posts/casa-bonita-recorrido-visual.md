@@ -1,21 +1,20 @@
 ---
-title: 'Casa campestre en Anapoima: 5 habitaciones, piscina y capacidad para 25 personas'
+title: 'Casa campestre en Anapoima: recorrido visual por una arquitectura de dobles alturas'
 date: '2026-07-03'
-description: 'Casa campestre en alquiler en Anapoima, Cundinamarca: 5 habitaciones con baño privado, capacidad para hasta 25 personas, piscina con jacuzzi, zona de asador y condominio privado con vigilancia 24 horas.'
-excerpt: 'Cinco habitaciones con baño privado, piscina con jacuzzi, zona de asador y capacidad para hasta 25 personas, a cinco minutos de Anapoima. Recorrido en fotos y video.'
+description: 'Recorrido en fotos y video por una casa campestre de arquitectura moderna en Anapoima, Cundinamarca: dobles alturas, luz natural, piscina con jacuzzi, jardines y vista al valle del Alto Magdalena.'
+excerpt: 'Dobles alturas, luz natural en todos los ambientes, piscina con jacuzzi y vista al valle. Un recorrido en fotos y video por una casa campestre en Anapoima.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
 captions: false
-keywords: ['alquiler', 'Anapoima', 'casa campestre', 'piscina', 'grupos', 'Cundinamarca']
+keywords: ['Anapoima', 'casa campestre', 'arquitectura', 'Cundinamarca', 'fotografía', 'Alto Magdalena']
 ---
 
-Propiedad de arquitectura moderna en **Anapoima, Cundinamarca**, disponible para alquiler por temporadas, fines de semana y celebraciones. Dobles alturas, luz natural en todos los ambientes y vista al valle, dentro de un condominio privado con vigilancia permanente.
+Una casa de arquitectura moderna en **Anapoima, Cundinamarca**, a cinco minutos en carro del casco urbano. Dobles alturas, luz natural en todos los ambientes y vista al valle. Este es un recorrido en fotos y video por sus espacios, sus jardines y el paisaje que la rodea.
 
-- 👥 **Capacidad para hasta 25 personas**
-- 🛏️ 5 habitaciones, todas con baño privado
+- 🏛️ Dos niveles con dobles alturas y escalera flotante
+- 🪟 Ventanales de piso a techo en casi todos los ambientes
 - 🏊 Piscina con jacuzzi y espejo de agua
-- 🔥 Zona de asador techada y cocina exterior
-- 🚗 Parqueadero privado para 7 vehículos
-- 🛡️ Vigilancia privada 24 horas y dos porterías
+- 🌳 Jardines con ixoras, palmeras y sendero de piedra
+- 🌄 Vista abierta al valle y a los cerros del Alto Magdalena
 - 📍 A 5 minutos en carro del casco urbano de Anapoima
 
 ## La propiedad
@@ -94,30 +93,4 @@ Cinco habitaciones, todas con baño privado y ventanales al verde.
 
 ## El condominio
 
-La casa hace parte de un condominio cerrado con vigilancia privada permanente y dos porterías controladas. Puertas afuera funciona como un club campestre:
-
-- 🎾 Cancha de tenis
-- 🏋️ Gimnasio al aire libre
-- 🏐 Cancha de vóley playa
-- 🏓 Alquiler de mesas de ping pong
-- 🚲 Alquiler de bicicletas tándem
-- 🥾 Senderos para caminar
-- 🌊 Dos lagos
-- 🍦 Kiosko con bebidas, helados y productos básicos
-- 🎉 Dos salones sociales alquilables para eventos
-- 🏊 Dos piscinas comunes, reservables para eventos
-
-## Condiciones de alquiler
-
-- **Capacidad máxima:** 25 personas.
-- **Grupo mínimo:** 10 personas.
-- **Reserva:** se aparta con el 50 % del valor; el saldo se paga al llegar.
-- **Puentes festivos:** mínimo 2 noches.
-
-## Disponibilidad
-
-Hay fechas abiertas para lo que resta del año. Escríbeme con las fechas y el número de personas y te confirmo disponibilidad y precio.
-
-- 💬 [Escríbeme por WhatsApp](https://wa.me/573015740156)
-- 📞 **+57 301 574 0156**
-- ✉️ [domirandar@gmail.com](mailto:domirandar@gmail.com)
+La casa hace parte de un condominio cerrado, con vigilancia privada permanente y dos porterías controladas. Puertas afuera el conjunto funciona casi como un club campestre: cancha de tenis, gimnasio al aire libre, cancha de vóley playa, senderos para caminar, dos lagos, dos piscinas comunes y un kiosko con bebidas y helados. Buena parte de la vida ahí ocurre al aire libre, entre los árboles y el agua.

@@ -1,13 +1,13 @@
 ---
-title: 'Seis formas concretas de darme una mano'
+title: 'Cinco formas concretas de darme una mano'
 date: '2026-08-06'
-description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, el alquiler de la casa de Anapoima, la instalación de redes TreeNet, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
-excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las seis formas concretas en las que alguien puede darme una mano.'
+description: 'Después de una agresión en un concierto terminé con un sangrado en la cabeza y una cirugía de urgencia. Cuento lo que pasó y reúno las formas concretas de apoyarme: desarrollo web, la instalación de redes TreeNet, la preventa de chucula, la preventa de chilcuague y las actividades de apoyo de Una Manito.'
+excerpt: 'Un acto de intolerancia en un concierto terminó, cincuenta días después, en una cirugía de urgencia. Esta es la historia y, al final, las cinco formas concretas en las que alguien puede darme una mano.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_fill,ar_16:9,g_auto,w_1600,q_auto,f_auto/blog/ayuda/1786111914615_yflffe.jpg'
-keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'alquiler Anapoima', 'preventa chucula', 'preventa chilcuague', 'TreeNet', 'redes en árboles', 'David Miranda']
+keywords: ['ayuda', 'apoyo', 'intolerancia', 'drenaje subdural', 'La H no murió en Colombia', 'Hermética', 'una manito', 'actividades de apoyo', 'stickers solidarios', 'desarrollo web', 'preventa chucula', 'preventa chilcuague', 'TreeNet', 'redes en árboles', 'David Miranda']
 ---
 
-Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 29 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, seis alternativas concretas de apoyo, cada una explicada paso a paso.
+Lo que sigue son dos cosas en una sola página. Primero una historia personal: lo que me pasó el 29 de mayo y lo que vino después, contado en orden y sin adornos, para que quien lea sepa exactamente de dónde viene esto. Después, cinco alternativas concretas de apoyo, cada una explicada paso a paso.
 
 Si prefieres ir directo a las alternativas, están más abajo. Si tienes un minuto para el contexto, empieza aquí.
 
@@ -99,14 +99,13 @@ Es vergonzoso tener que acudir a su colaboración. Pero sinceramente, en este mo
 
 Por eso hago este llamado solidario. Les ofrezco algunos de mis servicios profesionales y les comparto las actividades económicas adicionales que llevo a cabo, para que se animen a recomendarme y a comprar mis productos. Su colaboración es muy importante para mí en este momento.
 
-## Las seis formas, en resumen
+## Las cinco formas, en resumen
 
 1. **Contrátame para hacer tu [sitio web](https://daev.space/pricing)** — recibes un producto real a cambio.
-2. **Alquila la [casa](/blog/casa-bonita-recorrido-visual) de Anapoima** — descanso en el mejor clima de Colombia.
-3. **Contrata la instalación de una red [TreeNet](/blog/treenet-tejer-redes-tejer-comunidad)** — redes entre los árboles, instaladas en tu lugar; se cotiza según el sitio.
-4. **Reserva la preventa de [chucula](/blog/chucula-de-los-7-granos)** — $18.000 COP, entregas desde la segunda semana de septiembre.
-5. **Reserva la preventa de [chilcuague](https://chilcuague.site/co/)** — $32.000 COP, tres versiones.
-6. **Participa en las actividades de [apoyo](https://www.unamanito.online/)** — desde $500 COP por sticker.
+2. **Contrata la instalación de una red [TreeNet](/blog/treenet-tejer-redes-tejer-comunidad)** — redes entre los árboles, instaladas en tu lugar; se cotiza según el sitio.
+3. **Reserva la preventa de [chucula](/blog/chucula-de-los-7-granos)** — $18.000 COP, entregas desde la segunda semana de septiembre.
+4. **Reserva la preventa de [chilcuague](https://chilcuague.site/co/)** — $32.000 COP, tres versiones.
+5. **Participa en las actividades de [apoyo](https://www.unamanito.online/)** — desde $500 COP por sticker.
 
 ---
 
@@ -125,27 +124,7 @@ Los planes, lo que incluye cada uno y los precios están detallados aquí:
 
 Si no necesitas un sitio, pero conoces a alguien que sí —un negocio, un emprendimiento, un consultorio, una fundación—, pasarle ese enlace también es una forma enorme de ayudarme.
 
-## 2. Alquila la casa de Anapoima
-
-Tengo disponible para alquiler una casa en **Anapoima, Cundinamarca**, en zona residencial con vigilancia privada 24 horas: cinco habitaciones con baño privado, piscina, cocina exterior, jardines y parqueadero para hasta siete carros. Es un lugar pensado para descansar en grupo, con familia o con amigos.
-
-Puedes ver cómo es antes de preguntar: **[recorrido visual completo de la casa](/blog/casa-bonita-recorrido-visual)**.
-
-### Condiciones del alquiler
-
-- **Reserva:** se aparta con el **50 %** del valor; el saldo se paga al llegar.
-- **Grupo mínimo:** 10 personas.
-- **Grupo máximo:** 25 personas.
-- **Puentes festivos:** la reserva es de **mínimo 2 noches**.
-
-Las reservas las coordino directamente conmigo, por teléfono o WhatsApp:
-
-- 📞 Teléfono: **+57 301 574 0156**
-- 💬 [Escríbeme por WhatsApp](https://wa.me/573015740156)
-
-Cuéntame las fechas y cuántas personas son, y te confirmo disponibilidad y precio.
-
-## 3. Contrata la instalación de una red TreeNet
+## 2. Contrata la instalación de una red TreeNet
 
 **TreeNet** es el otro proyecto que llevo adelante: tejo redes entre los árboles —un tejido suspendido sobre el que se puede subir, recostarse y mirar el bosque desde adentro— con anclajes que no lastiman la corteza y las tensiones bien repartidas.
 
@@ -161,7 +140,7 @@ El precio depende del sitio, de los árboles disponibles y del tamaño de la red
 - 💬 [Escríbeme por WhatsApp](https://wa.me/573015740156)
 - ✉️ [domirandar@gmail.com](mailto:domirandar@gmail.com)
 
-## 4. Preventa de chucula de los 7 granos
+## 3. Preventa de chucula de los 7 granos
 
 La **chucula de los siete granos** es una receta ancestral del altiplano cundiboyacense que estamos reviviendo desde Tocaima: cacao tostado y molido junto a siete granos —garbanzo, maíz, cebada, soya, lenteja, arveja verde seca y haba—, endulzada con melao de panela. Si quieres conocer la historia y la receta completa, la conté acá: **[Chucula de los 7 granos](/blog/chucula-de-los-7-granos)**.
 
@@ -174,7 +153,7 @@ Estamos abriendo la **preventa** de la primera producción:
 
 El precio de $18.000 es **promocional por ser preventa**: apoyar ahora es lo que nos permite financiar esa primera producción. Para reservar, escríbeme por [WhatsApp](https://wa.me/573015740156) o al **+57 301 574 0156** y te confirmo el pedido.
 
-## 5. Preventa de chilcuague
+## 4. Preventa de chilcuague
 
 El **chilcuague** (_Heliopsis longipes_) es la llamada Raíz de Oro de México: una raíz que pica, entumece y despierta, usada por generaciones en la herbolaria tradicional. Su historia y sus propiedades están acá: **[Chilcuague: la Raíz de Oro](/blog/chilcuague-raiz-de-oro-historia-y-propiedades)**, y el producto se puede ver en **[chilcuague.site](https://chilcuague.site/co/)**.
 
@@ -187,7 +166,7 @@ También está en preventa:
 
 Al reservar, dime qué versión quieres. Si no la conoces, la **natural** es la más fiel a la raíz; la de **menta** es la más amable para empezar.
 
-## 6. Actividades de apoyo y stickers solidarios
+## 5. Actividades de apoyo y stickers solidarios
 
 Esta es la forma más colectiva y la que menos cuesta por persona: las **actividades de apoyo** de [Una Manito](https://www.unamanito.online/). Funcionan como una colecta con premio: muchas personas aportan un monto pequeño comprando un **sticker solidario** con un número, y cuando se completan todos los stickers se define un ganador.
 

@@ -5,6 +5,7 @@ description: "Qué es el chilcuague (Heliopsis longipes), de dónde viene la Ra�
 excerpt: "Una raíz ancestral que pica, entumece y despierta. Recorremos la historia del chilcuague —la Raíz de Oro de México— y las propiedades que la herbolaria tradicional le ha atribuido por generaciones."
 image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/flor-heliopsis_rggcmq.webp"
 keywords: ["chilcuague", "raíz de oro", "Heliopsis longipes", "afinina", "herbolaria mexicana", "Sierra Gorda", "raíz de los aztecas", "Acocoxíhuitl"]
+topics: ['cacao-y-raices']
 ---
 
 Hay plantas que no se olvidan porque no se dejan olvidar. El **chilcuague** es una de ellas: basta una gota de su extracto para sentir cómo la lengua se enciende, pica y luego se entumece, mientras la boca se llena de saliva. Las culturas prehispánicas la llamaron la **Raíz de Oro**, y durante siglos la usaron como remedio, condimento y, según se cree, también en lo ritual.

@@ -1,6 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { notFound } from 'next/navigation';
 import Markdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
@@ -20,18 +18,18 @@ import { siteConfig } from '../../../config/site';
 import { getReadingStats } from '../../../lib/readingTime';
 import {
   authorJsonLd,
+  DEFAULT_POST_LANG,
   resolveAuthor,
   resolveDates,
   resolveLang,
 } from '../../../lib/postMeta';
-
-const localPath = path.join(process.cwd(), 'posts');
-const postsDirectory = fs.existsSync(localPath)
-  ? localPath
-  : path.join(process.cwd(), 'apps/daev/posts');
+import { findPostBySlug, getAllPosts, getPostSlugs } from '../../../lib/posts';
+import { getRelatedPosts, isIndexableTopic, topicsForPost } from '../../../lib/topics';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { frontmatter } = await getPostData(params.slug);
+  const post = findPostBySlug(params.slug);
+  if (!post) return {};
+  const { frontmatter } = post;
   const description = frontmatter.description || frontmatter.excerpt || '';
   const author = resolveAuthor(frontmatter);
   const dates = resolveDates(frontmatter);
@@ -85,31 +83,8 @@ function toOgThumb(url: string): string {
   return `${base}/upload/w_1200,h_630,c_fill,g_auto,q_auto,f_auto/${segments.join('/')}`;
 }
 
-export async function generateStaticParams() {
-  const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
-  return files.map((filename) => ({
-    slug: filename.replace('.md', ''),
-  }));
-}
-
-async function getPostData(slug: string) {
-  // The route param arrives URL-encoded (e.g. spaces -> %20). Decode it so the
-  // filesystem path matches the real file name on disk.
-  const filePath = path.join(postsDirectory, `${decodeURIComponent(slug)}.md`);
-  const fileContents = fs.readFileSync(filePath, 'utf-8');
-  const { data: frontmatter, content } = matter(fileContents);
-  return { frontmatter, content };
-}
-
-async function getPosts() {
-  const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
-  return files.map((filename) => {
-    const slug = filename.replace('.md', '');
-    const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf-8');
-    const { data: frontmatter } = matter(fileContents);
-    return { slug, frontmatter };
-  });
+export function generateStaticParams() {
+  return getPostSlugs().map((slug) => ({ slug }));
 }
 
 // Render Cloudinary media inside the article body: ![caption](url) becomes a
@@ -244,16 +219,17 @@ const buildMarkdownComponents = ({ captions }: { captions: boolean }): Component
 });
 
 const BlogPost = async ({ params }: { params: { slug: string } }) => {
-  const { frontmatter, content } = await getPostData(params.slug);
-  const posts = await getPosts();
-  const sorted = posts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date as string).getTime() -
-      new Date(a.frontmatter.date as string).getTime()
-  );
-  const currentIndex = sorted.findIndex((p) => p.slug === params.slug);
+  const post = findPostBySlug(params.slug);
+  if (!post) notFound();
+  const { frontmatter, content } = post;
+
+  // getAllPosts() is already newest-first.
+  const sorted = getAllPosts();
+  const currentIndex = sorted.findIndex((p) => p.slug === post.slug);
   const prevPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;
   const nextPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
+  const topics = topicsForPost(post);
+  const related = getRelatedPosts(post, 3, sorted);
   const { words: wordCount, minutes: readingTime } = getReadingStats(content);
   const author = resolveAuthor(frontmatter);
   const dates = resolveDates(frontmatter);
@@ -277,6 +253,17 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
     isPartOf: { '@id': `${siteConfig.siteUrl}#website` },
     mainEntityOfPage: `${siteConfig.siteUrl}/blog/${params.slug}`,
     keywords: frontmatter.keywords?.join(', '),
+    ...(topics.length
+      ? {
+          about: topics.map((topic) => ({
+            '@type': 'Thing',
+            name: topic.label[DEFAULT_POST_LANG],
+            ...(isIndexableTopic(topic.slug)
+              ? { url: `${siteConfig.siteUrl}/blog/tema/${topic.slug}` }
+              : {}),
+          })),
+        }
+      : {}),
   };
 
   const breadcrumbJsonLd = {
@@ -381,6 +368,32 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
           )}
         </div>
 
+        {/* Topics — the indexable clusters, distinct from the free-form tags
+            above. A topic below the post threshold has no page yet, so it
+            renders as a plain label instead of a dead link. */}
+        {topics.length > 0 && (
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            {topics.map((topic) =>
+              isIndexableTopic(topic.slug) ? (
+                <Link
+                  key={topic.slug}
+                  href={`/blog/tema/${topic.slug}`}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent hover:bg-accent hover:text-bg transition"
+                >
+                  {topic.label[DEFAULT_POST_LANG]}
+                </Link>
+              ) : (
+                <span
+                  key={topic.slug}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-border text-muted"
+                >
+                  {topic.label[DEFAULT_POST_LANG]}
+                </span>
+              )
+            )}
+          </div>
+        )}
+
         {/* Share */}
         <div className="mt-6 pt-6 border-t border-border">
           <ShareBar
@@ -431,6 +444,33 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
           <span />
         )}
       </nav>
+
+      {/* Related — posts that share a topic with this one. */}
+      {related.length > 0 && (
+        <section className="mt-16 pt-8 border-t border-border">
+          <h2 className="font-display font-semibold text-xl text-fore mb-5">
+            Seguir leyendo
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {related.map((item) => (
+              <Link
+                key={item.slug}
+                href={`/blog/${item.slug}`}
+                className="group rounded-xl border border-border bg-surface-el p-4 transition hover:border-accent hover:-translate-y-0.5"
+              >
+                <p className="text-sm font-medium text-fore group-hover:text-accent transition line-clamp-2">
+                  {item.frontmatter.title}
+                </p>
+                {item.frontmatter.excerpt && (
+                  <p className="mt-2 text-xs text-muted line-clamp-3">
+                    {item.frontmatter.excerpt}
+                  </p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Comments + reactions */}
       <CommentsSection slug={decodeURIComponent(params.slug)} />

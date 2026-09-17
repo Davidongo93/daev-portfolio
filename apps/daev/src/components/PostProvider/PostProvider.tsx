@@ -1,9 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import { ReactNode } from 'react';
 import { estimateReadingTime } from '../../lib/readingTime';
 import { resolveAuthor, resolveDates } from '../../lib/postMeta';
+import { getAllPosts } from '../../lib/posts';
 
 interface RelatedPost {
   title: string;
@@ -32,46 +30,22 @@ interface PostProviderProps {
   children: (posts: Post[]) => ReactNode;
 }
 
-const localPath = path.join(process.cwd(), 'posts');
-const postsDirectory = fs.existsSync(localPath)
-  ? localPath
-  : path.join(process.cwd(), 'apps/daev/posts');
-
-const getPosts = (): Post[] => {
-  try {
-    const files = fs
-      .readdirSync(postsDirectory)
-      .filter((f) => f.endsWith('.md') && !f.startsWith('_'));
-
-    const posts: Post[] = files.map((filename) => {
-      const slug = filename.replace('.md', '');
-      const filePath = path.join(postsDirectory, filename);
-      const fileContents = fs.readFileSync(filePath, 'utf-8');
-      const { data: frontmatter, content } = matter(fileContents);
-
-      return {
-        slug,
-        frontmatter: {
-          title: frontmatter.title || 'Untitled',
-          date: frontmatter.date || 'No date',
-          modified: resolveDates(frontmatter).modified,
-          author: resolveAuthor(frontmatter).name,
-          description: frontmatter.description || frontmatter.excerpt || '',
-          excerpt: frontmatter.excerpt || 'No excerpt available',
-          image: frontmatter.image || '', // Manejar la imagen si está disponible
-          keywords: frontmatter.keywords || [], // Manejar las palabras clave si están disponibles
-          related_posts: frontmatter.related_posts || [], // Manejar los posts relacionados si están disponibles
-          readingTime: estimateReadingTime(content), // Calculado desde el cuerpo del post
-        },
-      };
-    });
-
-    return posts;
-  } catch (error) {
-    console.error('Error fetching posts:', error); // Manejar errores al leer los archivos
-    return [];
-  }
-};
+const getPosts = (): Post[] =>
+  getAllPosts().map(({ slug, frontmatter, readingTime }) => ({
+    slug,
+    frontmatter: {
+      title: frontmatter.title || 'Untitled',
+      date: frontmatter.date || 'No date',
+      modified: resolveDates(frontmatter).modified,
+      author: resolveAuthor(frontmatter).name,
+      description: frontmatter.description || frontmatter.excerpt || '',
+      excerpt: frontmatter.excerpt || 'No excerpt available',
+      image: frontmatter.image || '',
+      keywords: frontmatter.keywords || [],
+      topics: frontmatter.topics || [],
+      readingTime,
+    },
+  }));
 
 // Componente que proporciona los posts
 const PostProvider: React.FC<PostProviderProps> = ({ children }) => {

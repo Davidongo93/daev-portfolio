@@ -6,6 +6,7 @@ description: "Mi historia como programador Full Stack: un relato sobre comenzar 
 excerpt: "La historia de cómo comencé a programar en uno de los momentos más difíciles de mi vida y encontré en el código una forma de transformarme."
 image: "https://res.cloudinary.com/de43jseoy/image/upload/v1782270195/davidongo93/IMG_20230128_170958_nfvesu.jpg"
 keywords: ["programación", "full stack", "javascript", "desarrollo personal", "aprendizaje", "tecnología"]
+topics: ['oficio']
 
 ---
 

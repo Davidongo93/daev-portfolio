@@ -5,6 +5,7 @@ description: "Un viaje visual por TreeNet en los paisajes de Cundinamarca: redes
 excerpt: "Subimos a los árboles para tejer redes y, sin darnos cuenta, terminamos tejiendo comunidad. Una bitácora visual sobre encontrarnos, cuidar la vida y valorar el territorio colombiano."
 image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/treenet/IMG_20241004_134951_ocg5ja.jpg"
 keywords: ["TreeNet", "redes en árboles", "Cundinamarca", "Colombia", "comunidad", "conservación", "turismo de naturaleza", "sostenibilidad"]
+topics: ['territorio']
 ---
 
 Hay lugares donde el tiempo se mide distinto. No en horas ni en notificaciones, sino en el balanceo lento de una red colgada entre dos árboles, en el sonido del viento entre las hojas y en la risa de alguien que, por primera vez, se atreve a soltar el peso y dejarse sostener por las alturas.

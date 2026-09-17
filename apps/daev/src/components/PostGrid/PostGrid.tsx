@@ -1,5 +1,6 @@
 'use client';
 import { useMemo, useState } from 'react';
+import Link from 'next/link';
 import { FaThLarge, FaList } from 'react-icons/fa';
 import PostCard from '../PostCard/PostCard';
 import SearchBar from '../SearchBar/SearchBar';
@@ -20,8 +21,16 @@ interface Post {
   };
 }
 
+/** A topic that has its own page under /blog/tema/<slug>. */
+interface TopicLink {
+  slug: string;
+  label: string;
+  count: number;
+}
+
 interface PostGridProps {
   posts: Post[];
+  topics?: TopicLink[];
 }
 
 type ViewMode = 'grid' | 'list';
@@ -33,17 +42,28 @@ const chipClass = (active: boolean) =>
       : 'bg-surface-el text-muted border-border hover:text-accent hover:border-accent'
   }`;
 
-const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
+const PostGrid: React.FC<PostGridProps> = ({ posts, topics = [] }) => {
   const { t } = useLang();
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState<SortOption>('date-desc');
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [showAllTags, setShowAllTags] = useState(false);
   const [view, setView] = useState<ViewMode>('grid');
 
-  const tags = useMemo(() => {
-    const set = new Set<string>();
-    posts.forEach((p) => p.frontmatter.keywords?.forEach((k) => set.add(k)));
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  // Most keywords appear in exactly one post, so showing all of them turned
+  // the filter row into six lines of chips that pushed the posts off screen.
+  // Only keywords shared by more than one post filter anything worth filtering;
+  // the rest stay one tap away.
+  const { recurringTags, longTailTags } = useMemo(() => {
+    const counts = new Map<string, number>();
+    posts.forEach((p) =>
+      p.frontmatter.keywords?.forEach((k) => counts.set(k, (counts.get(k) ?? 0) + 1))
+    );
+    const sorted = Array.from(counts.entries()).sort(([a], [b]) => a.localeCompare(b));
+    return {
+      recurringTags: sorted.filter(([, n]) => n > 1).map(([tag]) => tag),
+      longTailTags: sorted.filter(([, n]) => n === 1).map(([tag]) => tag),
+    };
   }, [posts]);
 
   const displayed = useMemo(() => {
@@ -147,8 +167,24 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
               </div>
             </div>
 
+            {/* Topics are navigation: each one is its own page. The tag
+                chips below are filters and never leave this page. */}
+            {topics.length > 0 && (
+              <div className="flex flex-wrap gap-2 justify-center">
+                {topics.map((topic) => (
+                  <Link
+                    key={topic.slug}
+                    href={`/blog/tema/${topic.slug}`}
+                    className="text-sm font-medium px-3.5 py-1.5 rounded-full border border-accent/40 bg-accent/10 text-accent hover:bg-accent hover:text-bg transition"
+                  >
+                    {topic.label} <span className="text-xs opacity-70">({topic.count})</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+
             {/* Tag filters */}
-            {tags.length > 0 && (
+            {recurringTags.length + longTailTags.length > 0 && (
               <div className="flex flex-wrap gap-2 justify-center">
                 <button
                   type="button"
@@ -157,7 +193,7 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
                 >
                   {t.blog.allTopics}
                 </button>
-                {tags.map((tag) => (
+                {recurringTags.map((tag) => (
                   <button
                     type="button"
                     key={tag}
@@ -167,6 +203,29 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
                     #{tag}
                   </button>
                 ))}
+                {showAllTags &&
+                  longTailTags.map((tag) => (
+                    <button
+                      type="button"
+                      key={tag}
+                      onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                      className={chipClass(activeTag === tag)}
+                    >
+                      #{tag}
+                    </button>
+                  ))}
+                {longTailTags.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllTags((open) => !open)}
+                    aria-expanded={showAllTags}
+                    className="text-xs font-medium px-3 py-1.5 rounded-full border border-dashed border-border text-muted hover:text-accent hover:border-accent transition"
+                  >
+                    {showAllTags
+                      ? `− ${t.blog.fewerTags}`
+                      : `+${longTailTags.length} ${t.blog.moreTags}`}
+                  </button>
+                )}
               </div>
             )}
           </div>

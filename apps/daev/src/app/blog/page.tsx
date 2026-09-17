@@ -2,6 +2,7 @@ import PostGrid from '../../components/PostGrid/PostGrid';
 import PostProvider from '../../components/PostProvider/PostProvider';
 import { siteConfig } from '../../config/site';
 import { DEFAULT_POST_LANG, toDate } from '../../lib/postMeta';
+import { getIndexableTopics } from '../../lib/topics';
 
 const BlogPage = () => {
   return (
@@ -55,6 +56,13 @@ const BlogPage = () => {
           ],
         };
 
+        // Only topics with a real page are offered; the rest stay as tags.
+        const topics = getIndexableTopics().map(({ topic, posts: topicPosts }) => ({
+          slug: topic.slug,
+          label: topic.label[DEFAULT_POST_LANG],
+          count: topicPosts.length,
+        }));
+
         return (
           <main className="max-w-6xl mx-auto px-4 py-12 md:py-16 animate-fade-in">
             <script
@@ -65,7 +73,7 @@ const BlogPage = () => {
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
-            <PostGrid posts={sorted} />
+            <PostGrid posts={sorted} topics={topics} />
           </main>
         );
       }}

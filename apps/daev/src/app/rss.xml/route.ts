@@ -1,36 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import { siteConfig } from '../../config/site';
 import { DEFAULT_POST_LANG, resolveAuthor, resolveDates, toDate } from '../../lib/postMeta';
+import { getAllPosts } from '../../lib/posts';
 
 export async function GET() {
-  const localPath = path.join(process.cwd(), 'posts');
-  const postsDirectory = fs.existsSync(localPath)
-    ? localPath
-    : path.join(process.cwd(), 'apps/daev/posts');
-
-  const files = fs.existsSync(postsDirectory)
-    ? fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md') && !f.startsWith('_'))
-    : [];
-
-  const items = files
-    .map((filename) => {
-      const slug = filename.replace('.md', '');
-      const fileContents = fs.readFileSync(path.join(postsDirectory, filename), 'utf-8');
-      const { data: fm } = matter(fileContents);
-      const dates = resolveDates(fm);
-      return {
-        slug,
-        title: fm.title || slug,
-        description: fm.description || fm.excerpt || '',
-        // Guest pieces are credited to their real author, not to the site owner.
-        author: resolveAuthor(fm).name,
-        date: dates.published,
-        keywords: (fm.keywords as string[] | undefined) ?? [],
-      };
-    })
-    .sort((a, b) => (toDate(b.date)?.getTime() ?? 0) - (toDate(a.date)?.getTime() ?? 0));
+  // getAllPosts() is already newest-first.
+  const items = getAllPosts().map(({ slug, frontmatter }) => ({
+    slug,
+    title: frontmatter.title || slug,
+    description: frontmatter.description || frontmatter.excerpt || '',
+    // Guest pieces are credited to their real author, not to the site owner.
+    author: resolveAuthor(frontmatter).name,
+    date: resolveDates(frontmatter).published,
+    keywords: frontmatter.keywords ?? [],
+  }));
 
   const latest = toDate(items[0]?.date) ?? new Date();
 

@@ -14,6 +14,10 @@ excerpt: "Resumen que se muestra en la card del blog."
 # o pon la ruta a una imagen en /public (ej. "/thumbnails/mi-post.png").
 image: ""
 keywords: ["palabra1", "palabra2", "palabra3"]
+# Temas del vocabulario controlado (config/topics.ts). Son los que
+# generan las paginas /blog/tema/<slug>. Un post puede estar en varios.
+# Disponibles: cacao-y-raices, territorio, ensayo, oficio
+topics: []
 ---
 
 Tu contenido en markdown aquí.

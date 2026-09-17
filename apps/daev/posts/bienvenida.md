@@ -5,6 +5,7 @@ description: "Unas primeras palabras, escritas a mano y sin inteligencia artific
 excerpt: "Una breve glosa para comenzar: escribir con honestidad, agradecer lo que tengo y compartir estas letras como compañía, como puente, como iniciativa."
 image: "https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto/v1704840813/davidongo93/kqrlatlmrsnhx4q9otzm.jpg"
 keywords: ["bienvenida", "reflexión", "escritura honesta", "esperanza"]
+topics: ['ensayo']
 ---
 
 Por estos días que me quiero desahogar. Por intentar escribir honestamente sin ninguna herramienta ni inteligencia artificial. Por honrar el regalo bonito que es tomar la iniciativa y echar algo a andar, es que escribo estas palabras como para comenzar.

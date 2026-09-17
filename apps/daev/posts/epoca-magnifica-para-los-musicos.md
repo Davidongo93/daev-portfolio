@@ -6,6 +6,7 @@ description: 'Un texto de Diego Melo (DM) sobre por qué las épocas gobernadas 
 excerpt: 'Las épocas gobernadas por idiotas suelen ser extraordinariamente productivas para el arte. Una invitación a plantar belleza, leer más y reírnos de los imperios de los necios.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/t_Banner%2016:9/v1782462345/blog/dmsoulburner23mar2009_g7gazj.jpg'
 keywords: ['arte', 'libertad', 'censura', 'creatividad', 'música', 'poesía', 'Diego Melo']
+topics: ['ensayo']
 ---
 
 ![Diego Melo - Soulburner (2009)](https://res.cloudinary.com/de43jseoy/image/upload/v1782459902/blog/dmsoulburner23mar2009_g7gazj.jpg)

@@ -5,6 +5,7 @@ description: 'Chucula de los 7 granos es un alimento funcional ancestral hecho c
 excerpt: 'De una práctica final del curso de manipulación de alimentos del SENA nació un emprendimiento: una chucula de siete granos y cacao, hecha a mano en Tocaima, que se prepara para su lanzamiento en las Ferias de San Jacinto.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/chucula/IMG_20260716_200056_xboqqo.jpg'
 keywords: ['chucula de los 7 granos', 'chucula', 'SENA manipulación de alimentos', 'Tocaima Cundinamarca', 'alimento funcional', 'cacao', 'granos andinos', 'altiplano cundiboyacense', 'receta ancestral']
+topics: ['cacao-y-raices', 'territorio']
 ---
 
 Hay recetas que sobreviven porque alguien se niega a dejarlas morir. Esta es una de ellas: la **chucula de los siete granos**, una bebida-alimento ancestral del altiplano cundiboyacense que hoy estamos reviviendo desde Tocaima, Cundinamarca, de la mano de mujeres que aprendieron la receta de sus mayores y con la ciencia de la manipulación segura de alimentos que aprendimos en el SENA.

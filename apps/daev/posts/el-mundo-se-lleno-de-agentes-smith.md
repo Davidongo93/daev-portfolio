@@ -5,6 +5,7 @@ description: 'El primero de una serie de reivindicaciones de villanos: una lectu
 excerpt: 'El agente Smith, uno de los villanos más implacables del cine.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/smithph_xcc7hs.jpg'
 keywords: ['matrix', 'agente Smith', 'villano', 'ensayo']
+topics: ['ensayo']
 ---
 
 Desde un editor de código, a falta de un procesador de textos, procedo:

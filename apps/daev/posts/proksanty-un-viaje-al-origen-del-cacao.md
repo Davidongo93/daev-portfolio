@@ -5,6 +5,7 @@ description: 'Crónica de un viaje en moto desde Anapoima hasta Proksanty, una f
 excerpt: 'Menos de dos horas separan a Anapoima de una finca cacaotera en Nilo. Un recorrido por el proceso del cacao, sus derivados y el paisaje del Alto Magdalena, de la mano de Stella Noba.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/proksanty/proksanty-logo-fondo-verde.png'
 keywords: ['Proksanty', 'cacao', 'Nilo Cundinamarca', 'Alto Magdalena', 'finca cacaotera', 'Stella Noba', 'productos derivados del cacao', 'chucula', 'turismo rural']
+topics: ['cacao-y-raices', 'territorio']
 ---
 
 Hay viajes cortos que rinden como si fueran largos. Este es uno de ellos: decidí salir desde Anapoima, Cundinamarca, sin más plan que llegar hasta una finca productora de cacao de la que había oído hablar. En menos de dos horas de camino, ya estaba entrando a **Pueblo Nuevo**, centro poblado y vereda del municipio de Nilo, en la provincia del Alto Magdalena. Ahí, entre montaña y cacaotales, queda **Proksanty**, la finca que le da vida la señora **Stella Noba**.

@@ -6,6 +6,7 @@ excerpt: 'Dobles alturas, luz natural en todos los ambientes, piscina con jacuzz
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
 captions: false
 keywords: ['Anapoima', 'casa campestre', 'arquitectura', 'Cundinamarca', 'fotografía', 'Alto Magdalena']
+topics: ['territorio']
 ---
 
 Una casa de arquitectura moderna en **Anapoima, Cundinamarca**, a cinco minutos en carro del casco urbano. Dobles alturas, luz natural en todos los ambientes y vista al valle. Este es un recorrido en fotos y video por sus espacios, sus jardines y el paisaje que la rodea.

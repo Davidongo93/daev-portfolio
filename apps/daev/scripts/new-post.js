@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 /**
- * Creates a new blog post from the template.
- * Usage: node apps/daev/scripts/new-post.js "My Post Title"
+ * Creates a new blog post from posts/_template.md.
+ * Usage: npm run new-post -- "My Post Title"
+ *
+ * The template file is the only copy of the frontmatter shape. This script
+ * used to carry its own inline duplicate, which quietly went stale the moment
+ * the template grew the `topics`, `updated` and `author` fields.
  */
 const fs = require('fs');
 const path = require('path');
 
 const title = process.argv.slice(2).join(' ').trim();
 if (!title) {
-  console.error('Usage: node apps/daev/scripts/new-post.js "My Post Title"');
+  console.error('Usage: npm run new-post -- "My Post Title"');
   process.exit(1);
 }
 
@@ -20,32 +24,27 @@ const slug = title
   .trim()
   .replace(/\s+/g, '-');
 
-const today = new Date().toISOString().slice(0, 10);
 const postsDir = path.join(__dirname, '..', 'posts');
+const templatePath = path.join(postsDir, '_template.md');
 const filePath = path.join(postsDir, `${slug}.md`);
 
+if (!fs.existsSync(templatePath)) {
+  console.error(`Template not found: ${templatePath}`);
+  process.exit(1);
+}
 if (fs.existsSync(filePath)) {
   console.error(`File already exists: ${filePath}`);
   process.exit(1);
 }
 
-const template = `---
-title: "${title}"
-date: "${today}"
-description: "Short SEO description (155-160 chars)."
-excerpt: "Card excerpt shown on the blog grid."
-image: "/citydraw.png"
-keywords: ["keyword1", "keyword2", "keyword3"]
----
+const today = new Date().toISOString().slice(0, 10);
+const post = fs
+  .readFileSync(templatePath, 'utf-8')
+  .replace(/^title:.*$/m, `title: "${title.replace(/"/g, '\\"')}"`)
+  .replace(/^date:.*$/m, `date: "${today}"`);
 
-Write your content here in markdown.
-
-## Subsection
-
-Example paragraph with **bold** and *italic* and \`inline code\`.
-`;
-
-fs.writeFileSync(filePath, template);
+fs.writeFileSync(filePath, post);
 console.log(`✓ Created: ${filePath}`);
 console.log(`  Slug: ${slug}`);
 console.log(`  URL:  /blog/${slug}`);
+console.log('  Remember to fill in description, excerpt, image, keywords and topics.');

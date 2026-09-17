@@ -2,7 +2,10 @@
   "name": "@daev/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "new-post": "node apps/daev/scripts/new-post.js",
+    "indexnow": "node apps/daev/scripts/indexnow.mjs"
+  },
   "private": true,
   "dependencies": {
     "@auth/drizzle-adapter": "^1.11.2",

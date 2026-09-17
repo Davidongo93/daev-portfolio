@@ -2,6 +2,34 @@
 
 > **Para Opus:** Refinamiento post-producción del portafolio. Ejecuta cada fase en orden. Lee la sección completa antes de escribir código. Verifica `npx nx build daev` sin errores al terminar cada fase. No agregues dependencias externas — todo lo necesario ya está instalado.
 
+## Publicar un post — flujo obligatorio
+
+Dave escribe casi todos los posts por medio de Claude Code. **La indexación es
+parte de publicar, no un paso aparte que él tenga que pedir.** Al terminar un
+post, se ejecuta esta secuencia completa sin preguntar:
+
+1. Crear el post con `npm run new-post -- "Título"` (genera desde
+   `posts/_template.md`; no escribir el frontmatter a mano).
+2. Llenar `description`, `excerpt`, `image`, `keywords` y **`topics`**. Los
+   temas válidos están en `apps/daev/src/config/topics.ts`. Un post sin
+   `topics` queda fuera de los clústers y sin enlaces internos.
+3. `npx nx build daev` — debe pasar limpio.
+4. Commit.
+5. **`git push origin main`** — `origin` es GitLab y es el único remoto que
+   dispara el deploy. `github` es espejo y no despliega. El push de un post es
+   parte del encargo y no requiere pedido explícito adicional; cualquier otro
+   push sí (ver el `CLAUDE.md` de `domirandar`).
+6. **`npm run indexnow -- --latest --wait`** — espera a que la URL esté viva y
+   la envía a Bing, Yandex, Seznam y Naver. El `--wait` no es opcional: sin él
+   se envía la URL antes de que exista y los buscadores rastrean un 404.
+
+Si el post estrena un tema que pasa de 1 a 2 posts, ese tema gana su página
+`/blog/tema/<slug>`; enviarla también:
+`npm run indexnow -- /blog/tema/<slug> --wait`.
+
+Google no participa de IndexNow: descubre los cambios por el sitemap a su
+ritmo, y eso no requiere ninguna acción.
+
 ## 🎯 Objetivo v2.1 — Feedback de Opus v2
 
 La v2 está en producción y funciona bien, pero hay inconsistencias visuales y de navegación que necesitan pulido:

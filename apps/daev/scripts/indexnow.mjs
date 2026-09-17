@@ -12,6 +12,11 @@
  *   node apps/daev/scripts/indexnow.mjs --latest        # only the newest post
  *   node apps/daev/scripts/indexnow.mjs /blog/some-post # specific paths or URLs
  *   node apps/daev/scripts/indexnow.mjs --dry-run       # print, do not submit
+ *   node apps/daev/scripts/indexnow.mjs --latest --wait # wait for the deploy first
+ *
+ * --wait polls each URL until it is actually live before submitting. Without
+ * it, publishing a post and pinging immediately sends the engines to a URL the
+ * deploy has not produced yet, and they crawl a 404.
  *
  * The key is public by design: search engines verify ownership by fetching
  * https://daev.space/<key>.txt and checking it contains the same key. That is
@@ -90,6 +95,21 @@ function latestPostUrl() {
   return `${SITE}/blog/${posts[0].slug}`;
 }
 
+/** Polls a URL until it responds 200, or gives up. */
+async function waitUntilLive(url, { timeoutMs = 10 * 60 * 1000, intervalMs = 15000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  for (;;) {
+    try {
+      const response = await fetch(url, { method: 'HEAD', redirect: 'manual' });
+      if (response.status === 200) return true;
+    } catch {
+      // Network hiccup during a deploy; keep polling.
+    }
+    if (Date.now() >= deadline) return false;
+    await new Promise((resolve) => setTimeout(resolve, intervalMs));
+  }
+}
+
 function toAbsolute(value) {
   if (/^https?:\/\//.test(value)) return value;
   return `${SITE}${value.startsWith('/') ? '' : '/'}${value}`;
@@ -99,6 +119,7 @@ async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
   const latest = args.includes('--latest');
+  const wait = args.includes('--wait');
   const explicit = args.filter((arg) => !arg.startsWith('--'));
 
   const key = findKey();
@@ -128,6 +149,18 @@ async function main() {
   if (dryRun) {
     console.log('\n--dry-run: nothing submitted.');
     return;
+  }
+
+  if (wait) {
+    console.log('\nWaiting for the deploy...');
+    for (const url of urls) {
+      const live = await waitUntilLive(url);
+      if (!live) {
+        console.error(`✗ ${url} never came up. Nothing submitted.`);
+        process.exit(1);
+      }
+      console.log(`  live: ${url}`);
+    }
   }
 
   const response = await fetch(ENDPOINT, {

@@ -295,6 +295,20 @@ svg {
   background: var(--surface-el);
 }
 
+/* Reserve a box for standalone article images before they load.
+   `aspect-ratio: auto 3 / 2` means "use the image's natural ratio when it is
+   known, otherwise 3 / 2". Body images are remote Cloudinary URLs with no
+   intrinsic width/height in the markup, so until one loads the browser
+   reserved zero height and everything below it jumped. Gallery images already
+   declare their own 4 / 3 and keep it (higher specificity). This shrinks the
+   shift to the difference between 3 / 2 and the real ratio; it does not
+   eliminate it, which would need the real dimensions at build time. */
+.prose-article figure img,
+.prose-article .post-linkcard img {
+  aspect-ratio: auto 3 / 2;
+  object-fit: contain;
+}
+
 .prose-article figure video {
   max-height: 80vh;
   object-fit: contain;

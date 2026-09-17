@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '../config/site';
+import { resolveDates, toDate } from '../lib/postMeta';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const localPath = path.join(process.cwd(), 'posts');
@@ -12,20 +14,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const files = fs.existsSync(postsDirectory)
     ? fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md') && !f.startsWith('_'))
     : [];
+
   const posts = files.map((filename) => {
-    let lastModified = new Date();
-    try {
-      lastModified = fs.statSync(path.join(postsDirectory, filename)).mtime;
-    } catch {
-      /* keep default */
-    }
+    // lastmod comes from the frontmatter, never from the file's mtime: git sets
+    // mtime to checkout time, so on every deploy the mtime version claimed all
+    // posts had been modified that day. Crawlers learn to distrust a sitemap
+    // whose lastmod always says "today" while the content never changes.
+    const { data: frontmatter } = matter(
+      fs.readFileSync(path.join(postsDirectory, filename), 'utf-8')
+    );
+    const { modified } = resolveDates(frontmatter);
+
     return {
       url: `${siteConfig.siteUrl}/blog/${filename.replace('.md', '')}`,
-      lastModified,
+      lastModified: toDate(modified) ?? new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     };
   });
+
+  // The blog index is only as fresh as its newest post.
+  const newestPost = posts.reduce<Date | null>(
+    (newest, post) =>
+      !newest || post.lastModified > newest ? post.lastModified : newest,
+    null
+  );
 
   return [
     {
@@ -42,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${siteConfig.siteUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: newestPost ?? new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },

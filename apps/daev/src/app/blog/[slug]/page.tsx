@@ -5,12 +5,25 @@ import Markdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight, FaCalendarAlt, FaArrowLeft as FaBack } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaCalendarAlt,
+  FaPenNib,
+  FaHistory,
+  FaArrowLeft as FaBack,
+} from 'react-icons/fa';
 import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
 import ShareBar from '../../../components/ShareBar/ShareBar';
 import CommentsSection from '../../../components/Comments/CommentsSection';
 import { siteConfig } from '../../../config/site';
 import { getReadingStats } from '../../../lib/readingTime';
+import {
+  authorJsonLd,
+  resolveAuthor,
+  resolveDates,
+  resolveLang,
+} from '../../../lib/postMeta';
 
 const localPath = path.join(process.cwd(), 'posts');
 const postsDirectory = fs.existsSync(localPath)
@@ -20,6 +33,8 @@ const postsDirectory = fs.existsSync(localPath)
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { frontmatter } = await getPostData(params.slug);
   const description = frontmatter.description || frontmatter.excerpt || '';
+  const author = resolveAuthor(frontmatter);
+  const dates = resolveDates(frontmatter);
 
   // Point og:image straight at Cloudinary (a 1200x630 CDN thumbnail) instead of
   // generating it on a serverless route. The generated route was dynamic, ~4.6s
@@ -35,13 +50,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     description,
     alternates: { canonical: `${siteConfig.siteUrl}/blog/${params.slug}` },
     keywords: frontmatter.keywords || [],
+    authors: [{ name: author.name, ...(author.url ? { url: author.url } : {}) }],
     openGraph: {
       type: 'article',
       title: frontmatter.title,
       description,
       url: `${siteConfig.siteUrl}/blog/${params.slug}`,
-      publishedTime: frontmatter.date,
-      authors: [siteConfig.name],
+      publishedTime: dates.published,
+      modifiedTime: dates.modified,
+      authors: [author.name],
       images: [{ url: ogImage, width: 1200, height: 630, alt: frontmatter.title as string }],
     },
     twitter: {
@@ -238,6 +255,8 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
   const prevPost = currentIndex > 0 ? sorted[currentIndex - 1] : null;
   const nextPost = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
   const { words: wordCount, minutes: readingTime } = getReadingStats(content);
+  const author = resolveAuthor(frontmatter);
+  const dates = resolveDates(frontmatter);
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -249,16 +268,11 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
         ? frontmatter.image
         : `${siteConfig.siteUrl}${frontmatter.image}`
       : `${siteConfig.siteUrl}/opengraph-image`,
-    datePublished: frontmatter.date,
-    dateModified: frontmatter.date,
+    datePublished: dates.published,
+    dateModified: dates.modified,
     wordCount,
-    inLanguage: 'es',
-    author: {
-      '@type': 'Person',
-      '@id': `${siteConfig.siteUrl}#person`,
-      name: siteConfig.name,
-      url: siteConfig.siteUrl,
-    },
+    inLanguage: resolveLang(frontmatter),
+    author: authorJsonLd(author),
     publisher: { '@id': `${siteConfig.siteUrl}#person` },
     isPartOf: { '@id': `${siteConfig.siteUrl}#website` },
     mainEntityOfPage: `${siteConfig.siteUrl}/blog/${params.slug}`,
@@ -324,24 +338,46 @@ const BlogPost = async ({ params }: { params: { slug: string } }) => {
         </h1>
         <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
           <span className="inline-flex items-center gap-1.5">
-            <FaCalendarAlt /> {frontmatter.date}
+            <FaPenNib className="text-accent" />
+            {author.url ? (
+              <a
+                href={author.url}
+                rel={author.isSiteOwner ? undefined : 'noopener noreferrer author'}
+                className="hover:text-accent transition"
+              >
+                {author.name}
+              </a>
+            ) : (
+              author.name
+            )}
           </span>
           <span>·</span>
-          <span>{readingTime} min read</span>
-          {frontmatter.keywords && frontmatter.keywords.length > 0 && (
+          <span className="inline-flex items-center gap-1.5">
+            <FaCalendarAlt /> {dates.published}
+          </span>
+          {dates.wasRevised && (
             <>
               <span>·</span>
-              <div className="inline-flex flex-wrap gap-1.5">
-                {frontmatter.keywords.map((kw: string) => (
-                  <span
-                    key={kw}
-                    className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20"
-                  >
-                    #{kw}
-                  </span>
-                ))}
-              </div>
+              <span className="inline-flex items-center gap-1.5" title="Last revised">
+                <FaHistory /> {dates.modified}
+              </span>
             </>
+          )}
+          <span>·</span>
+          <span>{readingTime} min read</span>
+          {/* No leading separator: the tags wrap onto their own line, which
+              left the dot dangling at the end of the byline. */}
+          {frontmatter.keywords && frontmatter.keywords.length > 0 && (
+            <div className="inline-flex flex-wrap gap-1.5">
+              {frontmatter.keywords.map((kw: string) => (
+                <span
+                  key={kw}
+                  className="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20"
+                >
+                  #{kw}
+                </span>
+              ))}
+            </div>
           )}
         </div>
 

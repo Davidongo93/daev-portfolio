@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { siteConfig } from '../../config/site';
+import { DEFAULT_POST_LANG, resolveAuthor, resolveDates, toDate } from '../../lib/postMeta';
 
 export async function GET() {
   const localPath = path.join(process.cwd(), 'posts');
@@ -18,32 +19,42 @@ export async function GET() {
       const slug = filename.replace('.md', '');
       const fileContents = fs.readFileSync(path.join(postsDirectory, filename), 'utf-8');
       const { data: fm } = matter(fileContents);
+      const dates = resolveDates(fm);
       return {
         slug,
         title: fm.title || slug,
         description: fm.description || fm.excerpt || '',
-        date: fm.date,
+        // Guest pieces are credited to their real author, not to the site owner.
+        author: resolveAuthor(fm).name,
+        date: dates.published,
+        keywords: (fm.keywords as string[] | undefined) ?? [],
       };
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => (toDate(b.date)?.getTime() ?? 0) - (toDate(a.date)?.getTime() ?? 0));
+
+  const latest = toDate(items[0]?.date) ?? new Date();
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>${siteConfig.alias} | ${siteConfig.name}</title>
-    <link>${siteConfig.siteUrl}</link>
-    <description>${siteConfig.bio.en}</description>
-    <language>en-us</language>
-    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="${siteConfig.siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
+    <title>${escapeXml(`${siteConfig.alias} | ${siteConfig.name}`)}</title>
+    <link>${siteConfig.siteUrl}/blog</link>
+    <description>${escapeXml(siteConfig.bio.es)}</description>
+    <language>${DEFAULT_POST_LANG}-CO</language>
+    <lastBuildDate>${latest.toUTCString()}</lastBuildDate>
+    <atom:link href="${siteConfig.siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
     ${items
       .map(
         (item) => `
     <item>
       <title>${escapeXml(item.title)}</title>
       <link>${siteConfig.siteUrl}/blog/${item.slug}</link>
-      <guid>${siteConfig.siteUrl}/blog/${item.slug}</guid>
+      <guid isPermaLink="true">${siteConfig.siteUrl}/blog/${item.slug}</guid>
       <description>${escapeXml(item.description)}</description>
-      <pubDate>${item.date ? new Date(item.date).toUTCString() : new Date().toUTCString()}</pubDate>
+      <dc:creator>${escapeXml(item.author)}</dc:creator>
+      <pubDate>${(toDate(item.date) ?? new Date()).toUTCString()}</pubDate>${item.keywords
+        .map((kw) => `\n      <category>${escapeXml(kw)}</category>`)
+        .join('')}
     </item>`
       )
       .join('')}

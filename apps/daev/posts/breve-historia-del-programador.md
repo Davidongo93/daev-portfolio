@@ -9,7 +9,7 @@ keywords: ["programación", "full stack", "javascript", "desarrollo personal", "
 
 ---
 
-# Punto de partida
+## Punto de partida
 
 La verdad, siempre le tuve miedo a programar. Las matemáticas no son mi fuerte y venía de desanimarme fácilmente de toda empresa.
 
@@ -21,17 +21,17 @@ Me hice programador, digamos que de manera tardía, catorce años después de te
 
 Bueno, continuando mi relato, y si has llegado hasta aquí, te agradezco, porque a pesar de que busco dejarte un mensaje positivo, este ejercicio no me hace pensar más que es un alimento del ego, aunque provenga del corazón.
 
-# El verdadero motivo
+## El verdadero motivo
 
 Retomando la parte del relato del punto de partida, colocando de referente el pasado y el presente, preciso aclarar que la motivación principal de esta empresa fue el dolor profundo de dejar todas las tareas a medias; un sentimiento de desdicha que causa la deshonra de ser incapaz de concluir, de concretar y de darle forma a las ambiciones que cada uno tiene, ya sea por distracción, por pereza o por buscar en otras actividades menos constructivas y más placenteras un refugio de comodidad y autodestrucción.
 
 Todos llegamos a un punto de inflexión, a un momento definitivo (y si no has llegado a él, sigue intentando), y ese momento se caracteriza porque a partir de ahí no existen excusas, no existen barreras y ves claro como un manantial el hecho de que nadie te va a salvar; el hecho de que todo depende de ti, de que no eres víctima de ninguna circunstancia y de que, si vas a jugar, es para ganar, no para intentar.
 
-# Un cambio profundo
+## Un cambio profundo
 
 A partir de eso, mi vida tuvo un cambio profundo, espiritualmente y mentalmente, y conseguí abrir mi corazón para comprender que somos merecedores de la vida; que somos los hijos consentidos del creador y que el merecimiento y el gozo del alma están disponibles para todos aquellos que deseamos y actuamos para conseguirlo.
 
-# Programando desde casi nada
+## Programando desde casi nada
 
 Comencé a escribir código en un PC modelo 2008 con un solo procesador Celeron de 800 MHz, conectado por SSH a una computadora en la nube mucho más capaz, pero aprovechando una prueba gratuita de noventa días con una tarjeta de crédito prepago.
 
@@ -41,7 +41,7 @@ Regresé a la casa de mis padres en condición de desempleo y sentía mucha frus
 
 Con esa determinación fue que inicié ese camino: con hambre y con el deseo de romper la maldición de dejar las cosas a medias.
 
-# El aprendizaje
+## El aprendizaje
 
 Retomé el estudio. Hice bootcamps, tutoriales en línea, proyectos personales, horas y horas de lectura, ensayo y error, aun cuando no era popular el uso de herramientas de IA.
 
@@ -53,7 +53,7 @@ Rápidamente comprendí (comprendí, más no aplico del todo) que el orden y la 
 
 Ahí comencé a hacer mucho las paces con mi enemigo interno (a veces).
 
-# La herramienta más poderosa
+## La herramienta más poderosa
 
 Comencé a recibir mucho apoyo de personas, de mi entorno y de mis circunstancias.
 
@@ -61,7 +61,7 @@ Apliqué la gratitud en cada cosa, pues ahora era consciente de que tenía una g
 
 (Cuatro años después aún no llegamos al punto B).
 
-# Trabajar sin negociar
+## Trabajar sin negociar
 
 Tan pronto como adquirí los conocimientos técnicos básicos para buscar actividades que me pudieran generar un ingreso adicional, comencé. Muchas veces sin renegar, muchas veces sin negociar y aceptando todo tipo de condiciones, de pagos y de tratos.
 
@@ -69,7 +69,7 @@ En el camino vi muchas personas apartarse: por excusas, por dificultades, por fa
 
 A trabajar más duro y a instalar en mi mente nuevos principios, nuevas máximas que me permitieran abrirme camino.
 
-# El valor de la experiencia
+## El valor de la experiencia
 
 A pesar de que siempre fui independiente, deseé desde lo más profundo ser un empleado, y aceptar serlo muchas veces recibiendo un pago únicamente emocional. Un pago que no es en dinero; es en experiencia, en permitir que otros confíen en ti y que, a través de ese voto de confianza, puedas continuar en esa escuela que te prometiste iniciar hasta terminar.
 
@@ -77,11 +77,11 @@ A pesar de que siempre fui independiente, deseé desde lo más profundo ser un e
 
 Pero al menos tenía claro que quería dedicar al menos diez mil horas poniendo en práctica lo aprendido y aprendiendo más.
 
-# Mirando hacia atrás
+## Mirando hacia atrás
 
 Quizá ahora no voy ni por la mitad de esas diez mil horas, pero mirando atrás ya he pasado por tres empleos diferentes en tecnología, he podido traer el pan a mi mesa fruto de mi conocimiento y me he podido limpiar de sufrimientos del pasado por cuenta de estar a la deriva, sin un rumbo; por estar esperando lo que la vida tenga para mí, sin la determinación de ir a tomarlo.
 
-# Un mensaje para ti
+## Un mensaje para ti
 
 Hoy te escribo esto porque sueño con un mundo con más esperanza, porque quiero que no te rindas y porque quiero compartirte algo muy íntimo de mi ser.
 

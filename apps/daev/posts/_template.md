@@ -1,6 +1,13 @@
 ---
 title: "Tu título aquí"
 date: "2026-05-20"
+# Fecha de la ultima revision de fondo. Omitela si el post no se ha
+# actualizado desde que se publico; alimenta dateModified en el schema.
+updated: ""
+# Solo si el texto NO es tuyo: nombre de quien lo escribio (y su URL si
+# la tiene). Sin este campo el post se atribuye a David Orlando Miranda.
+author: ""
+authorUrl: ""
 description: "Descripción breve para SEO (155-160 caracteres)."
 excerpt: "Resumen que se muestra en la card del blog."
 # Deja image en "" para usar la portada de marca DÆV generada automáticamente,

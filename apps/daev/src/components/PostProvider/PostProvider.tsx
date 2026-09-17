@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { ReactNode } from 'react';
 import { estimateReadingTime } from '../../lib/readingTime';
+import { resolveAuthor, resolveDates } from '../../lib/postMeta';
 
 interface RelatedPost {
   title: string;
@@ -14,6 +15,11 @@ interface Post {
   frontmatter: {
     title: string;
     date: string;
+    /** Last substantive revision; equals `date` when never revised. */
+    modified: string;
+    /** Real author — guest posts are not credited to the site owner. */
+    author: string;
+    description: string;
     excerpt: string;
     image?: string; // Agregado campo opcional para la imagen
     keywords?: string[]; // Agregado campo opcional para las palabras clave
@@ -48,6 +54,9 @@ const getPosts = (): Post[] => {
         frontmatter: {
           title: frontmatter.title || 'Untitled',
           date: frontmatter.date || 'No date',
+          modified: resolveDates(frontmatter).modified,
+          author: resolveAuthor(frontmatter).name,
+          description: frontmatter.description || frontmatter.excerpt || '',
           excerpt: frontmatter.excerpt || 'No excerpt available',
           image: frontmatter.image || '', // Manejar la imagen si está disponible
           keywords: frontmatter.keywords || [], // Manejar las palabras clave si están disponibles

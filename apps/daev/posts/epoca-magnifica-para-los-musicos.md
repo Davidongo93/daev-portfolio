@@ -1,6 +1,7 @@
 ---
 title: 'Una época magnífica para los músicos'
 date: '2026-06-26'
+author: 'Diego Melo'
 description: 'Un texto de Diego Melo (DM) sobre por qué las épocas gobernadas por idiotas suelen ser extraordinariamente productivas para el arte. Publicado con autorización del autor.'
 excerpt: 'Las épocas gobernadas por idiotas suelen ser extraordinariamente productivas para el arte. Una invitación a plantar belleza, leer más y reírnos de los imperios de los necios.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/t_Banner%2016:9/v1782462345/blog/dmsoulburner23mar2009_g7gazj.jpg'

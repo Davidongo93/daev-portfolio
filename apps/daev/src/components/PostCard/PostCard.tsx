@@ -146,7 +146,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, variant = 'grid' }) => {
           href={`/blog/${slug}`}
           className="text-sm font-semibold text-accent hover:text-accent-hover inline-flex items-center gap-1 mt-auto group/link"
         >
-          Read more
+          {t.blogHome.read}
           <FaArrowRight
             size={10}
             className="transition-transform group-hover/link:translate-x-1"

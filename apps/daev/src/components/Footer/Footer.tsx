@@ -22,10 +22,10 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const sectionLinks = [
-    { href: '/#about', label: t.nav.about },
+    { href: '/#work', label: t.nav.work },
     { href: '/#services', label: t.nav.services },
-    { href: '/#skills', label: t.nav.skills },
-    { href: '/#featured-projects', label: t.nav.projects },
+    { href: '/#process', label: t.nav.process },
+    { href: '/#about', label: t.nav.about },
     { href: '/#contact', label: t.nav.contact },
   ];
 

@@ -1,37 +1,44 @@
 'use client';
 import HeroSection from '../../components/HeroSection/HeroSection';
-import AboutSection from '../../components/AboutSection/AboutSection';
+import ClientStrip from '../../components/ClientStrip/ClientStrip';
+import CaseStudies from '../../components/CaseStudies/CaseStudies';
 import ServicesSection from '../../components/ServicesSection/ServicesSection';
-import SkillsSection from '../../components/SkillsSection/SkillsSection';
-import ExperienceSection from '../../components/ExperienceSection/ExperienceSection';
-import StatsSection from '../../components/StatsSection/StatsSection';
-import FeaturedProjects from '../../components/FeaturedProjects.tsx/FeaturedProjects';
+import ProcessSection from '../../components/ProcessSection/ProcessSection';
+import BlogSection, { type HomePost } from '../../components/BlogSection/BlogSection';
+import LabProjects from '../../components/LabProjects/LabProjects';
+import AboutSection from '../../components/AboutSection/AboutSection';
 import FaqSection from '../../components/FaqSection/FaqSection';
 import ContactSection from '../../components/ContactSection/ContactSection';
 import Footer from '../../components/Footer/Footer';
 import Reveal from '../../components/Reveal/Reveal';
 
-const Home: React.FC = () => {
+/**
+ * The home sells outcomes, so the running work comes first: hero → who I built
+ * it for → the cases themselves. Services, process and the blog follow, and the
+ * lab and the personal bio sit at the bottom where they belong.
+ */
+const Home: React.FC<{ posts?: HomePost[] }> = ({ posts = [] }) => {
   return (
     <div className="wrapper">
       <HeroSection />
+      <ClientStrip />
       <Reveal>
-        <AboutSection />
+        <CaseStudies />
       </Reveal>
       <Reveal>
         <ServicesSection />
       </Reveal>
       <Reveal>
-        <SkillsSection />
+        <ProcessSection />
       </Reveal>
       <Reveal>
-        <ExperienceSection />
+        <BlogSection posts={posts} />
       </Reveal>
       <Reveal>
-        <StatsSection />
+        <LabProjects />
       </Reveal>
       <Reveal>
-        <FeaturedProjects />
+        <AboutSection />
       </Reveal>
       <Reveal>
         <FaqSection />

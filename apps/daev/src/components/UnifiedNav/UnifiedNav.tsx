@@ -72,10 +72,10 @@ export default function UnifiedNav() {
   const home = pathFor(lang, '/');
 
   const navLinks: NavLink[] = [
-    { href: `${home}#about`, label: t.nav.about, sectionId: 'about' },
+    { href: `${home}#work`, label: t.nav.work, sectionId: 'work' },
     { href: `${home}#services`, label: t.nav.services, sectionId: 'services' },
-    { href: `${home}#skills`, label: t.nav.skills, sectionId: 'skills' },
-    { href: `${home}#featured-projects`, label: t.nav.projects, sectionId: 'featured-projects' },
+    { href: `${home}#process`, label: t.nav.process, sectionId: 'process' },
+    { href: `${home}#about`, label: t.nav.about, sectionId: 'about' },
     { href: `${home}#contact`, label: t.nav.contact, sectionId: 'contact' },
     { href: '/blog', label: '/blog', sectionId: 'blog' },
   ];

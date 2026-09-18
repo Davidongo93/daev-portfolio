@@ -170,9 +170,14 @@ const Console: React.FC<ConsoleCLIProps> = ({ onExit }) => {
       case 'projects':
         setHistory((prev) => [
           ...prev,
-          'Featured projects:',
-          ...siteConfig.featuredProjects.map(
-            (p, i) => `  ${i + 1}. ${p.name} — ${p.liveUrl}`
+          'Client work:',
+          ...siteConfig.caseStudies.map(
+            (p, i) => `  ${i + 1}. ${p.name} — ${p.liveUrl ?? '(domain in migration)'}`
+          ),
+          '',
+          'Lab:',
+          ...siteConfig.labProjects.map(
+            (p, i) => `  ${i + 1}. ${p.name} — ${p.liveUrl ?? p.repoUrl}`
           ),
           '',
           `More: ${siteConfig.links.github}`,

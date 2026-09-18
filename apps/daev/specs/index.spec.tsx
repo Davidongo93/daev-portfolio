@@ -11,16 +11,31 @@ describe('siteConfig', () => {
     expect(siteConfig.siteUrl).toMatch(/^https?:\/\//);
   });
 
-  it('lists featured projects with a name and, when public, a valid repo URL', () => {
-    expect(Array.isArray(siteConfig.featuredProjects)).toBe(true);
-    expect(siteConfig.featuredProjects.length).toBeGreaterThan(0);
-    for (const project of siteConfig.featuredProjects) {
-      expect(project.name).toBeTruthy();
-      // Commercial/private projects may have no public repo (repoUrl: null);
-      // only validate the URL shape when one is provided.
-      if (project.repoUrl) {
-        expect(project.repoUrl).toMatch(/^https?:\/\//);
+  it('lists case studies with the fields the home page renders', () => {
+    expect(Array.isArray(siteConfig.caseStudies)).toBe(true);
+    expect(siteConfig.caseStudies.length).toBeGreaterThan(0);
+    for (const item of siteConfig.caseStudies) {
+      expect(item.slug).toBeTruthy();
+      expect(item.name).toBeTruthy();
+      expect(item.problem.es).toBeTruthy();
+      expect(item.problem.en).toBeTruthy();
+      expect(item.work.es).toBeTruthy();
+      expect(item.work.en).toBeTruthy();
+      // A case shows measured numbers or delivered highlights — never neither.
+      expect(item.metrics.length + item.highlights.length).toBeGreaterThan(0);
+      // Only publish a live link that is actually a link; null means the
+      // domain is not resolving and the card renders without the button.
+      if (item.liveUrl) {
+        expect(item.liveUrl).toMatch(/^https?:\/\//);
       }
+    }
+  });
+
+  it('lists lab projects with a name and a reachable URL', () => {
+    expect(Array.isArray(siteConfig.labProjects)).toBe(true);
+    for (const item of siteConfig.labProjects) {
+      expect(item.name).toBeTruthy();
+      expect(item.repoUrl ?? item.liveUrl).toMatch(/^https?:\/\//);
     }
   });
 });

@@ -162,7 +162,39 @@ export function rootJsonLd(lang: Lang): object[] {
     })),
   };
 
-  return [person, website, professionalService, faq];
+  /**
+   * The work itself, as a list search engines and answer engines can quote.
+   * The home page now leads with case studies, so the graph should say so:
+   * each entry names the client, what was built and who built it. Cases whose
+   * domain is not resolving are still listed — without a `url`, so nothing
+   * points at a dead host.
+   */
+  const work = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${siteConfig.siteUrl}#work`,
+    name: lang === 'es' ? 'Trabajo publicado' : 'Published work',
+    inLanguage: localeTag[lang],
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: siteConfig.caseStudies.length,
+    itemListElement: siteConfig.caseStudies.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'CreativeWork',
+        '@id': `${siteConfig.siteUrl}#case-${item.slug}`,
+        name: item.name,
+        description: item.work[lang],
+        about: item.sector[lang],
+        creator: { '@id': `${siteConfig.siteUrl}#person` },
+        keywords: [...item.technologies].join(', '),
+        ...(item.liveUrl ? { url: item.liveUrl } : {}),
+        ...(item.thumbnail ? { image: `${siteConfig.siteUrl}${item.thumbnail}` } : {}),
+      },
+    })),
+  };
+
+  return [person, website, professionalService, work, faq];
 }
 
 const copy = {

@@ -12,6 +12,8 @@ export const translations = {
       services: 'Services',
       pricing: 'Pricing',
       blog: 'Blog',
+      work: 'Work',
+      process: 'Process',
       skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
@@ -25,6 +27,9 @@ export const translations = {
       buildVerb: 'I build',
       types: ['custom websites', 'landing pages', 'e-commerce stores', 'custom software', 'SaaS apps', 'LMS platforms'],
       seeProjects: 'See my work',
+      proofShipped: 'sites live in production',
+      proofLcp: 'fastest rebuild, mobile LCP',
+      proofYears: 'years building for the web',
     },
     about: {
       title: 'About Me',
@@ -72,6 +77,52 @@ export const translations = {
       liveDemo: 'Demo',
       collab: 'Collaboration with',
       cta: 'Let’s discuss your project',
+    },
+    cases: {
+      title: 'Work that shipped',
+      subtitle:
+        'Real businesses, real deadlines, real numbers. Every site below is live — open them.',
+      problem: 'The problem',
+      work: 'What I built',
+      result: 'The result',
+      before: 'before',
+      visit: 'Open the site',
+      inMigration: 'Domain in migration',
+      role: 'Role',
+    },
+    lab: {
+      title: 'Lab',
+      subtitle: 'Technical challenges and side projects — where I try things out.',
+      code: 'Code',
+      demo: 'Demo',
+    },
+    process: {
+      title: 'How I work',
+      subtitle: 'Four steps, no surprises, and you see something running early.',
+      steps: [
+        {
+          title: 'We talk',
+          text: 'A call to understand the business, not the feature list. I tell you what I would build and what I would not.',
+        },
+        {
+          title: 'Scope and price',
+          text: 'You get a written scope with a fixed price and a date. No hourly billing, no moving targets.',
+        },
+        {
+          title: 'You see it early',
+          text: 'A working preview goes online in the first days. You review it as it grows, not at the end.',
+        },
+        {
+          title: 'Live and yours',
+          text: 'It ships to your own domain, with the code and the accounts in your name. You are never locked in.',
+        },
+      ],
+    },
+    blogHome: {
+      title: 'From the blog',
+      subtitle: 'Notes on building for the web, in Spanish.',
+      readAll: 'Read every post',
+      read: 'Read',
     },
     faq: {
       title: 'Frequently Asked Questions',
@@ -209,6 +260,8 @@ export const translations = {
       services: 'Servicios',
       pricing: 'Precios',
       blog: 'Blog',
+      work: 'Trabajo',
+      process: 'Proceso',
       skills: 'Habilidades',
       projects: 'Proyectos',
       contact: 'Contacto',
@@ -222,6 +275,9 @@ export const translations = {
       buildVerb: 'Construyo',
       types: ['sitios web a medida', 'landing pages', 'e-commerce', 'software a medida', 'apps SaaS', 'plataformas LMS'],
       seeProjects: 'Ver mi trabajo',
+      proofShipped: 'sitios en producción',
+      proofLcp: 'LCP móvil en la mejor reconstrucción',
+      proofYears: 'años construyendo para la web',
     },
     about: {
       title: 'Sobre mí',
@@ -269,6 +325,52 @@ export const translations = {
       liveDemo: 'Demo',
       collab: 'Colaboración con',
       cta: 'Hablemos de tu proyecto',
+    },
+    cases: {
+      title: 'Trabajo que salió a producción',
+      subtitle:
+        'Negocios reales, plazos reales, números reales. Todos los sitios de abajo están en línea — ábrelos.',
+      problem: 'El problema',
+      work: 'Lo que construí',
+      result: 'El resultado',
+      before: 'antes',
+      visit: 'Abrir el sitio',
+      inMigration: 'Dominio en migración',
+      role: 'Rol',
+    },
+    lab: {
+      title: 'Lab',
+      subtitle: 'Retos técnicos y proyectos propios — donde pruebo cosas.',
+      code: 'Código',
+      demo: 'Demo',
+    },
+    process: {
+      title: 'Cómo trabajo',
+      subtitle: 'Cuatro pasos, sin sorpresas, y ves algo funcionando desde temprano.',
+      steps: [
+        {
+          title: 'Hablamos',
+          text: 'Una llamada para entender el negocio, no la lista de funciones. Te digo qué construiría y qué no.',
+        },
+        {
+          title: 'Alcance y precio',
+          text: 'Recibes un alcance por escrito con precio cerrado y fecha. Sin cobro por hora ni objetivos móviles.',
+        },
+        {
+          title: 'Lo ves temprano',
+          text: 'Una vista previa funcionando sale en línea los primeros días. La revisas mientras crece, no al final.',
+        },
+        {
+          title: 'En vivo y tuyo',
+          text: 'Sale a tu propio dominio, con el código y las cuentas a tu nombre. Nunca quedas amarrado.',
+        },
+      ],
+    },
+    blogHome: {
+      title: 'Del blog',
+      subtitle: 'Notas sobre construir para la web.',
+      readAll: 'Leer todas las entradas',
+      read: 'Leer',
     },
     faq: {
       title: 'Preguntas Frecuentes',

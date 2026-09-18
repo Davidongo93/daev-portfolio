@@ -52,18 +52,21 @@ const HeroSection: React.FC = () => {
           {siteConfig.shortBio[lang]}
         </p>
 
-        {/* Project-type chips (what I can build for you) */}
-        <div className="flex flex-wrap justify-center gap-2 pt-1">
-          {siteConfig.services.map((s) => (
-            <a
-              key={s.key}
-              href="#services"
-              className="text-xs md:text-sm px-3 py-1.5 rounded-full border border-border bg-surface/40 text-muted hover:text-accent hover:border-accent transition-all"
-            >
-              {s.title[lang]}
-            </a>
+        {/* Proof row — every number here is backed by a case below. */}
+        <dl className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-2">
+          {[
+            { value: `${siteConfig.caseStudies.length}`, label: t.hero.proofShipped },
+            { value: '1,62 s', label: t.hero.proofLcp },
+            { value: `${siteConfig.stats.years}+`, label: t.hero.proofYears },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <dd className="font-display text-2xl font-bold text-accent md:text-3xl">
+                {item.value}
+              </dd>
+              <dt className="mt-0.5 text-xs text-muted">{item.label}</dt>
+            </div>
           ))}
-        </div>
+        </dl>
 
         {/* CTAs — full width on mobile */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-3">
@@ -74,7 +77,7 @@ const HeroSection: React.FC = () => {
             {t.hero.cta} <FaArrowRight size={12} />
           </a>
           <a
-            href="#featured-projects"
+            href="#work"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border text-fore font-semibold text-sm hover:border-accent hover:text-accent transition-all"
           >
             {t.hero.seeProjects}

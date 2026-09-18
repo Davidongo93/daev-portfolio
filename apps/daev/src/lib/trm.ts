@@ -1,4 +1,4 @@
-import { siteConfig } from '../../config/site';
+import { siteConfig } from '@/config/site';
 
 // TRM oficial (USD→COP) — Datos Abiertos de Colombia (datos.gov.co).
 const TRM_URL =

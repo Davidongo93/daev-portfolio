@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
 import { useLang } from '../../context/LangContext';
+import { counterpartPath, pathFor } from '@/lib/i18n';
 import { useUI } from '../../context/UIContext';
 import { siteConfig } from '../../config/site';
 
@@ -25,7 +26,7 @@ type NavLink = {
 
 export default function UnifiedNav() {
   const { theme, toggle: toggleTheme } = useTheme();
-  const { lang, t, toggle: toggleLang } = useLang();
+  const { lang, t } = useLang();
   const { cliMode, showCli } = useUI();
   const pathname = usePathname() ?? '/';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,17 +67,21 @@ export default function UnifiedNav() {
 
   if (cliMode) return null;
 
+  // Section anchors belong to the home page of the current locale; the blog is
+  // Spanish-only, so its link stays at /blog in both languages.
+  const home = pathFor(lang, '/');
+
   const navLinks: NavLink[] = [
-    { href: '/#about', label: t.nav.about, sectionId: 'about' },
-    { href: '/#services', label: t.nav.services, sectionId: 'services' },
-    { href: '/#skills', label: t.nav.skills, sectionId: 'skills' },
-    { href: '/#featured-projects', label: t.nav.projects, sectionId: 'featured-projects' },
-    { href: '/#contact', label: t.nav.contact, sectionId: 'contact' },
+    { href: `${home}#about`, label: t.nav.about, sectionId: 'about' },
+    { href: `${home}#services`, label: t.nav.services, sectionId: 'services' },
+    { href: `${home}#skills`, label: t.nav.skills, sectionId: 'skills' },
+    { href: `${home}#featured-projects`, label: t.nav.projects, sectionId: 'featured-projects' },
+    { href: `${home}#contact`, label: t.nav.contact, sectionId: 'contact' },
     { href: '/blog', label: '/blog', sectionId: 'blog' },
   ];
 
   const isOnBlog = pathname.startsWith('/blog');
-  const isOnPricing = pathname.startsWith('/pricing');
+  const isOnPricing = pathname === pathFor(lang, '/pricing');
 
   const isActive = (link: NavLink) => {
     if (link.sectionId === 'blog') return isOnBlog;
@@ -104,7 +109,7 @@ export default function UnifiedNav() {
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link
-          href="/"
+          href={home}
           className="font-display font-bold text-xl text-accent tracking-widest hover:opacity-80 transition-opacity"
           aria-label={`${siteConfig.alias} home`}
         >
@@ -136,15 +141,16 @@ export default function UnifiedNav() {
 
         {/* Controls */}
         <div className="flex items-center gap-2 md:gap-3">
-          {/* Lang toggle */}
-          <button
-            onClick={toggleLang}
+          {/* Lang toggle: a real link so crawlers discover the other locale */}
+          <Link
+            href={counterpartPath(pathname, lang)}
+            hrefLang={lang === 'en' ? 'es' : 'en'}
             aria-label={`Switch to ${lang === 'en' ? 'Spanish' : 'English'}`}
             title={`Switch to ${lang === 'en' ? 'Spanish' : 'English'}`}
             className="text-xs font-mono font-bold text-muted hover:text-accent transition-all px-2 py-1 border border-border rounded hover:border-accent"
           >
             {t.lang.switch}
-          </button>
+          </Link>
 
           {/* Theme toggle */}
           <button

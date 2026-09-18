@@ -13,6 +13,7 @@ import {
 import type { IconType } from 'react-icons';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
+import { pathFor } from '@/lib/i18n';
 
 const iconMap: Record<string, IconType> = {
   rocket: FaRocket,
@@ -74,7 +75,7 @@ const ServicesSection: React.FC = () => {
 
         <div className="mt-12 text-center">
           <Link
-            href="/pricing"
+            href={pathFor(lang, '/pricing')}
             className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-bg"
           >
             {t.services.pricingCta} <FaArrowRight size={12} />

@@ -12,9 +12,12 @@ import {
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 import { useUI } from '../../context/UIContext';
+import { pathFor } from '@/lib/i18n';
 
 export default function Footer() {
   const { t, lang } = useLang();
+  // Every internal destination except the Spanish-only blog follows the locale.
+  const p = (path: string) => pathFor(lang, path);
   const { showCli } = useUI();
   const year = new Date().getFullYear();
 
@@ -41,7 +44,7 @@ export default function Footer() {
           {/* Brand + social */}
           <div className="sm:col-span-2 md:col-span-1">
             <Link
-              href="/"
+              href={p('/')}
               className="font-display font-bold text-accent text-xl tracking-widest hover:opacity-80 transition"
             >
               {siteConfig.alias}
@@ -90,7 +93,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/pricing"
+                  href={p('/pricing')}
                   className="text-sm text-muted hover:text-accent transition"
                 >
                   {t.nav.pricing}
@@ -115,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href={p('/privacy')}
                   className="text-sm text-muted hover:text-accent transition"
                 >
                   {lang === 'es' ? 'Privacidad' : 'Privacy'}
@@ -123,7 +126,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/data-deletion"
+                  href={p('/data-deletion')}
                   className="text-sm text-muted hover:text-accent transition"
                 >
                   {lang === 'es' ? 'Eliminar mis datos' : 'Data deletion'}

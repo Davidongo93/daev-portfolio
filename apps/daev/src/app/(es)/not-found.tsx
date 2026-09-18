@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaHome, FaArrowRight } from 'react-icons/fa';
 import { Highlight, themes } from 'prism-react-renderer';
-import { useLang } from '../context/LangContext';
+import { useLang } from '@/context/LangContext';
 
 const goHomeCode = `const goHome = () => {
   window.location.href = '/';

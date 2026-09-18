@@ -1,7 +1,9 @@
 'use client';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { counterpartPath, DEFAULT_LANG, type Lang } from '@/lib/i18n';
 
-export type Lang = 'en' | 'es';
+export type { Lang };
 
 export const translations = {
   en: {
@@ -412,31 +414,29 @@ const LangContext = createContext<{
   toggle: () => void;
   setLang: (l: Lang) => void;
 }>({
-  lang: 'en',
-  t: translations.en as unknown as Translations,
+  lang: DEFAULT_LANG,
+  t: translations[DEFAULT_LANG] as unknown as Translations,
   toggle: noop,
   setLang: noop,
 });
 
-export function LangProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('en');
+/**
+ * The language is decided by the route, not by the browser: Spanish renders at
+ * the root and English under /en, so each locale has its own indexable URL.
+ * Switching language is a navigation, not local state.
+ */
+export function LangProvider({
+  lang,
+  children,
+}: {
+  lang: Lang;
+  children: React.ReactNode;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const stored = (typeof window !== 'undefined' && localStorage.getItem('lang')) as Lang | null;
-    if (stored && (stored === 'en' || stored === 'es')) {
-      setLangState(stored);
-      document.documentElement.lang = stored;
-    } else {
-      const browserLang = navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
-      setLangState(browserLang);
-      document.documentElement.lang = browserLang;
-    }
-  }, []);
-
-  const setLang = (l: Lang) => {
-    setLangState(l);
-    localStorage.setItem('lang', l);
-    document.documentElement.lang = l;
+  const setLang = (next: Lang) => {
+    if (next !== lang) router.push(counterpartPath(pathname, lang));
   };
 
   const toggle = () => setLang(lang === 'en' ? 'es' : 'en');

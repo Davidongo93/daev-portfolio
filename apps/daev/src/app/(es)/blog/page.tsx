@@ -1,8 +1,8 @@
-import PostGrid from '../../components/PostGrid/PostGrid';
-import PostProvider from '../../components/PostProvider/PostProvider';
-import { siteConfig } from '../../config/site';
-import { DEFAULT_POST_LANG, toDate } from '../../lib/postMeta';
-import { getIndexableTopics } from '../../lib/topics';
+import PostGrid from '@/components/PostGrid/PostGrid';
+import PostProvider from '@/components/PostProvider/PostProvider';
+import { siteConfig } from '@/config/site';
+import { DEFAULT_POST_LANG, toDate } from '@/lib/postMeta';
+import { getIndexableTopics } from '@/lib/topics';
 
 const BlogPage = () => {
   return (

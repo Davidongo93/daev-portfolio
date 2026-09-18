@@ -3,6 +3,7 @@ import { siteConfig } from '../config/site';
 import { resolveDates, toDate } from '../lib/postMeta';
 import { getAllPosts } from '../lib/posts';
 import { getIndexableTopics } from '../lib/topics';
+import { urlFor } from '../lib/i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const allPosts = getAllPosts();
@@ -29,19 +30,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Pages that exist in both locales list each other under `alternates` so
+  // Google pairs them instead of treating /en as a thin duplicate. The blog is
+  // Spanish-only and therefore declares no alternate.
+  const bilingual = (path: string, changeFrequency: 'weekly' | 'monthly', priority: number) =>
+    (['es', 'en'] as const).map((lang) => ({
+      url: urlFor(lang, path),
+      lastModified: new Date(),
+      changeFrequency,
+      priority: lang === 'es' ? priority : priority - 0.1,
+      alternates: {
+        languages: {
+          'es-CO': urlFor('es', path),
+          'en-US': urlFor('en', path),
+          'x-default': urlFor('es', path),
+        },
+      },
+    }));
+
   return [
-    {
-      url: siteConfig.siteUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${siteConfig.siteUrl}/pricing`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    ...bilingual('/', 'weekly', 1.0),
+    ...bilingual('/pricing', 'monthly', 0.9),
     {
       // The blog index is only as fresh as its newest post.
       url: `${siteConfig.siteUrl}/blog`,

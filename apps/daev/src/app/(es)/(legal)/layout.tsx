@@ -1,4 +1,4 @@
-import Footer from '../../components/Footer/Footer';
+import Footer from '@/components/Footer/Footer';
 
 export default function LegalLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useLang } from '../../context/LangContext';
+import { pathFor } from '@/lib/i18n';
 import { siteConfig } from '../../config/site';
 
 type LegalType = 'privacy' | 'data-deletion';
@@ -197,11 +198,11 @@ export default function LegalContent({ type }: { type: LegalType }) {
           {EMAIL}
         </a>
         {type === 'privacy' ? (
-          <Link href="/data-deletion" className="text-accent hover:underline">
+          <Link href={pathFor(lang, '/data-deletion')} className="text-accent hover:underline">
             {lang === 'es' ? 'Eliminar mis datos →' : 'Delete my data →'}
           </Link>
         ) : (
-          <Link href="/privacy" className="text-accent hover:underline">
+          <Link href={pathFor(lang, '/privacy')} className="text-accent hover:underline">
             {lang === 'es' ? 'Política de Privacidad →' : 'Privacy Policy →'}
           </Link>
         )}

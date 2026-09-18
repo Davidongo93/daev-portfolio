@@ -1,5 +1,5 @@
-import PricingSection from '../../components/PricingSection/PricingSection';
-import { getTrm } from './trm';
+import PricingSection from '@/components/PricingSection/PricingSection';
+import { getTrm } from '@/lib/trm';
 
 export default async function PricingPage() {
   const trm = await getTrm();

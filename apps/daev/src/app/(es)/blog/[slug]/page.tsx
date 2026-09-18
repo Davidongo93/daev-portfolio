@@ -11,20 +11,20 @@ import {
   FaHistory,
   FaArrowLeft as FaBack,
 } from 'react-icons/fa';
-import BrandPlaceholder from '../../../components/Brand/BrandPlaceholder';
-import ShareBar from '../../../components/ShareBar/ShareBar';
-import CommentsSection from '../../../components/Comments/CommentsSection';
-import { siteConfig } from '../../../config/site';
-import { getReadingStats } from '../../../lib/readingTime';
+import BrandPlaceholder from '@/components/Brand/BrandPlaceholder';
+import ShareBar from '@/components/ShareBar/ShareBar';
+import CommentsSection from '@/components/Comments/CommentsSection';
+import { siteConfig } from '@/config/site';
+import { getReadingStats } from '@/lib/readingTime';
 import {
   authorJsonLd,
   DEFAULT_POST_LANG,
   resolveAuthor,
   resolveDates,
   resolveLang,
-} from '../../../lib/postMeta';
-import { findPostBySlug, getAllPosts, getPostSlugs } from '../../../lib/posts';
-import { getRelatedPosts, isIndexableTopic, topicsForPost } from '../../../lib/topics';
+} from '@/lib/postMeta';
+import { findPostBySlug, getAllPosts, getPostSlugs } from '@/lib/posts';
+import { getRelatedPosts, isIndexableTopic, topicsForPost } from '@/lib/topics';
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = findPostBySlug(params.slug);

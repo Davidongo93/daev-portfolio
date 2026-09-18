@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Footer from '../../components/Footer/Footer';
-import { siteConfig } from '../../config/site';
+import Footer from '@/components/Footer/Footer';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Blog',

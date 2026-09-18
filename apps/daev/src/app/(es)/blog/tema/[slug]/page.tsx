@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';
-import PostCard from '../../../../components/PostCard/PostCard';
-import { siteConfig } from '../../../../config/site';
-import { DEFAULT_POST_LANG, resolveDates } from '../../../../lib/postMeta';
-import { getAllPosts } from '../../../../lib/posts';
-import { getIndexableTopics, getPostsForTopic, getTopic, isIndexableTopic } from '../../../../lib/topics';
+import PostCard from '@/components/PostCard/PostCard';
+import { siteConfig } from '@/config/site';
+import { DEFAULT_POST_LANG, resolveDates } from '@/lib/postMeta';
+import { getAllPosts } from '@/lib/posts';
+import { getIndexableTopics, getPostsForTopic, getTopic, isIndexableTopic } from '@/lib/topics';
 
 // Topic pages are content taxonomy, so they read in the language the blog is
 // written in rather than following the UI toggle.

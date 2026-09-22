@@ -20,6 +20,11 @@ export const siteConfig = {
   photo:
     'https://res.cloudinary.com/de43jseoy/image/upload/v1782355482/davidongo93/daveTrabaja_kxooa1.png',
   siteUrl: 'https://daev.space',
+  // Generados con `npm run cv` desde apps/daev/scripts/cv/ (fuente: docs/career.md).
+  cv: {
+    en: '/cv/david-miranda-cv-en.pdf',
+    es: '/cv/david-miranda-cv-es.pdf',
+  },
 
   // ── Tarjeta Open Graph (vista previa al compartir el enlace) ────
   ogCard: {
@@ -77,9 +82,11 @@ export const siteConfig = {
   },
 
   // ── Estadísticas ────────────────────────────────────────────────
+  // Fuente y criterio de cada cifra: docs/career.md.
   stats: {
     years: 4,
-    projects: 10,
+    itYears: 15,
+    projects: 45,
     clients: 3,
   },
 
@@ -88,13 +95,13 @@ export const siteConfig = {
     {
       company: 'Colombian Cannabis Center',
       role: {
-        en: 'Development Lead',
-        es: 'Líder de Desarrollo',
+        en: 'Technical Lead',
+        es: 'Líder técnico',
       },
-      period: 'Nov 2024 – Present',
+      period: 'Sep 2024 – May 2026',
       description: {
-        en: 'I lead development of a traceability platform that handles agricultural management and end-to-end traceability for compliance with Colombian regulation and international standards.',
-        es: 'Lidero el desarrollo de una plataforma de trazabilidad que gestiona la operación agrícola y la trazabilidad de extremo a extremo para el cumplimiento de la norma colombiana y los estándares internacionales.',
+        en: 'I led development of a traceability platform that handles agricultural management and end-to-end traceability for compliance with Colombian regulation and international standards.',
+        es: 'Lideré el desarrollo de una plataforma de trazabilidad que gestiona la operación agrícola y la trazabilidad de extremo a extremo para el cumplimiento de la norma colombiana y los estándares internacionales.',
       },
       logo: null,
       website: 'https://app.colombiancannabiscenter.space',
@@ -102,13 +109,13 @@ export const siteConfig = {
     {
       company: 'DigitalYa',
       role: {
-        en: 'Frontend Developer',
-        es: 'Desarrollador Frontend',
+        en: 'Web & SEO Developer',
+        es: 'Desarrollador Web y SEO',
       },
-      period: '2026 – Present',
+      period: 'May 2026 – Present',
       description: {
-        en: 'Frontend developer at a marketing agency, building and optimizing high-performance websites and landing pages for clients.',
-        es: 'Desarrollador frontend en una agencia de marketing, construyendo y optimizando sitios web y landing pages de alto rendimiento para clientes.',
+        en: 'Full cycle of websites for law firms and professional practices at a digital marketing agency: design, development, technical and local SEO, deployment, DNS and domain. 30 sites delivered in five months.',
+        es: 'Ciclo completo de sitios para estudios jurídicos y profesionales en una agencia de marketing digital: diseño, desarrollo, SEO técnico y local, despliegue, DNS y dominio. 30 sitios entregados en cinco meses.',
       },
       logo: null,
       website: 'https://digitalya.com.ar/',
@@ -253,8 +260,8 @@ export const siteConfig = {
         es: 'El cultivo de cannabis regulado tiene que demostrar la trazabilidad de cada planta, y la operación la llevaba en hojas de cálculo que ninguna auditoría aceptaría.',
       },
       work: {
-        en: 'I lead the development of the agricultural management and traceability platform: batch tracking, roles and auditing, aligned with Colombian regulation and international standards.',
-        es: 'Lidero el desarrollo de la plataforma de gestión agrícola y trazabilidad: seguimiento de lotes, roles y auditoría, alineada con la norma colombiana y los estándares internacionales.',
+        en: 'I led the development of the agricultural management and traceability platform: batch tracking, roles and auditing, aligned with Colombian regulation and international standards.',
+        es: 'Lideré el desarrollo de la plataforma de gestión agrícola y trazabilidad: seguimiento de lotes, roles y auditoría, alineada con la norma colombiana y los estándares internacionales.',
       },
       metrics: [],
       highlights: [

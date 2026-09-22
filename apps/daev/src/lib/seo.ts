@@ -97,10 +97,10 @@ export function rootJsonLd(lang: Lang): object[] {
       ...siteConfig.skills.backend,
       ...siteConfig.skills.tools,
     ],
-    worksFor: siteConfig.experience.map((exp) => ({
-      '@type': 'Organization',
-      name: exp.company,
-    })),
+    // Only current roles: past employers are not `worksFor`.
+    worksFor: siteConfig.experience
+      .filter((exp) => exp.period.endsWith('Present'))
+      .map((exp) => ({ '@type': 'Organization', name: exp.company })),
   };
 
   const website = {

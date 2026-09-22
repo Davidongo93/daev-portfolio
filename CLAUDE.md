@@ -83,6 +83,22 @@ background se lanza capturando el PID y se mata al cerrar la tarea.
 
 ---
 
+## Trayectoria y CV
+
+- **`docs/career.md` es la fuente de verdad de la carrera de Dave**: cifras
+  acordadas (45+ proyectos, 15+ años en IT, 4+ en full stack), experiencia,
+  formación y los encargos abiertos sobre el home. No se publica. Cualquier
+  texto de carrera (CV, sección de experiencia, JSON-LD) sale de ahí.
+- **CV en PDF:** `npm run cv` genera `apps/daev/public/cv/david-miranda-cv-{es,en}.pdf`
+  desde `apps/daev/scripts/cv/` (`content.mjs` = datos, `template.mjs` = A4 a
+  dos columnas). Tiene que quedar en **una sola página**: verificar con
+  `pdfinfo <pdf> | grep Pages`. El hero enlaza al PDF del idioma vía
+  `siteConfig.cv`.
+- Un dato de carrera cambia en `docs/career.md` primero, después en
+  `content.mjs` y `site.ts`, y se regenera el PDF.
+
+---
+
 ## Deploy
 
 **`git push origin main` → Vercel.** El repo tiene dos remotos:

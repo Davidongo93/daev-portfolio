@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "new-post": "node apps/daev/scripts/new-post.js",
-    "indexnow": "node apps/daev/scripts/indexnow.mjs"
+    "indexnow": "node apps/daev/scripts/indexnow.mjs",
+    "cv": "node apps/daev/scripts/cv/build.mjs"
   },
   "private": true,
   "dependencies": {

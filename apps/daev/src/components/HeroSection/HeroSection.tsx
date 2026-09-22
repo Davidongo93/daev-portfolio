@@ -1,5 +1,5 @@
 'use client';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaFileDownload } from 'react-icons/fa';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 import RotatingText from '../RotatingText/RotatingText';
@@ -54,6 +54,21 @@ const HeroSection: React.FC = () => {
             {t.hero.seeProjects}
           </a>
         </div>
+
+        {/* Recruiter path: downloads the CV and lands on the contact section. */}
+        <p className="text-sm text-muted">
+          {t.hero.recruiter}{' '}
+          <a
+            href={siteConfig.cv[lang]}
+            download
+            onClick={() =>
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+            }
+            className="inline-flex items-center gap-1.5 font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            {t.hero.recruiterCta} <FaFileDownload size={12} aria-hidden="true" />
+          </a>
+        </p>
       </div>
     </section>
   );

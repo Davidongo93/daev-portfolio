@@ -44,12 +44,13 @@ export const cv = {
       { group: 'Método', items: 'Scrum, TDD, principios SOLID, Git, Jira, agentes de IA' },
     ],
     education: [
+      { title: 'Certificado Profesional de Diseño UX de Google', org: 'Coursera', period: 'en curso' },
+      { title: 'Claude Code 101', org: 'Anthropic · Coursera', period: 'en curso' },
       { title: 'Bootcamp Full Stack', org: 'Henry · 800 h', period: '2022 – 2023' },
       { title: 'Java Upskill', org: 'Henry · 300 h', period: '2023' },
       { title: 'NDG Linux Unhatched', org: 'Cisco Networking Academy', period: '2023' },
       { title: 'IT Essentials in JavaScript', org: 'OpenEDG JS Institute', period: '2022' },
       { title: 'Administración y soporte IT', org: 'SENA · Cisco IT Essentials', period: '2010 – 2011' },
-      { title: 'Psicología y Biología (sin terminar)', org: 'Universidad Nacional de Colombia', period: '2009 – 2014' },
       { title: 'Técnico en Análisis y Programación de Sistemas', org: 'IE Alexander von Humboldt', period: '2005 – 2008' },
     ],
     languages: [
@@ -146,12 +147,13 @@ export const cv = {
       { group: 'Practices', items: 'Scrum, TDD, SOLID principles, Git, Jira, AI agents' },
     ],
     education: [
+      { title: 'Google UX Design Professional Certificate', org: 'Coursera', period: 'in progress' },
+      { title: 'Claude Code 101', org: 'Anthropic · Coursera', period: 'in progress' },
       { title: 'Full Stack Bootcamp', org: 'Henry · 800 h', period: '2022 – 2023' },
       { title: 'Java Upskill', org: 'Henry · 300 h', period: '2023' },
       { title: 'NDG Linux Unhatched', org: 'Cisco Networking Academy', period: '2023' },
       { title: 'IT Essentials in JavaScript', org: 'OpenEDG JS Institute', period: '2022' },
       { title: 'IT Administration & Support', org: 'SENA · Cisco IT Essentials', period: '2010 – 2011' },
-      { title: 'Psychology and Biology (not completed)', org: 'Universidad Nacional de Colombia', period: '2009 – 2014' },
       { title: 'Technical Degree, Systems Analysis & Programming', org: 'IE Alexander von Humboldt', period: '2005 – 2008' },
     ],
     languages: [

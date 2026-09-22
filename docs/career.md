@@ -65,12 +65,15 @@ Microsoft SQL Server, Access, PageMaker, Dreamweaver.
 - 2005 — Sitio del grupo musical Ácido: HTML, Flash, Dreamweaver, MySQL.
 
 ## Formación
+- Certificado Profesional de Diseño UX de Google — Coursera — en curso (2026)
+- Claude Code 101 — Anthropic, en Coursera — en curso (2026)
 - Bootcamp Full Stack — Henry — 800 h — dic 2022 – jul 2023
 - Java Upskill — Henry — 300 h — oct – dic 2023
 - NDG Linux Unhatched — ene 2023
 - Cisco IT Essentials in JavaScript — OpenEDG JS Institute — dic 2022
 - Administración y soporte IT (Cisco IT Essentials 1) — SENA — sep 2010 – ene 2011
-- Psicología y Biología (sin terminar) — Universidad Nacional de Colombia — 2009 – 2014
+- Psicología y Biología (sin terminar) — Universidad Nacional de Colombia — 2009 – 2014.
+  **No va en el CV** (decisión de Dave, 2026-09-22).
 - Técnico en Análisis y Programación de Sistemas — IE Alexander von Humboldt — 2005 – 2008
 
 ## Idiomas

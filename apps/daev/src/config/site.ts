@@ -7,8 +7,8 @@ export const siteConfig = {
     es: 'Desarrollador Full Stack',
   },
   shortBio: {
-    en: 'Full Stack Developer specializing in React, Next.js, Node.js and TypeScript.',
-    es: 'Desarrollador Full Stack especializado en React, Next.js, Node.js y TypeScript.',
+    en: 'Specialized Full Stack Developer',
+    es: 'Desarrollador Full Stack especializado',
   },
   bio: {
     en: 'I build fast, scalable web products, from the first idea to production. I care about great user experience and shipping software that delivers real results for people and businesses.',

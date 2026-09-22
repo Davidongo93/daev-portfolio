@@ -27,9 +27,6 @@ export const translations = {
       buildVerb: 'I build',
       types: ['custom websites', 'landing pages', 'e-commerce stores', 'custom software', 'SaaS apps', 'LMS platforms'],
       seeProjects: 'See my work',
-      proofShipped: 'sites live in production',
-      proofLcp: 'fastest rebuild, mobile LCP',
-      proofYears: 'years building for the web',
     },
     about: {
       title: 'About Me',
@@ -275,9 +272,6 @@ export const translations = {
       buildVerb: 'Construyo',
       types: ['sitios web a medida', 'landing pages', 'e-commerce', 'software a medida', 'apps SaaS', 'plataformas LMS'],
       seeProjects: 'Ver mi trabajo',
-      proofShipped: 'sitios en producción',
-      proofLcp: 'LCP móvil en la mejor reconstrucción',
-      proofYears: 'años construyendo para la web',
     },
     about: {
       title: 'Sobre mí',

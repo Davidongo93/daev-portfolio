@@ -23,19 +23,6 @@ const HeroSection: React.FC = () => {
       </div>
 
       <div className="w-full max-w-4xl text-center space-y-6 animate-fade-in">
-        {/* Availability badge */}
-        {siteConfig.available && (
-          <div className="flex justify-center">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 border border-green/30 text-green text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
-              </span>
-              {t.about.available}
-            </span>
-          </div>
-        )}
-
         <p className="text-sm md:text-base text-muted font-mono">
           {t.hero.greeting} {siteConfig.locationFlag}
         </p>
@@ -51,22 +38,6 @@ const HeroSection: React.FC = () => {
         <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto">
           {siteConfig.shortBio[lang]}
         </p>
-
-        {/* Proof row — every number here is backed by a case below. */}
-        <dl className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-2">
-          {[
-            { value: `${siteConfig.caseStudies.length}`, label: t.hero.proofShipped },
-            { value: '1,62 s', label: t.hero.proofLcp },
-            { value: `${siteConfig.stats.years}+`, label: t.hero.proofYears },
-          ].map((item) => (
-            <div key={item.label} className="text-center">
-              <dd className="font-display text-2xl font-bold text-accent md:text-3xl">
-                {item.value}
-              </dd>
-              <dt className="mt-0.5 text-xs text-muted">{item.label}</dt>
-            </div>
-          ))}
-        </dl>
 
         {/* CTAs — full width on mobile */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-3">

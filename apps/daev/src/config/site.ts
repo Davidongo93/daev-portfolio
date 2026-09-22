@@ -11,8 +11,8 @@ export const siteConfig = {
     es: 'Desarrollador Full Stack especializado en React, Next.js, Node.js y TypeScript.',
   },
   bio: {
-    en: 'I build fast, scalable web products, from the first idea to production. I care about clean code, great user experience, and shipping software that delivers real results for people and businesses.',
-    es: 'Construyo productos web rápidos y escalables, desde la primera idea hasta producción. Me importa el código limpio, una gran experiencia de usuario y entregar software que genere resultados reales para personas y empresas.',
+    en: 'I build fast, scalable web products, from the first idea to production. I care about great user experience and shipping software that delivers real results for people and businesses.',
+    es: 'Construyo productos web rápidos y escalables, desde la primera idea hasta producción. Me importa una gran experiencia de usuario y entregar software que genere resultados reales para personas y empresas.',
   },
   location: 'Colombia',
   locationFlag: '🇨🇴',
@@ -20,6 +20,22 @@ export const siteConfig = {
   photo:
     'https://res.cloudinary.com/de43jseoy/image/upload/v1782355482/davidongo93/daveTrabaja_kxooa1.png',
   siteUrl: 'https://daev.space',
+
+  // ── Tarjeta Open Graph (vista previa al compartir el enlace) ────
+  ogCard: {
+    tagline: {
+      en: 'I build the web product your business needs',
+      es: 'Construyo el producto web que tu negocio necesita',
+    },
+    offers: {
+      en: ['Custom websites', 'Landing pages', 'Scalable web apps', 'Robust backend logic'],
+      es: ['Sitios web a medida', 'Landing pages', 'Aplicaciones web escalables', 'Backend con lógica robusta'],
+    },
+    cta: {
+      en: 'Taking new projects',
+      es: 'Disponible para proyectos',
+    },
+  },
 
   // ── Contacto ────────────────────────────────────────────────────
   email: 'domirandar@gmail.com',

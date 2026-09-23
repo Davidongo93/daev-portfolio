@@ -97,9 +97,9 @@ export function rootJsonLd(lang: Lang): object[] {
       ...siteConfig.skills.backend,
       ...siteConfig.skills.tools,
     ],
-    // Only current roles: past employers are not `worksFor`.
+    // Only current employers: past roles and my own freelance are not `worksFor`.
     worksFor: siteConfig.experience
-      .filter((exp) => exp.period.endsWith('Present'))
+      .filter((exp) => exp.current)
       .map((exp) => ({ '@type': 'Organization', name: exp.company })),
   };
 
@@ -198,6 +198,18 @@ export function rootJsonLd(lang: Lang): object[] {
 }
 
 const copy = {
+  work: {
+    es: {
+      title: 'Trabajo',
+      description: `Casos de clientes y proyectos backend de ${siteConfig.name} (${siteConfig.alias}): sitios web a medida, e-commerce, plataformas de trazabilidad y APIs.`,
+      ogDescription: `Sitios, tiendas, plataformas y APIs que salieron a producción, por ${siteConfig.name}.`,
+    },
+    en: {
+      title: 'Work',
+      description: `Client cases and backend projects by ${siteConfig.name} (${siteConfig.alias}): custom websites, e-commerce, traceability platforms and APIs.`,
+      ogDescription: `Websites, stores, platforms and APIs that shipped to production, by ${siteConfig.name}.`,
+    },
+  },
   pricing: {
     es: {
       title: 'Precios',
@@ -231,6 +243,22 @@ const copy = {
     },
   },
 } as const;
+
+export function workMetadata(lang: Lang): Metadata {
+  const c = copy.work[lang];
+  return {
+    title: c.title,
+    description: c.description,
+    alternates: alternatesFor('/trabajo', lang),
+    openGraph: {
+      title: `${c.title} | ${siteConfig.alias}`,
+      description: c.ogDescription,
+      url: urlFor(lang, '/trabajo'),
+      locale: ogLocale[lang],
+      type: 'website',
+    },
+  };
+}
 
 export function pricingMetadata(lang: Lang): Metadata {
   const c = copy.pricing[lang];

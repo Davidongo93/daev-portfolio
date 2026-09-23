@@ -189,7 +189,7 @@ const Console: React.FC<ConsoleCLIProps> = ({ onExit }) => {
           ...prev,
           'Work history:',
           ...siteConfig.experience.map(
-            (e) => `  ${e.period} | ${e.company} — ${e.role[lang]}`
+            (e) => `  ${e.period[lang]} | ${e.company} — ${e.role[lang]}`
           ),
           '',
         ]);

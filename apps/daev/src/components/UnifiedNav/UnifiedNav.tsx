@@ -50,8 +50,14 @@ export default function UnifiedNav() {
     };
   }, [pathname]);
 
+  // Scroll spy for the home. A threshold ratio never fires for a section taller
+  // than the viewport (the old bug: #work never lit up), so instead the active
+  // section is the one crossing a thin band just below the navbar.
   useEffect(() => {
-    if (pathname !== '/') return;
+    if (pathname !== pathFor(lang, '/')) {
+      setActiveSection('');
+      return;
+    }
     const sections = document.querySelectorAll('section[id]');
     const observer = new IntersectionObserver(
       (entries) => {
@@ -59,11 +65,11 @@ export default function UnifiedNav() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { threshold: 0.3 }
+      { rootMargin: '-30% 0px -65% 0px', threshold: 0 }
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, [pathname]);
+  }, [pathname, lang]);
 
   if (cliMode) return null;
 
@@ -74,7 +80,7 @@ export default function UnifiedNav() {
   const navLinks: NavLink[] = [
     { href: `${home}#work`, label: t.nav.work, sectionId: 'work' },
     { href: `${home}#services`, label: t.nav.services, sectionId: 'services' },
-    { href: `${home}#process`, label: t.nav.process, sectionId: 'process' },
+    { href: `${home}#trajectory`, label: t.nav.trajectory, sectionId: 'trajectory' },
     { href: `${home}#about`, label: t.nav.about, sectionId: 'about' },
     { href: `${home}#contact`, label: t.nav.contact, sectionId: 'contact' },
     { href: '/blog', label: '/blog', sectionId: 'blog' },
@@ -82,11 +88,12 @@ export default function UnifiedNav() {
 
   const isOnBlog = pathname.startsWith('/blog');
   const isOnPricing = pathname === pathFor(lang, '/pricing');
+  const isOnWork = pathname === pathFor(lang, '/trabajo');
 
   const isActive = (link: NavLink) => {
     if (link.sectionId === 'blog') return isOnBlog;
     if (link.sectionId === 'pricing') return isOnPricing;
-    if (isOnBlog || isOnPricing) return false;
+    if (link.sectionId === 'work' && isOnWork) return true;
     return activeSection === link.sectionId;
   };
 

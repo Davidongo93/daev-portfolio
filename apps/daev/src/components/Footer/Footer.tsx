@@ -22,11 +22,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const sectionLinks = [
-    { href: '/#work', label: t.nav.work },
-    { href: '/#services', label: t.nav.services },
-    { href: '/#process', label: t.nav.process },
-    { href: '/#about', label: t.nav.about },
-    { href: '/#contact', label: t.nav.contact },
+    { href: p('/trabajo'), label: t.nav.work },
+    { href: `${p('/')}#services`, label: t.nav.services },
+    { href: `${p('/')}#trajectory`, label: t.nav.trajectory },
+    { href: `${p('/')}#about`, label: t.nav.about },
+    { href: `${p('/')}#contact`, label: t.nav.contact },
   ];
 
   const social = [

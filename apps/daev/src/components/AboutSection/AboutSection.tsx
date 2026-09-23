@@ -2,17 +2,12 @@
 import Image from 'next/image';
 import { FaGithub, FaArrowRight, FaWhatsapp } from 'react-icons/fa';
 import IconBar from '../IconBar/IconBar';
+import StatNumbers from '../StatNumbers/StatNumbers';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 
 const AboutSection: React.FC = () => {
   const { t, lang } = useLang();
-
-  const stats = [
-    { value: `${siteConfig.stats.years}+`, label: t.stats.years },
-    { value: `${siteConfig.stats.projects}+`, label: t.stats.projects },
-    { value: `${siteConfig.stats.clients}+`, label: t.stats.clients },
-  ];
 
   return (
     <section id="about" className="bg-surface relative py-20 md:py-24 overflow-hidden">
@@ -43,17 +38,6 @@ const AboutSection: React.FC = () => {
               >
                 <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-2 shadow-[0_0_10px_2px_var(--accent-2)]" />
               </div>
-
-              {/* availability badge */}
-              {siteConfig.available && (
-                <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-green/30 bg-surface/80 px-3 py-1 text-xs font-medium text-green backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-75" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
-                  </span>
-                  {t.about.available}
-                </span>
-              )}
 
               {/* photo card (static) */}
               <div className="relative z-10 overflow-hidden rounded-3xl border border-border bg-surface-el shadow-2xl">
@@ -99,20 +83,7 @@ const AboutSection: React.FC = () => {
             {siteConfig.bio[lang]}
           </p>
 
-          {/* stat strip — quick credibility */}
-          <div className="grid w-full max-w-md grid-cols-3 gap-3 pt-1">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-xl border border-border bg-surface-el px-3 py-3 text-center transition-colors hover:border-accent/40"
-              >
-                <p className="font-display text-2xl font-bold leading-none text-accent">
-                  {s.value}
-                </p>
-                <p className="mt-1.5 text-[11px] leading-tight text-muted">{s.label}</p>
-              </div>
-            ))}
-          </div>
+          <StatNumbers twoColumns className="w-full max-w-xl" />
 
           <div className="flex flex-wrap gap-3 pt-2">
             <a

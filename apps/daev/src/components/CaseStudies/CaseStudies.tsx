@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaImages } from 'react-icons/fa';
+import GalleryDialog from '../GalleryDialog/GalleryDialog';
 import TechPill from '../TechPill/TechPill';
 import BrandPlaceholder from '../Brand/BrandPlaceholder';
 import { siteConfig } from '../../config/site';
@@ -11,29 +12,49 @@ type Case = (typeof siteConfig.caseStudies)[number];
 
 /**
  * Alternating full-width rows instead of a card grid: a case needs room to say
- * what was broken, what got built and what changed. The grid stays for the Lab.
+ * what was broken, what got built and what changed. Lives on /trabajo; the
+ * home only shows a carousel that links here, one anchor per case.
  */
 const CaseRow: React.FC<{ item: Case; index: number }> = ({ item, index }) => {
   const { t, lang } = useLang();
+  const [galleryOpen, setGalleryOpen] = useState(false);
   const flipped = index % 2 === 1;
+  const title = item.product ?? item.name;
+  const photos: string[] = [item.thumbnail, ...item.gallery];
 
   return (
-    <article className="grid gap-8 md:grid-cols-2 md:gap-12 md:items-center">
-      {/* Screenshot */}
+    <article id={item.slug} className="grid scroll-mt-24 gap-8 md:grid-cols-2 md:items-center md:gap-12">
+      {/* Screenshot — opens the gallery */}
       <div className={flipped ? 'md:order-2' : ''}>
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-surface-el shadow-xl">
+        <div className="group relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border bg-surface-el shadow-xl">
           {item.thumbnail ? (
             <Image
               src={item.thumbnail}
-              alt={`${item.name} — ${item.sector[lang]}`}
+              alt={`${title} — ${item.sector[lang]}`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
             />
           ) : (
-            <BrandPlaceholder title={item.name} />
+            <BrandPlaceholder title={title} />
+          )}
+          {photos.length > 1 && (
+            <button
+              type="button"
+              onClick={() => setGalleryOpen(true)}
+              className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-lg border border-border bg-surface/90 px-3 py-2 text-xs font-semibold text-fore shadow-lg backdrop-blur-md transition hover:border-accent hover:text-accent"
+            >
+              <FaImages aria-hidden="true" /> {t.gallery.open}
+              <span className="font-mono text-muted">{photos.length}</span>
+            </button>
           )}
         </div>
+        <GalleryDialog
+          title={title}
+          images={photos}
+          open={galleryOpen}
+          onClose={() => setGalleryOpen(false)}
+        />
       </div>
 
       {/* Story */}
@@ -42,8 +63,9 @@ const CaseRow: React.FC<{ item: Case; index: number }> = ({ item, index }) => {
           <p className="font-mono text-xs uppercase tracking-widest text-accent">
             {item.sector[lang]} · {item.year}
           </p>
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-fore">{item.name}</h3>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-fore">{title}</h3>
           <p className="text-sm text-muted">
+            {item.product && <>{item.name} · </>}
             {t.cases.role}: {item.role[lang]}
           </p>
         </div>
@@ -123,37 +145,12 @@ const CaseRow: React.FC<{ item: Case; index: number }> = ({ item, index }) => {
   );
 };
 
-const CaseStudies: React.FC = () => {
-  const { t } = useLang();
-
-  return (
-    <section id="work" className="bg-surface py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4">
-        <header className="mb-14 text-center">
-          <h2 className="mb-3 font-display text-3xl font-bold text-fore md:text-4xl">
-            {t.cases.title}
-          </h2>
-          <p className="mx-auto max-w-2xl text-muted">{t.cases.subtitle}</p>
-          <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-accent" />
-        </header>
-
-        <div className="space-y-20 md:space-y-28">
-          {siteConfig.caseStudies.map((item, i) => (
-            <CaseRow key={item.slug} item={item} index={i} />
-          ))}
-        </div>
-
-        <div className="mt-20 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-bg shadow-lg transition-all hover:scale-105 hover:bg-accent-hover"
-          >
-            {t.featured.cta} <FaArrowRight size={12} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
+const CaseStudies: React.FC = () => (
+  <div className="space-y-20 md:space-y-28">
+    {siteConfig.caseStudies.map((item, i) => (
+      <CaseRow key={item.slug} item={item} index={i} />
+    ))}
+  </div>
+);
 
 export default CaseStudies;

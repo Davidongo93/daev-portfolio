@@ -13,7 +13,7 @@ export const translations = {
       pricing: 'Pricing',
       blog: 'Blog',
       work: 'Work',
-      process: 'Process',
+      trajectory: 'Journey',
       skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
@@ -36,20 +36,50 @@ export const translations = {
       unavailable: 'Not available',
       brand: 'Personal brand',
     },
-    experience: {
-      title: 'Experience',
-      company: 'Company',
-      role: 'Role',
-      period: 'Period',
-      contact: 'Get in touch',
-      intro:
-        'I am a highly motivated and detail-oriented developer who thrives in both independent and collaborative settings.',
-    },
     skills: {
       title: 'Skills',
       frontend: 'Frontend',
       backend: 'Backend',
       tools: 'Tools & DevOps',
+    },
+    trajectory: {
+      title: 'Journey',
+      subtitle:
+        'Fifteen years in technology: from keeping networks and servers running to building web products end to end.',
+      current: 'Current',
+      study: 'Education',
+      cv: 'Download my CV',
+    },
+    numbers: {
+      itYears: 'years working in technology',
+      fullStack: 'years as a full stack developer',
+      projects: 'projects delivered and producing results',
+      pace: 'sites delivered per month in 2026',
+    },
+    carousel: {
+      seeCase: 'See the case',
+      seeAll: 'See all the work',
+      prev: 'Previous projects',
+      next: 'Next projects',
+    },
+    gallery: {
+      open: 'Open gallery',
+      close: 'Close gallery',
+      prev: 'Previous photo',
+      next: 'Next photo',
+      of: 'of',
+    },
+    backend: {
+      title: 'Backend: the logic you don’t see',
+      subtitle:
+        'APIs, transactions, scheduled jobs and refactors. Each capture is the piece of code that best explains the project.',
+      code: 'Code',
+      private: 'Private repository',
+    },
+    workPage: {
+      title: 'Work',
+      subtitle:
+        'Real businesses, real deadlines, real numbers. The client work first, then the backend that holds it up.',
     },
     stats: {
       title: 'My Stats',
@@ -88,34 +118,6 @@ export const translations = {
       visit: 'Open the site',
       inMigration: 'Domain in migration',
       role: 'Role',
-    },
-    lab: {
-      title: 'Lab',
-      subtitle: 'Technical challenges and side projects — where I try things out.',
-      code: 'Code',
-      demo: 'Demo',
-    },
-    process: {
-      title: 'How I work',
-      subtitle: 'Four steps, no surprises, and you see something running early.',
-      steps: [
-        {
-          title: 'We talk',
-          text: 'A call to understand the business, not the feature list. I tell you what I would build and what I would not.',
-        },
-        {
-          title: 'Scope and price',
-          text: 'You get a written scope with a fixed price and a date. No hourly billing, no moving targets.',
-        },
-        {
-          title: 'You see it early',
-          text: 'A working preview goes online in the first days. You review it as it grows, not at the end.',
-        },
-        {
-          title: 'Live and yours',
-          text: 'It ships to your own domain, with the code and the accounts in your name. You are never locked in.',
-        },
-      ],
     },
     blogHome: {
       title: 'From the blog',
@@ -260,7 +262,7 @@ export const translations = {
       pricing: 'Precios',
       blog: 'Blog',
       work: 'Trabajo',
-      process: 'Proceso',
+      trajectory: 'Trayectoria',
       skills: 'Habilidades',
       projects: 'Proyectos',
       contact: 'Contacto',
@@ -283,20 +285,50 @@ export const translations = {
       unavailable: 'No disponible',
       brand: 'Marca personal',
     },
-    experience: {
-      title: 'Experiencia',
-      company: 'Empresa',
-      role: 'Rol',
-      period: 'Período',
-      contact: 'Contáctame',
-      intro:
-        'Soy un desarrollador altamente motivado y orientado al detalle que se destaca tanto en entornos independientes como colaborativos.',
-    },
     skills: {
       title: 'Habilidades',
       frontend: 'Frontend',
       backend: 'Backend',
       tools: 'Herramientas & DevOps',
+    },
+    trajectory: {
+      title: 'Trayectoria',
+      subtitle:
+        'Quince años en tecnología: de mantener redes y servidores a construir productos web de punta a punta.',
+      current: 'Actual',
+      study: 'Formación',
+      cv: 'Descarga mi CV',
+    },
+    numbers: {
+      itYears: 'años trabajando en tecnología',
+      fullStack: 'años como desarrollador full stack',
+      projects: 'proyectos terminados y generando resultados',
+      pace: 'sitios entregados por mes en 2026',
+    },
+    carousel: {
+      seeCase: 'Ver el caso',
+      seeAll: 'Ver todo el trabajo',
+      prev: 'Proyectos anteriores',
+      next: 'Proyectos siguientes',
+    },
+    gallery: {
+      open: 'Ver galería',
+      close: 'Cerrar galería',
+      prev: 'Foto anterior',
+      next: 'Foto siguiente',
+      of: 'de',
+    },
+    backend: {
+      title: 'Backend: la lógica que no se ve',
+      subtitle:
+        'APIs, transacciones, tareas programadas y refactorizaciones. Cada captura es el fragmento de código que mejor explica el proyecto.',
+      code: 'Código',
+      private: 'Repositorio privado',
+    },
+    workPage: {
+      title: 'Trabajo',
+      subtitle:
+        'Negocios reales, plazos reales, números reales. Primero el trabajo para clientes y después el backend que lo sostiene.',
     },
     stats: {
       title: 'Mis Estadísticas',
@@ -335,34 +367,6 @@ export const translations = {
       visit: 'Abrir el sitio',
       inMigration: 'Dominio en migración',
       role: 'Rol',
-    },
-    lab: {
-      title: 'Lab',
-      subtitle: 'Retos técnicos y proyectos propios — donde pruebo cosas.',
-      code: 'Código',
-      demo: 'Demo',
-    },
-    process: {
-      title: 'Cómo trabajo',
-      subtitle: 'Cuatro pasos, sin sorpresas, y ves algo funcionando desde temprano.',
-      steps: [
-        {
-          title: 'Hablamos',
-          text: 'Una llamada para entender el negocio, no la lista de funciones. Te digo qué construiría y qué no.',
-        },
-        {
-          title: 'Alcance y precio',
-          text: 'Recibes un alcance por escrito con precio cerrado y fecha. Sin cobro por hora ni objetivos móviles.',
-        },
-        {
-          title: 'Lo ves temprano',
-          text: 'Una vista previa funcionando sale en línea los primeros días. La revisas mientras crece, no al final.',
-        },
-        {
-          title: 'En vivo y tuyo',
-          text: 'Sale a tu propio dominio, con el código y las cuentas a tu nombre. Nunca quedas amarrado.',
-        },
-      ],
     },
     blogHome: {
       title: 'Del blog',

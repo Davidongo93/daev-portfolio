@@ -92,6 +92,21 @@ Registrados el 2026-09-22.
    los CTA, el enlace «¿Eres reclutador?» que lleva a contacto y descarga el CV.
 3. **CV de una página a dos columnas, ES y EN**, generado desde
    `apps/daev/scripts/cv/` (`npm run cv`) y publicado en `apps/daev/public/cv/`.
-4. **Recuperar la experiencia laboral en el home.** La versión anterior del
-   sitio la mostraba y se quitó al rehacer el home. Los datos ya están en
-   `site.ts` → `experience`. Falta decidir dónde va en el orden del home.
+4. **Experiencia laboral en el home** (hecho el 2026-09-23): sección
+   «Trayectoria» con cifras y línea de tiempo, después de servicios.
+5. **Home reordenado** (hecho el 2026-09-23): carrusel de trabajo → `/trabajo`
+   con galerías y proyectos backend; se eliminaron «Cómo trabajo» y «Lab»;
+   íconos sociales a color; cifras nuevas en hero, trayectoria y sobre mí.
+
+## Material de referencia para lo que viene
+
+Dave anunció (2026-09-23) que el próximo encargo trabaja sobre estas fuentes:
+
+- **Disco D (`/mnt/d/`)**: repos de proyectos propios, retos técnicos y
+  código de empleadores. Los de empleadores (`elisya-chain`, `agro-ledger`
+  → CCC; `tubefiesta-api` → AppTender) son privados: se describen, no se
+  publica su código.
+- **`https://davidongo93.github.io/`** (copia local en
+  `~/Documents/domirandar/davidongo93.github.io`): el portafolio anterior en
+  Jekyll, con proyectos, trayectoria e imágenes en `img/portfolio/`.
+- Capturas de Agro Ledger: `~/Documents/domirandar/ccc/agro-ledger-landing/src/assets/screens/`.

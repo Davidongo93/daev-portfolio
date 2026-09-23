@@ -87,65 +87,87 @@ export const siteConfig = {
     years: 4,
     itYears: 15,
     projects: 45,
+    // Ritmo de entrega en DigitalYa en 2026: 30 sitios en cinco meses.
+    sitesPerMonth: 6,
     clients: 3,
   },
 
-  // ── Experiencia laboral ─────────────────────────────────────────
+  // ── Trayectoria ─────────────────────────────────────────────────
+  // De la más reciente a la más antigua. `current` marca los roles vigentes:
+  // sólo esos van como `worksFor` en el JSON-LD. `kind: 'study'` es formación
+  // que marcó un giro de carrera, no un empleo. Fuente: docs/career.md.
   experience: [
     {
-      company: 'Colombian Cannabis Center',
-      role: {
-        en: 'Technical Lead',
-        es: 'Líder técnico',
-      },
-      period: 'Sep 2024 – May 2026',
-      description: {
-        en: 'I led development of a traceability platform that handles agricultural management and end-to-end traceability for compliance with Colombian regulation and international standards.',
-        es: 'Lideré el desarrollo de una plataforma de trazabilidad que gestiona la operación agrícola y la trazabilidad de extremo a extremo para el cumplimiento de la norma colombiana y los estándares internacionales.',
-      },
-      logo: null,
-      website: 'https://app.colombiancannabiscenter.space',
-    },
-    {
       company: 'DigitalYa',
-      role: {
-        en: 'Web & SEO Developer',
-        es: 'Desarrollador Web y SEO',
-      },
-      period: 'May 2026 – Present',
+      kind: 'work',
+      current: true,
+      role: { en: 'Web & SEO Developer', es: 'Desarrollador Web y SEO' },
+      period: { en: 'May 2026 – present', es: 'may 2026 – actual' },
       description: {
         en: 'Full cycle of websites for law firms and professional practices at a digital marketing agency: design, development, technical and local SEO, deployment, DNS and domain. 30 sites delivered in five months.',
         es: 'Ciclo completo de sitios para estudios jurídicos y profesionales en una agencia de marketing digital: diseño, desarrollo, SEO técnico y local, despliegue, DNS y dominio. 30 sitios entregados en cinco meses.',
       },
-      logo: null,
       website: 'https://digitalya.com.ar/',
     },
     {
-      company: 'Rescatista',
-      role: {
-        en: 'Frontend Engineer (Freelance)',
-        es: 'Ingeniero Frontend (Freelance)',
-      },
-      period: '2024 – Present',
+      company: 'Daev · freelance',
+      kind: 'work',
+      // Freelance propio: vigente, pero no es un empleador para el JSON-LD.
+      current: false,
+      role: { en: 'Freelance Full Stack Developer', es: 'Desarrollador Full Stack freelance' },
+      period: { en: '2023 – present', es: '2023 – actual' },
       description: {
-        en: 'I implement responsive UIs, optimize performance and contribute to product design as a freelance collaborator.',
-        es: 'Implemento interfaces responsivas, optimizo el rendimiento y contribuyo al diseño de producto como colaborador freelance.',
+        en: 'Websites, stores and platforms for my own clients, from the first call to their domain: Chez Boaz Tours, Ópticas Apolo Visión, Climb Rock and more.',
+        es: 'Sitios, tiendas y plataformas para clientes propios, de la primera llamada a su dominio: Chez Boaz Tours, Ópticas Apolo Visión, Climb Rock y otros.',
       },
-      logo: '/icons/rescatista.png',
-      website: 'https://rescatista.vercel.app',
+      website: null,
+    },
+    {
+      company: 'Colombian Cannabis Center',
+      kind: 'work',
+      current: false,
+      role: { en: 'Technical Lead', es: 'Líder técnico' },
+      period: { en: 'Sep 2024 – May 2026', es: 'sep 2024 – may 2026' },
+      description: {
+        en: 'Led the Agro Ledger traceability platform: backend design, a frontend team and the quality and information-security practices of a regulated operation.',
+        es: 'Lideré la plataforma de trazabilidad Agro Ledger: diseño del backend, un equipo frontend y las prácticas de calidad y seguridad de la información de una operación regulada.',
+      },
+      website: null,
     },
     {
       company: 'AppTender',
-      role: {
-        en: 'Full Stack Developer',
-        es: 'Desarrollador Full Stack',
-      },
-      period: '2023 – 2024',
+      kind: 'work',
+      current: false,
+      role: { en: 'Full Stack Developer', es: 'Desarrollador Full Stack' },
+      period: { en: 'Jul 2023 – Aug 2024', es: 'jul 2023 – ago 2024' },
       description: {
-        en: 'I improved the core API, integrated the META and Brevo APIs and shipped new backend and frontend features.',
-        es: 'Mejoré la API principal, integré las APIs de META y Brevo e implementé nuevas funcionalidades en backend y frontend.',
+        en: 'Migrated the legacy backend from Express to NestJS and built integrations with Meta, Brevo and OpenAI.',
+        es: 'Migré el backend heredado de Express a NestJS e integré Meta, Brevo y OpenAI.',
       },
-      logo: '/icons/appTender.svg',
+      website: null,
+    },
+    {
+      company: 'Henry',
+      kind: 'study',
+      current: false,
+      role: { en: 'Full Stack Bootcamp · 800 h', es: 'Bootcamp Full Stack · 800 h' },
+      period: { en: 'Dec 2022 – Jul 2023', es: 'dic 2022 – jul 2023' },
+      description: {
+        en: 'The turn from infrastructure to software: JavaScript, React, Node.js and SQL, followed by 300 h of Java.',
+        es: 'El giro de la infraestructura al software: JavaScript, React, Node.js y SQL, seguido de 300 h de Java.',
+      },
+      website: null,
+    },
+    {
+      company: 'Freelance IT',
+      kind: 'work',
+      current: false,
+      role: { en: 'IT Support & Infrastructure Technician', es: 'Técnico de soporte e infraestructura IT' },
+      period: { en: '2008 – 2022', es: '2008 – 2022' },
+      description: {
+        en: 'Fourteen years keeping hardware, networks, operating systems and servers running for businesses and households, plus management apps on SQL Server and Access.',
+        es: 'Catorce años manteniendo equipos, redes, sistemas operativos y servidores de empresas y hogares, y aplicaciones de gestión sobre SQL Server y Access.',
+      },
       website: null,
     },
   ],
@@ -165,6 +187,11 @@ export const siteConfig = {
     {
       slug: 'chez-boaz-tours',
       name: 'Chez Boaz Tours',
+      product: null,
+      summary: {
+        en: 'Rebuilt with online booking and deposits: mobile load time down from 7.9 s to 1.6 s.',
+        es: 'Reconstrucción con reservas y anticipo en línea: la carga en móvil bajó de 7,9 s a 1,6 s.',
+      },
       sector: {
         en: 'Tourism · Santa Marta, Colombia',
         es: 'Turismo · Santa Marta, Colombia',
@@ -188,12 +215,18 @@ export const siteConfig = {
       liveUrl: 'https://chezboaztours.domirandar.workers.dev',
       repoUrl: null,
       thumbnail: '/thumbnails/chezboaz.webp',
+      gallery: ['/work/chez-boaz-tours/1.webp', '/work/chez-boaz-tours/2.webp', '/work/chez-boaz-tours/3.webp'],
       year: '2026',
       role: { en: 'Design & full stack', es: 'Diseño y full stack' },
     },
     {
       slug: 'climb-rock',
       name: 'Climb Rock',
+      product: null,
+      summary: {
+        en: 'Their first website: six service lines and a quote request in a single tap.',
+        es: 'Su primer sitio web: seis líneas de servicio y cotización en un solo toque.',
+      },
       sector: {
         en: 'Industrial safety · Bogotá, Colombia',
         es: 'Seguridad industrial · Bogotá, Colombia',
@@ -217,12 +250,18 @@ export const siteConfig = {
       liveUrl: 'https://climbrock.domirandar.workers.dev',
       repoUrl: null,
       thumbnail: '/thumbnails/climbrock.webp',
+      gallery: ['/work/climb-rock/1.webp', '/work/climb-rock/2.webp', '/work/climb-rock/3.webp'],
       year: '2026',
       role: { en: 'Design & full stack', es: 'Diseño y full stack' },
     },
     {
       slug: 'opticas-apolo-vision',
       name: 'Ópticas Apolo Visión',
+      product: null,
+      summary: {
+        en: 'Online store with a searchable catalogue, nationwide shipping and eye-exam booking.',
+        es: 'Tienda en línea con catálogo, envíos a todo el país y agendamiento del examen visual.',
+      },
       sector: {
         en: 'Optical retail · Bogotá & Girardot, Colombia',
         es: 'Retail óptico · Bogotá y Girardot, Colombia',
@@ -245,12 +284,18 @@ export const siteConfig = {
       liveUrl: 'https://opticasapolovision.com/',
       repoUrl: null,
       thumbnail: '/thumbnails/apolo.webp',
+      gallery: ['/work/opticas-apolo-vision/1.webp', '/work/opticas-apolo-vision/2.webp', '/work/opticas-apolo-vision/3.webp'],
       year: '2026',
       role: { en: 'Design & full stack', es: 'Diseño y full stack' },
     },
     {
       slug: 'colombian-cannabis-center',
       name: 'Colombian Cannabis Center',
+      product: 'Agro Ledger',
+      summary: {
+        en: 'Plant-to-batch traceability platform for a regulated crop, built for audits.',
+        es: 'Plataforma de trazabilidad de planta a lote para un cultivo regulado, lista para auditoría.',
+      },
       sector: {
         en: 'Agritech · Traceability & compliance',
         es: 'Agrotech · Trazabilidad y cumplimiento normativo',
@@ -274,13 +319,19 @@ export const siteConfig = {
       // Cuando vuelva a resolver, basta con reponer la URL acá.
       liveUrl: null,
       repoUrl: null,
-      thumbnail: null,
+      thumbnail: '/thumbnails/agroledger.webp',
+      gallery: ['/work/colombian-cannabis-center/1.webp', '/work/colombian-cannabis-center/2.webp', '/work/colombian-cannabis-center/3.webp'],
       year: '2025 – 2026',
       role: { en: 'Tech lead & full stack', es: 'Líder técnico y full stack' },
     },
     {
       slug: 'kevin-galeano-rescatista',
       name: 'Kevin Galeano — Rescatista',
+      product: null,
+      summary: {
+        en: 'Personal brand with a gallery of real operations and every channel in one place.',
+        es: 'Marca personal con galería de operaciones reales y todos sus canales en un solo lugar.',
+      },
       sector: {
         en: 'Personal brand · Rescue & training',
         es: 'Marca personal · Rescate y formación',
@@ -302,8 +353,82 @@ export const siteConfig = {
       liveUrl: 'https://rescatista.vercel.app',
       repoUrl: 'https://github.com/Davidongo93/rescatista',
       thumbnail: '/thumbnails/rescatista.webp',
+      gallery: ['/work/kevin-galeano-rescatista/1.webp', '/work/kevin-galeano-rescatista/2.webp', '/work/kevin-galeano-rescatista/3.webp'],
       year: '2026',
       role: { en: 'Design & front end', es: 'Diseño y front end' },
+    },
+  ],
+
+  // ── Proyectos backend (página /trabajo) ─────────────────────────
+  // Un backend no tiene pantalla: la captura muestra el fragmento que mejor
+  // explica la lógica, generada con apps/daev/scripts/shots/code-card.mjs
+  // desde el código en D:\ (ver docs/career.md). `repoUrl: null` = repo privado.
+  backendProjects: [
+    {
+      name: 'Raffle Platform API',
+      year: '2025',
+      description: {
+        en: 'API for a raffle platform. Each ticket purchase runs inside a transaction with a row lock, so two buyers can never take the same number. JWT sign-in with one-time codes, scheduled cleanup jobs and Swagger docs.',
+        es: 'API de una plataforma de rifas. Cada compra de boleta corre en una transacción con bloqueo de fila, así dos compradores nunca se quedan con el mismo número. Acceso con JWT y códigos de un solo uso, tareas programadas de limpieza y documentación en Swagger.',
+      },
+      technologies: ['NestJS', 'PostgreSQL', 'Sequelize', 'JWT', 'Swagger'],
+      repoUrl: null,
+      thumbnail: '/backend/raffle-backend.webp',
+    },
+    {
+      name: 'VideoApp API',
+      year: '2024',
+      description: {
+        en: 'Technical challenge for a backend-oriented role: users, videos, comments and likes with public and private visibility, authentication middleware, tests and an OpenAPI specification.',
+        es: 'Reto técnico para un cargo orientado a backend: usuarios, videos, comentarios y likes con visibilidad pública y privada, middleware de autenticación, pruebas y especificación OpenAPI.',
+      },
+      technologies: ['Express', 'TypeScript', 'PostgreSQL', 'Sequelize', 'OpenAPI'],
+      repoUrl: 'https://github.com/Davidongo93/videoapp-API-challenge',
+      thumbnail: '/backend/videoapp-api.webp',
+    },
+    {
+      name: 'Disruptive Media',
+      year: '2024',
+      description: {
+        en: 'Content platform in an Nx monorepo: users, topics, categories and posts, with search, sorting and pagination in the API and a React client.',
+        es: 'Plataforma de contenidos en un monorepo Nx: usuarios, temas, categorías y publicaciones, con búsqueda, orden y paginación en la API y un cliente en React.',
+      },
+      technologies: ['Express', 'MongoDB', 'Mongoose', 'Nx', 'React'],
+      repoUrl: 'https://github.com/Davidongo93/disruptive-media',
+      thumbnail: '/backend/disruptive-media.webp',
+    },
+    {
+      name: 'SFTP → REST Refactor',
+      year: '2024',
+      description: {
+        en: 'Globant Java code camp: a loyalty-points batch process that read files over SFTP, refactored into a REST API with a service layer and repositories.',
+        es: 'Code camp de Java de Globant: un proceso por lotes de puntos de fidelización que leía archivos por SFTP, refactorizado a una API REST con capa de servicios y repositorios.',
+      },
+      technologies: ['Java', 'Spring', 'Docker', 'REST'],
+      repoUrl: 'https://github.com/Davidongo93/sftp-to-rest-refactor',
+      thumbnail: '/backend/sftp-to-rest.webp',
+    },
+    {
+      name: 'Theatrical Players Refactor',
+      year: '2024',
+      description: {
+        en: 'The classic refactoring kata, reworked with one strategy per play type so a new type is added without touching the invoice printer.',
+        es: 'La kata clásica de refactorización, rehecha con una estrategia por tipo de obra para sumar un tipo nuevo sin tocar la impresión de la factura.',
+      },
+      technologies: ['Java', 'Refactoring', 'Design patterns'],
+      repoUrl: 'https://github.com/Davidongo93/theatrical-players-refactor',
+      thumbnail: '/backend/theatrical-players.webp',
+    },
+    {
+      name: 'MoneyWise API',
+      year: '2023',
+      description: {
+        en: 'Personal finance API from the Java Upskill course: income and expense entries per user, layered into controllers, services and repositories with DTOs.',
+        es: 'API de finanzas personales del curso Java Upskill: ingresos y gastos por usuario, organizada en controladores, servicios y repositorios con DTOs.',
+      },
+      technologies: ['Java 17', 'Spring Boot', 'H2', 'Thymeleaf'],
+      repoUrl: 'https://github.com/Davidongo93/moneywiseAPI',
+      thumbnail: '/backend/moneywise-api.webp',
     },
   ],
 

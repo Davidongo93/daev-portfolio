@@ -19,10 +19,22 @@ const ES_ONLY_ROUTES = ['/blog'];
 const isEsOnly = (pathname: string) =>
   ES_ONLY_ROUTES.some((route) => pathname === route || pathname.startsWith(`${route}/`));
 
-/** Locale-aware path: pathFor('en', '/pricing') === '/en/pricing'. */
+/**
+ * Routes whose slug is translated. Keys are the Spanish path (the canonical
+ * one), values the English slug that lives under /en.
+ */
+const EN_SLUGS: Record<string, string> = { '/trabajo': '/work' };
+const ES_SLUGS: Record<string, string> = Object.fromEntries(
+  Object.entries(EN_SLUGS).map(([es, en]) => [en, es])
+);
+
+/**
+ * Locale-aware path, always called with the Spanish path:
+ * pathFor('en', '/pricing') === '/en/pricing', pathFor('en', '/trabajo') === '/en/work'.
+ */
 export function pathFor(lang: Lang, path = '/'): string {
   const clean = path === '/' ? '' : path;
-  return lang === 'en' ? `/en${clean}` : clean || '/';
+  return lang === 'en' ? `/en${EN_SLUGS[clean] ?? clean}` : clean || '/';
 }
 
 /** Absolute URL of `path` in `lang`, for canonicals, hreflang and JSON-LD. */
@@ -49,7 +61,8 @@ export function alternatesFor(path = '/', lang: Lang = DEFAULT_LANG) {
 /** Where the language toggle should go from `pathname`, currently in `lang`. */
 export function counterpartPath(pathname: string, lang: Lang): string {
   if (lang === 'en') {
-    return pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+    const rest = pathname.replace(/^\/en(?=\/|$)/, '');
+    return ES_SLUGS[rest] ?? (rest || '/');
   }
   return isEsOnly(pathname) ? '/en' : pathFor('en', pathname);
 }

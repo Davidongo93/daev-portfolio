@@ -51,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...bilingual('/', 'weekly', 1.0),
     ...bilingual('/pricing', 'monthly', 0.9),
+    ...bilingual('/trabajo', 'monthly', 0.9),
     {
       // The blog index is only as fresh as its newest post.
       url: `${siteConfig.siteUrl}/blog`,

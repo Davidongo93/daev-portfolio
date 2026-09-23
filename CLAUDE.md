@@ -77,9 +77,20 @@ background se lanza capturando el PID y se mata al cerrar la tarea.
 - **El JSON-LD raíz se arma en `lib/seo.ts`** (`rootJsonLd`): Person, WebSite,
   ProfessionalService, ItemList del trabajo y FAQPage. Un caso cuyo dominio no
   resuelve se lista sin `url`.
-- **Estructura del home (`views/Home/Home.tsx`):** hero → clientes → casos →
-  servicios → proceso → blog → lab → sobre mí → FAQ → contacto. El orden es
-  deliberado: el home vende resultados, no habilidades.
+- **Estructura del home (`views/Home/Home.tsx`):** hero → clientes → carrusel
+  de trabajo → servicios → trayectoria → sobre mí → blog → FAQ → contacto. El
+  home tiene que vender un proyecto y convencer a un reclutador. El carrusel es
+  la versión corta: cada tarjeta abre el caso completo en `/trabajo#<slug>`.
+- **`/trabajo` (`/en/work` en inglés):** casos completos con galería (`<dialog>`
+  nativo) y la sección de proyectos backend. Es la única ruta con slug
+  traducido; el mapa vive en `lib/i18n.ts` (`EN_SLUGS`) y lo cubre
+  `specs/i18n.spec.ts`. `pathFor` se llama siempre con la ruta en español.
+- **Imágenes de trabajo:** principal en `public/thumbnails/`, galería en
+  `public/work/<slug>/{1,2,3}.webp` (1280×800). Las capturas de backend salen de
+  `apps/daev/scripts/shots/code-card.mjs` (fragmento de código u OpenAPI →
+  WebP) hacia `public/backend/`.
+- **Cifras de carrera:** `StatNumbers` es el único componente que las muestra
+  (hero, trayectoria, sobre mí); los valores viven en `site.ts` → `stats`.
 
 ---
 

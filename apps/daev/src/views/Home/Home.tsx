@@ -1,21 +1,20 @@
 'use client';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import ClientStrip from '../../components/ClientStrip/ClientStrip';
-import CaseStudies from '../../components/CaseStudies/CaseStudies';
+import WorkCarousel from '../../components/WorkCarousel/WorkCarousel';
 import ServicesSection from '../../components/ServicesSection/ServicesSection';
-import ProcessSection from '../../components/ProcessSection/ProcessSection';
-import BlogSection, { type HomePost } from '../../components/BlogSection/BlogSection';
-import LabProjects from '../../components/LabProjects/LabProjects';
+import TrajectorySection from '../../components/TrajectorySection/TrajectorySection';
 import AboutSection from '../../components/AboutSection/AboutSection';
+import BlogSection, { type HomePost } from '../../components/BlogSection/BlogSection';
 import FaqSection from '../../components/FaqSection/FaqSection';
 import ContactSection from '../../components/ContactSection/ContactSection';
 import Footer from '../../components/Footer/Footer';
 import Reveal from '../../components/Reveal/Reveal';
 
 /**
- * The home sells outcomes, so the running work comes first: hero → who I built
- * it for → the cases themselves. Services, process and the blog follow, and the
- * lab and the personal bio sit at the bottom where they belong.
+ * The home has to sell a project and convince a recruiter, in that order:
+ * hero → who I built for → the work (a carousel into /trabajo) → services →
+ * the career behind it → who I am → the blog → FAQ → contact.
  */
 const Home: React.FC<{ posts?: HomePost[] }> = ({ posts = [] }) => {
   return (
@@ -23,22 +22,19 @@ const Home: React.FC<{ posts?: HomePost[] }> = ({ posts = [] }) => {
       <HeroSection />
       <ClientStrip />
       <Reveal>
-        <CaseStudies />
+        <WorkCarousel />
       </Reveal>
       <Reveal>
         <ServicesSection />
       </Reveal>
       <Reveal>
-        <ProcessSection />
-      </Reveal>
-      <Reveal>
-        <BlogSection posts={posts} />
-      </Reveal>
-      <Reveal>
-        <LabProjects />
+        <TrajectorySection />
       </Reveal>
       <Reveal>
         <AboutSection />
+      </Reveal>
+      <Reveal>
+        <BlogSection posts={posts} />
       </Reveal>
       <Reveal>
         <FaqSection />

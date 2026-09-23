@@ -3,6 +3,7 @@ import { FaArrowRight, FaFileDownload } from 'react-icons/fa';
 import { siteConfig } from '../../config/site';
 import { useLang } from '../../context/LangContext';
 import RotatingText from '../RotatingText/RotatingText';
+import StatNumbers from '../StatNumbers/StatNumbers';
 
 const HeroSection: React.FC = () => {
   const { t, lang } = useLang();
@@ -38,6 +39,13 @@ const HeroSection: React.FC = () => {
         <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto">
           {siteConfig.shortBio[lang]}
         </p>
+
+        {/* Hidden on very short screens so the CTAs stay above the fold; the
+            same figures open the journey section. */}
+        <StatNumbers
+          variant="inline"
+          className="mx-auto max-w-3xl pt-2 [@media(max-height:640px)]:hidden"
+        />
 
         {/* CTAs — full width on mobile */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-3">

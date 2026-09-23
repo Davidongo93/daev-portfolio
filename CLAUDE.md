@@ -112,7 +112,10 @@ background se lanza capturando el PID y se mata al cerrar la tarea.
 
 ## Deploy
 
-**`git push origin main` → Vercel.** El repo tiene dos remotos:
+**Todo push va a los dos remotos** (regla de Dave, 2026-09-23): primero
+`git push origin main` (GitLab → Vercel, despliega) y después
+`git push github main` (espejo). Nunca dejar uno atrasado. El repo tiene dos
+remotos:
 
 | Remoto | Destino | Despliega |
 |---|---|---|
@@ -140,7 +143,8 @@ post, se ejecuta esta secuencia completa sin preguntar:
    `topics` queda fuera de los clústers y sin enlaces internos.
 3. `npx nx build daev` — debe pasar limpio.
 4. Commit.
-5. **`git push origin main`** — único remoto que dispara el deploy.
+5. **`git push origin main`** — único remoto que dispara el deploy — y
+   después **`git push github main`**, para que el espejo no quede atrasado.
 6. **`npm run indexnow -- --latest --wait`** — espera a que la URL esté viva y
    la envía a Bing, Yandex, Seznam y Naver. El `--wait` no es opcional: sin él
    se envía la URL antes de que exista y los buscadores rastrean un 404.

@@ -26,7 +26,7 @@ const StatNumbers: React.FC<{
     return (
       <dl className={`grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 ${className}`}>
         {items.map((item) => (
-          <div key={item.label} className="flex flex-col-reverse items-center text-center">
+          <div key={item.label} className="flex flex-col-reverse items-center justify-end text-center">
             <dt className="mt-1 max-w-[11rem] text-xs leading-snug text-muted">{item.label}</dt>
             <dd className="font-display text-2xl font-bold text-accent sm:text-3xl md:text-4xl">{item.value}</dd>
           </div>

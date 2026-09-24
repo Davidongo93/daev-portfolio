@@ -46,7 +46,9 @@ de funciones de CTO redactado por él; el título que se usa es Líder técnico.
 ### Freelance (Daev) · 2023 – actual
 Clientes: Chez Boaz Tours (LCP móvil 7,90 s → 1,62 s; checkout con Bold),
 Climb Rock, Ópticas Apolo Visión (e-commerce), Kevin Galeano — Rescatista,
-Chilcuague, Invicto (pasarelas de pago en plataforma preuniversitaria).
+Chilcuague (tienda bilingüe EC/CO con producción y consignación), ArteSano Market
+(mercado comunitario en Ayampe: tienda, caja y cierre de consignación), Invicto
+(pasarelas de pago en plataforma preuniversitaria).
 
 ### Soporte e infraestructura IT — independiente · 2008 – 2022
 Bloque sin empleadores (decisión de Dave). Técnico para empresas y hogares:

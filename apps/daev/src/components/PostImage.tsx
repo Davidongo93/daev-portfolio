@@ -29,9 +29,8 @@ export default function PostImage({ src, alt = '', className = '', sizes, fill =
 
   if (isRemote) {
     // Use a plain <img> for remote URLs so onError works reliably and no remote config is needed.
-    // eslint-disable-next-line @next/next/no-img-element
     return (
-      // @ts-ignore - allow generic className
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={src}
         alt={alt}
@@ -75,9 +74,8 @@ export default function PostImage({ src, alt = '', className = '', sizes, fill =
   }
 
   // As a last resort, try an <img> (covers relative paths and data URLs)
-  // eslint-disable-next-line @next/next/no-img-element
   return (
-    // @ts-ignore
+    // eslint-disable-next-line @next/next/no-img-element
     <img src={src} alt={alt} loading="lazy" onError={() => setErrored(true)} className={className} />
   );
 }

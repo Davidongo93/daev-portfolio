@@ -9,7 +9,7 @@ import { alternatesFor, localeTag, ogLocale, urlFor, type Lang } from '@/lib/i18
  */
 export function rootMetadata(lang: Lang): Metadata {
   const title = `${siteConfig.name} | ${siteConfig.role[lang]}`;
-  const description = siteConfig.bio[lang];
+  const description = siteConfig.seo.description[lang];
 
   return {
     metadataBase: new URL(siteConfig.siteUrl),
@@ -64,8 +64,27 @@ export function rootMetadata(lang: Lang): Metadata {
   };
 }
 
-/** The four root JSON-LD graphs, with every human-readable field in `lang`. */
-export function rootJsonLd(lang: Lang): object[] {
+/**
+ * JSON-LD every page carries: who runs the site and the site itself. Blog
+ * posts, legal pages and /trabajo reference these entities by `@id`.
+ */
+export function siteJsonLd(lang: Lang): object[] {
+  const { person, website } = rootGraphs(lang);
+  return [person, website];
+}
+
+/**
+ * JSON-LD that describes the home page only: the service offer, the work list
+ * and the FAQ. FAQPage must match a FAQ visible on the page, so emitting it
+ * site-wide (as before) put unseen questions on every blog post.
+ */
+export function homeJsonLd(lang: Lang): object[] {
+  const { professionalService, work, faq } = rootGraphs(lang);
+  return [professionalService, work, faq];
+}
+
+/** The root JSON-LD graphs, with every human-readable field in `lang`. */
+function rootGraphs(lang: Lang) {
   const home = urlFor(lang, '/');
 
   const person = {
@@ -194,7 +213,7 @@ export function rootJsonLd(lang: Lang): object[] {
     })),
   };
 
-  return [person, website, professionalService, work, faq];
+  return { person, website, professionalService, work, faq };
 }
 
 const copy = {
@@ -308,6 +327,7 @@ export function legalMetadata(
     title: c.title,
     description: c.description,
     alternates: alternatesFor(path, lang),
-    robots: { index: true, follow: true },
+    // Legal pages exist for the Meta app review, not for search.
+    robots: { index: false, follow: true },
   };
 }

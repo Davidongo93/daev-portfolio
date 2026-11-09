@@ -1,7 +1,7 @@
 ---
 title: 'Casa campestre en Anapoima: recorrido visual por una arquitectura de dobles alturas'
 date: '2026-07-03'
-description: 'Recorrido en fotos y video por una casa campestre de arquitectura moderna en Anapoima, Cundinamarca: dobles alturas, luz natural, piscina con jacuzzi, jardines y vista al valle del Alto Magdalena.'
+description: 'Recorrido en fotos y video por una casa campestre moderna en Anapoima, Cundinamarca: dobles alturas, luz natural, piscina y vista al valle del Alto Magdalena.'
 excerpt: 'Dobles alturas, luz natural en todos los ambientes, piscina con jacuzzi y vista al valle. Un recorrido en fotos y video por una casa campestre en Anapoima.'
 image: 'https://res.cloudinary.com/de43jseoy/image/upload/c_limit,w_1600,q_auto,f_auto/blog/casaBonita/1783052804191_knl6tc.jpg'
 captions: false

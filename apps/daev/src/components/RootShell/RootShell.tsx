@@ -7,7 +7,8 @@ import { UIProvider } from '@/context/UIContext';
 import UnifiedNav from '@/components/UnifiedNav/UnifiedNav';
 import ConsoleOverlay from '@/components/ConsoleOverlay/ConsoleOverlay';
 import WhatsAppButton from '@/components/WhatsAppButton/WhatsAppButton';
-import { rootJsonLd } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd/JsonLd';
+import { siteJsonLd } from '@/lib/seo';
 import { localeTag, type Lang } from '@/lib/i18n';
 
 /**
@@ -33,13 +34,7 @@ export default function RootShell({
         />
         <meta name="theme-color" content="#0f1724" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#f0f4ff" media="(prefers-color-scheme: light)" />
-        {rootJsonLd(lang).map((schema, i) => (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ))}
+        <JsonLd data={siteJsonLd(lang)} />
       </head>
       <GoogleTagManager gtmId="GTM-K5PFW7FW" />
       <GoogleAnalytics gaId="G-7LTKWZT49T" />

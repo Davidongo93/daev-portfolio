@@ -62,6 +62,12 @@ export const siteConfig = {
 
   // ── SEO / GEO / SEM ─────────────────────────────────────────────
   seo: {
+    // Meta description for the home pages: the bio runs past the ~160
+    // characters a results page shows, so search gets its own shorter line.
+    description: {
+      es: 'Desarrollador Full Stack en Colombia: sitios web, e-commerce y software a medida con React, Next.js y Node.js, desde la idea hasta producción.',
+      en: 'Full Stack Developer in Colombia: websites, e-commerce and custom software with React, Next.js and Node.js, from first idea to production.',
+    },
     keywords: [
       'Full Stack Developer',
       'React Developer',

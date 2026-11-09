@@ -74,9 +74,14 @@ background se lanza capturando el PID y se mata al cerrar la tarea.
 - **`lib/posts.ts` toca el filesystem y es server-only.** La vista `Home` es
   cliente, así que los posts se leen en el `page.tsx` (servidor) y bajan como
   props vía `lib/homePosts.ts`.
-- **El JSON-LD raíz se arma en `lib/seo.ts`** (`rootJsonLd`): Person, WebSite,
-  ProfessionalService, ItemList del trabajo y FAQPage. Un caso cuyo dominio no
-  resuelve se lista sin `url`.
+- **El JSON-LD raíz se arma en `lib/seo.ts`**: `siteJsonLd` (Person, WebSite)
+  va en todas las páginas vía `RootShell`; `homeJsonLd` (ProfessionalService,
+  ItemList del trabajo y FAQPage) solo en los dos home. FAQPage tiene que
+  coincidir con un FAQ visible: no se emite en otras rutas. Un caso cuyo
+  dominio no resuelve se lista sin `url`.
+- **Páginas legales (`/privacy`, `/data-deletion`) son `noindex`** (existen para
+  la revisión de la app de Meta). Lo fija `legalMetadata`.
+- **Redirecciones de URLs viejas** en `next.config.js` (`redirects`).
 - **Estructura del home (`views/Home/Home.tsx`):** hero → clientes → carrusel
   de trabajo → servicios → trayectoria → sobre mí → blog → FAQ → contacto. El
   home tiene que vender un proyecto y convencer a un reclutador. El carrusel es

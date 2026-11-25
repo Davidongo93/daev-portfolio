@@ -1,7 +1,7 @@
 'use client';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import ClientStrip from '../../components/ClientStrip/ClientStrip';
-import WorkCarousel from '../../components/WorkCarousel/WorkCarousel';
+import WorkGrid from '../../components/WorkGrid/WorkGrid';
 import ServicesSection from '../../components/ServicesSection/ServicesSection';
 import TrajectorySection from '../../components/TrajectorySection/TrajectorySection';
 import AboutSection from '../../components/AboutSection/AboutSection';
@@ -21,9 +21,8 @@ const Home: React.FC<{ posts?: HomePost[] }> = ({ posts = [] }) => {
     <div className="wrapper">
       <HeroSection />
       <ClientStrip />
-      <Reveal>
-        <WorkCarousel />
-      </Reveal>
+      {/* The grid reveals card by card on its own. */}
+      <WorkGrid />
       <Reveal>
         <ServicesSection />
       </Reveal>

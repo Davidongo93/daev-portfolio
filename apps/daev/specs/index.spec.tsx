@@ -28,6 +28,11 @@ describe('siteConfig', () => {
       if (item.liveUrl) {
         expect(item.liveUrl).toMatch(/^https?:\/\//);
       }
+      // A case is either live or a preview in development, and always has
+      // somewhere to go: its own URL or, for grouped work, sample links.
+      expect(['live', 'dev']).toContain(item.status);
+      for (const link of item.extraLinks) expect(link.url).toMatch(/^https:\/\//);
+      expect(Boolean(item.liveUrl) || item.extraLinks.length > 0).toBe(true);
     }
   });
 

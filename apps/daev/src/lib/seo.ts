@@ -207,7 +207,8 @@ function rootGraphs(lang: Lang) {
         about: item.sector[lang],
         creator: { '@id': `${siteConfig.siteUrl}#person` },
         keywords: [...item.technologies].join(', '),
-        ...(item.liveUrl ? { url: item.liveUrl } : {}),
+        // Previews in development are not the work's canonical address.
+        ...(item.liveUrl && item.status === 'live' ? { url: item.liveUrl } : {}),
         ...(item.thumbnail ? { image: `${siteConfig.siteUrl}${item.thumbnail}` } : {}),
       },
     })),

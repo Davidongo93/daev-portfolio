@@ -13,7 +13,7 @@ type Case = (typeof siteConfig.caseStudies)[number];
 /**
  * Alternating full-width rows instead of a card grid: a case needs room to say
  * what was broken, what got built and what changed. Lives on /trabajo; the
- * home only shows a carousel that links here, one anchor per case.
+ * home only shows a grid of cards that links here, one anchor per case.
  */
 const CaseRow: React.FC<{ item: Case; index: number }> = ({ item, index }) => {
   const { t, lang } = useLang();
@@ -126,20 +126,39 @@ const CaseRow: React.FC<{ item: Case; index: number }> = ({ item, index }) => {
           ))}
         </div>
 
-        {item.liveUrl ? (
-          <a
-            href={item.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-bg shadow-lg transition-all hover:scale-105 hover:bg-accent-hover"
-          >
-            {t.cases.visit} <FaExternalLinkAlt size={11} />
-          </a>
-        ) : (
-          <p className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-xs font-mono text-muted">
-            {t.cases.inMigration}
-          </p>
-        )}
+        <div className="flex flex-wrap items-center gap-3">
+          {item.liveUrl && (
+            <a
+              href={item.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-bg shadow-lg transition-all hover:scale-105 hover:bg-accent-hover"
+            >
+              {item.status === 'dev' ? t.cases.visitPreview : t.cases.visit} <FaExternalLinkAlt size={11} />
+            </a>
+          )}
+          {item.extraLinks.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-semibold text-fore transition hover:border-accent hover:text-accent"
+            >
+              {link.label[lang]} <FaExternalLinkAlt size={10} />
+            </a>
+          ))}
+          {item.status === 'dev' && (
+            <span className="inline-flex items-center rounded-lg border border-border px-3 py-2 font-mono text-xs text-muted">
+              {t.cases.inDevelopment}
+            </span>
+          )}
+          {!item.liveUrl && item.extraLinks.length === 0 && (
+            <p className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 font-mono text-xs text-muted">
+              {t.cases.inMigration}
+            </p>
+          )}
+        </div>
       </div>
     </article>
   );

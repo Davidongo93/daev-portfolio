@@ -5,7 +5,7 @@ de experiencia y cualquier texto que hable de la carrera de Dave. Si un dato
 cambia, se cambia acá primero y después en `apps/daev/scripts/cv/content.mjs` y
 `apps/daev/src/config/site.ts`.
 
-Última revisión: 2026-09-22.
+Última revisión: 2026-11-24.
 
 ## Cifras (acordadas con Dave el 2026-09-22)
 
@@ -48,7 +48,38 @@ Clientes: Chez Boaz Tours (LCP móvil 7,90 s → 1,62 s; checkout con Bold),
 Climb Rock, Ópticas Apolo Visión (e-commerce), Kevin Galeano — Rescatista,
 Chilcuague (tienda bilingüe EC/CO con producción y consignación), ArteSano Market
 (mercado comunitario en Ayampe: tienda, caja y cierre de consignación), Invicto
-(pasarelas de pago en plataforma preuniversitaria).
+(pasarelas de pago en plataforma preuniversitaria). Producto propio: Contador
+(unamanito.online, app web de finanzas personales para Colombia).
+
+Clientes de peso con entrada propia en la trayectoria de la web (decisión de
+Dave, 2026-11-24). En el CV van como bullets de la entrada freelance, porque
+como entradas separadas no entra en una página.
+
+- **Power Minds · oct 2026 – actual.** Marca y sitios del ecosistema de
+  transmisión en vivo para mentores: powermindsst.com, waldirortiz.com
+  (fundador), metodo9d.com (libro) y la plantilla de landing por mentor
+  (Mayerly Cárdenas en desarrollo, sin deploy).
+- **Distribuciones Jose H · nov 2026 – actual, en desarrollo.** Plataforma
+  propia de la distribuidora, módulo a módulo. El primero, entrega de cuentas
+  de ruta con auditoría y ranking de efectividad (Cloudflare Pages Functions,
+  D1, R2), está desplegado en preview sin dominio propio.
+
+### Dominios de los casos (verificados por API de Cloudflare el 2026-11-24)
+
+| Caso | Dominio | Estado |
+|---|---|---|
+| Chez Boaz Tours | chezboaztours.com | en línea |
+| Climb Rock | climbrock.co | en línea |
+| Ópticas Apolo Visión | opticasapolovision.com | en línea |
+| Chilcuague | chilcuague.site | en línea |
+| Power Minds | powermindsst.com | en línea |
+| Waldir Ortiz | waldirortiz.com | en línea |
+| Método 9D | metodo9d.com | en línea |
+| Contador | unamanito.online · app.unamanito.online | en línea |
+| Agro Ledger (CCC) | agroledger.site | en línea (landing) |
+| ArteSano Market | artesanomarket.domirandar.workers.dev | en desarrollo |
+| Distribuciones Jose H | distribuciones-jose-h.pages.dev | en desarrollo |
+| Kevin Galeano | rescatista.vercel.app | en línea, sin dominio propio |
 
 ### Soporte e infraestructura IT — independiente · 2008 – 2022
 Bloque sin empleadores (decisión de Dave). Técnico para empresas y hogares:

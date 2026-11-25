@@ -172,7 +172,10 @@ const Console: React.FC<ConsoleCLIProps> = ({ onExit }) => {
           ...prev,
           'Client work:',
           ...siteConfig.caseStudies.map(
-            (p, i) => `  ${i + 1}. ${p.name} — ${p.liveUrl ?? '(domain in migration)'}`
+            (p, i) =>
+              `  ${i + 1}. ${p.name} — ${p.liveUrl ?? p.extraLinks.map((l) => l.url).join(', ')}${
+                p.status === 'dev' ? ' (in development)' : ''
+              }`
           ),
           '',
           'Lab:',

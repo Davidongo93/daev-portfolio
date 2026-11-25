@@ -17,7 +17,8 @@ const ClientStrip: React.FC = () => {
       className="border-y border-border bg-surface/60 py-6"
     >
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4">
-        {siteConfig.caseStudies.map((c) => (
+        {/* Grouped agency work is not a client of mine: it stays off the strip. */}
+        {siteConfig.caseStudies.filter((c) => !('group' in c)).map((c) => (
           <span
             key={c.slug}
             className="font-display text-sm font-semibold tracking-wide text-muted transition-colors hover:text-fore md:text-base"

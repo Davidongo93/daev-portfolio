@@ -72,13 +72,24 @@ export const cv = {
         ],
       },
       {
+        role: 'Desarrollador Full Stack freelance',
+        company: 'Daev',
+        period: '2023 – actual',
+        bullets: [
+          'Power Minds (desde oct 2026): marca y sitios en Astro: powermindsst.com, waldirortiz.com y metodo9d.com.',
+          'Distribuciones Jose H (en desarrollo): plataforma de entrega de cuentas con auditoría y modo sin señal.',
+          'Chez Boaz Tours: reservas y anticipo en línea; LCP móvil de 7,9 s a 1,6 s.',
+          'Apolo Visión, Climb Rock, Chilcuague, ArteSano Market, Invicto y Contador (app propia).',
+        ],
+      },
+      {
         role: 'Líder técnico',
         company: 'Colombian Cannabis Center',
         detail: 'agrotech regulada',
         period: 'sep 2024 – may 2026',
         bullets: [
           'Diseñé el backend de la plataforma de gestión agrícola y trazabilidad de planta a lote, pensada para auditoría (NestJS, PostgreSQL, Docker).',
-          'Lideré el equipo frontend del sitio comercial y de la aplicación interna, con acceso por roles.',
+          'Lideré el equipo frontend del sitio comercial y de la app interna.',
           'Definí la estrategia tecnológica y las prácticas de calidad y seguridad de la información.',
         ],
       },
@@ -88,16 +99,7 @@ export const cv = {
         period: 'jul 2023 – ago 2024',
         bullets: [
           'Migré el backend heredado de Express a NestJS.',
-          'Implementé endpoints con integraciones de Meta, Brevo y OpenAI, y funcionalidades de frontend en Vue.',
-        ],
-      },
-      {
-        role: 'Desarrollador Full Stack freelance',
-        company: 'Daev',
-        period: '2023 – actual',
-        bullets: [
-          'Chez Boaz Tours: reconstrucción con reservas y anticipo en línea; LCP móvil de 7,9 s a 1,6 s.',
-          'Ópticas Apolo Visión (e-commerce y agendamiento), Climb Rock (seguridad industrial), Invicto (pasarelas de pago) y otros.',
+          'Integraciones con Meta, Brevo y OpenAI; funcionalidades de frontend en Vue.',
         ],
       },
       {
@@ -175,13 +177,24 @@ export const cv = {
         ],
       },
       {
+        role: 'Freelance Full Stack Developer',
+        company: 'Daev',
+        period: '2023 – present',
+        bullets: [
+          'Power Minds (since Oct 2026): brand and Astro sites: powermindsst.com, waldirortiz.com and metodo9d.com.',
+          'Distribuciones Jose H (in development): route cash-up platform with audit and offline mode.',
+          'Chez Boaz Tours: online booking and deposits; mobile LCP down from 7.9 s to 1.6 s.',
+          'Apolo Visión, Climb Rock, Chilcuague, ArteSano Market, Invicto and Contador (own app).',
+        ],
+      },
+      {
         role: 'Technical Lead',
         company: 'Colombian Cannabis Center',
         detail: 'regulated agrotech',
         period: 'Sep 2024 – May 2026',
         bullets: [
           'Designed the backend of the farm-management platform with plant-to-batch traceability built for audits (NestJS, PostgreSQL, Docker).',
-          'Led the frontend team behind the commercial website and the internal app, with role-based access.',
+          'Led the frontend team behind the commercial website and the internal app.',
           'Set the technology strategy and the quality and information-security practices.',
         ],
       },
@@ -191,16 +204,7 @@ export const cv = {
         period: 'Jul 2023 – Aug 2024',
         bullets: [
           'Migrated the legacy backend from Express to NestJS.',
-          'Built endpoints integrating Meta, Brevo and OpenAI, plus frontend features in Vue.',
-        ],
-      },
-      {
-        role: 'Freelance Full Stack Developer',
-        company: 'Daev',
-        period: '2023 – present',
-        bullets: [
-          'Chez Boaz Tours: rebuild with online booking and deposits; mobile LCP down from 7.9 s to 1.6 s.',
-          'Ópticas Apolo Visión (e-commerce and booking), Climb Rock (industrial safety), Invicto (payment gateways) and others.',
+          'Integrations with Meta, Brevo and OpenAI; frontend features in Vue.',
         ],
       },
       {

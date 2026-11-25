@@ -35,6 +35,28 @@ async function loadAssets(photoUrl) {
   return { fonts, photo: `data:image/jpeg;base64,${await fetchBase64(photoUrl)}` };
 }
 
+// La plantilla fija la hoja en A4 con `overflow: hidden`: lo que no entra se
+// recorta sin aviso. Esta sonda marca el <html> si alguna columna desborda, y
+// el build se detiene antes de publicar un CV con secciones cortadas.
+// (Las columnas crecen con el contenido; el que recorta es <body>.)
+const OVERFLOW_PROBE = `<script>
+  const page = document.body.getBoundingClientRect().bottom;
+  for (const el of document.querySelectorAll('main > *, aside > *')) {
+    const over = Math.ceil(el.getBoundingClientRect().bottom - page);
+    if (over > 1) document.documentElement.dataset.overflow = el.parentElement.tagName + '-' + over;
+  }
+</script>`;
+
+function assertFitsOnePage(html, lang) {
+  const dom = execFileSync(chromium, ['--headless', '--disable-gpu', '--no-sandbox', '--dump-dom', `file://${html}`], {
+    stdio: ['ignore', 'pipe', 'ignore'],
+    maxBuffer: 64 * 1024 * 1024, // el HTML lleva la fuente y la foto en base64
+    timeout: 60_000,
+  }).toString();
+  const hit = dom.match(/data-overflow="(\w+)-(\d+)"/);
+  if (hit) throw new Error(`CV ${lang}: <${hit[1].toLowerCase()}> se pasa ${hit[2]} px de la página A4; acortar el contenido.`);
+}
+
 mkdirSync(outDir, { recursive: true });
 
 try {
@@ -42,7 +64,8 @@ try {
   for (const c of Object.values(cv)) {
     const html = join(work, `${c.lang}.html`);
     const pdf = join(outDir, c.file);
-    writeFileSync(html, renderCv(c, assets));
+    writeFileSync(html, renderCv(c, assets) + OVERFLOW_PROBE);
+    assertFitsOnePage(html, c.lang);
     execFileSync(
       chromium,
       [

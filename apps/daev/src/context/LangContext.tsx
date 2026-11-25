@@ -59,8 +59,6 @@ export const translations = {
     carousel: {
       seeCase: 'See the case',
       seeAll: 'See all the work',
-      prev: 'Previous projects',
-      next: 'Next projects',
     },
     gallery: {
       open: 'Open gallery',
@@ -110,13 +108,15 @@ export const translations = {
     cases: {
       title: 'Work that shipped',
       subtitle:
-        'Real businesses, real deadlines, real numbers. Every site below is live — open them.',
+        'Real businesses, real deadlines, real numbers. Open them: the ones still in development say so.',
       problem: 'The problem',
       work: 'What I built',
       result: 'The result',
       before: 'before',
       visit: 'Open the site',
       inMigration: 'Domain in migration',
+      inDevelopment: 'In development',
+      visitPreview: 'Open the preview',
       role: 'Role',
     },
     blogHome: {
@@ -308,8 +308,6 @@ export const translations = {
     carousel: {
       seeCase: 'Ver el caso',
       seeAll: 'Ver todo el trabajo',
-      prev: 'Proyectos anteriores',
-      next: 'Proyectos siguientes',
     },
     gallery: {
       open: 'Ver galería',
@@ -359,13 +357,15 @@ export const translations = {
     cases: {
       title: 'Trabajo que salió a producción',
       subtitle:
-        'Negocios reales, plazos reales, números reales. Todos los sitios de abajo están en línea — ábrelos.',
+        'Negocios reales, plazos reales, números reales. Ábrelos: los que siguen en desarrollo lo indican.',
       problem: 'El problema',
       work: 'Lo que construí',
       result: 'El resultado',
       before: 'antes',
       visit: 'Abrir el sitio',
       inMigration: 'Dominio en migración',
+      inDevelopment: 'En desarrollo',
+      visitPreview: 'Ver el preview',
       role: 'Rol',
     },
     blogHome: {
